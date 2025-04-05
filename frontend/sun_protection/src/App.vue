@@ -1,6 +1,7 @@
 <script setup>
 import BHeader from './components/BHeader.vue';
 import setReminder from './setReminder.vue';
+import Game from './views/Game.vue';
 </script>
 
 <template>
@@ -11,8 +12,8 @@ import setReminder from './setReminder.vue';
 
     <main class="main-box">
       <router-view></router-view>
+      <Game />
     </main>
-      <setReminder/>
 
     <footer class="footer">
       <div class="footer-container">

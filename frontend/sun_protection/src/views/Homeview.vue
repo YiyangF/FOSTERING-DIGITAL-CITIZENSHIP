@@ -1,6 +1,5 @@
 <template>
-  <div class="home">
-    <!-- Hero Section -->
+  <!-- <div class="home">
     <section class="hero" :style="{ backgroundImage: `url(${sunProtectionImage})` }">
       <div class="overlay">
         <h1>Stay Safe Under the Sun with SPF365+</h1>
@@ -35,8 +34,6 @@
       </div>
     </div>
 
-
-    <!-- Info Section -->
     <div class="container_info">
       <section class="info">
         <div class="info-content">
@@ -60,7 +57,7 @@
         </div>
       </section>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script setup lang="ts">
