@@ -2,63 +2,81 @@
 </script>
 
 <template>
-  <!-- Using Bootstrap's Header template (starter code) -->
-  <!-- https://getbootstrap.com/docs/5.0/examples/headers/ -->
-  <div class="container">
-    <header class="d-flex justify-content-center py-3">
-      <ul class="nav nav-pills">
-        <li class="nav-item">
-          <router-link to="/" class="nav-link" active-class="active" aria-current="page">Home</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/about" class="nav-link" active-class="active">Data</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/uv" class="nav-link" active-class="active">UV</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/recommend" class="nav-link" active-class="active">Recommendation</router-link>
-        </li>
-      </ul>
-    </header>
-  </div>
+  <header class="nav-wrapper">
+    <div class="logo-box">
+      <!-- <img src="@/assets/logo.png" alt="zapbully-Logo" class="logo-img" /> -->
+      <router-link to="/" exact-active-class="active-link">
+      <img src="@/assets/logo.png" alt="zapbully-Logo" class="logo-img" />
+      </router-link>
+    </div>
+  <nav class="custom-nav">
+      <router-link to="/" exact-active-class="active-link" class="nav-item-link">Home</router-link>
+      <router-link to="/data-insights" exact-active-class="active-link" class="nav-item-link">Data Insights</router-link>
+      <router-link to="/safety-simulations" exact-active-class="active-link" class="nav-item-link">Safety Simulations</router-link>
+      <router-link to="/parental-support" exact-active-class="active-link" class="nav-item-link">Parental Support</router-link>
+      <router-link to="/link-scanner" exact-active-class="active-link" class="nav-item-link">Link Scanner</router-link>
+  </nav>
+</header>
 </template>
 
 <style scoped>
-.b-example-divider {
-  height: 3rem;
-  background-color: rgba(0, 0, 0, 0.1);
-  border: solid rgba(0, 0, 0, 0.15);
-  border-width: 1px 0;
-  box-shadow:
-    inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1),
-    inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
+.nav-wrapper {
+  /* float: right; */
+  display: flex;
+  justify-content: space-between;
+  width: 28000px;
+  align-items: center;
+  padding: 16px 40px;
+  background-color: white;
+  /* border-bottom: 1px solid #eee; */
 }
 
-.form-control-dark {
-  color: #fff;
-  background-color: var(--bs-dark);
-  border-color: var(--bs-gray);
-}
-.form-control-dark:focus {
-  color: #fff;
-  background-color: var(--bs-dark);
-  border-color: #fff;
-  box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
+.logo-box {
+  margin-right: 100px;
+  /* flex: 0 0 auto; */
+  display: flex;
+  align-items: center;
 }
 
-.bi {
-  vertical-align: -0.125em;
-  fill: currentColor;
+.logo-img {
+  height: 45px;
+  object-fit: contain;
 }
 
-.text-small {
-  font-size: 85%;
+.custom-nav {
+  display: flex;
+  gap: 40px;
+  font-size: 16px;
+  font-weight: 600;
 }
 
-.dropdown-toggle {
-  outline: 0;
+.nav-item-link {
+  position: relative;
+  color: #000;
+  text-decoration: none;
+  padding-bottom: 5px;
+  transition: all 0.2s ease-in-out;
 }
+
+.nav-item-link::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #f9a825;
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-item-link:hover::after,
+.active-link::after {
+  width: 100%;
+}
+
+
+
+
 </style>
 
 
