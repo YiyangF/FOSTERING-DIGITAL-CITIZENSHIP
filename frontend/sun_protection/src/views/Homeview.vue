@@ -1,208 +1,165 @@
 <template>
-  <div class="home">
-    <!-- Hero Section -->
-    <section class="hero" :style="{ backgroundImage: `url(${sunProtectionImage})` }">
-      <div class="overlay">
-        <h1>Stay Safe Under the Sun with SPF365+</h1>
-        <p>Sun exposure is essential, but too much can put your health at risk. Our platform empowers you with real-time UV monitoring, historical melanoma insights, and personalized protection recommendations — helping you make informed decisions about sun safety every day.</p>
-      </div>
-    </section>
-
-    <div class="container px-4 py-5" id="hanging-icons">
-      <h2 class="pb-2 border-bottom">What We Offer</h2>
-      <div class="row g-4 py-5 row-cols-1 row-cols-lg-3 align-items-stretch text-center">
-        <div class="col d-flex flex-column justify-content-center align-items-center">
-          <h3 class="fs-2 text-body-emphasis">🌞 Live UV Index Tracking</h3>
-          <p>With our UV Index Checker, you can quickly look up the current UV radiation levels based on location, helping you plan outdoor activities while minimizing UV risks.</p>
-          <a @click="goToUVIndex" class="btn btn-primary">
-            Try the UV checker
-          </a>
-        </div>
-        <div class="col d-flex flex-column justify-content-center align-items-center">
-          <h3 class="fs-2 text-body-emphasis">📊 Understanding UV Impact</h3>
-          <p>Our data visualization tool presents a clear relationship between UV exposure, historical skin cancer incidence, and mortality rates across different regions over time.</p>
-          <a @click="goToDataVisualization" class="btn btn-primary">
-            View the data
-          </a>
-        </div>
-        <div class="col d-flex flex-column justify-content-center align-items-center">
-          <h3 class="fs-2 text-body-emphasis">🛡️ Personalized Sun Protection</h3>
-          <p>Get tailored sun protection recommendations and notifications based on your skin type and UV intensity, helping you develop good habits and reduce skin damage risks.</p>
-          <a @click="goToRecommendation" class="btn btn-primary">
-            Get your recommendations
-          </a>
-        </div>
-      </div>
+  <div class="container">
+    <!-- Title Section -->
+    <div class="title-box">
+      Protect the child's online world,<br />
+      starting here
     </div>
 
+    <!-- Main Content Section -->
+    <div class="main-section">
+      <!-- Left Box -->
+      <div class="left-box">
+        <!-- <img src="/star-badge.svg" alt="Badge" class="badge" /> -->
+        <p class="test-text">How much do I know about my child's online safety?</p>
+        <button class="test-button">start test</button>
+        <!-- <div class="dropdown-box"></div> -->
+      </div>
 
-    <!-- Info Section -->
-    <div class="container_info">
-      <section class="info">
-        <div class="info-content">
-          <h2>Why Sun Protection is Essential?</h2>
-          <p>
-            Every year, thousands of Australians are diagnosed with <span class="highlight">skin cancer</span>. 
-            Understanding the risks of excessive UV exposure can help you make better decisions for your health.
-          </p>
-          <p>
-            Protecting your skin today means a healthier future. Start by staying informed!
-          </p>
+      <!-- Right Box -->
+      <div class="right-box">
+        <div class="svg-wrapper">
+          <svg class="banner-svg" width="200" height="80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 50 L30 30 L50 50 L70 30 L90 50" stroke="#f2b705" stroke-width="4"/>
+            <circle cx="30" cy="30" r="3" fill="#f2b705"/>
+            <circle cx="50" cy="50" r="3" fill="#f2b705"/>
+            <circle cx="70" cy="30" r="3" fill="#f2b705"/>
+          </svg>
         </div>
-      </section>
 
-      <section class="webinfo">
-        <div class="info-content">
-          <h2>About this website</h2>
-          <p>
-            SPF365+ is an innovative platform designed to help users understand skin cancer risks, UV index levels, and personalized sun protection strategies. Our goal is to provide easy access to essential UV protection information, enabling users to take proactive steps in safeguarding their skin.
-          </p>
-        </div>
-      </section>
+        <p class="info-text">
+          Your love is your child's greatest protection in the digital world.<br />
+          "Learn, explore, and empower yourself to guide them safely through the online world."
+        </p>
+        <p class="info-note">
+          Help parents understand online risks, access utilities, and improve digital literacy
+        </p>
+      </div>
     </div>
   </div>
 </template>
 
-<script setup lang="ts">
-import sunProtectionImage from '@/assets/homepage.jpg';
-import { ref } from "vue";
-import { useRouter } from "vue-router"; 
-
-const router = useRouter();
-
-const goToDataVisualization = () => {
-  router.push('/about');
-};
-
-const goToUVIndex = () => {
-  router.push('/uv');
-};
-
-const goToRecommendation = () => {
-  router.push('/recommend');
+<script>
+export default {
+  name: 'ChildOnlineProtection',
 };
 </script>
 
 <style scoped>
-.container_info {
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
+.container {
+  min-height: 100vh;
+  padding: 60px 20px;
+  background-color: #ffffff;
   display: flex;
-  align-items: center;
-  margin: 0 auto; /* Centers the container */
-  padding: 0 5%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
-.home {
-  width: 100%;
-  text-align: center;
-  font-family: 'Arial', sans-serif;
-}
-
-.hero {
-  width: 100%;
-  height: 60vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-
-.overlay {
-  background: rgba(0, 0, 0, 0.5);
+.title-box {
+  border: 2px solid #ffffff;
   padding: 20px;
-  border-radius: 10px;
-  color: white;
-}
-
-.hero h1 {
-  font-size: 36px;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-
-.button-group {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-}
-
-button {
-  padding: 12px 20px;
-  font-size: 18px;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  font-size: 32px;
   font-weight: bold;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background 0.3s ease, transform 0.2s ease;
+  color: #111827;
+  line-height: 1.4;
+  font-family: 'Nunito', sans-serif;
 }
 
-.btn-data {
-  background: #007bff;
-  color: white;
-}
-
-.btn-uv {
-  background: #ff5733;
-  color: white;
-}
-
-button:hover {
-  transform: scale(1.05);
-}
-
-.btn-data:hover {
-  background: #0056b3;
-}
-
-.btn-uv:hover {
-  background: #d43f00;
-}
-
-/* Info Section */
-.info, .webinfo {
-  flex: 1;
-  background: white;
-  text-align: center;
-  padding: 40px 5%;
-}
-
-.info-content {
+.main-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 960px;
   width: 100%;
 }
 
-.info h2 {
-  font-size: 28px;
-  margin-bottom: 15px;
-  color: #ff9900;
+@media (min-width: 768px) {
+  .main-section {
+    flex-direction: row;
+  }
 }
 
-.info p {
+.left-box {
+  background-color: #2563eb;
+  color: white;
+  padding: 24px;
+  border-radius: 30px;
+  width: 45%;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.badge {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 40px;
+  height: 40px;
+}
+
+.test-text {
   font-size: 18px;
-  margin-bottom: 10px;
-  color: #444;
+  font-weight: 600;
+  margin-bottom: 16px;
 }
 
-.webinfo h2 {
-  font-size: 28px;
-  margin-bottom: 15px;
-  color:#ffcc00;
+.test-button {
+  background-color: #f97316;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  transition: background-color 0.3s ease;
 }
 
-.webinfo p {
-  font-size: 18px;
-  margin-bottom: 10px;
-  color: #444;
+.test-button:hover {
+  background-color: #fb923c;
 }
 
-.highlight {
-  color: #007bff;
-  font-weight: bold;
+
+.right-box {
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 30px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 24px;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* .right-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
+.svg-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.banner-svg {
+  margin: 0 auto 20px;
+  display: block;
+}
+
+.info-text {
+  color: #1f2937;
+  font-weight: 500;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.info-note {
+  color: #ef4444;
+  font-size: 14px;
 }
 </style>

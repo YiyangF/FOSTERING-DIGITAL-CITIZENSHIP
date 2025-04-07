@@ -1,22 +1,22 @@
 <script setup>
-import BHeader from './components/BHeader.vue';
-import setReminder from './setReminder.vue';
+import Navigation from './components/Navigation.vue';
 </script>
 
 <template>
   <div class="main-container">
     <header>
-      <BHeader />
+      <Navigation/>
+
     </header>
 
     <main class="main-box">
       <router-view></router-view>
     </main>
-      <setReminder/>
+
 
     <footer class="footer">
       <div class="footer-container">
-        <p>© {{ new Date().getFullYear() }} SPF365+. All rights reserved.</p>
+        <p>© {{ new Date().getFullYear() }} Help parents understand online risks access utilities and improve digital literacy</p>
         <div class="footer-links">
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Service</a>
@@ -30,6 +30,25 @@ import setReminder from './setReminder.vue';
 <style scoped>
 * header {
   line-height: 1.5;
+}
+
+.mian-container {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+
+.main-container::before::before {
+  content: "";
+  position: absolute;
+  top: -300px;
+  left: -300px;
+  width: 1000px;
+  height: 1000px;
+  background-color: #fdec7f;
+  border-radius: 50%;
+  z-index: -1;
 }
 
 .logo {
