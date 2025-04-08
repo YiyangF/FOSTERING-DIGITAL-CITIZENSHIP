@@ -7,12 +7,18 @@ import Game from './views/Game.vue';
 <template>
   <div class="main-container">
     <header>
-      <BHeader />
     </header>
+    <div class="twine-container">
+      <iframe
+        src="public\story\story1\Harassing.html"
+        width="100%"
+        height="600px"
+        frameborder="0"
+      ></iframe>
+    </div>
 
     <main class="main-box">
       <router-view></router-view>
-      <Game />
     </main>
 
     <footer class="footer">
