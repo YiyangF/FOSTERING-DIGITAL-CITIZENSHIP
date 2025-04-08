@@ -26,9 +26,12 @@
   export default {
     name: 'AwarenessChart',
     async mounted() {
-      const cyber = await fetch('http://localhost:3001/api/cyberbullying').then(r => r.json());
-      const mental = await fetch('http://localhost:3001/api/mental-health').then(r => r.json());
-  
+      // const cyber = await fetch('http://localhost:3001/api/cyberbullying').then(r => r.json());
+      // const mental = await fetch('http://localhost:3001/api/mental-health').then(r => r.json());
+      const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
+      const cyber = await fetch(`${BASE_URL}/api/cyberbullying`).then(r => r.json());
+      const mental = await fetch(`${BASE_URL}/api/mental-health`).then(r => r.json());
       this.drawLineChart(this.$refs.cyberChart, cyber, 'Cyberbullying', '#ff4c4c');
       this.drawBarChart(this.$refs.mentalChart, mental, '#4c9aff');
     },
