@@ -27,7 +27,7 @@
   width: 28000px;
   align-items: center;
   padding: 16px 40px;
-  background-color: white;
+  background-color: transparent;
   /* border-bottom: 1px solid #eee; */
 }
 
