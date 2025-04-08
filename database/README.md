@@ -1,2 +1,1 @@
-# FOSTERING-DIGITAL-CITIZENSHIP
-fit5120-main-project
+# onboarding_project_sun_protection
