@@ -2,20 +2,14 @@
 import BHeader from './components/BHeader.vue';
 import setReminder from './setReminder.vue';
 import Game from './views/Game.vue';
+import Simulator from './views/Simulator.vue';
 </script>
 
 <template>
   <div class="main-container">
     <header>
     </header>
-    <div class="twine-container">
-      <iframe
-        src="public\story\story1\Harassing.html"
-        width="100%"
-        height="600px"
-        frameborder="0"
-      ></iframe>
-    </div>
+    <Simulator/>
 
     <main class="main-box">
       <router-view></router-view>
