@@ -1,94 +1,191 @@
 <template>
-  <div class="container">
-    <!-- 左侧：描述内容 -->
-    <div class="text-section">
-      <h2>用户访问趋势</h2>
-      <p>右侧展示的是一个动态更新的折线图，模拟访问量的变化。</p>
-      <p>每2秒自动刷新一次数据，展示趋势变化。</p>
+  <div class="quiz-container">
+    <!-- Progress Bar -->
+    <div class="progress-bar">
+      <div class="progress-fill" :style="{ width: progressPercent + '%' }"></div>
     </div>
 
-    <!-- 右侧：动态折线图 -->
-    <div class="chart-section" ref="chartRef"></div>
+    <!-- Question or Result -->
+    <transition name="fade" mode="out-in">
+      <div v-if="!quizCompleted" class="question-box" :key="currentQuestionIndex">
+        <h2>Question {{ currentQuestionIndex + 1 }} of {{ questions.length }}</h2>
+        <p class="question-text">{{ currentQuestion.text }}</p>
+        <div class="buttons">
+          <button class="yes-button" @click="answer(true)">Yes</button>
+          <button class="no-button" @click="answer(false)">No</button>
+        </div>
+      </div>
+
+      <div v-else class="result-box" key="result">
+        <h2>Quiz Completed 🎉</h2>
+        <p>Your score: {{ score }} / {{ questions.length * 2 }}</p>
+        <p>{{ feedback }}</p>
+        <button class="restart-button" @click="restart">Restart</button>
+        <button class="simulator-button" @click="goToSimulator">Try the Simulator</button>
+      </div>
+    </transition>
   </div>
 </template>
 
-<script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
-import * as echarts from 'echarts'
-
-const chartRef = ref(null)
-let chartInstance = null
-let timer = null
-
-// 模拟数据
-let xData = ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
-let yData = [120, 200, 150, 80, 70, 110, 130]
-
-function updateChart() {
-  // 随机波动数据
-  yData = yData.map(v => v + Math.floor(Math.random() * 40 - 20))
-  const option = {
-    title: {
-      text: '一周访问量',
-      left: 'center'
+<script>
+export default {
+  data() {
+    return {
+      currentQuestionIndex: 0,
+      score: 0,
+      quizCompleted: false,
+      questions: [
+        { text: "Do you know which apps or websites your child uses most often?" },
+        { text: "Do you know who your child interacts with online?" },
+        { text: "Have you talked to your child about cyberbullying?" },
+        { text: "Do you think your child would tell you if they had a problem online?" },
+        { text: "Have you set screen time rules or internet usage limits for your child?" }
+      ]
+    };
+  },
+  computed: {
+    currentQuestion() {
+      return this.questions[this.currentQuestionIndex];
     },
-    tooltip: {
-      trigger: 'axis'
+    progressPercent() {
+      return (this.currentQuestionIndex / this.questions.length) * 100;
     },
-    xAxis: {
-      type: 'category',
-      data: xData
-    },
-    yAxis: {
-      type: 'value'
-    },
-    series: [
-      {
-        name: '访问量',
-        type: 'line',
-        data: yData,
-        smooth: true,
-        showSymbol: false,
-        animationDuration: 1000
+    feedback() {
+      const max = this.questions.length * 2;
+      if (this.score >= 8) return "You are very engaged with your child's online activities. Keep it up!";
+      if (this.score >= 4) return "You have some understanding, but there's room to improve.";
+      return "You might not be fully aware of your child's online world. It's time to talk more with them.";
+    }
+  },
+  methods: {
+    answer(isYes) {
+      if (isYes) this.score += 2;
+      this.currentQuestionIndex++;
+      if (this.currentQuestionIndex >= this.questions.length) {
+        this.quizCompleted = true;
       }
-    ]
+    },
+    restart() {
+      this.score = 0;
+      this.currentQuestionIndex = 0;
+      this.quizCompleted = false;
+    },
+    goToSimulator() {
+      this.$router.push("/simulator");
+    }
   }
-  chartInstance.setOption(option)
-}
-
-onMounted(() => {
-  chartInstance = echarts.init(chartRef.value)
-  updateChart()
-  // 每2秒更新一次图表数据
-  timer = setInterval(updateChart, 2000)
-  window.addEventListener('resize', () => chartInstance.resize())
-})
-
-onBeforeUnmount(() => {
-  clearInterval(timer)
-})
+};
 </script>
 
 <style scoped>
-.container {
+/* === container === */
+.quiz-container {
+  max-width: 520px;
+  margin: 60px auto;
+  padding: 30px;
+  border: 2px solid #dcdcdc;
+  border-radius: 15px;
+  background-color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+/* === progress line === */
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  background-color: #eaeaea;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #91a6fa;
+  width: 0%;
+  transition: width 0.5s ease-in-out;
+}
+
+/* === quiz === */
+h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+}
+
+.question-text {
+  font-size: 20px;
+  margin: 20px 0;
+  color: #444;
+}
+
+/* === button container === */
+.buttons {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 2rem;
-  gap: 2rem;
-  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 20px;
 }
 
-.text-section {
-  flex: 1;
-  min-width: 300px;
+/* === gerneral button=== */
+button {
+  min-width: 150px;
+  padding: 14px 0;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.chart-section {
-  flex: 1;
-  min-width: 300px;
-  height: 400px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
+/* ✅ Yes  */
+.yes-button {
+  background-color: #4CAF50;
 }
+.yes-button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+/* ❌ No  */
+.no-button {
+  background-color: #f7a440;
+}
+.no-button:hover {
+  background-color: #e58b20;
+  transform: scale(1.05);
+}
+
+/* 🔁 Restart  */
+.restart-button {
+  background-color: #607d8b;
+}
+.restart-button:hover {
+  background-color: #546e7a;
+  transform: scale(1.05);
+}
+
+/* === animation=== */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s ease, transform 0.4s ease;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.simulator-button {
+  background-color: #3f51b5;
+}
+.simulator-button:hover {
+  background-color: #303f9f;
+  transform: scale(1.05);
+}
+
 </style>
