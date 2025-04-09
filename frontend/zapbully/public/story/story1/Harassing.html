@@ -104,344 +104,244 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
 		<div id="init-lacking"><p>Browser lacks capabilities required to play.</p><p>Upgrade or switch to another browser.</p></div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="Harassing" startnode="1" creator="Twine" creator-version="2.10.0" format="SugarCube" format-version="2.37.3" ifid="79B87ED0-8F92-4A29-B7BA-4B216B5CFF47" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">#options {
-  opacity: 0;
-  transition: opacity 1s;
+	<tw-storydata name="Harassing" startnode="1" creator="Twine" creator-version="2.10.0" format="SugarCube" format-version="2.37.3" ifid="79B87ED0-8F92-4A29-B7BA-4B216B5CFF47" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">body {
+  background-color:#fee2be;
+  font-size: 20px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
 }
 
-#options.show {
+#startButton {
   display: block;
-  opacity: 1;
+  margin: 2em auto 1em auto;
+  padding: 0.5em 1em;
+  font-size: 1.2em;
+  background-color: orange;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
 }
-</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="background" tags="" position="500,0" size="100,100">&lt;!-- Start Button --&gt;
-&lt;button onclick=&quot;startVideo()&quot;&gt;Start&lt;/button&gt;
+
+#content-container {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  padding: 1em;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+#video-container video {
+  max-width: 100%;
+  border-radius: 6px;
+}
+
+#options-container {
+  padding: 1em;
+  border-radius: 6px;
+  color: #87cefa;
+  font-weight: bold;
+  display: none;
+  min-width: 350px;
+}
+
+#options-container p {
+  margin: 1em 0;
+  cursor: pointer;
+}
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">window.startVideo = function () {
+  document.getElementById("startButton").style.display = "none";
+  const video = document.getElementById("storyVideo");
+  const container = document.getElementById("content-container");
+
+  container.style.display = "flex";
+  video.play();
+
+  video.addEventListener("ended", function () {
+    document.getElementById("options-container").style.display = "block";
+  });
+};
+</script><tw-passagedata pid="1" name="background" tags="" position="500,0" size="100,100">&lt;!-- Start Button --&gt;
+&lt;button id=&quot;startButton&quot; onclick=&quot;startVideo()&quot;&gt;Start&lt;/button&gt;
+
+&lt;!-- Flex Container --&gt;
+&lt;div id=&quot;content-container&quot;&gt;
+  &lt;!-- Video --&gt;
+  &lt;div id=&quot;video-container&quot;&gt;
+    &lt;video id=&quot;storyVideo&quot; width=&quot;680&quot; controls&gt;
+      &lt;source src=&quot;1-background.mp4&quot; type=&quot;video/mp4&quot;&gt;
+      Your browser does not support the video tag.
+    &lt;/video&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Options --&gt;
+  &lt;div id=&quot;options-container&quot;&gt;
+    &lt;p&gt;[[Force him to go to school; it&#39;s good to see that he doesn&#39;t game now]]&lt;/p&gt;
+    &lt;p&gt;[[Talk to him about what&#39;s happened in school these days]]&lt;/p&gt;
+    &lt;p&gt;[[Ask him why he didn&#39;t play the game last night]]&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="2" name="Force him to go to school; it&#39;s good to see that he doesn&#39;t game now" tags="" position="250,100" size="100,100">&lt;!-- Start Button --&gt;
+&lt;button id=&quot;startButton&quot; onclick=&quot;startVideo()&quot;&gt;Force him to go to school&lt;/button&gt;
+
+&lt;!-- Flex Container --&gt;
+&lt;div id=&quot;content-container&quot;&gt;
+  &lt;!-- Video --&gt;
+  &lt;div id=&quot;video-wrapper&quot;&gt;
+    &lt;video id=&quot;storyVideo&quot; width=&quot;680&quot; controls&gt;
+      &lt;source src=&quot;1-A.mp4&quot; type=&quot;video/mp4&quot;&gt;
+      Your browser does not support the video tag.
+    &lt;/video&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Options --&gt;
+  &lt;div id=&quot;options-container&quot;&gt;
+    &lt;p&gt;[[Talk to him about what&#39;s happened in school these days]]&lt;/p&gt;
+    &lt;p&gt;[[Ask him why he didn&#39;t play the game last night]]&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="3" name="Talk to him about what&#39;s happened in school these days" tags="" position="450,125" size="100,100">&lt;!-- Start Button --&gt;
+&lt;button id=&quot;startButton&quot; onclick=&quot;startVideo()&quot;&gt;Talk to him about school&lt;/button&gt;
+
+&lt;!-- Flex Container --&gt;
+&lt;div id=&quot;content-container&quot;&gt;
+  &lt;!-- Video --&gt;
+  &lt;div id=&quot;video-wrapper&quot;&gt;
+    &lt;video id=&quot;storyVideo&quot; width=&quot;680&quot; controls&gt;
+      &lt;source src=&quot;1-B.mp4&quot; type=&quot;video/mp4&quot;&gt;
+      Your browser does not support the video tag.
+    &lt;/video&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Options --&gt;
+  &lt;div id=&quot;options-container&quot;&gt;
+    &lt;p&gt;[[Ask him why he didn&#39;t play the game last night]]&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="4" name="Ask him why he didn&#39;t play the game last night" tags="" position="525,325" size="100,100">&lt;!-- Start Button --&gt;
+&lt;button id=&quot;startButton&quot; onclick=&quot;startVideo()&quot;&gt;Ask him about the game&lt;/button&gt;
 &lt;!-- Video container (initially hidden) --&gt;
-&lt;div id=&quot;video-container&quot; style=&quot;display:none; margin-top: 1em;&quot;&gt;
-  &lt;video id=&quot;storyVideo&quot; width=&quot;640&quot; height=&quot;360&quot; controls&gt;
-    &lt;source src=&quot;1-background.mp4&quot; type=&quot;video/mp4&quot;&gt;
-    Your browser does not support the video tag.
-  &lt;/video&gt;
-&lt;/div&gt;
-
-&lt;!-- Options container (initially hidden) --&gt;
-&lt;div id=&quot;options-container&quot; style=&quot;display:none; margin-top: 1em;&quot;&gt;
-  &lt;p&gt;[[Force him to go to school; it&#39;s good to see that he doesn&#39;t game now]]&lt;/p&gt;
-  &lt;p&gt;[[Talk to him about what&#39;s happened in school these days]]&lt;/p&gt;
-  &lt;p&gt;[[Ask him why he didn&#39;t play the game last night]]&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;!-- Script --&gt;
-&lt;script&gt;
-  function startVideo() {
-    // Hide the start button
-    document.querySelector(&#39;button&#39;).style.display = &quot;none&quot;;
-
-    // Show and play the video
-    const videoContainer = document.getElementById(&quot;video-container&quot;);
-    const video = document.getElementById(&quot;storyVideo&quot;);
-    videoContainer.style.display = &quot;block&quot;;
-    video.play();
-
-    // When video ends, show the options
-    video.addEventListener(&#39;ended&#39;, function() {
-      document.getElementById(&quot;options-container&quot;).style.display = &quot;block&quot;;
-    });
-  }
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="2" name="Force him to go to school; it&#39;s good to see that he doesn&#39;t game now" tags="" position="250,100" size="100,100">&lt;!-- Start Button --&gt;
-&lt;button onclick=&quot;startVideo()&quot;&gt;Force him to go to school&lt;/button&gt;
-&lt;!-- Video container (initially hidden) --&gt;
-&lt;div id=&quot;video-container&quot; style=&quot;display:none; margin-top: 1em;&quot;&gt;
-  &lt;video id=&quot;storyVideo&quot; width=&quot;640&quot; height=&quot;360&quot; controls&gt;
-    &lt;source src=&quot;1-A.mp4&quot; type=&quot;video/mp4&quot;&gt;
-    Your browser does not support the video tag.
-  &lt;/video&gt;
-&lt;/div&gt;
-
-&lt;!-- Options container (hidden at first) --&gt;
-&lt;div id=&quot;options-container&quot; style=&quot;display:none; margin-top: 1em;&quot;&gt;
-  &lt;p&gt;[[Talk to him about what&#39;s happened in school these days]]&lt;/p&gt;
-  &lt;p&gt;[[Ask him why he didn&#39;t play the game last night]]&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;!-- Script --&gt;
-&lt;script&gt;
-  function startVideo() {
-    // Hide the start button
-    document.querySelector(&#39;button&#39;).style.display = &quot;none&quot;;
-
-    // Show and play the video
-    const videoContainer = document.getElementById(&quot;video-container&quot;);
-    const video = document.getElementById(&quot;storyVideo&quot;);
-    videoContainer.style.display = &quot;block&quot;;
-    video.play();
-
-    // When video ends, show the options
-    video.addEventListener(&#39;ended&#39;, function() {
-      document.getElementById(&quot;options-container&quot;).style.display = &quot;block&quot;;
-    });
-  }
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="3" name="Talk to him about what&#39;s happened in school these days" tags="" position="450,125" size="100,100">&lt;!-- Start Button --&gt;
-&lt;button onclick=&quot;startVideo()&quot;&gt;Talk to him about school&lt;/button&gt;
-&lt;!-- Video container (initially hidden) --&gt;
-&lt;div id=&quot;video-container&quot; style=&quot;display:none; margin-top: 1em;&quot;&gt;
-  &lt;video id=&quot;storyVideo&quot; width=&quot;640&quot; height=&quot;360&quot; controls&gt;
-    &lt;source src=&quot;1-B.mp4&quot; type=&quot;video/mp4&quot;&gt;
-    Your browser does not support the video tag.
-  &lt;/video&gt;
-&lt;/div&gt;
-
-&lt;!-- Options container (hidden at first) --&gt;
-&lt;div id=&quot;options-container&quot; style=&quot;display:none; margin-top: 1em;&quot;&gt;
-  &lt;p&gt;[[Ask him why he didn&#39;t play the game last night]]&lt;/p&gt;
-  &lt;p&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;!-- Script --&gt;
-&lt;script&gt;
-  function startVideo() {
-    // Hide the start button
-    document.querySelector(&#39;button&#39;).style.display = &quot;none&quot;;
-
-    // Show and play the video
-    const videoContainer = document.getElementById(&quot;video-container&quot;);
-    const video = document.getElementById(&quot;storyVideo&quot;);
-    videoContainer.style.display = &quot;block&quot;;
-    video.play();
-
-    // When video ends, show the options
-    video.addEventListener(&#39;ended&#39;, function() {
-      document.getElementById(&quot;options-container&quot;).style.display = &quot;block&quot;;
-    });
-  }
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="4" name="Ask him why he didn&#39;t play the game last night" tags="" position="525,325" size="100,100">&lt;!-- Start Button --&gt;
-&lt;button onclick=&quot;startVideo()&quot;&gt;Ask him about the game&lt;/button&gt;
-&lt;!-- Video container (initially hidden) --&gt;
-&lt;div id=&quot;video-container&quot; style=&quot;display:none; margin-top: 1em;&quot;&gt;
-  &lt;video id=&quot;storyVideo&quot; width=&quot;640&quot; height=&quot;360&quot; controls&gt;
+&lt;div id=&quot;content-container&quot;&gt;
+  &lt;!-- Video --&gt;
+  &lt;div id=&quot;video-wrapper&quot;&gt;
+    &lt;video id=&quot;storyVideo&quot; width=&quot;680&quot; controls&gt;
     &lt;source src=&quot;1-C.mp4&quot; type=&quot;video/mp4&quot;&gt;
     Your browser does not support the video tag.
   &lt;/video&gt;
 &lt;/div&gt;
 
 &lt;!-- Options container (hidden at first) --&gt;
-&lt;div id=&quot;options-container&quot; style=&quot;display:none; margin-top: 1em;&quot;&gt;
+&lt;div id=&quot;options-container&quot;&gt;
   &lt;p&gt;[[Check his phone stealthily and help]]&lt;/p&gt;
   &lt;p&gt;[[Tell him to try other games instead]]&lt;/p&gt;
   &lt;p&gt;[[Encourage him to tell the details]]&lt;/p&gt;
   &lt;p&gt;[[Block his access to the internet]]&lt;/p&gt;
 &lt;/div&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="5" name="Check his phone stealthily and help" tags="" position="525,575" size="100,100">&lt;!-- Start Button --&gt;
+&lt;button id=&quot;startButton&quot; onclick=&quot;startVideo()&quot;&gt;Check his phone stealthily&lt;/button&gt;
 
-&lt;!-- Script --&gt;
-&lt;script&gt;
-  function startVideo() {
-    // Hide the start button
-    document.querySelector(&#39;button&#39;).style.display = &quot;none&quot;;
-
-    // Show and play the video
-    const videoContainer = document.getElementById(&quot;video-container&quot;);
-    const video = document.getElementById(&quot;storyVideo&quot;);
-    videoContainer.style.display = &quot;block&quot;;
-    video.play();
-
-    // When video ends, show the options
-    video.addEventListener(&#39;ended&#39;, function() {
-      document.getElementById(&quot;options-container&quot;).style.display = &quot;block&quot;;
-    });
-  }
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="5" name="Check his phone stealthily and help" tags="" position="525,575" size="100,100">&lt;!-- Start Button --&gt;
-&lt;button onclick=&quot;startVideo()&quot;&gt;Check his phone stealthily&lt;/button&gt;
-&lt;!-- Video container (initially hidden) --&gt;
-&lt;div id=&quot;video-container&quot; style=&quot;display:none; margin-top: 1em;&quot;&gt;
-  &lt;video id=&quot;storyVideo&quot; width=&quot;640&quot; height=&quot;360&quot; controls&gt;
+&lt;!-- Flex Container --&gt;
+&lt;div id=&quot;content-container&quot;&gt;
+  &lt;!-- Video --&gt;
+  &lt;div id=&quot;video-wrapper&quot;&gt;
+    &lt;video id=&quot;storyVideo&quot; width=&quot;680&quot; controls&gt;
     &lt;source src=&quot;1-CA.mp4&quot; type=&quot;video/mp4&quot;&gt;
     Your browser does not support the video tag.
   &lt;/video&gt;
 &lt;/div&gt;
 
 &lt;!-- Options container (hidden at first) --&gt;
-&lt;div id=&quot;options-container&quot; style=&quot;display:none; margin-top: 1em;&quot;&gt;
+&lt;div id=&quot;options-container&quot;&gt;
   &lt;p&gt;[[Encourage him to tell the details]]&lt;/p&gt;
 &lt;/div&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="6" name="Tell him to try other games instead" tags="" position="875,600" size="100,100">&lt;!-- Start Button --&gt;
+&lt;button id=&quot;startButton&quot; onclick=&quot;startVideo()&quot;&gt;Try other games&lt;/button&gt;
 
-&lt;!-- Script --&gt;
-&lt;script&gt;
-  function startVideo() {
-    // Hide the start button
-    document.querySelector(&#39;button&#39;).style.display = &quot;none&quot;;
-
-    // Show and play the video
-    const videoContainer = document.getElementById(&quot;video-container&quot;);
-    const video = document.getElementById(&quot;storyVideo&quot;);
-    videoContainer.style.display = &quot;block&quot;;
-    video.play();
-
-    // When video ends, show the options
-    video.addEventListener(&#39;ended&#39;, function() {
-      document.getElementById(&quot;options-container&quot;).style.display = &quot;block&quot;;
-    });
-  }
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="6" name="Tell him to try other games instead" tags="" position="875,600" size="100,100">&lt;!-- Start Button --&gt;
-&lt;button onclick=&quot;startVideo()&quot;&gt;Try other games&lt;/button&gt;
-&lt;!-- Video container (initially hidden) --&gt;
-&lt;div id=&quot;video-container&quot; style=&quot;display:none; margin-top: 1em;&quot;&gt;
-  &lt;video id=&quot;storyVideo&quot; width=&quot;640&quot; height=&quot;360&quot; controls&gt;
+&lt;!-- Flex Container --&gt;
+&lt;div id=&quot;content-container&quot;&gt;
+  &lt;!-- Video --&gt;
+  &lt;div id=&quot;video-wrapper&quot;&gt;
+    &lt;video id=&quot;storyVideo&quot; width=&quot;680&quot; controls&gt;
     &lt;source src=&quot;1-CB.mp4&quot; type=&quot;video/mp4&quot;&gt;
     Your browser does not support the video tag.
   &lt;/video&gt;
 &lt;/div&gt;
 
 &lt;!-- Options container (hidden at first) --&gt;
-&lt;div id=&quot;options-container&quot; style=&quot;display:none; margin-top: 1em;&quot;&gt;
+&lt;div id=&quot;options-container&quot;&gt;
   &lt;p&gt;[[Encourage him to tell the details]]&lt;/p&gt;
 &lt;/div&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="7" name="Encourage him to tell the details" tags="" position="300,350" size="100,100">&lt;!-- Start Button --&gt;
+&lt;button id=&quot;startButton&quot; onclick=&quot;startVideo()&quot;&gt;Encourage him to tell&lt;/button&gt;
 
-&lt;!-- Script --&gt;
-&lt;script&gt;
-  function startVideo() {
-    // Hide the start button
-    document.querySelector(&#39;button&#39;).style.display = &quot;none&quot;;
-
-    // Show and play the video
-    const videoContainer = document.getElementById(&quot;video-container&quot;);
-    const video = document.getElementById(&quot;storyVideo&quot;);
-    videoContainer.style.display = &quot;block&quot;;
-    video.play();
-
-    // When video ends, show the options
-    video.addEventListener(&#39;ended&#39;, function() {
-      document.getElementById(&quot;options-container&quot;).style.display = &quot;block&quot;;
-    });
-  }
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="7" name="Encourage him to tell the details" tags="" position="300,350" size="100,100">&lt;!-- Start Button --&gt;
-&lt;button onclick=&quot;startVideo()&quot;&gt;Encourage him to tell&lt;/button&gt;
-&lt;!-- Video container (initially hidden) --&gt;
-&lt;div id=&quot;video-container&quot; style=&quot;display:none; margin-top: 1em;&quot;&gt;
-  &lt;video id=&quot;storyVideo&quot; width=&quot;640&quot; height=&quot;360&quot; controls&gt;
+&lt;!-- Flex Container --&gt;
+&lt;div id=&quot;content-container&quot;&gt;
+  &lt;!-- Video --&gt;
+  &lt;div id=&quot;video-wrapper&quot;&gt;
+    &lt;video id=&quot;storyVideo&quot; width=&quot;680&quot; controls&gt;
     &lt;source src=&quot;1-CC.mp4&quot; type=&quot;video/mp4&quot;&gt;
     Your browser does not support the video tag.
   &lt;/video&gt;
 &lt;/div&gt;
 
 &lt;!-- Options container (hidden at first) --&gt;
-&lt;div id=&quot;options-container&quot; style=&quot;display:none; margin-top: 1em;&quot;&gt;
+&lt;div id=&quot;options-container&quot;&gt;
   &lt;p&gt;[[Find out who and talk to those bullies]]&lt;/p&gt;
   &lt;p&gt;[[Collect the evidence and report to the school]]&lt;/p&gt;
 &lt;/div&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="8" name="Block his access to the internet" tags="" position="675,575" size="100,100">&lt;!-- Start Button --&gt;
+&lt;button id=&quot;startButton&quot; onclick=&quot;startVideo()&quot;&gt;Ban the internet&lt;/button&gt;
 
-&lt;!-- Script --&gt;
-&lt;script&gt;
-  function startVideo() {
-    // Hide the start button
-    document.querySelector(&#39;button&#39;).style.display = &quot;none&quot;;
-
-    // Show and play the video
-    const videoContainer = document.getElementById(&quot;video-container&quot;);
-    const video = document.getElementById(&quot;storyVideo&quot;);
-    videoContainer.style.display = &quot;block&quot;;
-    video.play();
-
-    // When video ends, show the options
-    video.addEventListener(&#39;ended&#39;, function() {
-      document.getElementById(&quot;options-container&quot;).style.display = &quot;block&quot;;
-    });
-  }
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="8" name="Block his access to the internet" tags="" position="675,575" size="100,100">&lt;!-- Start Button --&gt;
-&lt;button onclick=&quot;startVideo()&quot;&gt;Ban the internet&lt;/button&gt;
-&lt;!-- Video container (initially hidden) --&gt;
-&lt;div id=&quot;video-container&quot; style=&quot;display:none; margin-top: 1em;&quot;&gt;
-  &lt;video id=&quot;storyVideo&quot; width=&quot;640&quot; height=&quot;360&quot; controls&gt;
+&lt;!-- Flex Container --&gt;
+&lt;div id=&quot;content-container&quot;&gt;
+  &lt;!-- Video --&gt;
+  &lt;div id=&quot;video-wrapper&quot;&gt;
+    &lt;video id=&quot;storyVideo&quot; width=&quot;680&quot; controls&gt;
     &lt;source src=&quot;1-CD.mp4&quot; type=&quot;video/mp4&quot;&gt;
     Your browser does not support the video tag.
   &lt;/video&gt;
 &lt;/div&gt;
 
 &lt;!-- Options container (hidden at first) --&gt;
-&lt;div id=&quot;options-container&quot; style=&quot;display:none; margin-top: 1em;&quot;&gt;
+&lt;div id=&quot;options-container&quot;&gt;
   &lt;p&gt;[[Encourage him to tell the details]]&lt;/p&gt;
 &lt;/div&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="9" name="Find out who and talk to those bullies" tags="" position="325,475" size="100,100">&lt;!-- Start Button --&gt;
+&lt;button id=&quot;startButton&quot; onclick=&quot;startVideo()&quot;&gt;Face those bullies&lt;/button&gt;
 
-&lt;!-- Script --&gt;
-&lt;script&gt;
-  function startVideo() {
-    // Hide the start button
-    document.querySelector(&#39;button&#39;).style.display = &quot;none&quot;;
-
-    // Show and play the video
-    const videoContainer = document.getElementById(&quot;video-container&quot;);
-    const video = document.getElementById(&quot;storyVideo&quot;);
-    videoContainer.style.display = &quot;block&quot;;
-    video.play();
-
-    // When video ends, show the options
-    video.addEventListener(&#39;ended&#39;, function() {
-      document.getElementById(&quot;options-container&quot;).style.display = &quot;block&quot;;
-    });
-  }
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="9" name="Find out who and talk to those bullies" tags="" position="325,475" size="100,100">&lt;!-- Start Button --&gt;
-&lt;button onclick=&quot;startVideo()&quot;&gt;Face those bullies&lt;/button&gt;
-&lt;!-- Video container (initially hidden) --&gt;
-&lt;div id=&quot;video-container&quot; style=&quot;display:none; margin-top: 1em;&quot;&gt;
-  &lt;video id=&quot;storyVideo&quot; width=&quot;640&quot; height=&quot;360&quot; controls&gt;
+&lt;!-- Flex Container --&gt;
+&lt;div id=&quot;content-container&quot;&gt;
+  &lt;!-- Video --&gt;
+  &lt;div id=&quot;video-wrapper&quot;&gt;
+    &lt;video id=&quot;storyVideo&quot; width=&quot;680&quot; controls&gt;
     &lt;source src=&quot;1-bad.mp4&quot; type=&quot;video/mp4&quot;&gt;
     Your browser does not support the video tag.
   &lt;/video&gt;
 &lt;/div&gt;
 
 &lt;!-- Options container (hidden at first) --&gt;
-&lt;div id=&quot;options-container&quot; style=&quot;display:none; margin-top: 1em;&quot;&gt;
+&lt;div id=&quot;options-container&quot;&gt;
   &lt;p&gt;[[Listen to what experts said]]&lt;/p&gt;
 &lt;/div&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="10" name="Collect the evidence and report to the school" tags="" position="200,475" size="100,100">&lt;!-- Start Button --&gt;
+&lt;button id=&quot;startButton&quot; onclick=&quot;startVideo()&quot;&gt;Report to the school&lt;/button&gt;
 
-&lt;!-- Script --&gt;
-&lt;script&gt;
-  function startVideo() {
-    // Hide the start button
-    document.querySelector(&#39;button&#39;).style.display = &quot;none&quot;;
-
-    // Show and play the video
-    const videoContainer = document.getElementById(&quot;video-container&quot;);
-    const video = document.getElementById(&quot;storyVideo&quot;);
-    videoContainer.style.display = &quot;block&quot;;
-    video.play();
-
-    // When video ends, show the options
-    video.addEventListener(&#39;ended&#39;, function() {
-      document.getElementById(&quot;options-container&quot;).style.display = &quot;block&quot;;
-    });
-  }
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="10" name="Collect the evidence and report to the school" tags="" position="200,475" size="100,100">&lt;!-- Start Button --&gt;
-&lt;button onclick=&quot;startVideo()&quot;&gt;Report to the school&lt;/button&gt;
-&lt;!-- Video container (initially hidden) --&gt;
-&lt;div id=&quot;video-container&quot; style=&quot;display:none; margin-top: 1em;&quot;&gt;
-  &lt;video id=&quot;storyVideo&quot; width=&quot;640&quot; height=&quot;360&quot; controls&gt;
+&lt;!-- Flex Container --&gt;
+&lt;div id=&quot;content-container&quot;&gt;
+  &lt;!-- Video --&gt;
+  &lt;div id=&quot;video-wrapper&quot;&gt;
+    &lt;video id=&quot;storyVideo&quot; width=&quot;680&quot; controls&gt;
     &lt;source src=&quot;1-good.mp4&quot; type=&quot;video/mp4&quot;&gt;
     Your browser does not support the video tag.
   &lt;/video&gt;
 &lt;/div&gt;
 
 &lt;!-- Options container (hidden at first) --&gt;
-&lt;div id=&quot;options-container&quot; style=&quot;display:none; margin-top: 1em;&quot;&gt;
+&lt;div id=&quot;options-container&quot;&gt;
   &lt;p&gt;[[Listen to what experts said]]&lt;/p&gt;
 &lt;/div&gt;
-
-&lt;!-- Script --&gt;
-&lt;script&gt;
-  function startVideo() {
-    // Hide the start button
-    document.querySelector(&#39;button&#39;).style.display = &quot;none&quot;;
-
-    // Show and play the video
-    const videoContainer = document.getElementById(&quot;video-container&quot;);
-    const video = document.getElementById(&quot;storyVideo&quot;);
-    videoContainer.style.display = &quot;block&quot;;
-    video.play();
-
-    // When video ends, show the options
-    video.addEventListener(&#39;ended&#39;, function() {
-      document.getElementById(&quot;options-container&quot;).style.display = &quot;block&quot;;
-    });
-  }
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="11" name="Listen to what experts said" tags="" position="275,600" size="100,100">What can I do if my child is being bullied online?
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="11" name="Listen to what experts said" tags="" position="275,600" size="100,100">What can I do if my child is being bullied online?
 Talk about it
 Even before you notice signs that your child might be experiencing cyberbullying, it’s important to talk with them and invite them to share their experiences online without judgement.
 

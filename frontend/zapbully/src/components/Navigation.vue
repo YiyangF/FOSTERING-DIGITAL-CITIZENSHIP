@@ -13,8 +13,8 @@
       <router-link to="/" exact-active-class="active-link" class="nav-item-link">Home</router-link>
       <router-link to="/data-insights" exact-active-class="active-link" class="nav-item-link">Data Insights</router-link>
       <router-link to="/safety-simulations" exact-active-class="active-link" class="nav-item-link">Safety Simulations</router-link>
-      <router-link to="/parental-support" exact-active-class="active-link" class="nav-item-link">Parental Support</router-link>
-      <router-link to="/link-scanner" exact-active-class="active-link" class="nav-item-link">Link Scanner</router-link>
+      <!-- <router-link to="/parental-support" exact-active-class="active-link" class="nav-item-link">Parental Support</router-link>
+      <router-link to="/link-scanner" exact-active-class="active-link" class="nav-item-link">Link Scanner</router-link> -->
   </nav>
 </header>
 </template>

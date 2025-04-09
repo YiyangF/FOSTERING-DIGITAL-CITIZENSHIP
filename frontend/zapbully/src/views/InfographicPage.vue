@@ -14,7 +14,7 @@
           <h2>53%</h2>
           <p>of parents see <strong>cyberbullying</strong> as a top health concern for children.</p>
           <small>— RCH National Child Health Poll, 2021</small>
-          <a href="https://www.rchpoll.org.au/wp-content/uploads/2021/03/NCHP20-Poll-report-A4_FA.pdf" target="_blank">View Full Report →</a>
+          <!-- <a href="https://www.rchpoll.org.au/wp-content/uploads/2021/03/NCHP20-Poll-report-A4_FA.pdf" target="_blank">View Full Report →</a> -->
         </div>
         <img src="@/assets/worried_parent.jpeg" alt="Worried Parent Illustration" class="section-img" />
       </section>
@@ -35,7 +35,7 @@
           <h2>42%</h2>
           <p>of teens report being <strong>bullied on Instagram</strong> — the most of any platform.</p>
           <small>— ACCC Family Zone Submission, 2023</small>
-          <a href="https://www.accc.gov.au/system/files/DPB%20-%20DPSI%20-%20September%202023%20report%20-%20Submission%20-%20Family%20Zone%20-%20Public.pdf" target="_blank">Read Full Report →</a>
+          <!-- <a href="https://www.accc.gov.au/system/files/DPB%20-%20DPSI%20-%20September%202023%20report%20-%20Submission%20-%20Family%20Zone%20-%20Public.pdf" target="_blank">Read Full Report →</a> -->
         </div>
         <img src="@/assets/instagram_logo.jpeg" alt="Instagram Logo" class="section-img" />
       </section>
@@ -60,7 +60,7 @@
           <p>Cyberbullying is the cause of at least <strong>three youth suicides</strong> per week in Australia.</p>
           <p>It is the <strong>leading cause of death</strong> for youth aged 5–17.</p>
           <small>— ACCC, Rod Harris Submission (2019)</small>
-          <a href="https://www.accc.gov.au/system/files/Rod%20Harris%20%28February%202019%29.PDF" target="_blank">Read Full Report →</a>
+          <!-- <a href="https://www.accc.gov.au/system/files/Rod%20Harris%20%28February%202019%29.PDF" target="_blank">Read Full Report →</a> -->
         </div>
       </section>
   
