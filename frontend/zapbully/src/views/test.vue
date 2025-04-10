@@ -20,7 +20,7 @@
       <button class="restart-button" @click="restart">Restart</button>
     </div>
     <div class="right-button-box">
-      <button class="simulator-button" @click="goToSimulator">Try the Simulator</button>
+      <button class="simulator-button" @click="$router.push('/safety-simulations')">Try the Simulator</button>
 
      <!-- <button class="simulator-button" @click="$emit('close')">Try the Simulator</button> -->
     </div>
