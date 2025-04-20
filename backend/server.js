@@ -1,51 +1,47 @@
+// Load environment variables
 require('dotenv').config();
-const express = require('express');
-const cors = require('cors');
-const { Pool } = require('pg');
-const axios = require('axios');
 
+const express = require('express');
+const { Pool } = require('pg');
+const cors = require('cors');
+
+// Create express app
 const app = express();
 app.use(cors());
-app.use(express.json());
 
+// Connect to your PostgreSQL database
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false }
+  connectionString: process.env.DATABASE_URL, // uses .env file
+  ssl: {
+    rejectUnauthorized: false // required for Neon DB
+  }
 });
 
-app.get('/api/uv-index', async (req, res) => {
-  const cityName = req.query.city;
-
-  if (!cityName) {
-    return res.status(400).json({ error: 'City name is required' });
-  }
-
+// Cyberbullying data endpoint
+app.get('/api/cyberbullying', async (req, res) => {
   try {
-    const query = 'SELECT latitude, longitude FROM vic_suburbs WHERE suburb ILIKE $1 LIMIT 1';
-    const { rows } = await pool.query(query, [cityName]);
-
-    if (rows.length === 0) {
-      return res.status(404).json({ error: 'City not found in database' });
-    }
-
-    const { latitude, longitude } = rows[0];
-
-    const uvResponse = await axios.get('https://api.openuv.io/api/v1/uv', {
-      params: { lat: latitude, lng: longitude },
-      headers: { 'x-access-token': process.env.OPENUV_API_KEY }
-    });
-
-    res.json({
-      city: cityName,
-      latitude,
-      longitude,
-      uv: uvResponse.data.result.uv
-    });
-
-  } catch (error) {
-    console.error('Error fetching UV index:', error.message);
-    res.status(500).json({ error: 'Server error' });
+    const result = await pool.query('SELECT * FROM vic_cyberbullying_percent ORDER BY year');
+    res.json(result.rows);
+  } catch (err) {
+    console.error('Error fetching cyberbullying data:', err);
+    res.status(500).send('Error fetching cyberbullying data');
   }
 });
-const PORT = process.env.PORT || 5000;
-app.listen(PORT,"0.0.0.0", () => console.log(`🚀 Server running on port ${PORT}`));
+
+// Mental health data endpoint
+app.get('/api/mental-health', async (req, res) => {
+  try {
+    const result = await pool.query('SELECT * FROM vic_mental_health ORDER BY year');
+    res.json(result.rows);
+  } catch (err) {
+    console.error('Error fetching mental health data:', err);
+    res.status(500).send('Error fetching mental health data');
+  }
+});
+
+// Start the server
+const PORT = process.env.PORT || 3001;
+// app.listen(PORT, () => {
+//   console.log(`Server running at http://localhost:${PORT}`);
+// });
+app.listen(PORT, "0.0.0.0", () => console.log(`🚀 Server running on port ${PORT}`));
