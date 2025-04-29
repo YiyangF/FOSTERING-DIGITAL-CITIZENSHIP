@@ -8,8 +8,6 @@ import Navigation from './components/Navigation.vue';
     <header>
       <Navigation/>
       <!-- <test/> -->
-
-
     </header>
 
     <main class="main-box">

@@ -1,0 +1,275 @@
+{
+  "title": "teasing child and exclusion from social activities",
+  "steps": [
+    {
+      "id": 0,
+      "name": "Background",
+      "text": "John just entered a new school. The family just moved into a new neighbourhood.",
+      "background": "/school.png",
+      "characters": [
+        {
+          "img": "/maya.png",
+          "style": {
+            "left": "50%",
+            "bottom": "0",
+            "transform": "translateX(-50%)",
+            "height": "250px"
+          }
+        }
+      ],
+      "characterEffect": {
+        "effect": "fade"
+      },
+      "next": 1
+    },
+    {
+      "id": 1,
+      "name": "Background",
+      "text": "John realizes that he is a minority in the school's demographics. He joins a class group chat, but the other children start making fun of his skin colour, name, and looks.",
+      "background": "/john-bedroom.png",
+      "characters": [
+        {
+          "img": "/maya.png",
+          "style": {
+            "left": "50%",
+            "bottom": "0",
+            "transform": "translateX(-50%)",
+            "height": "250px"
+          }
+        }
+      ],
+      "characterEffect": {
+        "effect": "imageChange",
+        "imageChange": "/maya-sad.png",
+        "triggerMessageIndex": 1
+      },
+      "chat": true,
+      "chatDelay": 2000,
+      "messages": [
+        {
+          "name": "Jake",
+          "text": "Marcus out here looking like someone turned down the brightness 🧟‍♂️",
+          "avatar": "/avatars/jake.png",
+          "color": "#d7f0f7"
+        },
+        {
+          "name": "Liam",
+          "text": "Bro blends in with the shadows in every gym selfie 😭",
+          "avatar": "/avatars/liam.png",
+          "color": "#f9d1d1"
+        },
+        {
+          "name": "Tyler",
+          "text": "Not even the flash can save him 💀",
+          "avatar": "/avatars/tyler.png",
+          "color": "#e7f7c5"
+        },
+        {
+          "name": "Coach",
+          "text": "👀😂 y’all wild",
+          "avatar": "/avatars/coachsteve.png",
+          "color": "#d7f0f7"
+        },
+        {
+          "name": "Liam",
+          "text": "Man’s always bringing “dark energy” to the team anyway.",
+          "avatar": "/avatars/liam.png",
+          "color": "#f9d1d1"
+        }
+      ],
+      "next": 2
+    },
+    {
+      "id": 2,
+      "name": "You",
+      "text": "What's happened, honey?",
+      "background": "/bedroom.jpg",
+      "characters": [
+        {
+          "img": "/maya.png",
+          "style": {
+            "left": "30px",
+            "bottom": "0",
+            "height": "250px"
+          }
+        },
+        {
+          "img": "/maya-sad.png",
+          "style": {
+            "right": "30px",
+            "bottom": "0",
+            "height": "250px"
+          }
+        }
+      ],
+      "characterEffect": {
+        "effect": "fade"
+      },
+      "next": 4
+    },
+    {
+      "id": 4,
+      "name": "John",
+      "text": "I don't know, but recently, I feel that the friends I hang out with have been excluding me on purpose.",
+      "background": "/bedroom.jpg",
+      "characters": [
+        {
+          "img": "/maya-sad.png",
+          "style": {
+            "left": "50px",
+            "bottom": "0",
+            "height": "250px"
+          }
+        }
+      ],
+      "characterEffect": {
+        "effect": "fade"
+      },
+      "choices": [
+        { "text": "That’s part of growing up. Just ignore it.", "next": 5 },
+        { "text": "Do you want to talk more about it? I’m here for you.", "next": 8 },
+        { "text": "Show me your phone now — who are these kids?", "next": 7 }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Narrator",
+      "text": "John withdraws further and shuts down.",
+      "background": "/assets/doorway.jpg",
+      "characters": [
+        {
+          "img": "/assets/son-sad.png",
+          "style": {
+            "left": "50px",
+            "bottom": "0",
+            "height": "250px"
+          }
+        }
+      ],
+      "characterEffect": {
+        "effect": "fade"
+      },
+      "next": 6
+    },
+    {
+      "id": 6,
+      "name": "Narrator",
+      "text": "John feels blamed and policed, and hides his phone activity.",
+      "background": "/assets/bedroom.jpg",
+      "characters": [
+        {
+          "img": "/assets/son-neutral.png",
+          "style": {
+            "left": "50px",
+            "bottom": "0",
+            "height": "250px"
+          }
+        }
+      ],
+      "characterEffect": {
+        "effect": "fade"
+      },
+      "next": 7
+    },
+    {
+      "id": 7,
+      "name": "John",
+      "text": "I don't want trouble. I should delete these messages",
+      "background": "/assets/living-room.jpg",
+      "characters": [
+        {
+          "img": "/assets/son-sad.png",
+          "style": {
+            "left": "50px",
+            "bottom": "0",
+            "height": "250px"
+          }
+        }
+      ],
+      "characterEffect": {
+        "effect": "fade"
+      }
+    },
+    {
+      "id": 8,
+      "name": "Narrator",
+      "text": "John shares screenshots and talks openly about what happened.",
+      "background": "/assets/living-room.jpg",
+      "characters": [
+        {
+          "img": "/assets/son-sad.png",
+          "style": {
+            "left": "50px",
+            "bottom": "0",
+            "height": "250px"
+          }
+        }
+      ],
+      "characterEffect": {
+        "effect": "fade"
+      },
+      "choices": [
+        { "text": "Report to the school", "next": 9 },
+        { "text": "Block them", "next": 10 },
+        { "text": "Speak to their parents", "next": 11 }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Narrator",
+      "text": "School steps in with restorative practices. Bullying acts stop, John feels safe.",
+      "background": "/assets/router.jpg",
+      "characters": [
+        {
+          "img": "/assets/son-angry.png",
+          "style": {
+            "left": "50px",
+            "bottom": "0",
+            "height": "250px"
+          }
+        }
+      ],
+      "characterEffect": {
+        "effect": "fade"
+      }
+    },
+    {
+      "id": 10,
+      "name": "Narrator",
+      "text": "Temporary Relief, but the issue may resurface. Needs monitoring.",
+      "background": "/assets/schoolyard.jpg",
+      "characters": [
+        {
+          "img": "/assets/you-angry.png",
+          "style": {
+            "left": "50px",
+            "bottom": "0",
+            "height": "250px"
+          }
+        }
+      ],
+      "characterEffect": {
+        "effect": "fade"
+      }
+    },
+    {
+      "id": 11,
+      "name": "Narrator",
+      "text": "Escalation — may cause more drama or resolve quickly, depending on other parents’ reactions.",
+      "background": "/assets/classroom.jpg",
+      "characters": [
+        {
+          "img": "/assets/you-relieved.png",
+          "style": {
+            "left": "50px",
+            "bottom": "0",
+            "height": "250px"
+          }
+        }
+      ],
+      "characterEffect": {
+        "effect": "fade"
+      }
+    }
+  ]
+}

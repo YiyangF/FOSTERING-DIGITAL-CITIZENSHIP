@@ -26,9 +26,12 @@
   export default {
     name: 'AwarenessChart',
     async mounted() {
-      const cyber = await fetch('http://localhost:3001/api/cyberbullying').then(r => r.json());
-      const mental = await fetch('http://localhost:3001/api/mental-health').then(r => r.json());
-  
+      // const cyber = await fetch('http://localhost:3001/api/cyberbullying').then(r => r.json());
+      // const mental = await fetch('http://localhost:3001/api/mental-health').then(r => r.json());
+      const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
+      const cyber = await fetch(`${BASE_URL}/api/cyberbullying`).then(r => r.json());
+      const mental = await fetch(`${BASE_URL}/api/mental-health`).then(r => r.json());
       this.drawLineChart(this.$refs.cyberChart, cyber, 'Cyberbullying', '#ff4c4c');
       this.drawBarChart(this.$refs.mentalChart, mental, '#4c9aff');
     },
@@ -244,4 +247,19 @@
     z-index: 1000;
   }
   
+  </style>
+  <style>
+  .tooltip {
+    position: absolute;
+    display: none;
+    background: #ffffff;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    pointer-events: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 13px;
+    color: #333;
+    z-index: 1000;
+  }
   </style>

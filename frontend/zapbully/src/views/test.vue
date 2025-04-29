@@ -1,12 +1,7 @@
 <template>
-  <div class="quiz-container">
-    <!-- Progress Bar -->
-    <div class="progress-bar">
-      <div class="progress-fill" :style="{ width: progressPercent + '%' }"></div>
-    </div>
-
-    <!-- Question or Result -->
-    <transition name="fade" mode="out-in">
+ <!-- Show quiz only when showTest is true -->
+  <transition name="fade" mode="out-in">
+    <div>
       <div v-if="!quizCompleted" class="question-box" :key="currentQuestionIndex">
         <h2>Question {{ currentQuestionIndex + 1 }} of {{ questions.length }}</h2>
         <p class="question-text">{{ currentQuestion.text }}</p>
@@ -20,11 +15,19 @@
         <h2>Quiz Completed 🎉</h2>
         <p>Your score: {{ score }} / {{ questions.length * 2 }}</p>
         <p>{{ feedback }}</p>
-        <button class="restart-button" @click="restart">Restart</button>
-        <button class="simulator-button" @click="goToSimulator">Try the Simulator</button>
-      </div>
-    </transition>
+        <div class="result-buttons">
+    <div class="left-button-box">
+      <button class="restart-button" @click="restart">Restart</button>
+    </div>
+    <div class="right-button-box">
+      <button class="simulator-button" @click="$router.push('/safety-simulations')">Try the Simulator</button>
+
+     <!-- <button class="simulator-button" @click="$emit('close')">Try the Simulator</button> -->
+    </div>
   </div>
+      </div>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -163,6 +166,13 @@ button {
 }
 
 /* 🔁 Restart  */
+.result-buttons {
+  display: flex;
+  flex-direction: column; /* ✅ 上下排列 */
+  gap: 10px;               /* ✅ 关键点：拉开上下距离 */
+  margin-top: 30px;
+}
+
 .restart-button {
   background-color: #607d8b;
 }

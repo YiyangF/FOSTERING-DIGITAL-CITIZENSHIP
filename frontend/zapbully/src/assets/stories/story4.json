@@ -1,0 +1,186 @@
+{
+    "title": "Stereotype",
+    "steps": [
+      {
+        "id": 0,
+        "name": "Background",
+        "text": "May posts a clip of herself playing a competitive video game on TikTok.",
+        "background": "/bedroom.jpg",
+        "characterImg": "/maya.png",
+        "characterStyle": {
+            "left": "50%",
+            "bottom": "0",
+            "transform": "translateX(-50%)",
+            "height": "250px"
+        },
+        "next": 1
+      },
+      {
+        "id": 1,
+        "name": "Background",
+        "text": "She’s immediately targeted in the comments and in a group chat by boys from school who mock her skills, appearance, and even her gender for being in a \"guy space\".",
+        "background": "/bedroom.jpg",
+        "characters": [
+          {
+            "img": "/parent.png",
+            "style": {
+              "left": "30px",
+              "bottom": "0",
+              "height": "250px"
+            }
+          },
+          {
+            "img": "/maya-sad.png",
+            "style": {
+              "right": "30px",
+              "bottom": "0",
+              "height": "250px"
+            }
+          }
+        ],
+        "next": 2
+      },
+      {
+        "id": 2,
+        "name": "Background",
+        "text": "She fights back online through comments but still feels angry, dejected and confused.",
+        "background": "/bedroom.jpg",
+        "characters": [
+          {
+            "img": "/parent.png",
+            "style": {
+              "left": "30px",
+              "bottom": "0",
+              "height": "250px"
+            }
+          },
+          {
+            "img": "/maya-sad.png",
+            "style": {
+              "right": "30px",
+              "bottom": "0",
+              "height": "250px"
+            }
+          }
+        ],
+        "next": 3
+      },
+      {
+        "id": 3,
+        "name": "You",
+        "text": "You haven’t played any games in a while. Everything okay?",
+        "background": "/bedroom.jpg",
+        "characters": [
+          {
+            "img": "/parent.png",
+            "style": {
+              "left": "30px",
+              "bottom": "0",
+              "height": "250px"
+            }
+          },
+          {
+            "img": "/maya-sad.png",
+            "style": {
+              "right": "30px",
+              "bottom": "0",
+              "height": "250px"
+            }
+          }
+        ],
+        "next": 4
+      },
+      {
+        "id": 4,
+        "name": "May",
+        "text": " I uploaded a game clip last week. It blew up… but not in a good way.",
+        "background": "/bedroom.jpg",
+        "characters": [
+          {
+            "img": "/parent.png",
+            "style": {
+              "left": "30px",
+              "bottom": "0",
+              "height": "250px"
+            }
+          },
+          {
+            "img": "/maya-sad.png",
+            "style": {
+              "right": "30px",
+              "bottom": "0",
+              "height": "250px"
+            }
+          }
+        ],
+        "next": 5
+      },        
+      {
+        "id": 5,
+        "name": "You",
+        "text": "What do you mean?",
+        "background": "/bedroom.jpg",
+        "characterImg": "/maya-sad.png",
+        "characterStyle": {
+            "left": "50px",
+            "bottom": "0px",
+            "height": "250px"
+        },
+        "next": 6
+      },
+      {
+        "id": 6,
+        "name": "May",
+        "text": "They flooded the comments. Said I should 'stick to makeup' and 'go cook something instead'",
+        "background": "/assets/doorway.jpg",
+        "characterImg": "/assets/son-sad.png",
+        "characterStyle": {
+            "left": "50px",
+            "bottom": "0px",
+            "height": "250px"
+        },
+        "choices": [
+          { "text": "Get used to it", "next": 7 },
+          { "text": "Report them", "next": 8 },
+          { "text": "Stop posting", "next": 9 }
+        ]
+      },
+      {
+        "id": 7,
+        "name": "You",
+        "text": "You need to toughen up — it’s the internet.",
+        "background": "/assets/living-room.jpg",
+        "characterImg": "/assets/son-sad.png",
+        "characterStyle": {
+            "left": "50px",
+            "bottom": "0px",
+            "height": "250px"
+        },
+        "next": 10
+      },
+      {
+        "id": 8,
+        "name": "You",
+        "text": "That’s not okay. You have every right to post and play just like anyone else. Let’s report those comments together.",
+        "background": "/assets/phone.jpg",
+        "characterImg": "/assets/you-concerned.png",
+        "characterStyle": {
+            "left": "50px",
+            "bottom": "0px",
+            "height": "250px"
+        }
+      },
+      {
+        "id": 9,
+        "name": "You",
+        "text": "You knew people would say things. Maybe don’t post stuff like that.",
+        "background": "/assets/living-room.jpg",
+        "characterImg": "/assets/son-sad.png",
+        "characterStyle": {
+            "left": "50px",
+            "bottom": "0px",
+            "height": "250px"
+        }
+      }
+    ]
+  }  

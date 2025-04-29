@@ -4,67 +4,44 @@
       <Navigation />
     </header>
 
-    <!-- Title and Blue Box in Same Row -->
-    <div class="header-section">
-      <div class="title-box">
-        Protect the child's online<br />
-        world,starting here!
-      </div>
+<!-- Right Box Below Title/Blue Box -->
+<div class="right-box bg-image">
+  <div class="svg-wrapper">
+    <svg class="banner-svg" width="200" height="80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    </svg>
+  </div>
+
+  <p class="info-text">
+    Empowered parents. Safer screens. Stronger futures.<br />
+  </p>
+
+  <!-- ✅ Start Test Button ONLY shows if quiz hasn't started -->
+  <transition name="fade-slide">
+    <div class="center-wrapper" v-if="!showTest">
       <div class="left-box">
         <p class="test-text"> 🧐 How much do I know about my child's online safety?</p>
-        <button class="test-button" @click="showTest = true">start test > </button>
+        <button class="test-button" @click="startTest">start test > </button>
       </div>
     </div>
+  </transition>
 
-    <!-- Right Box Below Title/Blue Box -->
-    <div class="right-box bg-image">
-      <div class="svg-wrapper">
-        <svg class="banner-svg" width="200" height="80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- <path d="M10 50 L30 30 L50 50 L70 30 L90 50" stroke="#f2b705" stroke-width="4"/>
-          <circle cx="30" cy="30" r="3" fill="#f2b705"/>
-          <circle cx="50" cy="50" r="3" fill="#f2b705"/>
-          <circle cx="70" cy="30" r="3" fill="#f2b705"/> -->
-        </svg>
-      </div>
-
-      <p class="info-text">
-        Your love is your child's greatest protection in the digital world.<br />
-        "Learn, explore, and empower yourself to guide them safely through the online world."
-      </p>
-
-      <!-- Test Component: show when button clicked -->
-      <transition name="fade-slide">
-        <div class="test-box" v-if="showTest">
-          <test />
-          <button class="test-button" @click="toggleTest">close</button>
-        </div>
-      </transition>
+  <!-- ✅ Quiz content shows ONLY when quiz has started -->
+  <transition name="fade-slide">
+    <div class="test-box" v-if="showTest">
+      <test />
+      <button class="test-button" @click="toggleTest">close</button>
     </div>
+  </transition>
+</div>
     <main class="main-box">
   <router-view></router-view>
-<!-- NEWS -->
-  <!-- <section class="news-section">
-    <h2 class="news-title">Latest News</h2>
-    <div class="news-list">
-      <div class="news-item">
-        <h3>📰 Parents' Guide to Online Safety Tools</h3>
-        <p>Discover the top tools and practices to protect your child online in 2025.</p>
-        <a href="#">Read more →</a>
-      </div>
-      <div class="news-item">
-        <h3>🌐 Trends in Children's Internet Use</h3>
-        <p>New studies show how children's screen time and online habits have shifted this year.</p>
-        <a href="#">Read more →</a>
-      </div>
-    </div>
-  </section> -->
   <section class="guide-section">
-  <h2 class="guide-title">How Can We Help You?</h2>
+  <h2 class="guide-title">What You'll Find on Zapbully</h2>
 
   <div class="guide-grid">
     <!-- Insight Card -->
     <div class="guide-card-box">
-      <img src="/data.gif" alt="Insight Feature" class="guide-image" />
+      <img src="/Analyze-rafiki.svg" alt="Insight Feature" class="guide-image" />
       <div class="guide-content">
         <h3> Insight Feature</h3>
         <p>
@@ -76,7 +53,7 @@
 
     <!-- Simulation Card -->
     <div class="guide-card-box">
-      <img src="/chat.gif" alt="Simulation Feature" class="guide-image" />
+      <img src="/Telecommuting-rafiki.svg" alt="Simulation Feature" class="guide-image" />
       <div class="guide-content">
         <h3>Simulation Feature</h3>
         <p>
@@ -93,12 +70,19 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-// import Navigation from './components/Navigation.vue';
+import { ref, nextTick } from 'vue';
 import test from './test.vue';
 
 const showTest = ref(false);
-const toggleTest = () => (showTest.value = !showTest.value)
+
+const startTest = () => {
+  showTest.value = true;
+};
+
+const toggleTest = () => {
+  showTest.value = false;
+};
+
 </script>
 
 <style scoped>
@@ -106,7 +90,6 @@ const toggleTest = () => (showTest.value = !showTest.value)
 
 .container {
   min-height: 100vh;
-  padding: 60px 20px;
   background-color: transparent;
   display: flex;
   flex-direction: column;
@@ -149,7 +132,16 @@ const toggleTest = () => (showTest.value = !showTest.value)
   flex-direction: column;
   justify-content: center;
   box-sizing: border-box;
+
 }
+
+.center-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0;
+}
+
 
 .test-text {
   font-size: 20px;
@@ -206,7 +198,7 @@ const toggleTest = () => (showTest.value = !showTest.value)
 
 .info-text {
   color: #1f2937;
-  font-size: 25px;
+  font-size: 35px;
   font-weight: 500;
   line-height: 1.6;
   margin-bottom: 12px;
@@ -222,7 +214,6 @@ const toggleTest = () => (showTest.value = !showTest.value)
   animation: fadeIn 0.5s ease-in-out;
 }
 
-/* 动画过渡 */
 .fade-slide-enter-active {
   animation: fadeInUp 0.6s ease;
 }
@@ -293,7 +284,6 @@ const toggleTest = () => (showTest.value = !showTest.value)
   text-decoration: underline;
 }
 
-/* 功能导航 */
 .guide-section {
   margin-top: 60px;
   padding: 30px 20px;
@@ -312,12 +302,21 @@ const toggleTest = () => (showTest.value = !showTest.value)
 .guide-grid {
   display: flex;
   flex-direction: column;
-  gap: 200px;
+  gap: 24px;
 }
 
 @media (min-width: 768px) {
   .guide-grid {
     flex-direction: row;
+    justify-content: center;
+    gap: 24px;
+  }
+
+  .guide-card-box {
+    flex: 0 0 48%;
+    max-width: 48%;
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
   }
 }
@@ -325,20 +324,30 @@ const toggleTest = () => (showTest.value = !showTest.value)
 .guide-card-box {
   background: #ffffff;
   border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   overflow: hidden;
   flex: 1;
-  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .guide-image {
-  width: 10%;
-  height: 40px;
+  width: 100%;
+  max-height: 250px;
   object-fit: cover;
+  object-position: center;
+  object-position: 40% 20%;
 }
 
 .guide-content {
   padding: 20px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  flex-grow: 1;
 }
 
 .guide-content h3 {
@@ -352,6 +361,7 @@ const toggleTest = () => (showTest.value = !showTest.value)
   color: #374151;
   line-height: 1.6;
   margin-bottom: 16px;
+  flex-grow: 1;
 }
 
 .cta-button {
@@ -363,10 +373,12 @@ const toggleTest = () => (showTest.value = !showTest.value)
   text-decoration: none;
   font-weight: 500;
   transition: background-color 0.3s ease;
+  align-self: flex-start;
 }
 
 .cta-button:hover {
   background-color: #fb923c;
 }
+
 
 </style>
