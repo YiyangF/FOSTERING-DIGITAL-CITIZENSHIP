@@ -272,7 +272,7 @@ export default {
 }
 
 .solution_card:hover {
-  background: #007bff;
+  background:rgb(123, 170, 220);
   transform: scale(1.05);
   color: #ffffff;
 }

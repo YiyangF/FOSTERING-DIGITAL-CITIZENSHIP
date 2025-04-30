@@ -79,7 +79,7 @@ export default {
   width: 100%;
   height: 480px;
   object-fit: cover;
-  filter: brightness(0.6) opacity(0.7);
+  filter: brightness(0.8) opacity(0.6);
 }
 
 .carousel-caption {
