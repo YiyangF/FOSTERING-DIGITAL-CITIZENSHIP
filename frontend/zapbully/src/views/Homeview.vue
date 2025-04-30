@@ -158,7 +158,7 @@ const featureCards = [
     description: 'Find answers to your most common questions.',
     buttonText: 'Read More',
     image: faqImage,
-    routeName: 'FAQ'
+    routeName: 'Faq'
   }
 ]
 
