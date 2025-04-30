@@ -12,12 +12,18 @@
 
     <MDBRow :cols="['1', 'md-3']" class="g-4">
       <MDBCol v-for="story in stories" :key="story.id">
-        <MDBCard class="h-100" @click="selectStory(story.id)" style="cursor: pointer;">
+        <MDBCard
+          class="h-100 hover-overlay hover-shadow zoom-card"
+          @click="selectStory(story.id)"
+          style="cursor: pointer; overflow: hidden; position: relative;"
+        >
           <MDBCardImg
             :src="story.image"
             top
             alt="Story image"
+            class="card-img"
           />
+          <div class="animated-mask"></div>
           <MDBCardBody>
             <MDBCardTitle>{{ story.name }}</MDBCardTitle>
             <MDBCardText>{{ story.description }}</MDBCardText>
@@ -130,10 +136,6 @@ header h1 {
   transition: all 0.3s ease;
 }
 
-.story-card:hover {
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-}
-
 .story-card h2 {
   font-size: 20px;
   font-weight: 700;
@@ -146,7 +148,6 @@ header h1 {
   color: #444;
   line-height: 1.4;
 }
-
 
 .twine-container {
   margin-top: 30px;
@@ -183,19 +184,45 @@ header h1 {
   margin-top: 0;
 }
 
-.back-btn {
-  margin-bottom: 16px;
-  padding: 8px 14px;
-  background-color: #ffa726;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  color: white;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
+.zoom-card {
+  transition: transform 0.3s ease;
+  color: black;
 }
 
-.back-btn:hover {
-  background-color: #fb8c00;
+.zoom-card:hover {
+  transform: scale(1.05);
+  color: white;
+}
+
+.zoom-card:hover .animated-mask {
+  opacity: 1;
+}
+
+.animated-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(
+    45deg,
+    rgba(29, 236, 197, 0.5),
+    rgba(91, 14, 214, 0.5)
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  z-index: 1;
+}
+
+.card-img {
+  position: relative;
+  z-index: 0;
+}
+
+.zoom-card .card-body {
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s ease;
 }
 </style>

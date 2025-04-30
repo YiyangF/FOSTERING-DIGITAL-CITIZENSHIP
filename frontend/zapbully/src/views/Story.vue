@@ -1,7 +1,7 @@
 <template>
   <div class="story-container" v-if="step" @click="handleClick">
     <div class="scene-wrapper">
-      <!-- The issue is in this transition - it doesn't respect preserveBackground -->
+
       <div 
         class="scene"
         :style="{ backgroundImage: 'url(' + step.background + ')' }"
@@ -91,7 +91,6 @@ export default {
       
       this.shouldFadeCharacter = newStep.transitionEffect === "fade";
 
-      // Handle background transitions
       if (oldStep && newStep.preserveBackground && oldStep.background === newStep.background) {
         // Same background, no transition needed
       } else {
@@ -109,7 +108,6 @@ export default {
         this.hideTextBox = false;
       }
 
-      // Audio narration
       this.speakStepText();
     }
   },
@@ -133,7 +131,6 @@ export default {
       const currentStep = this.step;
       const nextStep = this.story.steps[index];
       
-      // Properly handle preserveBackground
       if (nextStep && nextStep.preserveBackground && currentStep && currentStep.background === nextStep.background) {
         // Same background - quick transition without fading
         this.resetChat();
@@ -145,7 +142,7 @@ export default {
           this.resetChat();
           this.currentStepIndex = index;
           this.transitionInProgress = false;
-        }, 300); // Sync with CSS transition duration
+        }, 300);
       }
     },
     handleClick() {
@@ -193,7 +190,6 @@ export default {
                 }
               });
 
-              // Check if we need to switch character image
               if (this.step.characterSwitch && 
                   this.step.characterSwitch.atMessageIndex === this.currentMessageIndex) {
                 this.switchCharacterImage(this.step.characterSwitch.image);
@@ -346,15 +342,24 @@ export default {
 }
 
 .back-btn {
+  margin-bottom: 16px;
   padding: 8px 14px;
-  background: #ffa726;
-  color: white;
-  text-decoration: none;
+  background-color: #ffa726;
+  border: none;
   border-radius: 6px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+  background-color: #fb8c00;
 }
 
 .mute-btn {
-  padding: 8px 12px;
+  margin-bottom: 16px;
+  padding: 8px 14px;
   background: #90caf9;
   border: none;
   border-radius: 6px;
@@ -385,11 +390,17 @@ export default {
   left: 30px;
   right: 30px;
   bottom: 90px;
-  overflow-y: auto;
   padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.chat-content::-webkit-scrollbar {
+  display: none;
 }
 
 .message-bubble {
