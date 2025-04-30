@@ -2,59 +2,98 @@
   <div class="main-container" :class="{ 'story-selected': selectedStory }">
     <header v-if="!selectedStory">
       <h1>
-        <span style="font-size: 32px; font-weight: bold; color: #f57c00;">Explore Safety Simulations</span><br />
+        <span style="font-size: 32px; font-weight: bold; color: #f57c00;">Step Into Their Shoes</span><br />
         <span style="font-size: 18px; font-weight: normal; color: #555;">
-          Experience real-life interactive stories to better understand how to navigate and respond to digital risks.
-        </span>
+          Experience real-life interactive digital scenarios. Learn how to guide your kids through online challenges such as harassment and cyberbullying.
+        </span><br />
+        <span style="font-size: 18px; font-weight: bold; color: #f57c00;">Please select one story to start. Make choices, and see the consequences.</span>
       </h1>
     </header>
 
-    <div class="card-container">
-      <div
-        v-for="story in stories"
-        :key="story.name"
-        class="story-card"
-        @click="selectStory(story.path)"
-      >
-        <h2>{{ story.name }}</h2>
-        <p>{{ story.description }}</p>
-      </div>
-    </div>
-
-    <div class="twine-container" v-if="selectedStory">
-      <button @click="selectedStory = null" class="back-btn">← Back to stories</button>
-      <iframe
-        :src="selectedStory"
-        width="100%"
-        height="700px"
-        frameborder="0"
-      ></iframe>
-    </div>
+    <MDBRow :cols="['1', 'md-3']" class="g-4">
+      <MDBCol v-for="story in stories" :key="story.id">
+        <MDBCard
+          class="h-100 hover-overlay hover-shadow zoom-card"
+          @click="selectStory(story.id)"
+          style="cursor: pointer; overflow: hidden; position: relative;"
+        >
+          <MDBCardImg
+            :src="story.image"
+            top
+            alt="Story image"
+            class="card-img"
+          />
+          <div class="animated-mask"></div>
+          <MDBCardBody>
+            <MDBCardTitle>{{ story.name }}</MDBCardTitle>
+            <MDBCardText>{{ story.description }}</MDBCardText>
+          </MDBCardBody>
+        </MDBCard>
+      </MDBCol>
+    </MDBRow>
   </div>
 </template>
 
 <script>
+import {
+  MDBRow,
+  MDBCol,
+  MDBCard,
+  MDBCardBody,
+  MDBCardTitle,
+  MDBCardText,
+  MDBCardImg
+} from 'mdb-vue-ui-kit';
+
 export default {
+  components: {
+    MDBRow,
+    MDBCol,
+    MDBCard,
+    MDBCardBody,
+    MDBCardTitle,
+    MDBCardText,
+    MDBCardImg
+  },
   data() {
     return {
       stories: [
         {
-          name: "Harassing",
-          path: "/story/story1/Harassing.html",
-          description: "Learn how to respond to online harassment effectively."
+          id: 3,
+          name: "Group Chat Bullying",
+          description: "A child faces exclusion from social activities due to teasing and exclusion from school due to their ethnicity being a minority in the school's demographics.",
+          image: "/story3.png"
         },
         {
-          name: "Cyberbullying",
-          path: "/story/story2/Maya.html",
-          description: "Understand cyberbullying situations and healthy coping strategies."
+          id: 4,
+          name: "Toxic Comments",
+          description: "A teenage girl on TikTok faces mockery from schoolboys, leading to anger, dejectedness, and confusion. She fights back through comments and group chats.",
+          image: "/story4.png"
+        },
+        {
+          id: 5,
+          name: "LGBTQ+ Harassment",
+          description: "Alex, who recently outed as non-binary, was publicly outed in a school chat, and anonymous Instagram and Snapchat stories mocked his identity with transphobic memes and slurs.",
+          image: "/story5.jpg"
+        },
+        /* {
+          id: 1,
+          name: "Harassing",
+          description: "Learn how to respond to online harassment effectively.",
+          image: "https://mdbootstrap.com/img/new/standard/city/041.webp"
+        }, */
+        {
+          id: 2,
+          name: "Gaming Failure",
+          description: "James stopped playing Fortnite. James didn’t want to go to school either. Something felt heavy inside, but he didn’t know how to say it.",
+          image: "/story2.jpg"
         }
-      ],
-      selectedStory: null
+      ]
     };
   },
   methods: {
-    selectStory(path) {
-      this.selectedStory = path;
+    selectStory(storyId) {
+      this.$router.push({ name: 'Story', params: { storyId } });
     }
   }
 };
@@ -65,6 +104,11 @@ export default {
   padding: 40px 20px;
   font-family: Arial, sans-serif;
   transition: all 0.3s ease;
+  background-image: url('/bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
 }
 
 header {
@@ -97,10 +141,6 @@ header h1 {
   transition: all 0.3s ease;
 }
 
-.story-card:hover {
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-}
-
 .story-card h2 {
   font-size: 20px;
   font-weight: 700;
@@ -113,7 +153,6 @@ header h1 {
   color: #444;
   line-height: 1.4;
 }
-
 
 .twine-container {
   margin-top: 30px;
@@ -150,19 +189,45 @@ header h1 {
   margin-top: 0;
 }
 
-.back-btn {
-  margin-bottom: 16px;
-  padding: 8px 14px;
-  background-color: #ffa726;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  color: white;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
+.zoom-card {
+  transition: transform 0.3s ease;
+  color: black;
 }
 
-.back-btn:hover {
-  background-color: #fb8c00;
+.zoom-card:hover {
+  transform: scale(1.05);
+  color: white;
+}
+
+.zoom-card:hover .animated-mask {
+  opacity: 1;
+}
+
+.animated-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(
+    45deg,
+    rgba(29, 236, 197, 0.5),
+    rgba(91, 14, 214, 0.5)
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  z-index: 1;
+}
+
+.card-img {
+  position: relative;
+  z-index: 0;
+}
+
+.zoom-card .card-body {
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s ease;
 }
 </style>

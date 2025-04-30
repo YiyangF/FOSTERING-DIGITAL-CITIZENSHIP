@@ -1,396 +1,440 @@
 <template>
-  <div class="container">
-    <header>
-      <Navigation />
-    </header>
-
-    <!-- Title and Blue Box in Same Row -->
-    <div class="header-section">
-      <div class="title-box">
-        Shield Your Child <br />
-        from Cyberbullying!
-      </div>
+  <div class="hero-container">
+    <div class="particle-background" aria-hidden="true">
+      <span
+        v-for="(p, index) in particles"
+        :key="index"
+        class="particle"
+        :style="{ '--x': `${p.x}px`, '--y': `${p.y}px` }"
+      ></span>
     </div>
 
-<!-- Right Box Below Title/Blue Box -->
-<div class="right-box bg-image">
-  <div class="svg-wrapper">
-    <svg class="banner-svg" width="200" height="80" fill="none" xmlns="http://www.w3.org/2000/svg">
-    </svg>
-  </div>
-
-  <p class="info-text">
-    Empowered parents. Safer screens. Stronger futures.<br />
-  </p>
-
-  <!-- ✅ Start Test Button ONLY shows if quiz hasn't started -->
-  <transition name="fade-slide">
-    <div class="center-wrapper" v-if="!showTest">
-      <div class="left-box">
-        <p class="test-text"> 🧐 How much do I know about my child's online safety?</p>
-        <button class="test-button" @click="startTest">start test > </button>
-      </div>
-    </div>
-  </transition>
-
-  <!-- ✅ Quiz content shows ONLY when quiz has started -->
-  <transition name="fade-slide">
-    <div class="test-box" v-if="showTest">
-      <test />
-      <button class="test-button" @click="toggleTest">close</button>
-    </div>
-  </transition>
-</div>
-    <main class="main-box">
-  <router-view></router-view>
-  <section class="guide-section">
-  <h2 class="guide-title">What You'll Find on Zapbully</h2>
-
-  <div class="guide-grid">
-    <!-- Insight Card -->
-    <div class="guide-card-box">
-      <img src="/Analyze-rafiki.svg" alt="Insight Feature" class="guide-image" />
-      <div class="guide-content">
-        <h3> Insight Feature</h3>
-        <p>
-          Learn how cyberbullying quietly affects teenagers' mental health. We provide real data and analysis to help you uncover the truth and protect your child's growth.
-        </p>
-        <router-link to="/data-insights" class="cta-button">Explore Insights →</router-link>
-      </div>
+    <div class="floating-icons" aria-hidden="true">
+      <img
+        v-for="(icon, index) in icons"
+        :key="index"
+        :src="getIcon(icon.type)"
+        :style="{ top: icon.top, left: icon.left }"
+        class="icon-float glow"
+      />
     </div>
 
-    <!-- Simulation Card -->
-    <div class="guide-card-box">
-      <img src="/Telecommuting-rafiki.svg" alt="Simulation Feature" class="guide-image" />
-      <div class="guide-content">
-        <h3>Simulation Feature</h3>
-        <p>
-          Our interactive simulation brings you into your child's world. Understand what they may be going through and learn to communicate effectively, keeping them safe from emotional harm.
-        </p>
-        <router-link to="/safety-simulations" class="cta-button">Try Simulation →</router-link>
-      </div>
+    <div class="hero-text">
+      <h1>
+        Shield Your Child from
+        <span class="highlight zap">Cyberbullying</span>
+      </h1>
+      <p>Empowered Parents. Safer Screens. Stronger Futures.</p>
+    </div>
+
+    <div class="arrow-container">
+      <button class="down-arrow" @click="scrollToFeatures" aria-label="Scroll down">↓</button>
     </div>
   </div>
-</section>
-</main>
 
-  </div>
+  <section ref="featureSection" class="feature-section">
+    <div class="card-grid">
+      <div
+        class="feature-card"
+        v-for="(card, index) in featureCards"
+        :key="index"
+        :class="{ 'animate-in': hasIntersected }"
+        :style="{ animationDelay: `${0.2 * (index + 1)}s` }"
+        @click.stop="handleCardClick(card)"
+      >
+        <div class="card-cover">
+          <img :src="card.image" :alt="card.title" class="card-image" />
+          <div class="card-title">{{ card.title }}</div>
+        </div>
+        <div class="card-details">
+          <p>{{ card.description }}</p>
+          <button 
+            type="button" 
+            class="card-button"
+            @click.stop="goToRoute(card.routeName)"
+          >
+            {{ card.buttonText }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script setup>
-import { ref, nextTick } from 'vue';
-import test from './test.vue';
+import { ref, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
+import mailIcon from '@/assets/icons/mail.svg'
+import bubbleIcon from '@/assets/icons/bubble.svg'
+import macIcon from '@/assets/icons/mac.svg'
+import hfaceIcon from '@/assets/icons/hface.svg'
+import sfaceIcon from '@/assets/icons/sface.svg'
+import faqImage from '@/assets/card/FAQ.png'
+import guiImage from '@/assets/card/gui.png'
+import simImage from '@/assets/card/sim.png'
+import symImage from '@/assets/card/sym.png'
 
-const showTest = ref(false);
+const router = useRouter()
+const iconMap = {
+  mail: mailIcon,
+  bubble: bubbleIcon,
+  mac: macIcon,
+  hface: hfaceIcon,
+  sface: sfaceIcon
+}
 
-const startTest = () => {
-  showTest.value = true;
-};
+const featureSection = ref(null)
+const hasIntersected = ref(false)
 
-const toggleTest = () => {
-  showTest.value = false;
-};
+function scrollToFeatures() {
+  const top = featureSection.value?.offsetTop
+  const header = document.querySelector('header')
+  const headerHeight = header?.offsetHeight || 80
+  if (top !== undefined) {
+    window.scrollTo({
+      top: top - headerHeight,
+      behavior: 'smooth'
+    })
+  }
+}
 
+onMounted(() => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        hasIntersected.value = true
+        observer.disconnect()
+      }
+    },
+    { threshold: 0.3 }
+  )
+  if (featureSection.value) {
+    observer.observe(featureSection.value)
+  }
+})
+
+const particles = Array.from({ length: 100 }, () => ({
+  x: (Math.random() * 2 - 1) * 200,
+  y: (Math.random() * 2 - 1) * 200
+}))
+
+const icons = [
+  { type: 'mail', top: '10%', left: '10%' },
+  { type: 'bubble', top: '10%', left: '70%' },
+  { type: 'mac', top: '30%', left: '20%' },
+  { type: 'hface', top: '30%', left: '80%' },
+  { type: 'sface', top: '50%', left: '10%' },
+  { type: 'mail', top: '50%', left: '80%' },
+  { type: 'bubble', top: '70%', left: '20%' },
+  { type: 'mac', top: '70%', left: '70%' },
+  { type: 'hface', top: '85%', left: '40%' },
+  { type: 'sface', top: '85%', left: '60%' }
+]
+
+const featureCards = [
+  {
+    title: 'Try Simulator',
+    description: 'Experience a simulated cyberbullying scenario.',
+    buttonText: 'Try Now',
+    image: simImage,
+    routeName: 'Simulator'
+  },
+  {
+    title: 'Parental Guide',
+    description: 'Learn how to protect your child online.',
+    buttonText: 'Learn More',
+    image: guiImage,
+    routeName: 'Support'
+  },
+  {
+    title: 'Symptom Checker',
+    description: 'See what others have experienced.',
+    buttonText: 'Explore',
+    image: symImage,
+    routeName: 'Symptom'
+  },
+  {
+    title: 'FAQ',
+    description: 'Find answers to your most common questions.',
+    buttonText: 'Read More',
+    image: faqImage,
+    routeName: 'FAQ'
+  }
+]
+
+function getIcon(type) {
+  return iconMap[type] || ''
+}
+
+function handleCardClick(card) {
+  if (event.target.closest('.card-button')) {
+    return
+  }
+  goToRoute(card.routeName)
+}
+
+function goToRoute(routeName) {
+  router.push({ name: routeName })
+}
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
-
-.container {
-  min-height: 100vh;
-  padding: 60px 20px;
-  background-color: transparent;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 32px;
-}
-
-.header-section {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 24px;
-  flex-wrap: wrap;
-}
-
-.title-box {
-  padding: 20px;
-  font-size: 50px;
-  font-weight: bold;
-  color: #111827;
-  line-height: 1.4;
-  font-family: 'Nunito', sans-serif;
-  flex: 1;
-  min-width: 300px;
-}
-
-.left-box {
-  background-color: #b2d4eb;
-  color: white;
-  padding: 24px;
-  border-radius: 30px;
-  flex: 1;
-  min-width: 280px;
-  max-width: 400px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  box-sizing: border-box;
-
-}
-
-.center-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 30px 0;
-}
-
-
-.test-text {
-  font-size: 20px;
-  font-weight: 550;
-  margin-bottom: 16px;
-}
-
-.test-button {
-  background-color: #ffa726;
-  color: white;
-  padding: 10px 16px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  transition: background-color 0.3s ease;
-}
-
-.test-button:hover {
-  background-color: #fb923c;
-}
-
-.right-box {
-  background-color: #ffffff;
-  border: 1px solid #d1d5db;
-  border-radius: 30px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  padding: 24px;
-  width: 100%;
-  text-align: center;
-  box-sizing: border-box;
+.hero-container {
   position: relative;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to bottom, #a6c6dd, #3b74c7);
   overflow: hidden;
-    margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
-.right-box.bg-image {
-  background-image: url('/whitebox.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+.particle-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
 }
 
-.svg-wrapper {
+.particle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  animation: particleMove 8s linear infinite;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  --x: 0px;
+  --y: -100px;
+}
+
+@keyframes particleMove {
+  0% {
+    transform: translate(-50%, -50%) translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) translate(var(--x), var(--y));
+    opacity: 0;
+  }
+}
+
+.floating-icons {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.icon-float {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  opacity: 0.35;
+  animation: float 20s ease-in-out infinite;
+  filter: grayscale(0%) brightness(1.3);
+}
+
+.glow {
+  filter: drop-shadow(0 0 10px rgba(0, 217, 255, 0.7)) drop-shadow(0 0 20px rgba(0, 217, 255, 0.4));
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) translateX(0px); }
+  25% { transform: translateY(-40px) translateX(10px); }
+  50% { transform: translateY(0px) translateX(0px); }
+  75% { transform: translateY(40px) translateX(-10px); }
+  100% { transform: translateY(0px) translateX(0px); }
+}
+
+.hero-text {
+  z-index: 1;
+  max-width: 700px;
+}
+
+.hero-text h1 {
+  font-size: 5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #ffffff;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.hero-text .highlight {
+  color: #3b82f6;
+}
+
+.hero-text .zap {
+  display: inline-block;
+  transition: all 0.2s ease;
+}
+
+.hero-text .zap:hover {
+  animation: zapEffect 0.8s ease;
+  color: #ef4444;
+  text-shadow: 0 0 8px #ff3c00, 0 0 20px #ff3c00;
+}
+
+@keyframes zapEffect {
+  0% { transform: scale(1); }
+  10% { transform: scale(1.05) rotate(-2deg); }
+  20% { transform: scale(0.95) rotate(2deg); }
+  30% { transform: scale(1.02) rotate(-1deg); }
+  40% { transform: scale(1) rotate(0deg); }
+  100% { transform: scale(1); }
+}
+
+.hero-text p {
+  font-size: 1.75rem;
+  color: #dbeafe;
+  margin-top: 1.5rem;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+}
+
+.arrow-container {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
   display: flex;
   justify-content: center;
-  width: 100%;
-  margin-bottom: 8px;
 }
 
-.banner-svg {
-  margin: 0 auto 20px;
+.down-arrow {
+  font-size: 5rem;
+  background: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+  animation: bounceDown 2s infinite;
+}
+
+.down-arrow:hover {
+  color: #bfd7f4;
+}
+
+@keyframes bounceDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+.feature-section {
+  width: 100%;
+  padding-top: 60px;
+  padding-bottom: 80px;
+  background: linear-gradient(to bottom, #3b74c7, #1e2f5d);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  padding: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  height: 280px;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  opacity: 0;
+  transform: scale(0.95) translateY(20px);
+  animation: scatterIn 0.6s ease forwards;
+}
+
+.feature-card.animate-in {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.card-cover {
+  position: relative;
+  height: 100%;
+  transition: transform 0.4s ease;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
-.info-text {
-  color: #1f2937;
-  font-size: 25px;
-  font-weight: 500;
-  line-height: 1.6;
-  margin-bottom: 12px;
-  text-shadow: 5px 5px 15px white;
-}
-
-.test-box {
-  background-color: rgba(255, 255, 255, 0.85);
-  border-radius: 20px;
-  padding: 20px;
-  margin-top: 20px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 0.5s ease-in-out;
-}
-
-/* 动画过渡 */
-.fade-slide-enter-active {
-  animation: fadeInUp 0.6s ease;
-}
-.fade-slide-leave-active {
-  animation: fadeOutDown 0.4s ease;
-}
-
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeOutDown {
-  0% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-}
-.news-section {
-  margin-top: 40px;
-  padding: 20px;
-  background: #f9fafb;
-  border-radius: 12px;
-}
-
-.news-title {
-  font-size: 24px;
-  margin-bottom: 16px;
-  font-weight: bold;
-}
-
-.news-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.news-item {
-  background: white;
-  border: 1px solid #e5e7eb;
-  padding: 16px;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-.news-item h3 {
-  margin: 0 0 8px;
-  font-size: 18px;
-}
-
-.news-item a {
-  color: #2563eb;
-  font-weight: 500;
-  text-decoration: none;
-}
-
-.news-item a:hover {
-  text-decoration: underline;
-}
-
-/* 功能导航 */
-.guide-section {
-  margin-top: 60px;
-  padding: 30px 20px;
-  background-color: #b2d4eb;
-  border-radius: 16px;
-}
-
-.guide-title {
-  font-size: 26px;
-  font-weight: bold;
-  margin-bottom: 32px;
-  text-align: center;
-  color: #1e3a8a;
-}
-
-.guide-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-@media (min-width: 768px) {
-  .guide-grid {
-    flex-direction: row;
-    justify-content: center;
-    gap: 24px;
-  }
-
-  .guide-card-box {
-    flex: 0 0 48%;
-    max-width: 48%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-}
-
-.guide-card-box {
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  overflow: hidden;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.guide-image {
+.card-title {
+  position: absolute;
+  bottom: 0;
   width: 100%;
-  max-height: 250px;
-  object-fit: cover;
-  object-position: center;
-  object-position: 40% 20%;
-}
-
-.guide-content {
-  padding: 20px;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  flex-grow: 1;
-}
-
-.guide-content h3 {
-  font-size: 18px;
-  margin-bottom: 10px;
-  color: #111827;
-}
-
-.guide-content p {
-  font-size: 15px;
-  color: #374151;
-  line-height: 1.6;
-  margin-bottom: 16px;
-  flex-grow: 1;
-}
-
-.cta-button {
-  display: inline-block;
-  background-color: #ffa726;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.4);
   color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+.card-details {
+  position: absolute;
+  bottom: -100px;
+  left: 0;
+  width: 100%;
+  padding: 16px;
+  background-color: rgba(30, 41, 59, 0.9);
+  color: #e2e8f0;
+  text-align: center;
+  transition: bottom 0.4s ease;
+  opacity: 0;
+}
+
+.feature-card:hover .card-cover {
+  transform: translateY(-60px);
+}
+
+.feature-card:hover .card-details {
+  bottom: 0;
+  opacity: 1;
+}
+
+.card-button {
+  margin-top: 1rem;
   padding: 8px 16px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 500;
+  font-size: 0.95rem;
+  color: #ffffff;
+  background-color: #3b82f6;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
   transition: background-color 0.3s ease;
-  align-self: flex-start;
+  pointer-events: auto;
 }
 
-.cta-button:hover {
-  background-color: #fb923c;
+.card-button:hover {
+  background-color: #2563eb;
 }
 
-
+@keyframes scatterIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
 </style>
