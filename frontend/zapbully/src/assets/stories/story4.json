@@ -3,7 +3,7 @@
   "steps": [
     {
       "id": 0,
-      "name": " ",
+      "name": "",
       "text": "May posts a clip of herself playing a competitive video game on TikTok.",
       "voice": "Microsoft James",
       "background": "/may-bedroom.png",
@@ -11,10 +11,9 @@
         {
           "img": "/may.png",
           "style": {
-            "left": "50%",
+            "left": "25%",
             "bottom": "0",
-            "transform": "translateX(-50%)",
-            "height": "400px"
+            "height": "500px"
           }
         }
       ],
@@ -23,7 +22,7 @@
     },
     {
       "id": 1,
-      "name": " ",
+      "name": "",
       "text": "She’s immediately targeted in the comments and in a group chat by boys from school who mock her skills, appearance, and even her gender for being in a \"guy space\".",
       "voice": "Microsoft James",
       "background": "/may-bedroom.png",
@@ -32,16 +31,16 @@
           "img": "/screenshot.png",
           "style": {
             "right": "30%",
-            "bottom": "0",
-            "height": "500px"
+            "bottom": "100px",
+            "height": "400px"
           }
         },
         {
           "img": "/may-shock.png",
           "style": {
-            "left": "30%",
+            "left": "10%",
             "bottom": "0",
-            "height": "400px"
+            "height": "500px"
           }
         }
       ],
@@ -51,7 +50,7 @@
     },
     {
       "id": 2,
-      "name": " ",
+      "name": "",
       "text": "She fights back online through comments but still feels angry, dejected and confused.",
       "voice": "Microsoft James",
       "background": "/may-bedroom.png",
@@ -60,16 +59,16 @@
           "img": "/screenshot.png",
           "style": {
             "right": "30%",
-            "bottom": "0",
-            "height": "500px"
+            "bottom": "100px",
+            "height": "400px"
           }
         },
         {
           "img": "/may-sad.png",
           "style": {
-            "left": "30%",
+            "left": "10%",
             "bottom": "0",
-            "height": "400px"
+            "height": "500px"
           }
         }
       ],
@@ -87,17 +86,17 @@
         {
           "img": "/mparent-ask.png",
           "style": {
-            "left": "30%",
+            "left": "10%",
             "bottom": "0",
-            "height": "300px"
+            "height": "500px"
           }
         },
         {
           "img": "/may-sad.png",
           "style": {
-            "right": "30%",
+            "right": "10%",
             "bottom": "0",
-            "height": "400px"
+            "height": "500px"
           }
         }
       ],
@@ -114,17 +113,17 @@
         {
           "img": "/mparent-ask.png",
           "style": {
-            "left": "30%",
+            "left": "10%",
             "bottom": "0",
-            "height": "300px"
+            "height": "500px"
           }
         },
         {
           "img": "/may-talk.png",
           "style": {
-            "right": "30%",
+            "right": "10%",
             "bottom": "0",
-            "height": "400px"
+            "height": "500px"
           }
         }
       ],
@@ -142,17 +141,17 @@
         {
           "img": "/mparent-ask.png",
           "style": {
-            "left": "30%",
+            "left": "10%",
             "bottom": "0",
-            "height": "300px"
+            "height": "500px"
           }
         },
         {
           "img": "/may-sad.png",
           "style": {
-            "right": "30%",
+            "right": "10%",
             "bottom": "0",
-            "height": "400px"
+            "height": "500px"
           }
         }
       ],
@@ -170,17 +169,17 @@
         {
           "img": "/mparent-ask.png",
           "style": {
-            "left": "30%",
+            "left": "10%",
             "bottom": "0",
-            "height": "300px"
+            "height": "500px"
           }
         },
         {
           "img": "/may-talk.png",
           "style": {
-            "right": "30%",
+            "right": "10%",
             "bottom": "0",
-            "height": "400px"
+            "height": "500px"
           }
         }
       ],
@@ -202,17 +201,17 @@
         {
           "img": "/mparent-laugh.png",
           "style": {
-            "left": "30%",
+            "left": "10%",
             "bottom": "0",
-            "height": "300px"
+            "height": "500px"
           }
         },
         {
           "img": "/may-sad.png",
           "style": {
-            "right": "30%",
+            "right": "10%",
             "bottom": "0",
-            "height": "400px"
+            "height": "500px"
           }
         }
       ],
@@ -230,17 +229,17 @@
         {
           "img": "/mparent-think.png",
           "style": {
-            "left": "30%",
+            "left": "10%",
             "bottom": "0",
-            "height": "300px"
+            "height": "500px"
           }
         },
         {
           "img": "/may-sad.png",
           "style": {
-            "right": "30%",
+            "right": "10%",
             "bottom": "0",
-            "height": "400px"
+            "height": "500px"
           }
         }
       ],
@@ -258,17 +257,17 @@
         {
           "img": "/mparent-ask.png",
           "style": {
-            "left": "30%",
+            "left": "10%",
             "bottom": "0",
-            "height": "300px"
+            "height": "500px"
           }
         },
         {
           "img": "/may-sad.png",
           "style": {
-            "right": "30%",
+            "right": "10%",
             "bottom": "0",
-            "height": "400px"
+            "height": "500px"
           }
         }
       ],
@@ -289,17 +288,17 @@
         {
           "img": "/mparent-laugh.png",
           "style": {
-            "left": "30%",
+            "left": "10%",
             "bottom": "0",
-            "height": "300px"
+            "height": "500px"
           }
         },
         {
           "img": "/may-angry.png",
           "style": {
-            "right": "30%",
+            "right": "10%",
             "bottom": "0",
-            "height": "400px"
+            "height": "500px"
           }
         }
       ],
@@ -317,9 +316,9 @@
         {
           "img": "/may-sad.png",
           "style": {
-            "right": "50%",
+            "left": "25%",
             "bottom": "0",
-            "height": "400px"
+            "height": "500px"
           }
         }
       ],
@@ -335,17 +334,17 @@
         {
           "img": "/mparent-think.png",
           "style": {
-            "left": "30%",
+            "left": "10%",
             "bottom": "0",
-            "height": "300px"
+            "height": "500px"
           }
         },
         {
           "img": "/may-sad.png",
           "style": {
-            "right": "30%",
+            "right": "10%",
             "bottom": "0",
-            "height": "400px"
+            "height": "500px"
           }
         }
       ],
@@ -363,17 +362,17 @@
         {
           "img": "/mparent-ask.png",
           "style": {
-            "left": "30%",
+            "left": "10%",
             "bottom": "0",
-            "height": "300px"
+            "height": "500px"
           }
         },
         {
           "img": "/may-sad.png",
           "style": {
-            "right": "30%",
+            "right": "10%",
             "bottom": "0",
-            "height": "400px"
+            "height": "500px"
           }
         }
       ],
@@ -391,17 +390,17 @@
         {
           "img": "/mparent-ask.png",
           "style": {
-            "left": "30%",
+            "left": "10%",
             "bottom": "0",
-            "height": "300px"
+            "height": "500px"
           }
         },
         {
           "img": "/may-sad.png",
           "style": {
-            "right": "30%",
+            "right": "10%",
             "bottom": "0",
-            "height": "400px"
+            "height": "500px"
           }
         }
       ],
@@ -440,16 +439,16 @@
           "img": "/screenshot.png",
           "style": {
             "left": "30%",
-            "bottom": "0",
-            "height": "300px"
+            "bottom": "100px",
+            "height": "400px"
           }
         },
         {
           "img": "/may-talk.png",
           "style": {
-            "right": "30%",
+            "right": "10%",
             "bottom": "0",
-            "height": "400px"
+            "height": "500px"
           }
         }
       ],
@@ -470,9 +469,9 @@
         {
           "img": "/may.png",
           "style": {
-            "right": "50%",
+            "left": "25%",
             "bottom": "0",
-            "height": "400px"
+            "height": "500px"
           }
         }
       ],
@@ -488,9 +487,9 @@
         {
           "img": "/may-sad.png",
           "style": {
-            "right": "50%",
+            "left": "25%",
             "bottom": "0",
-            "height": "400px"
+            "height": "500px"
           }
         }
       ],

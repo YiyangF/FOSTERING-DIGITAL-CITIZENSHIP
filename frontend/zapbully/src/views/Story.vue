@@ -246,6 +246,10 @@ export default {
   },
   mounted() {
     this.loadStory();
+  },
+  beforeRouteLeave(to, from, next) {
+    window.speechSynthesis.cancel();
+    next();
   }
 };
 </script>
@@ -256,6 +260,11 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  background-image: url('/bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat-y;
+  min-height: 100vh;
 }
 
 .scene-wrapper {

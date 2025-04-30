@@ -59,34 +59,34 @@ export default {
     return {
       stories: [
         {
+          id: 3,
+          name: "Group Chat Bullying",
+          description: "A child faces exclusion from social activities due to teasing and exclusion from school due to their ethnicity being a minority in the school's demographics.",
+          image: "/story3.png"
+        },
+        {
+          id: 4,
+          name: "Toxic Comments",
+          description: "A teenage girl on TikTok faces mockery from schoolboys, leading to anger, dejectedness, and confusion. She fights back through comments and group chats.",
+          image: "/story4.png"
+        },
+        {
+          id: 5,
+          name: "LGBTQ+ Harassment",
+          description: "Alex, who recently outed as non-binary, was publicly outed in a school chat, and anonymous Instagram and Snapchat stories mocked his identity with transphobic memes and slurs.",
+          image: "/story5.jpg"
+        },
+        /* {
           id: 1,
           name: "Harassing",
           description: "Learn how to respond to online harassment effectively.",
           image: "https://mdbootstrap.com/img/new/standard/city/041.webp"
-        },
+        }, */
         {
           id: 2,
-          name: "Cyberbullying",
-          description: "Understand cyberbullying situations and healthy coping strategies.",
-          image: "https://mdbootstrap.com/img/new/standard/city/042.webp"
-        },
-        {
-          id: 3,
-          name: "Catfishing",
-          description: "Spot signs of online deception and identity misuse.",
-          image: "https://mdbootstrap.com/img/new/standard/city/043.webp"
-        },
-        {
-          id: 4,
-          name: "Scams",
-          description: "Learn how to identify and avoid online scams.",
-          image: "https://mdbootstrap.com/img/new/standard/city/044.webp"
-        },
-        {
-          id: 5,
-          name: "Privacy Invasion",
-          description: "Understand digital privacy and how to protect personal data.",
-          image: "https://mdbootstrap.com/img/new/standard/city/045.webp"
+          name: "Gaming Failure",
+          description: "James stopped playing Fortnite. James didn’t want to go to school either. Something felt heavy inside, but he didn’t know how to say it.",
+          image: "/story2.jpg"
         }
       ]
     };
@@ -104,6 +104,11 @@ export default {
   padding: 40px 20px;
   font-family: Arial, sans-serif;
   transition: all 0.3s ease;
+  background-image: url('/bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
 }
 
 header {

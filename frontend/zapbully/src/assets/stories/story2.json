@@ -4,18 +4,17 @@
     {
       "id": 0,
       "name": "",
-      "text": "Your 10-year-old son is obsessed with Fortnite. Recently, he stopped playing and is avoiding school.",
-      "voice": "Google UK English Female",
-      "background": "/bedroom.jpg",
+      "text": "Your 10-year-old son is a game obssesor, he always plays Fortnite after dinner until he goes to bed.",
+      "voice": "Microsoft James",
+      "background": "/john-bedroom.png",
       "transitionEffect": "fade",
       "characters": [
         {
-          "img": "/maya.png",
+          "img": "/john-phone-1.png",
           "style": {
-            "left": "50%",
+            "left": "60%",
             "bottom": "0",
-            "transform": "translateX(-50%)",
-            "height": "250px"
+            "height": "400px"
           }
         }
       ],
@@ -23,26 +22,18 @@
     },
     {
       "id": 1,
-      "name": "You",
-      "text": "Wanna play before bed?",
-      "voice": "Google UK English Female",
-      "background": "/bedroom.jpg",
+      "name": "",
+      "text": "Recently, he has not been playing it and acting resistant to school.",
+      "voice": "Microsoft James",
+      "background": "/livingroom.png",
       "transitionEffect": "fade",
       "characters": [
         {
-          "img": "/parent.png",
+          "img": "/john-sad.png",
           "style": {
-            "left": "30px",
+            "right": "40%",
             "bottom": "0",
-            "height": "250px"
-          }
-        },
-        {
-          "img": "/maya-sad.png",
-          "style": {
-            "right": "30px",
-            "bottom": "0",
-            "height": "250px"
+            "height": "400px"
           }
         }
       ],
@@ -50,26 +41,27 @@
     },
     {
       "id": 2,
-      "name": "Son",
-      "text": "Not today... Can I take today off? Please...",
-      "voice": "Microsoft James",
-      "background": "/bedroom.jpg",
+      "name": "You",
+      "text": "You wanna play before you sleep?",
+      "voice": "Google UK English Female",
+      "background": "/livingroom.png",
       "transitionEffect": "fade",
+      "preserveBackground": true,
       "characters": [
         {
-          "img": "/parent.png",
+          "img": "/parent-ask.png",
           "style": {
-            "left": "30px",
+            "left": "10%",
             "bottom": "0",
-            "height": "250px"
+            "height": "450px"
           }
         },
         {
-          "img": "/maya-sad.png",
+          "img": "/john-sad.png",
           "style": {
-            "right": "30px",
+            "right": "20%",
             "bottom": "0",
-            "height": "250px"
+            "height": "400px"
           }
         }
       ],
@@ -77,59 +69,87 @@
     },
     {
       "id": 3,
+      "name": "Son",
+      "text": "Not today... and can I take tomorrrow off school? Please...?",
+      "voice": "Microsoft Mark",
+      "background": "/livingroom.png",
+      "transitionEffect": "fade",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/3b.png",
+          "style": {
+            "left": "10%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/john-talk.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 4
+    },
+    {
+      "id": 4,
       "name": "You",
       "text": "What's going on? Do you feel unwell?",
       "voice": "Google UK English Female",
-      "background": "/bedroom.jpg",
+      "background": "/livingroom.png",
       "transitionEffect": "fade",
+      "preserveBackground": true,
       "characters": [
         {
-          "img": "/maya-sad.png",
+          "img": "/3b.png",
           "style": {
-            "left": "50px",
-            "bottom": "0px",
-            "height": "250px"
+            "left": "10%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/john-sad.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
           }
         }
       ],
       "choices": [
-        { "text": "Force him to go to school", "next": 4 },
-        { "text": "Talk to him about school", "next": 5 },
-        { "text": "Ask why he didn’t play last night", "next": 6 }
-      ]
-    },
-    {
-      "id": 4,
-      "name": "Narrator",
-      "text": "He resists going to school. You don't know what's wrong.",
-      "voice": "Google UK English Female",
-      "background": "/assets/doorway.jpg",
-      "transitionEffect": "fade",
-      "characters": [
-        {
-          "img": "/assets/son-sad.png",
-          "style": {
-            "left": "50px",
-            "bottom": "0px",
-            "height": "250px"
-          }
-        }
+        { "text": "Force to school", "next": 5 },
+        { "text": "Talk about school", "next": 6 },
+        { "text": "Why don't play", "next": 7 }
       ]
     },
     {
       "id": 5,
-      "name": "Narrator",
-      "text": "He avoids the topic. You suspect something more serious.",
+      "name": "You",
+      "text": "If you are not feeling unwell, you must go to school!",
       "voice": "Google UK English Female",
-      "background": "/assets/bedroom.jpg",
+      "background": "/livingroom.png",
       "transitionEffect": "fade",
+      "preserveBackground": true,
       "characters": [
         {
-          "img": "/assets/son-neutral.png",
+          "img": "/3c.png",
           "style": {
-            "left": "50px",
-            "bottom": "0px",
-            "height": "250px"
+            "left": "10%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/john-sad.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
           }
         }
       ]
@@ -137,135 +157,82 @@
     {
       "id": 6,
       "name": "You",
-      "text": "Why didn’t you play last night?",
+      "text": "Okay, you don't have to go to school today. But you should tell me why.",
       "voice": "Google UK English Female",
-      "background": "/assets/living-room.jpg",
+      "background": "/livingroom.png",
       "transitionEffect": "fade",
+      "preserveBackground": true,
       "characters": [
         {
-          "img": "/assets/son-sad.png",
+          "img": "/3b.png",
           "style": {
-            "left": "50px",
-            "bottom": "0px",
-            "height": "250px"
+            "left": "10%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/john-sad.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
           }
         }
       ],
-      "choices": [
-        { "text": "Check his phone stealthily", "next": 7 },
-        { "text": "Tell him to try other games", "next": 8 },
-        { "text": "Encourage him to tell the details", "next": 9 },
-        { "text": "Block his internet", "next": 10 }
-      ]
+      "next": 7
     },
     {
       "id": 7,
-      "name": "Narrator",
-      "text": "You find some bullying messages. It’s worse than you thought.",
+      "name": "You",
+      "text": "Have any bad things happened at school recently?",
       "voice": "Google UK English Female",
-      "background": "/assets/phone.jpg",
+      "background": "/livingroom.png",
       "transitionEffect": "fade",
+      "preserveBackground": true,
       "characters": [
         {
-          "img": "/assets/you-concerned.png",
+          "img": "/3b.png",
           "style": {
-            "left": "50px",
-            "bottom": "0px",
-            "height": "250px"
+            "left": "10%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/john-sad.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
           }
         }
-      ]
+      ],
+      "next": 8
     },
     {
       "id": 8,
       "name": "Son",
-      "text": "I don’t want to play anymore...",
-      "voice": "Microsoft James",
-      "background": "/assets/living-room.jpg",
+      "text": "No. I'm fine... I'm just feeling unwell.",
+      "voice": "Microsoft Mark",
+      "background": "/livingroom.png",
       "transitionEffect": "fade",
+      "preserveBackground": true,
       "characters": [
         {
-          "img": "/assets/son-sad.png",
+          "img": "/3b.png",
           "style": {
-            "left": "50px",
-            "bottom": "0px",
-            "height": "250px"
+            "left": "10%",
+            "bottom": "0",
+            "height": "450px"
           }
-        }
-      ]
-    },
-    {
-      "id": 9,
-      "name": "Son",
-      "text": "They made fun of me in the game chat. I hate it now.",
-      "voice": "Microsoft James",
-      "background": "/assets/bedroom.jpg",
-      "transitionEffect": "fade",
-      "characters": [
+        },
         {
-          "img": "/assets/son-tears.png",
+          "img": "/john-talk.png",
           "style": {
-            "left": "50px",
-            "bottom": "0px",
-            "height": "250px"
-          }
-        }
-      ],
-      "choices": [
-        { "text": "Find and confront bullies", "next": 11 },
-        { "text": "Collect evidence and report", "next": 12 }
-      ]
-    },
-    {
-      "id": 10,
-      "name": "Narrator",
-      "text": "He gets angry and shuts down even more.",
-      "voice": "Google UK English Female",
-      "background": "/assets/router.jpg",
-      "transitionEffect": "fade",
-      "characters": [
-        {
-          "img": "/assets/son-angry.png",
-          "style": {
-            "left": "50px",
-            "bottom": "0px",
-            "height": "250px"
-          }
-        }
-      ]
-    },
-    {
-      "id": 11,
-      "name": "Narrator",
-      "text": "You tried confronting the bullies. It backfired.",
-      "voice": "Google UK English Female",
-      "background": "/assets/schoolyard.jpg",
-      "transitionEffect": "fade",
-      "characters": [
-        {
-          "img": "/assets/you-angry.png",
-          "style": {
-            "left": "50px",
-            "bottom": "0px",
-            "height": "250px"
-          }
-        }
-      ]
-    },
-    {
-      "id": 12,
-      "name": "Narrator",
-      "text": "You submitted the messages to the school. They stepped in.",
-      "voice": "Google UK English Female",
-      "background": "/assets/classroom.jpg",
-      "transitionEffect": "fade",
-      "characters": [
-        {
-          "img": "/assets/you-relieved.png",
-          "style": {
-            "left": "50px",
-            "bottom": "0px",
-            "height": "250px"
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
           }
         }
       ]
