@@ -5,9 +5,17 @@ import InfographicPage from '../views/InfographicPage.vue'
 import Story from '@/views/Story.vue'
 import Symptom from '@/views/Symptom.vue'
 import Faq from '@/views/Faq.vue'
-import support from '@/views/Support.vue'
+import Support from '@/views/Support.vue'
+import PasswordGate from '@/views/PasswordGate.vue'
+import toast from '../utils/toast'
+
 
 const routes = [
+  {
+    path: '/gate',
+    name: 'PasswordGate',
+    component: PasswordGate
+  },
   {
     path: '/',
     name: 'Home',
@@ -41,7 +49,7 @@ const routes = [
   {
     path: '/support',
     name: 'Support',
-    component: support
+    component: Support
   }
 ]
 
@@ -53,6 +61,16 @@ const router = createRouter({
   }
 })
 
-export default router;
+router.beforeEach((to, from, next) => {
+  const isAuthenticated = sessionStorage.getItem('authenticated') === 'true'
+
+  if (!isAuthenticated && to.name !== 'PasswordGate') {
+    toast.info('Please enter the access password to continue.')
+    return next({ name: 'PasswordGate' })
+  }
+
+  next()
+})
 
 
+export default router
