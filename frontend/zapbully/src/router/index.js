@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/Homeview.vue'
 import Simulator from '../views/Simulator.vue'
 import InfographicPage from '../views/InfographicPage.vue'
+import ParentalSuppport from '../views/ParentalSupport.vue'
 
 
 const routes = [
@@ -19,7 +20,13 @@ const routes = [
     path: '/data-insights',
     name: 'InfographicPage',
     component: InfographicPage
-  }
+  },
+  {
+    path: '/parental-support',
+    name: 'Parentalsupport',
+    component: ParentalSuppport
+  },
+
 ]
 
 const router = createRouter({

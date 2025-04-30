@@ -13,8 +13,8 @@
       <router-link to="/" exact-active-class="active-link" class="nav-item-link">Home</router-link>
       <router-link to="/data-insights" exact-active-class="active-link" class="nav-item-link">Data Insights</router-link>
       <router-link to="/safety-simulations" exact-active-class="active-link" class="nav-item-link">Safety Simulations</router-link>
-      <!-- <router-link to="/parental-support" exact-active-class="active-link" class="nav-item-link">Parental Support</router-link>
-      <router-link to="/link-scanner" exact-active-class="active-link" class="nav-item-link">Link Scanner</router-link> -->
+      <router-link to="/parental-support" exact-active-class="active-link" class="nav-item-link">Parental Support</router-link>
+      <router-link to="/Guide" exact-active-class="active-link" class="nav-item-link">Guide</router-link>
   </nav>
 </header>
 </template>
@@ -27,7 +27,7 @@
   width: 28000px;
   align-items: center;
   padding: 16px 40px;
-  background-color: transparent;
+  background: transparent;
   /* border-bottom: 1px solid #eee; */
 }
 
@@ -39,7 +39,8 @@
 }
 
 .logo-img {
-  height: 45px;
+  height: 40px;
+  width: 100px;
   object-fit: contain;
 }
 

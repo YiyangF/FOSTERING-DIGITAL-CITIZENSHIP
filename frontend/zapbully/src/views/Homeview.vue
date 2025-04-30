@@ -26,10 +26,15 @@
     <div class="hero-text">
       <h1>
         Shield Your Child from
-        <span class="highlight zap sticker-wrap" @mouseup="handleSelect">
+        <!-- 首页贴图 -->
+        <!-- <span class="highlight zap sticker-wrap" @mouseup="handleSelect">
           Cyberbullying
           <img v-if="showSticker" :src="iconMap['sticker']" alt="sticker" class="sticker-icon animated-sticker" />
+        </span> -->
+        <span class="highlight zap">
+          Cyberbullying
         </span>
+
       </h1>
       <p>Empowered Parents. Safer Screens. Stronger Futures.</p>
     </div>
@@ -71,19 +76,21 @@ import bubbleIcon from '@/assets/icons/bubble.svg'
 import macIcon from '@/assets/icons/mac.svg'
 import hfaceIcon from '@/assets/icons/hface.svg'
 import sfaceIcon from '@/assets/icons/sface.svg'
-import stickerIcon from '@/assets/icons/sticker.jpg'
+// import stickerIcon from '@/assets/icons/sticker.jpg'
 import faqImage from '@/assets/card/FAQ.png'
-
+import guiImage from '@/assets/card/gui.png'
+import simImage from '@/assets/card/sim.png'
+import symImage from '@/assets/card/sym.png'
 const iconMap = {
   mail: mailIcon,
   bubble: bubbleIcon,
   mac: macIcon,
   hface: hfaceIcon,
   sface: sfaceIcon,
-  sticker: stickerIcon
+  // sticker: stickerIcon
 }
 
-const showSticker = ref(false)
+// const showSticker = ref(false)
 const featureSection = ref(null)
 const hasIntersected = ref(false)
 
@@ -111,15 +118,15 @@ const particles = Array.from({ length: 100 }, () => ({
   y: (Math.random() * 2 - 1) * 200
 }))
 
-function handleSelect() {
-  const selection = window.getSelection()
-  if (selection && selection.toString().toLowerCase().includes('cyberbullying')) {
-    showSticker.value = true
-    setTimeout(() => {
-      showSticker.value = false
-    }, 2000)
-  }
-}
+// function handleSelect() {
+//   const selection = window.getSelection()
+//   if (selection && selection.toString().toLowerCase().includes('cyberbullying')) {
+//     showSticker.value = true
+//     setTimeout(() => {
+//       showSticker.value = false
+//     }, 2000)
+//   }
+// }
 
 const icons = [
   { type: 'mail', top: '10%', left: '10%' },
@@ -142,17 +149,20 @@ const featureCards = [
   {
     title: 'Try Simulator',
     description: 'Experience a simulated cyberbullying scenario.',
-    buttonText: 'Try Now'
+    buttonText: 'Try Now',
+    image: simImage
   },
   {
     title: 'Parental Guide',
     description: 'Learn how to protect your child online.',
-    buttonText: 'Learn More'
+    buttonText: 'Learn More',
+    image: guiImage
   },
   {
     title: 'Symptom Checker',
     description: 'See what others have experienced.',
-    buttonText: 'Explore'
+    buttonText: 'Explore',
+    image: symImage
   },
   {
     title: 'FAQ',
@@ -169,7 +179,7 @@ const featureCards = [
   position: relative;
   width: 100%;
   height: 100vh;
-  background: linear-gradient(to bottom, #a6c6dd, #2e5ca8);
+  background: linear-gradient(to bottom, #a6c6dd, #3b74c7);
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -258,10 +268,11 @@ const featureCards = [
 }
 
 .hero-text h1 {
-  font-size: 4rem;
-  font-weight: bold;
-  line-height: 1.2;
+  font-size: 5rem;
+  font-weight: 800;
+  line-height: 1.1;
   color: #ffffff;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
 }
 
 .hero-text .highlight {
@@ -318,9 +329,10 @@ const featureCards = [
 }
 
 .hero-text p {
-  font-size: 1.25rem;
-  color: #cbd5e1;
-  margin-top: 1rem;
+  font-size: 1.75rem; /* 更大 */
+  color: #dbeafe; /* 浅蓝色，和背景区分开 */
+  margin-top: 1.5rem;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5); /* 同样添加轻微阴影 */
 }
 
 .hero-text .down-arrow {
@@ -417,10 +429,11 @@ const featureCards = [
   }
 }
 
+/* 第二页 */
 .feature-section {
   width: 100%;
   height: 100vh;
-  background: linear-gradient(to bottom, #2e5ca8, #1e2f5d);
+  background: linear-gradient(to bottom, #3b74c7, #1e2f5d);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -438,8 +451,8 @@ const featureCards = [
 .feature-card {
   position: relative;
   width: 100%;
-  max-width: 260px;
-  height: 220px;
+  max-width: 320px;
+  height: 280px;
   border-radius: 16px;
   overflow: hidden;
   background-color: rgba(255, 255, 255, 0.08);
@@ -490,6 +503,7 @@ const featureCards = [
   color: #e2e8f0;
   text-align: center;
   transition: bottom 0.4s ease;
+  opacity: 0;
 }
 
 .feature-card:hover .card-cover {
@@ -498,6 +512,7 @@ const featureCards = [
 
 .feature-card:hover .card-details {
   bottom: 0;
+  opacity: 1;
 }
 
 .card-button {

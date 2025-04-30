@@ -1,19 +1,21 @@
 <script setup>
 import Navigation from './components/Navigation.vue';
-// import test from './views/test.vue'
+// import Guide from './views/Guide.vue'
 </script>
 
 <template>
   <div class="main-container">
     <header>
       <Navigation/>
-      <!-- <test/> -->
+
 
 
     </header>
 
     <main class="main-box">
-      <router-view></router-view>
+      <router-view>
+
+      </router-view>
     </main>
 
 
@@ -59,15 +61,9 @@ import Navigation from './components/Navigation.vue';
   z-index: 1;
   overflow: hidden;
   min-height: 100vh;
-  background-color: #fffaf0;
+  background: linear-gradient(to bottom,#cde0ee, #a6c6dd);
 }
 
-.main-container {
-  min-height: 100vh;
-  background-color: #fff; /* 可保留浅底色 */
-  position: relative;
-  z-index: 1;
-}
 .logo {
   display: block;
   margin: 0 auto 2rem;
@@ -88,6 +84,7 @@ import Navigation from './components/Navigation.vue';
     display: flex;
     place-items: flex-start;
     flex-wrap: wrap;
+    background: transparent;
   }
 }
 
