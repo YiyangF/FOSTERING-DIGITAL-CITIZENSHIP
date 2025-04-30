@@ -19,12 +19,25 @@
       />
     </div>
 
-    <div class="hero-text">
-      <h1>
-        Shield Your Child from
-        <span class="highlight zap">Cyberbullying</span>
-      </h1>
-      <p>Empowered Parents. Safer Screens. Stronger Futures.</p>
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>
+          Shield Your Child from
+          <span class="highlight zap">Cyberbullying</span>
+        </h1>
+        <p class="subtitle">Empowered Parents. Safer Screens. Stronger Futures.</p>
+        <div class="cta-group">
+          <button class="primary-cta" @click="goToRoute('Simulator')">
+            <span>Experience Safety Simulation</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <button class="secondary-cta" @click="scrollToFeatures">
+            Explore Features
+          </button>
+        </div>
+      </div>
     </div>
 
     <div class="arrow-container">
@@ -191,6 +204,12 @@ function goToRoute(routeName) {
   text-align: center;
 }
 
+.hero-content {
+  z-index: 2;
+  width: 100%;
+  padding: 0 2rem;
+}
+
 .particle-background {
   position: absolute;
   width: 100%;
@@ -256,16 +275,23 @@ function goToRoute(routeName) {
 }
 
 .hero-text {
-  z-index: 1;
-  max-width: 700px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .hero-text h1 {
-  font-size: 5rem;
+  font-size: 4rem;
   font-weight: 800;
   line-height: 1.1;
   color: #ffffff;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .hero-text h1 {
+    font-size: 5rem;
+  }
 }
 
 .hero-text .highlight {
@@ -292,11 +318,78 @@ function goToRoute(routeName) {
   100% { transform: scale(1); }
 }
 
-.hero-text p {
+.subtitle {
   font-size: 1.75rem;
   color: #dbeafe;
-  margin-top: 1.5rem;
+  margin-bottom: 3rem;
   text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+}
+
+.cta-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+@media (min-width: 640px) {
+  .cta-group {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.primary-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+  background-color: #3b82f6;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.35);
+  transition: all 0.3s ease;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.primary-cta:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(59, 130, 246, 0.45);
+}
+
+.primary-cta:active {
+  transform: translateY(0);
+}
+
+.primary-cta svg {
+  transition: transform 0.3s ease;
+}
+
+.primary-cta:hover svg {
+  transform: translateX(4px);
+}
+
+.secondary-cta {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #dbeafe;
+  background-color: transparent;
+  border: 2px solid rgba(219, 234, 254, 0.5);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.secondary-cta:hover {
+  background-color: rgba(219, 234, 254, 0.1);
+  border-color: rgba(219, 234, 254, 0.8);
 }
 
 .arrow-container {
