@@ -1,13 +1,11 @@
 <script setup>
 import Navigation from './components/Navigation.vue';
-// import test from './views/test.vue'
 </script>
 
 <template>
   <div class="main-container">
     <header>
       <Navigation/>
-      <!-- <test/> -->
     </header>
 
     <main class="main-box">
@@ -32,14 +30,6 @@ import Navigation from './components/Navigation.vue';
 * header {
   line-height: 1.5;
 }
-
-/* .main-container {
-  background-image: url('/bbo.webp');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  backdrop-filter: blur(60px);
-} */
 @keyframes floatBlur {
   0% {
     transform: translate(0, 0) scale(1);
@@ -57,7 +47,7 @@ import Navigation from './components/Navigation.vue';
   z-index: 1;
   overflow: hidden;
   min-height: 100vh;
-  background-color: #fffaf0;
+  background: linear-gradient(to bottom,#cde0ee,#a6c6dd);
 }
 
 .main-container::before {
@@ -67,7 +57,6 @@ import Navigation from './components/Navigation.vue';
   left: -300px;
   width: 800px;
   height: 800px;
-  background: radial-gradient(circle, #fdba74, #fef3c7);
   filter: blur(100px);
   opacity: 0.5;
   border-radius: 50%;
@@ -81,45 +70,11 @@ import Navigation from './components/Navigation.vue';
   right: -200px;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, #fc8523, #fff7ed);
   filter: blur(60px);
   opacity: 0.4;
   border-radius: 50%;
   z-index: -1;
 }
-
-
-/* 动画效果
-.main-container::before {
-  content: '';
-  position: absolute;
-  top: -250px;
-  left: -250px;
-  width: 700px;
-  height: 700px;
-  background: radial-gradient(circle, #fc8523, #e0f2fe);
-  filter: blur(100px);
-  opacity: 0.5;
-  border-radius: 50%;
-  z-index: -1;
-  animation: floatBlur 12s ease-in-out infinite;
-}
-
-/* .main-container::after {
-  content: '';
-  position: absolute;
-  bottom: -200px;
-  right: -200px;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, #fc8523, #dbeafe);
-  filter: blur(90px);
-  opacity: 0.4;
-  border-radius: 50%;
-  z-index: -1;
-  animation: floatBlur 1s ease-in-out infinite;
-} */
-
 
 .main-container::before::before {
   content: "";
@@ -128,7 +83,6 @@ import Navigation from './components/Navigation.vue';
   left: -300px;
   width: 1000px;
   height: 1000px;
-  background-color: #fdec7f;
   border-radius: 50%;
   z-index: -1;
 }
@@ -164,6 +118,7 @@ import Navigation from './components/Navigation.vue';
   font-size: 14px;
   color: #555;
   margin-top: 30px;
+  background: linear-gradient(to bottom,#cde0ee,#a6c6dd);
 }
 
 .footer-container {

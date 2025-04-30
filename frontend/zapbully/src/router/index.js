@@ -4,7 +4,8 @@ import Simulator from '../views/Simulator.vue'
 import InfographicPage from '../views/InfographicPage.vue'
 import Story from '@/views/Story.vue'
 import Symptom from '@/views/Symptom.vue'
-import Result from '@/views/Result.vue'
+import Faq from '@/views/Faq.vue'
+import support from '@/views/Support.vue'
 
 const routes = [
   {
@@ -33,9 +34,14 @@ const routes = [
     component: Symptom
   },
   {
-    path: '/result',
-    name: 'Result',
-    component: Result
+    path: '/faq',
+    name: 'Faq',
+    component: Faq
+  },
+  {
+    path: '/support',
+    name: 'Support',
+    component: support
   }
 ]
 
