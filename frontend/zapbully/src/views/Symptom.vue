@@ -1,38 +1,35 @@
 <template>
   <div class="container mt-4">
+    <h2 class="text-center fw-bold mb-2">Emotional Distress Symptom Checker</h2>
+    <p class="text-center text-muted mb-4">
+      Select <strong>3 to 6</strong> symptoms your child may be experiencing. The tool will assess severity and provide guidance.
+    </p>
+
     <div class="selector-layout d-flex align-items-center justify-content-center">
-      <!-- 左边按钮 -->
       <button class="nav-button btn btn-outline-primary me-3" @click="prev">&lt;</button>
 
-      <!-- 中间症状列 -->
       <div class="symptom-selector-inner d-flex">
         <div
           v-for="(column, index) in visibleColumns"
           :key="(startIndex + index - 1 + columns.length) % columns.length"
           class="symptom-column border p-3 text-center rounded"
-          :class="{
-            'bg-light': index !== 1,
-            'bg-white shadow': index === 1,
-            'pointer-events-none opacity-50': index !== 1
-          }"
+          :class="[
+            index !== 1 ? 'bg-light pointer-events-none opacity-50' : 'bg-white shadow',
+            getCategoryColorClass((startIndex + index - 1 + columns.length) % columns.length)
+          ]"
         >
           <h6 class="mb-3">{{ visibleHeaders[index] }}</h6>
-          <div
-            v-for="(item, i) in column"
-            :key="i"
-            class="mb-2"
-          >
+          <div v-for="(item, i) in column" :key="i" class="mb-2">
             <input
               type="checkbox"
               class="btn-check"
               :id="`cb-${(startIndex + index - 1 + columns.length) % columns.length}-${i}`"
               :disabled="index !== 1 || (totalSelected >= 6 && !selections[(startIndex + index - 1 + columns.length) % columns.length][i])"
               v-model="selections[(startIndex + index - 1 + columns.length) % columns.length][i]"
-              @change="validateSelection((startIndex + index - 1 + columns.length) % columns.length, i)"
               autocomplete="off"
             />
-            <label 
-              class="btn btn-outline-primary w-100" 
+            <label
+              class="btn btn-outline-primary w-100 symptom-btn"
               :for="`cb-${(startIndex + index - 1 + columns.length) % columns.length}-${i}`"
             >
               {{ item }}
@@ -41,44 +38,32 @@
         </div>
       </div>
 
-      <!-- 右边按钮 -->
       <button class="nav-button btn btn-outline-primary ms-3" @click="next">&gt;</button>
     </div>
 
-    <!-- 选择警告 -->
-    <div v-if="totalSelected > 0 && totalSelected < 3" class="alert alert-warning mt-3 text-center" role="alert">
-      Please select at least 3 symptoms (currently selected: {{ totalSelected }})
-    </div>
-    <div v-if="totalSelected > 6" class="alert alert-danger mt-3 text-center" role="alert">
-      You can select a maximum of 6 symptoms (currently selected: {{ totalSelected }})
-    </div>
-    <div v-if="totalSelected >= 3 && totalSelected <= 6" class="alert alert-success mt-3 text-center" role="alert">
-      Valid selection: {{ totalSelected }} symptom(s)
-    </div>
-
-    <!-- 提交按钮 -->
     <div class="d-flex justify-content-center mt-4">
-      <button 
-        class="btn btn-primary btn-lg" 
-        :disabled="totalSelected < 3 || totalSelected > 6"
-        @click="submitSelection"
-      >
+      <button class="btn btn-primary btn-lg" @click="submitSelection">
         Submit
       </button>
     </div>
 
-    <!-- 结果展示 -->
-    <div v-if="resultVisible" class="mt-5">
-      <h4 class="text-center mb-3">Result Analysis</h4>
+    <div v-if="submissionError" class="alert alert-danger text-center mt-3">
+      Please select between 3 and 6 symptoms before submitting.
+    </div>
 
-      <div class="progress mb-3" style="height: 30px;">
+    <div v-if="resultVisible" class="mt-5">
+      <h4 class="text-center mb-3">Severity Analysis Based on Selected Symptoms</h4>
+      <div class="progress position-relative mb-3" style="height: 30px;">
         <div
-          class="progress-bar"
+          class="progress-bar progress-bar-striped progress-bar-animated"
           role="progressbar"
           :style="{ width: finalScore * 20 + '%' }"
           :class="progressBarClass"
-        >
-          Severity Score: {{ finalScore.toFixed(1) }} / 5
+        ></div>
+        <div class="position-absolute w-100 h-100 d-flex align-items-center justify-content-center">
+          <strong class="text-dark">
+            {{ finalScore.toFixed(1) }}/5 – {{ severityLabel }}
+          </strong>
         </div>
       </div>
 
@@ -107,18 +92,13 @@ export default {
         ["Frequent headaches", "Stomach aches or nausea", "Sleep issues or nightmares", "Fatigue and low energy", "Changes in eating habits"],
         ["Social withdrawal", "Loss of friendships", "Avoidance of social settings", "Distrust of others", "Feeling ostracized"]
       ],
-      headers: [
-        "Psychological",
-        "Emotional",
-        "Behavioral",
-        "Physical",
-        "Social"
-      ],
+      headers: ["Psychological", "Emotional", "Behavioral", "Physical", "Social"],
       startIndex: 0,
       selections: Array.from({ length: 5 }, () => Array(5).fill(false)),
       fromResultPage: false,
       resultVisible: false,
-      finalScore: 0
+      finalScore: 0,
+      submissionError: false
     };
   },
   computed: {
@@ -139,20 +119,14 @@ export default {
       ];
     },
     totalSelected() {
-      return this.selections.reduce((total, column) => {
-        return total + column.filter(item => item).length;
-      }, 0);
+      return this.selections.reduce((total, column) => total + column.filter(Boolean).length, 0);
     },
     selectedItems() {
       const selected = [];
       this.selections.forEach((column, colIndex) => {
         column.forEach((isSelected, itemIndex) => {
           if (isSelected) {
-            selected.push({
-              text: this.columns[colIndex][itemIndex],
-              column: colIndex,
-              row: itemIndex
-            });
+            selected.push({ text: this.columns[colIndex][itemIndex], column: colIndex, row: itemIndex });
           }
         });
       });
@@ -198,49 +172,27 @@ export default {
       const len = this.columns.length;
       this.startIndex = (this.startIndex + 1) % len;
     },
-    validateSelection(columnIndex, itemIndex) {
-      if (this.totalSelected > 6) {
-        this.selections[columnIndex][itemIndex] = false;
-      }
-      this.saveSelectionsToStorage();
-    },
-    saveSelectionsToStorage() {
-      sessionStorage.setItem('userSelections', JSON.stringify({
-        selections: this.selections,
-        startIndex: this.startIndex
-      }));
-      sessionStorage.setItem('selectionInProgress', 'true');
-    },
-    loadSelectionsFromStorage() {
-      const savedData = sessionStorage.getItem('userSelections');
-      if (savedData && !this.fromResultPage) {
-        const data = JSON.parse(savedData);
-        this.selections = data.selections;
-        this.startIndex = data.startIndex;
-      }
-    },
-    clearSelections() {
-      this.selections = Array.from({ length: 5 }, () => Array(5).fill(false));
-      sessionStorage.removeItem('userSelections');
-      sessionStorage.removeItem('selectionInProgress');
-    },
     submitSelection() {
-      if (this.totalSelected >= 3 && this.totalSelected <= 6) {
-        const selected = this.selectedItems;
-        const severityTable = {
-          "Depressive symptoms": 3, "Heightened anxiety": 3, "Loneliness and isolation": 3, "Low self-esteem": 3, "Suicidal ideation": 5,
-          "Frequent anger or irritability": 2, "Shame or embarrassment": 3, "Emotional distress and sadness": 3, "Mood swings": 2, "Guilt or self-blame": 2,
-          "Avoidance of school or activities": 3, "Declining academic performance": 2, "Changes in device use": 2, "Risky behaviors or substance use": 4, "Loss of interest in personal care or hobbies": 2,
-          "Frequent headaches": 1, "Stomach aches or nausea": 1, "Sleep issues or nightmares": 2, "Fatigue and low energy": 2, "Changes in eating habits": 1,
-          "Social withdrawal": 3, "Loss of friendships": 2, "Avoidance of social settings": 2, "Distrust of others": 2, "Feeling ostracized": 2
-        };
-        let total = 0;
-        selected.forEach(item => {
-          total += severityTable[item.text] || 1;
-        });
-        this.finalScore = total / selected.length;
-        this.resultVisible = true;
+      if (this.totalSelected < 3 || this.totalSelected > 6) {
+        this.submissionError = true;
+        this.resultVisible = false;
+        return;
       }
+      this.submissionError = false;
+      const selected = this.selectedItems;
+      const severityTable = {
+        "Depressive symptoms": 3, "Heightened anxiety": 3, "Loneliness and isolation": 3, "Low self-esteem": 3, "Suicidal ideation": 5,
+        "Frequent anger or irritability": 2, "Shame or embarrassment": 3, "Emotional distress and sadness": 3, "Mood swings": 2, "Guilt or self-blame": 2,
+        "Avoidance of school or activities": 3, "Declining academic performance": 2, "Changes in device use": 2, "Risky behaviors or substance use": 4, "Loss of interest in personal care or hobbies": 2,
+        "Frequent headaches": 1, "Stomach aches or nausea": 1, "Sleep issues or nightmares": 2, "Fatigue and low energy": 2, "Changes in eating habits": 1,
+        "Social withdrawal": 3, "Loss of friendships": 2, "Avoidance of social settings": 2, "Distrust of others": 2, "Feeling ostracized": 2
+      };
+      let total = 0;
+      selected.forEach(item => {
+        total += severityTable[item.text] || 1;
+      });
+      this.finalScore = total / selected.length;
+      this.resultVisible = true;
     },
     goToSupport() {
       if (this.$router) {
@@ -249,22 +201,10 @@ export default {
         window.location.href = '/support';
       }
     },
-    handlePageShow() {
-      if (sessionStorage.getItem('navigatedToResult') === 'true') {
-        this.fromResultPage = true;
-        this.clearSelections();
-        sessionStorage.removeItem('navigatedToResult');
-      }
+    getCategoryColorClass(index) {
+      const classes = ['bg-psych', 'bg-emotion', 'bg-behavior', 'bg-physical', 'bg-social'];
+      return classes[index] || '';
     }
-  },
-  created() {
-    this.loadSelectionsFromStorage();
-  },
-  mounted() {
-    window.addEventListener('pageshow', this.handlePageShow);
-  },
-  beforeDestroy() {
-    window.removeEventListener('pageshow', this.handlePageShow);
   }
 };
 </script>
@@ -273,24 +213,20 @@ export default {
 .pointer-events-none {
   pointer-events: none;
 }
-
 .btn-check:checked + .btn-outline-primary {
   color: #fff;
   background-color: #0d6efd;
   border-color: #0d6efd;
 }
-
 .selector-layout {
   gap: 1rem;
 }
-
 .symptom-column {
   min-height: 450px;
   width: 220px;
   display: flex;
   flex-direction: column;
 }
-
 .btn-outline-primary {
   height: 60px;
   display: flex;
@@ -300,13 +236,15 @@ export default {
   font-size: 14px;
   white-space: normal;
   word-break: break-word;
+  transition: transform 0.2s ease;
 }
-
+.symptom-btn:hover {
+  transform: scale(1.03);
+}
 .symptom-column h6 {
   font-size: 18px;
   margin-bottom: 1rem;
 }
-
 .nav-button {
   height: 40px;
   width: 40px;
@@ -314,4 +252,9 @@ export default {
   align-items: center;
   justify-content: center;
 }
+.bg-psych { background-color: #f0f9ff; }
+.bg-emotion { background-color: #fff7e6; }
+.bg-behavior { background-color: #f9f0ff; }
+.bg-physical { background-color: #e6fffb; }
+.bg-social { background-color: #f6ffed; }
 </style>
