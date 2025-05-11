@@ -8,6 +8,7 @@ import Faq from '@/views/Faq.vue'
 import Support from '@/views/Support.vue'
 import PasswordGate from '@/views/PasswordGate.vue'
 import toast from '../utils/toast'
+import Emoji from '@/views/Emoji.vue'
 
 
 const routes = [
@@ -42,9 +43,9 @@ const routes = [
     component: Symptom
   },
   {
-    path: '/faq',
-    name: 'Faq',
-    component: Faq
+    path: '/emoji',
+    name: 'Emoji',
+    component: Emoji
   },
   {
     path: '/support',

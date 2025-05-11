@@ -1,7 +1,29 @@
 <template>
   <div class="story-container" v-if="step" @click="handleClick">
-    <div class="scene-wrapper">
+    <div v-if="showInstructions" class="instruction-overlay">
+      <!-- Close button -->
+      <div class="close-button" @click.stop="closeInstructions">
+        <div class="close-icon">✕</div>
+        <div class="close-label">Close to Start!</div>
+      </div>
+      
+      <!-- Dialog box callout -->
+      <div class="callout callout-dialog">
+        <div class="callout-text">Dialog box</div>
+      </div>
+      
+      <!-- Who is speaking callout -->
+      <div class="callout callout-who">
+        <div class="callout-text">Who is saying</div>
+      </div>
+      
+      <!-- Click to continue callout -->
+      <div class="callout callout-click">
+        <div class="callout-text">Click on screen to Continue story</div>
+      </div>
+    </div>
 
+    <div class="scene-wrapper">
       <div 
         class="scene"
         :style="{ backgroundImage: 'url(' + step.background + ')' }"
@@ -77,7 +99,8 @@ export default {
       isMuted: false,
       transitionInProgress: false,
       shouldFadeCharacter: false,
-      prevBackground: null
+      prevBackground: null,
+      showInstructions: true // Start with instructions visible
     };
   },
   computed: {
@@ -108,7 +131,10 @@ export default {
         this.hideTextBox = false;
       }
 
-      this.speakStepText();
+      // Only speak if instructions are closed
+      if (!this.showInstructions) {
+        this.speakStepText();
+      }
     }
   },
   methods: {
@@ -120,6 +146,11 @@ export default {
       } catch (err) {
         console.error(`Could not load story${storyId}.json`, err);
       }
+    },
+    closeInstructions() {
+      this.showInstructions = false;
+      // Start the voiceover once instructions are closed
+      this.speakStepText();
     },
     goToStep(index) {
       if (this.transitionInProgress) return;
@@ -146,7 +177,7 @@ export default {
       }
     },
     handleClick() {
-      if (!this.clickEnabled || this.transitionInProgress) return;
+      if (this.showInstructions || !this.clickEnabled || this.transitionInProgress) return;
 
       if (!this.step.choices && this.step.next !== undefined) {
         this.goToStep(this.step.next);
@@ -229,7 +260,7 @@ export default {
       }
     },
     speakStepText() {
-      if (this.isMuted || !this.step?.text) return;
+      if (this.isMuted || !this.step?.text || this.showInstructions) return;
 
       window.speechSynthesis.cancel();
 
@@ -269,7 +300,7 @@ export default {
 
 .scene-wrapper {
   position: relative;
-  height: 500px;
+  height: 550px;
   overflow: hidden;
   border-radius: 12px;
 }
@@ -281,6 +312,111 @@ export default {
   background-size: cover;
   background-position: center;
   overflow: hidden;
+}
+
+/* Centered instruction overlay */
+.instruction-overlay {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  width: calc(100% - 60px);
+  height: 530px;
+  background-color: rgba(89, 88, 88, 0.5);
+  z-index: 100;
+  border-radius: 8px;
+  transform: translate(-50%, -50%);
+}
+
+/* Close button styles */
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 102;
+}
+
+.close-icon {
+  background-color: #FF3A3A;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.close-label {
+  background-color: #FF5A5A;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  margin-top: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+/* Callout styles */
+.callout {
+  position: absolute;
+  z-index: 101;
+}
+
+.callout-text {
+  background-color: #FF5A5A;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+.callout-line {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  overflow: visible;
+}
+
+/* Positioning for specific callouts */
+.callout-dialog {
+  right: 20%;
+  bottom: 100px;
+}
+
+.callout-dialog .callout-line {
+  top: 50%;
+  right: 80%;
+}
+
+.callout-who {
+  left: 10%;
+  bottom: 150px;
+}
+
+.callout-who .callout-line {
+  top: 50%;
+  left: 20%;
+}
+
+.callout-click {
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.callout-click .callout-line {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 /* New class for background transitions only when needed */

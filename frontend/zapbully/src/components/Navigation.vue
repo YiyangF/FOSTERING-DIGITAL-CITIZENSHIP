@@ -15,7 +15,7 @@
       <router-link to="/safety-simulations" exact-active-class="active-link" class="nav-item-link">Safety Simulations</router-link>
       <router-link to="/support" exact-active-class="active-link" class="nav-item-link">Parental Support</router-link>
       <router-link to="/symptom" exact-active-class="active-link" class="nav-item-link">Symptom Checker</router-link>
-      <router-link to="/faq" exact-active-class="active-link" class="nav-item-link">FAQs</router-link>
+      <router-link to="/emoji" exact-active-class="active-link" class="nav-item-link">FAQs</router-link>
   </nav>
 </header>
 </template>
