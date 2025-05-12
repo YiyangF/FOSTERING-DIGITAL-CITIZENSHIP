@@ -1,110 +1,73 @@
 <template>
-  <div class="symptom-checker-page">
-    <div class="container mt-4">
-      <h2 class="text-center fw-bold mb-2">Emotional Distress Symptom Checker</h2>
-      <p class="text-center text-muted mb-4">
-        Select <strong>3 to 6</strong> symptoms your child may be experiencing. The tool will assess severity and provide guidance.
-      </p>
+  <div class="checker-page">
+    <div class="container text-center">
+      <h2 class="title">Emotional Distress Symptom Checker</h2>
+      <p class="subtitle">Select <strong>3 to 6</strong> symptoms your child may be experiencing. The tool will assess severity and provide guidance.</p>
 
-      <div class="selector-layout d-flex align-items-center justify-content-center">
-        <button class="nav-button btn btn-outline-primary me-3" @click="prev">&lt;</button>
-
-        <div class="symptom-selector-inner d-flex">
-          <div
-            v-for="(column, index) in visibleColumns"
-            :key="(startIndex + index - 1 + columns.length) % columns.length"
-            class="symptom-column border p-3 text-center rounded"
-            :class="[
-              index !== 1 ? 'bg-light pointer-events-none opacity-50' : '',
-              getCategoryColorClass((startIndex + index - 1 + columns.length) % columns.length)
-            ]"
-          >
-            <h6 class="mb-3">{{ visibleHeaders[index] }}</h6>
-            <img 
-              :src="categoryIcons[visibleHeaders[index]]" 
-              :alt="visibleHeaders[index] + ' icon'"
-              class="category-icon mb-3"
+      <div class="card-scroll">
+        <div
+          v-for="(column, index) in visibleColumns"
+          :key="index"
+          class="symptom-card"
+          :class="{ active: index === 1, blurred: index !== 1 }"
+        >
+          <div class="card-header">
+            <img
+              :src="categoryIcons[visibleHeaders[index]]"
+              class="card-icon"
+              :alt="visibleHeaders[index]"
             />
-            <div v-for="(item, i) in column" :key="i" class="mb-2">
+            <h5>{{ visibleHeaders[index] }}</h5>
+          </div>
+
+          <div class="card-body">
+            <div v-for="(item, i) in column" :key="i" class="mb-2 symptom-option">
               <input
                 type="checkbox"
                 class="btn-check"
-                :id="`cb-${(startIndex + index - 1 + columns.length) % columns.length}-${i}`"
-                :disabled="index !== 1 || (totalSelected >= 6 && !selections[(startIndex + index - 1 + columns.length) % columns.length][i])"
-                v-model="selections[(startIndex + index - 1 + columns.length) % columns.length][i]"
+                :id="`cb-${index}-${i}`"
+                :disabled="index !== 1 || (totalSelected >= 6 && !selections[startIndex][i])"
+                v-model="selections[(startIndex - 1 + index + columns.length) % columns.length][i]"
                 autocomplete="off"
               />
               <label
-                class="btn w-100 symptom-btn"
-                :class="getBtnColorClass((startIndex + index - 1 + columns.length) % columns.length)"
-                :for="`cb-${(startIndex + index - 1 + columns.length) % columns.length}-${i}`"
+                class="symptom-btn"
+                :for="`cb-${index}-${i}`"
               >
                 {{ item }}
               </label>
             </div>
           </div>
         </div>
-
-        <button class="nav-button btn btn-outline-primary ms-3" @click="next">&gt;</button>
       </div>
 
-      <div class="d-flex justify-content-center mt-4 gap-3">
-        <button class="btn btn-outline-secondary btn-lg" @click="clearSelection">
-          Clear
-        </button>
-        <button class="btn btn-primary btn-lg" @click="submitSelection">
-          Submit
-        </button>
+      <div class="nav-controls">
+        <button @click="prev">&#8249;</button>
+        <button @click="next">&#8250;</button>
       </div>
 
-      <div v-if="submissionError" class="alert alert-danger text-center mt-3">
+      <div class="submit-actions">
+        <button class="clear-btn" @click="clearSelection">Clear</button>
+        <button class="submit-btn" @click="submitSelection">Submit</button>
+      </div>
+
+      <div v-if="submissionError" class="error-msg">
         Please select between 3 and 6 symptoms before submitting.
       </div>
 
-      <div v-if="resultVisible" class="mt-5 result-container">
-        <h4 class="text-center mb-3">Severity Analysis Based on Selected Symptoms</h4>
-        
-        <div class="severity-meter mb-4">
-          <div class="progress-container">
-            <div class="progress-bg">
-              <div
-                class="progress-fill"
-                :style="{ width: finalScore * 20 + '%' }"
-                :class="progressBarClass"
-              ></div>
-            </div>
-            <div class="severity-markers">
-              <span v-for="n in 5" :key="n" :class="{ active: finalScore >= n }"></span>
-            </div>
-            <div class="severity-labels">
-              <span>Mild</span>
-              <span>Moderate</span>
-              <span>Severe</span>
-            </div>
-          </div>
-          <div class="severity-score">
-            <strong>{{ finalScore.toFixed(1) }}/5</strong>
-            <span>{{ severityLabel }} Severity</span>
+      <div v-if="resultVisible" class="result-card">
+        <h4>Severity Analysis</h4>
+        <div class="result-bar">
+          <div class="result-fill" :style="{ width: finalScore * 20 + '%' }" :class="progressBarClass"></div>
+          <div class="result-ticks">
+            <span v-for="n in 5" :key="n" :style="{ left: (n * 20) + '%' }"></span>
           </div>
         </div>
-
-        <div class="result-feedback p-4 rounded" :class="feedbackClass">
-          <div class="d-flex align-items-center mb-3">
-            <div class="feedback-icon me-3">
-              <i :class="feedbackIcon"></i>
-            </div>
-            <h5 class="mb-0">{{ severityLabel }} ({{ likelihoodLabel }})</h5>
-          </div>
-          <p class="mb-0">{{ recommendationText }}</p>
-        </div>
-
-        <div class="action-buttons mt-4">
-          <button class="btn btn-outline-primary me-2" @click="clearSelection">
-            Start New Assessment
-          </button>
-          <button class="btn btn-primary" @click="goToSupport">
-            Get Support Resources
-          </button>
+        <p class="score-label">{{ finalScore.toFixed(1) }}/5 - <strong>{{ severityLabel }}</strong></p>
+        <p class="result-summary">{{ recommendationText }}</p>
+        <div class="result-actions">
+          <button @click="clearSelection">Start Again</button>
+          <button @click="goToSupport">Get Support</button>
         </div>
       </div>
     </div>
@@ -262,212 +225,173 @@ export default {
 </script>
 
 <style scoped>
-.pointer-events-none {
-  pointer-events: none;
+.checker-page {
+  background: linear-gradient(to bottom right, #eef5fc, #dceaf6);
+  padding: 40px 20px;
+  font-family: 'Segoe UI', sans-serif;
 }
-.selector-layout {
+.title {
+  font-size: 28px;
+  font-weight: bold;
+}
+.subtitle {
+  margin-bottom: 2rem;
+}
+.card-scroll {
+  display: flex;
   gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
 }
-.symptom-column {
-  min-height: 550px;
-  width: 280px;
+.symptom-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  height: 500px;
+  padding: 20px;
+  transition: transform 0.3s ease, filter 0.3s ease;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  overflow-y: auto;
 }
-.btn {
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 16px;
-  white-space: normal;
-  word-break: break-word;
+.symptom-card.active {
+  transform: scale(1.05);
+  border: 2px solid #409eff;
+  filter: none;
+}
+.symptom-card.blurred {
+  filter: blur(1px) grayscale(0.3) opacity(0.6);
+  pointer-events: none;
+}
+.card-header {
+  text-align: center;
+  margin-bottom: 15px;
+}
+.card-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+.symptom-option {
+  position: relative;
+}
+.btn-check {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.btn-check:checked + label.symptom-btn {
+  background-color: #409eff;
+  color: white;
+  border-color: #409eff;
+}
+.symptom-btn {
+  display: block;
+  background: #f3f6fb;
+  border: 1px solid #d1dce8;
+  border-radius: 10px;
+  padding: 12px;
+  font-weight: 500;
+  cursor: pointer;
   transition: all 0.2s ease;
-  border-width: 2px;
+  user-select: none;
 }
 .symptom-btn:hover {
-  transform: scale(1.03);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  background-color: #d8eafe;
 }
-.symptom-column h6 {
-  font-size: 20px;
-  margin-bottom: 1rem;
-  font-weight: 700;
-}
-.nav-button {
-  height: 50px;
-  width: 50px;
+.nav-controls {
+  margin: 10px auto;
   display: flex;
-  align-items: center;
   justify-content: center;
-  font-size: 20px;
+  gap: 10px;
 }
-.category-icon {
-  width: 70px;
-  height: 70px;
-  object-fit: contain;
-  margin: 0 auto 1rem;
-  display: block;
+.nav-controls button {
+  border: none;
+  background: #409eff;
+  color: white;
+  padding: 10px 16px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
 }
-
-/* Background colors for columns */
-.bg-psych { background-color: #f0f9ff; }
-.bg-emotion { background-color: #fff7e6; }
-.bg-behavior { background-color: #f9f0ff; }
-.bg-physical { background-color: #e6fffb; }
-.bg-social { background-color: #f6ffed; }
-
-/* Button colors for each category */
-.btn-psych {
-  color: #0369a1;
-  border-color: #0369a1;
+.submit-actions {
+  margin: 20px auto;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
 }
-.btn-psych:hover, .btn-check:checked + .btn-psych {
-  background-color: #0369a1;
+.clear-btn, .submit-btn {
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.clear-btn {
+  background: #eee;
+  color: #333;
+}
+.submit-btn {
+  background: #409eff;
   color: white;
 }
-
-.btn-emotion {
-  color: #a16207;
-  border-color: #a16207;
+.error-msg {
+  color: red;
+  margin-top: 1rem;
 }
-.btn-emotion:hover, .btn-check:checked + .btn-emotion {
-  background-color: #a16207;
-  color: white;
+.result-card {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  max-width: 700px;
+  margin: 40px auto 0;
+  text-align: center;
 }
-
-.btn-behavior {
-  color: #7e22ce;
-  border-color: #7e22ce;
-}
-.btn-behavior:hover, .btn-check:checked + .btn-behavior {
-  background-color: #7e22ce;
-  color: white;
-}
-
-.btn-physical {
-  color: #0d9488;
-  border-color: #0d9488;
-}
-.btn-physical:hover, .btn-check:checked + .btn-physical {
-  background-color: #0d9488;
-  color: white;
-}
-
-.btn-social {
-  color: #3f6212;
-  border-color: #3f6212;
-}
-.btn-social:hover, .btn-check:checked + .btn-social {
-  background-color: #3f6212;
-  color: white;
-}
-
-/* Enhanced Progress Bar */
-.severity-meter {
-  max-width: 600px;
-  margin: 0 auto;
-}
-.progress-container {
+.result-bar {
   position: relative;
-  margin-bottom: 40px;
-}
-.progress-bg {
-  height: 20px;
-  background-color: #f0f0f0;
-  border-radius: 10px;
+  height: 12px;
+  background: #eee;
+  border-radius: 6px;
   overflow: hidden;
+  margin-bottom: 10px;
 }
-.progress-fill {
+.result-fill {
   height: 100%;
   transition: width 0.6s ease;
 }
-.severity-markers {
+.result-ticks span {
   position: absolute;
-  top: 20px;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-between;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background-color: #ccc;
+  transform: translateX(-50%);
 }
-.severity-markers span {
-  display: block;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: #ddd;
-  transform: translateY(10px);
+.level-1 { background: #4CAF50; }
+.level-2 { background: #FFC107; }
+.level-3 { background: #F44336; }
+.score-label {
+  font-weight: bold;
+  margin-bottom: 15px;
 }
-.severity-markers span.active {
-  background-color: #333;
+.result-summary {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 20px;
 }
-.severity-labels {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 25px;
-  font-size: 14px;
-  font-weight: 500;
-}
-.severity-labels span {
-  flex: 1;
-  text-align: center;
-}
-.severity-score {
-  text-align: center;
-  margin-top: 15px;
-}
-.severity-score strong {
-  font-size: 24px;
-  display: block;
-  margin-bottom: 5px;
-}
-
-/* Progress bar levels */
-.level-1 { background-color: #4caf50; } /* Green */
-.level-2 { background-color: #2196f3; } /* Blue */
-.level-3 { background-color: #f44336; } /* Red */
-
-/* Enhanced Feedback Section */
-.result-feedback {
-  max-width: 600px;
-  margin: 0 auto 30px;
-  border-left: 5px solid;
-}
-.feedback-mild {
-  background-color: #e8f5e9;
-  border-color: #4caf50;
-}
-.feedback-moderate {
-  background-color: #e3f2fd;
-  border-color: #2196f3;
-}
-.feedback-critical {
-  background-color: #ffebee;
-  border-color: #f44336;
-}
-.feedback-icon {
-  font-size: 28px;
-}
-.feedback-icon .bi-check-circle-fill { color: #4caf50; }
-.feedback-icon .bi-info-circle-fill { color: #2196f3; }
-.feedback-icon .bi-exclamation-octagon-fill { color: #f44336; }
-
-.action-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-
-.symptom-checker-page {
-  min-height: 100vh;
-  padding: 40px 0;
-  background: linear-gradient(to bottom right, #e6f2ff, #d0e3f7);
-  background-image: url('@/assets/background_image.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed;
-  background-blend-mode: overlay;
+.result-actions button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #409eff;
+  color: white;
+  cursor: pointer;
 }
 </style>
+
