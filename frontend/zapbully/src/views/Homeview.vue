@@ -84,7 +84,7 @@ import hfaceIcon from '@/assets/icons/hface.svg'
 import sfaceIcon from '@/assets/icons/sface.svg'
 import faqImage from '@/assets/card/faq.png'
 import guiImage from '@/assets/card/gui.png'
-import simImage from '@/assets/card/sim.png'
+import dataImage from '@/assets/card/data.jpg'
 import symImage from '@/assets/card/sym.png'
 
 const router = useRouter()
@@ -146,11 +146,10 @@ const icons = [
 
 const featureCards = [
   {
-    title: 'Try Simulator',
-    description: 'Experience a simulated cyberbullying scenario.',
-    buttonText: 'Try Now',
-    image: simImage,
-    routeName: 'Simulator'
+    title: 'Data Visualisation ',
+    description: 'Understanding the Risk of Cyberbullying in Australian Youth.',
+    buttonText: 'Explore',
+    image: dataImage
   },
   {
     title: 'Parental Guide',
