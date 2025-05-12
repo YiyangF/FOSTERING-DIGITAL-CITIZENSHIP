@@ -79,7 +79,7 @@ import sfaceIcon from '@/assets/icons/sface.svg'
 // import stickerIcon from '@/assets/icons/sticker.jpg'
 import faqImage from '@/assets/card/FAQ.png'
 import guiImage from '@/assets/card/gui.png'
-import simImage from '@/assets/card/sim.png'
+import dataImage from '@/assets/card/data.png'
 import symImage from '@/assets/card/sym.png'
 const iconMap = {
   mail: mailIcon,
@@ -147,10 +147,10 @@ function getIcon(type) {
 
 const featureCards = [
   {
-    title: 'Try Simulator',
-    description: 'Experience a simulated cyberbullying scenario.',
-    buttonText: 'Try Now',
-    image: simImage
+    title: 'Data Visualisation ',
+    description: 'Understanding the Risk of Cyberbullying in Australian Youth.',
+    buttonText: 'Explore',
+    image: dataImage
   },
   {
     title: 'Parental Guide',
