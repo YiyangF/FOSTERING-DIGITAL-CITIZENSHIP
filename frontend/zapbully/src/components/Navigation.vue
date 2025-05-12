@@ -1,4 +1,12 @@
 <script setup lang="ts">
+import {ref} from 'vue'
+const showDropdown = ref(false);
+const mobileMenu = ref(false);
+// const closeMobileMenu = () => {
+//   mobileMenu.value = false;
+//   showDropdown.value = false;
+// }; ç
+
 </script>
 
 <template>
@@ -9,14 +17,24 @@
       <img src="@/assets/logo.png" alt="zapbully-Logo" class="logo-img" />
       </router-link>
     </div>
-  <nav class="custom-nav">
-      <router-link to="/" exact-active-class="active-link" class="nav-item-link">Home</router-link>
-      <router-link to="/data-insights" exact-active-class="active-link" class="nav-item-link">Data Insights</router-link>
-      <router-link to="/safety-simulations" exact-active-class="active-link" class="nav-item-link">Safety Simulations</router-link>
-      <router-link to="/parental-support" exact-active-class="active-link" class="nav-item-link">Parental Support</router-link>
-      <router-link to="/Guide" exact-active-class="active-link" class="nav-item-link">Guide</router-link>
+    <button class="mobileMenu-button" @click="mobileMenu= !mobileMenu">
+      ☰
+    </button>
+  <nav :class="['custom-nav',{'mobileMenu':!mobileMenu}]">
+      <router-link to="/" @click="mobileMenu = false" exact-active-class="active-link" class="nav-item-link">Home</router-link>
+      <router-link to="/data-insights" @click="mobileMenu = false" exact-active-class="active-link" class="nav-item-link">Data Insights</router-link>
+      <router-link to="/safety-simulations" @click="mobileMenu = false" exact-active-class="active-link" class="nav-item-link">Safety Simulations</router-link>
+    <div class="dropdown-wrapper" @mouseenter="showDropdown = true" @mouseleave="showDropdown = false">
+      <router-link to="/parental-support" @click="mobileMenu = false" exact-active-class="active-link" class="nav-item-link">Parental Support</router-link>
+      <ul v-show ="showDropdown" class ="dropdown-menu">
+        <li><router-link to="/parental-support/FAQ" @click="mobileMenu = false" exact-active-class="active-link" class="nav-item-link">FAQ</router-link></li>
+        <li><router-link to="/parental-support/message-detector" @click="mobileMenu = false" exact-active-class="active-link" class="nav-item-link">Message Detector</router-link></li>
+        <li><router-link to="/parental-support/Guide" @click="mobileMenu = false" exact-active-class="active-link" class="nav-item-link">Guide</router-link></li>
+      </ul>
+    </div>
   </nav>
 </header>
+
 </template>
 
 <style scoped>
@@ -24,15 +42,17 @@
   /* float: right; */
   display: flex;
   justify-content: space-between;
-  width: 28000px;
+  width: 100%;
   align-items: center;
   padding: 16px 40px;
   background: transparent;
+  flex-wrap: wrap;
+  margin: 0 auto;
   /* border-bottom: 1px solid #eee; */
 }
 
 .logo-box {
-  margin-right: 100px;
+/* margin-right: 100px; */
   /* flex: 0 0 auto; */
   display: flex;
   align-items: center;
@@ -51,6 +71,9 @@
   font-weight: 600;
 }
 
+.mobileMenu-button{
+  display:none
+}
 .nav-item-link {
   position: relative;
   color: #070000;
@@ -75,6 +98,66 @@
   width: 100%;
 }
 
+/* dropdown menu setting  */
+.dropdown-wrapper{
+  position: relative;
+  display: inline;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  list-style: none;
+  background-color: #e8bb73;
+  padding: 0;
+  margin: 0;
+  display: none;
+  min-width: 160px;
+  z-index: 100;
+}
+
+.dropdown-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: white;
+  text-decoration: none;
+}
+
+.dropdown-link:hover {
+  background-color: rgb(241, 235, 235)}
+
+.dropdown-wrapper:hover .dropdown-menu {
+  display: block;
+}
+
+/* mobile button */
+@media (max-width: 768px) {
+  .mobileMenu-button {
+    display: block;
+    background: transparent;
+  }
+
+  .custom-nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #333;
+  }
+
+  .custom-nav.mobileMenu{
+    display: flex;
+  }
+
+  .nav-item-link {
+    padding: 1rem;
+    border-top: 1px solid #555;
+  }
+
+  .dropdown-menu {
+    background-color: #444;
+  }
+}
 
 </style>
 
