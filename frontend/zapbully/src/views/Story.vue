@@ -1,5 +1,49 @@
 <template>
   <div class="story-container" v-if="step" @click="handleClick">
+    <!-- Top navigation bar with buttons and interactive progress bar -->
+    <div class="top-navigation">
+      <router-link to="/safety-simulations" class="back-btn">← Back</router-link>
+      
+      <!-- Interactive Progress Bar with Navigation Dots -->
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div 
+            class="progress-fill" 
+            :style="{ width: `${progressPercentage}%` }"
+          ></div>
+          
+          <!-- Navigation dots for key steps with custom tooltips -->
+          <div class="progress-dots">
+            <div 
+              v-for="keyStep in keyStepsArray" 
+              :key="keyStep.id"
+              class="progress-dot"
+              :class="{ 
+                'active': visitedKeySteps.has(keyStep.id),
+                'current': currentStepIndex === keyStep.id
+              }"
+              :style="{ left: `${calculateDotPosition(keyStep)}%` }"
+              @click.stop="handleDotClick(keyStep)"
+              :title="keyStep.customTooltip || generateDotTooltip(keyStep)"
+            ></div>
+          </div>
+        </div>
+        <div class="progress-text">{{ completedKeySteps }} / {{ story?.keySteps || 1 }}</div>
+      </div>
+      
+      <button class="mute-btn" @click.stop="toggleMute">
+        {{ isMuted ? "🔇" : "🔈" }}
+      </button>
+    </div>
+
+    <div v-if="showPopup" class="popup-overlay">
+      <div class="popup-box">
+        <h3>{{ popupData?.title || 'Notice' }}</h3>
+        <p>{{ popupData?.message || '' }}</p>
+        <button @click="closePopup">{{ popupData?.buttonText || 'OK' }}</button>
+      </div>
+    </div>
+
     <div v-if="showInstructions" class="instruction-overlay">
       <!-- Close button -->
       <div class="close-button" @click.stop="closeInstructions">
@@ -19,7 +63,12 @@
       
       <!-- Click to continue callout -->
       <div class="callout callout-click">
-        <div class="callout-text">Click on screen to Continue story</div>
+        <div class="callout-text">After starting, Click anywhere on the screen to Continue the story</div>
+      </div>
+      
+      <!-- New callout for progress dots -->
+      <div class="callout callout-dots">
+        <div class="callout-text">Click dots to navigate to visited scenes</div>
       </div>
     </div>
 
@@ -71,18 +120,12 @@
         </div>
       </div>
     </div>
-
-    <div class="button-group">
-      <router-link to="/safety-simulations" class="back-btn">← Back to stories</router-link>
-      <button class="mute-btn" @click.stop="toggleMute">
-        {{ isMuted ? "🔇" : "🔈" }}
-      </button>
-    </div>
   </div>
 </template>
 
 <script>
 export default {
+  props: ['title', 'message', 'buttonText'],
   data() {
     return {
       story: null,
@@ -100,7 +143,14 @@ export default {
       transitionInProgress: false,
       shouldFadeCharacter: false,
       prevBackground: null,
-      showInstructions: true // Start with instructions visible
+      showInstructions: true,
+      completedKeySteps: 0,
+      progressPercentage: 0,
+      visitedKeySteps: new Set(),
+      keyStepsArray: [],
+      furthestVisitedStep: 0,
+      popupData: null,
+      showPopup: false
     };
   },
   computed: {
@@ -111,16 +161,15 @@ export default {
   watch: {
     step(newStep, oldStep) {
       if (!newStep) return;
-      
+
       this.shouldFadeCharacter = newStep.transitionEffect === "fade";
 
       if (oldStep && newStep.preserveBackground && oldStep.background === newStep.background) {
-        // Same background, no transition needed
+        // Same background
       } else {
         this.prevBackground = oldStep ? oldStep.background : null;
       }
-      
-      // Initialize character positions
+
       this.characters = JSON.parse(JSON.stringify(newStep.characters || []));
       this.resetChat();
 
@@ -131,53 +180,138 @@ export default {
         this.hideTextBox = false;
       }
 
-      // Only speak if instructions are closed
+      if (this.currentStepIndex > this.furthestVisitedStep) {
+        this.furthestVisitedStep = this.currentStepIndex;
+      }
+
+      if (newStep.isKeyStep && !this.visitedKeySteps.has(newStep.id)) {
+        this.visitedKeySteps.add(newStep.id);
+        this.completedKeySteps = this.visitedKeySteps.size;
+        this.updateProgress();
+      }
+
       if (!this.showInstructions) {
         this.speakStepText();
       }
+
+      // Updated: First reset popup then set new popup data if exists
+      this.showPopup = false;
+      this.$nextTick(() => {
+        this.updatePopup(newStep);
+      });
     }
   },
   methods: {
+    updatePopup(step) {
+      if (step && step.popup) {
+        this.popupData = { ...step.popup };
+        // Small delay to ensure DOM update before showing popup
+        setTimeout(() => {
+          this.showPopup = true;
+        }, 50);
+      } else {
+        this.popupData = null;
+        this.showPopup = false;
+      }
+    },
+    // Added dedicated method for closing popup
+    closePopup() {
+      this.showPopup = false;
+    },
     async loadStory() {
       const storyId = this.$route.params.storyId;
       try {
         const module = await import(`@/assets/stories/story${storyId}.json`);
         this.story = module.default;
+
+        this.completedKeySteps = 0;
+        this.visitedKeySteps = new Set();
+        this.furthestVisitedStep = 0;
+
+        // Updated to include custom tooltip text from stepText property
+        this.keyStepsArray = this.story.steps
+          .filter(step => step.isKeyStep)
+          .map(step => ({
+            id: step.id,
+            name: step.name || "Scene",
+            text: step.text ? step.text.substring(0, 30) + (step.text.length > 30 ? "..." : "") : "Scene",
+            customTooltip: step.stepText || null // Use stepText for custom tooltip if available
+          }));
+
+        if (this.step && this.step.isKeyStep) {
+          this.visitedKeySteps.add(this.step.id);
+          this.completedKeySteps = 1;
+        }
+
+        this.updateProgress();
+        if (this.step) this.updatePopup(this.step);
       } catch (err) {
         console.error(`Could not load story${storyId}.json`, err);
       }
     },
+    
+    generateDotTooltip(keyStep) {
+      // This is the fallback tooltip if no custom one is provided
+      const stepNumber = this.keyStepsArray.findIndex(ks => ks.id === keyStep.id) + 1;
+      return `Scene ${stepNumber}: ${keyStep.name !== " " ? keyStep.name : ""}`;
+    },
+    calculateDotPosition(keyStep) {
+      const keyStepIndex = this.keyStepsArray.findIndex(ks => ks.id === keyStep.id);
+      if (keyStepIndex === -1) return 0;
+      return (keyStepIndex / (this.keyStepsArray.length - 1)) * 100;
+    },
+    generateDotTooltip(keyStep) {
+      const stepNumber = this.keyStepsArray.findIndex(ks => ks.id === keyStep.id) + 1;
+      return `Scene ${stepNumber}: ${keyStep.name !== " " ? keyStep.name : ""}`;
+    },
+    handleDotClick(keyStep) {
+      if (this.visitedKeySteps.has(keyStep.id) || keyStep.id <= this.furthestVisitedStep) {
+        this.goToStep(keyStep.id);
+      }
+    },
+    updateProgress() {
+      if (!this.story || !this.story.keySteps) return;
+      this.progressPercentage = (this.completedKeySteps / this.story.keySteps) * 100;
+    },
     closeInstructions() {
       this.showInstructions = false;
-      // Start the voiceover once instructions are closed
       this.speakStepText();
     },
     goToStep(index) {
       if (this.transitionInProgress) return;
-      
+
       this.transitionInProgress = true;
       this.previousStepIndex = this.currentStepIndex;
-      
-      // Get current and next step
+
       const currentStep = this.step;
       const nextStep = this.story.steps[index];
-      
-      if (nextStep && nextStep.preserveBackground && currentStep && currentStep.background === nextStep.background) {
-        // Same background - quick transition without fading
+
+      const updateStep = () => {
         this.resetChat();
         this.currentStepIndex = index;
+
+        if (index > this.furthestVisitedStep) {
+          this.furthestVisitedStep = index;
+        }
+
+        if (nextStep.isKeyStep && !this.visitedKeySteps.has(nextStep.id)) {
+          this.visitedKeySteps.add(nextStep.id);
+          this.completedKeySteps = this.visitedKeySteps.size;
+          this.updateProgress();
+        }
+
         this.transitionInProgress = false;
+        this.updatePopup(nextStep);
+      };
+
+      if (nextStep && nextStep.preserveBackground && currentStep && currentStep.background === nextStep.background) {
+        updateStep();
       } else {
-        // Different background - need transition with delay
-        setTimeout(() => {
-          this.resetChat();
-          this.currentStepIndex = index;
-          this.transitionInProgress = false;
-        }, 300);
+        setTimeout(updateStep, 300);
       }
     },
     handleClick() {
-      if (this.showInstructions || !this.clickEnabled || this.transitionInProgress) return;
+      if (this.showPopup || this.showInstructions || !this.clickEnabled || this.transitionInProgress) return;
 
       if (!this.step.choices && this.step.next !== undefined) {
         this.goToStep(this.step.next);
@@ -235,7 +369,7 @@ export default {
     },
     switchCharacterImage(newImage) {
       if (!newImage || !this.characters.length) return;
-      
+
       this.characters = this.characters.map((char, index) => {
         if (index === 0) {
           return { ...char, img: newImage };
@@ -265,7 +399,7 @@ export default {
       window.speechSynthesis.cancel();
 
       const utterance = new SpeechSynthesisUtterance(`${this.step.name}: ${this.step.text}`);
-      utterance.voice = this.pickVoice(this.step.voice); // get voice from JSON
+      utterance.voice = this.pickVoice(this.step.voice);
       utterance.rate = 1;
       utterance.pitch = 1;
       window.speechSynthesis.speak(utterance);
@@ -277,6 +411,12 @@ export default {
   },
   mounted() {
     this.loadStory();
+
+    if (window.speechSynthesis) {
+      if (window.speechSynthesis.onvoiceschanged !== undefined) {
+        window.speechSynthesis.onvoiceschanged = this.speakStepText;
+      }
+    }
   },
   beforeRouteLeave(to, from, next) {
     window.speechSynthesis.cancel();
@@ -298,6 +438,135 @@ export default {
   min-height: 100vh;
 }
 
+/* Top navigation bar with buttons and progress bar */
+.top-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+/* Progress bar styles */
+.progress-container {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.progress-bar {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  overflow: visible;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #4a90e2;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.progress-dots {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.progress-dot {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  background-color: white;
+  border: 2px solid #333;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.progress-dot.active {
+  background-color: #4a90e2;
+  border-color: white;
+}
+
+.progress-dot.current {
+  transform: translate(-50%, -50%) scale(1.5);
+  box-shadow: 0 0 10px rgba(74, 144, 226, 0.7);
+  background-color: #3c20da;
+}
+
+.progress-text {
+  margin-top: 10px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.progress-dot:hover::after {
+  content: attr(title);
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-box {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 80%;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.popup-box h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.popup-box button {
+  margin-top: 15px;
+  padding: 8px 20px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.popup-box button:hover {
+  background-color: #357ab8;
+}
+
 .scene-wrapper {
   position: relative;
   height: 550px;
@@ -317,7 +586,7 @@ export default {
 /* Centered instruction overlay */
 .instruction-overlay {
   position: absolute;
-  top: 42%;
+  top: 51%;
   left: 50%;
   width: calc(100% - 60px);
   height: 530px;
@@ -331,7 +600,7 @@ export default {
 .close-button {
   position: absolute;
   top: 20px;
-  right: 20px;
+  right: 5px;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -370,7 +639,7 @@ export default {
 }
 
 .callout-text {
-  background-color: #FF5A5A;
+  background-color: #5a73ff;
   color: white;
   padding: 8px 16px;
   border-radius: 20px;
@@ -398,8 +667,8 @@ export default {
 }
 
 .callout-who {
-  left: 10%;
-  bottom: 150px;
+  left: 5%;
+  bottom: 60px;
 }
 
 .callout-who .callout-line {
@@ -415,6 +684,13 @@ export default {
 
 .callout-click .callout-line {
   top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* New callout for progress dots */
+.callout-dots {
+  top: 80px;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -479,15 +755,7 @@ export default {
   background: #0288d1;
 }
 
-.button-group {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 10px;
-}
-
 .back-btn {
-  margin-bottom: 16px;
   padding: 8px 14px;
   background-color: #ffa726;
   border: none;
@@ -496,6 +764,7 @@ export default {
   color: white;
   font-weight: bold;
   transition: background-color 0.3s ease;
+  text-decoration: none;
 }
 
 .back-btn:hover {
@@ -503,7 +772,6 @@ export default {
 }
 
 .mute-btn {
-  margin-bottom: 16px;
   padding: 8px 14px;
   background: #90caf9;
   border: none;

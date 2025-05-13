@@ -59,6 +59,18 @@ export default {
     return {
       stories: [
         {
+          id: 1,
+          name: "Harassing",
+          description: "Learn how to respond to online harassment effectively.",
+          image: "https://mdbootstrap.com/img/new/standard/city/041.webp"
+        },
+        {
+          id: 2,
+          name: "Gaming Failure",
+          description: "You, as James's mother, have recently noticed that he resists going to school. How will you find out what happened and solve it?",
+          image: "/story2.jpg"
+        },
+        {
           id: 3,
           name: "Group Chat Bullying",
           description: "A child faces exclusion from social activities due to teasing and exclusion from school due to their ethnicity being a minority in the school's demographics.",
@@ -75,18 +87,6 @@ export default {
           name: "LGBTQ+ Harassment",
           description: "Alex, who recently outed as non-binary, was publicly outed in a school chat, and anonymous Instagram and Snapchat stories mocked his identity with transphobic memes and slurs.",
           image: "/story5.jpg"
-        },
-        /* {
-          id: 1,
-          name: "Harassing",
-          description: "Learn how to respond to online harassment effectively.",
-          image: "https://mdbootstrap.com/img/new/standard/city/041.webp"
-        }, */
-        {
-          id: 2,
-          name: "Gaming Failure",
-          description: "James stopped playing Fortnite. James didn’t want to go to school either. Something felt heavy inside, but he didn’t know how to say it.",
-          image: "/story2.jpg"
         }
       ]
     };

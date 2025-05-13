@@ -1,5 +1,7 @@
 {
   "title": "Teasing and exclusion",
+  "totalSteps": 14,
+  "keySteps": 5,
   "steps": [
     {
       "id": 0,
@@ -18,7 +20,8 @@
         }
       ],
       "transitionEffect": "fade",
-      "next": 1
+      "next": 1,
+      "isKeyStep": true
     },
     {
       "id": 1,
@@ -75,7 +78,8 @@
           "color": "#f9d1d1"
         }
       ],
-      "next": 2
+      "next": 2,
+      "isKeyStep": true
     },
     {
       "id": 2,
@@ -133,7 +137,8 @@
         { "text": "Ignore it", "next": 4 },
         { "text": "Talk more", "next": 8 },
         { "text": "Check phone", "next": 12 }
-      ]
+      ],
+      "isKeyStep": true
     },
     {
       "id": 4,
@@ -282,7 +287,8 @@
         { "text": "Report to the school", "next": 13 },
         { "text": "Block them", "next": 10 },
         { "text": "Speak to their parents", "next": 11 }
-      ]
+      ],
+      "isKeyStep": true
     },
     {
       "id": 10,
@@ -363,7 +369,8 @@
           }
         }
       ],
-      "transitionEffect": "fade"
+      "transitionEffect": "fade",
+      "isKeyStep": true
     }
   ]
 }
