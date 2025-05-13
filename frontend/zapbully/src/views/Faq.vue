@@ -65,15 +65,33 @@
   
   <style scoped>
   @import url('https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css');
-  
-  .support-app {
-    font-family: 'Segoe UI', sans-serif;
-    padding: 20px;
-    background: url('@/assets/background_image.png') no-repeat center center fixed;
-    background-size: cover;
-    min-height: 100vh;
-  }
-  
+      
+
+    .support-app {
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+      background: url('@/assets/background_image.png') no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+    }
+
+    .support-app .container,
+    .support-app .container > *,
+    .support-app .bg-light,
+    /* .support-app .accordion,
+    .support-app .accordion-item,
+    .support-app .accordion-button, */
+    .support-app .accordion-body {
+      background-color: transparent !important;
+    }
+
+    
+    .support-app h2,
+    .support-app p,
+    .support-app .accordion-button {
+      color: rgb(0, 0, 0);
+      /* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);  */
+    }
   .footer {
     text-align: center;
     margin-top: 60px;

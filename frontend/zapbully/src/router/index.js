@@ -7,7 +7,8 @@ import Faq from '@/views/Faq.vue'
 import Support from '@/views/Support.vue'
 import PasswordGate from '@/views/PasswordGate.vue'
 import toast from '../utils/toast'
-
+import Story from '@/views/Story.vue'
+import Emoji from '@/views/Emoji.vue'
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: '/safety-simulations',
     name: 'Simulator',
     component: Simulator
+  },
+  {
+    path: '/story/:storyId',
+    name: 'Story',
+    component: Story
   },
   {
     path: '/data-insights',
@@ -44,6 +50,11 @@ const routes = [
     path: '/support',
     name: 'Support',
     component: Support
+  },
+  {
+    path: '/emoji',
+    name: 'Emoji',
+    component: Emoji
   }
 ]
 

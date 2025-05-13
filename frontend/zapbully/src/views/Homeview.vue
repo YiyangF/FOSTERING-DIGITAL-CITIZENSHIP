@@ -84,7 +84,7 @@ import hfaceIcon from '@/assets/icons/hface.svg'
 import sfaceIcon from '@/assets/icons/sface.svg'
 import faqImage from '@/assets/card/faq.png'
 import guiImage from '@/assets/card/gui.png'
-import dataImage from '@/assets/card/data.jpg'
+import dataImage from '@/assets/card/data.png'
 import symImage from '@/assets/card/sym.png'
 
 const router = useRouter()

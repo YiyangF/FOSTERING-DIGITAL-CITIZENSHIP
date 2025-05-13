@@ -55,7 +55,7 @@
         Please select between 3 and 6 symptoms before submitting.
       </div>
 
-      <div v-if="resultVisible" class="result-card">
+      <div v-if="resultVisible" class="result-card" ref="resultCard">
         <h4>Severity Analysis</h4>
         <div class="result-bar">
           <div class="result-fill" :style="{ width: finalScore * 20 + '%' }" :class="progressBarClass"></div>
@@ -104,7 +104,8 @@ export default {
       fromResultPage: false,
       resultVisible: false,
       finalScore: 0,
-      submissionError: false
+      submissionError: false,
+      scrollPosition: 0
     };
   },
   computed: {
@@ -182,6 +183,7 @@ export default {
       this.selections = Array.from({ length: 5 }, () => Array(5).fill(false));
       this.resultVisible = false;
       this.submissionError = false;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     },
     submitSelection() {
       if (this.totalSelected < 3 || this.totalSelected > 6) {
@@ -204,6 +206,19 @@ export default {
       });
       this.finalScore = total / selected.length;
       this.resultVisible = true;
+      
+      this.$nextTick(() => {
+        const resultCard = this.$refs.resultCard;
+        const offset = 20;
+        const bodyRect = document.body.getBoundingClientRect();
+        const elementRect = resultCard.getBoundingClientRect();
+        const offsetPosition = elementRect.top - bodyRect.top - offset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      });
     },
     goToSupport() {
       if (this.$router) {
@@ -220,29 +235,42 @@ export default {
       const classes = ['btn-psych', 'btn-emotion', 'btn-behavior', 'btn-physical', 'btn-social'];
       return classes[index] || '';
     }
+  },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.handleScroll);
   }
 };
 </script>
 
 <style scoped>
 .checker-page {
-  background: linear-gradient(to bottom right, #eef5fc, #dceaf6);
+  background: url('@/assets/background_image.png') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
   padding: 40px 20px;
   font-family: 'Segoe UI', sans-serif;
+  overflow-y: auto;
 }
+
 .title {
   font-size: 28px;
   font-weight: bold;
+  color: black; 
+  text-shadow: none; 
 }
+
 .subtitle {
   margin-bottom: 2rem;
+  color: black;
+  /* text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); */
 }
-.card-scroll {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin-bottom: 1rem;
-  flex-wrap: wrap;
+
+.container {
+  background-color: transparent;
+  min-height: 100vh;
 }
 .symptom-card {
   background: white;
@@ -256,6 +284,21 @@ export default {
   flex-direction: column;
   justify-content: flex-start;
   overflow-y: auto;
+}
+.result-card {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  margin-bottom: 40px; 
+}
+
+.card-scroll {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
 }
 .symptom-card.active {
   transform: scale(1.05);
@@ -342,15 +385,10 @@ export default {
 .error-msg {
   color: red;
   margin-top: 1rem;
-}
-.result-card {
-  background: white;
-  border-radius: 16px;
-  padding: 30px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  max-width: 700px;
-  margin: 40px auto 0;
-  text-align: center;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 10px;
+  border-radius: 8px;
+  display: inline-block;
 }
 .result-bar {
   position: relative;
@@ -394,4 +432,3 @@ export default {
   cursor: pointer;
 }
 </style>
-
