@@ -1,55 +1,781 @@
 {
-    "id": 1,
-    "title": "Maya and the Unknown Message",
-    "steps": [
-      {
-        "name": "Maya",
-        "text": "You receive a strange message from someone you don't know.",
-        "characterImg": "/maya.png",
-        "background": "/bedroom.jpg",
-        "choices": [
-          { "text": "Ignore it", "next": 1 },
-          { "text": "Respond politely", "next": 2 }
-        ]
-      },
-      {
-        "name": "Maya",
-        "text": "You ignore the message. The person continues to message you more aggressively.",
-        "characterImg": "/maya-sad.png",
-        "background": "/bedroom-night.jpg",
-        "choices": [
-          { "text": "Block the person", "next": 3 },
-          { "text": "Report to a teacher", "next": 4 }
-        ]
-      },
-      {
-        "name": "Maya",
-        "text": "You respond, but they ask for personal information. What do you do?",
-        "characterImg": "/maya.png",
-        "background": "/phone-closeup.jpg",
-        "choices": [
-          { "text": "Refuse and report", "next": 4 },
-          { "text": "Give your email", "next": 5 }
-        ]
-      },
-      {
-        "name": "Maya",
-        "text": "You blocked the person. Good job! Always protect your boundaries.",
-        "characterImg": "/maya-happy.png",
-        "background": "/school.jpg"
-      },
-      {
-        "name": "Maya",
-        "text": "You reported the incident. Your teacher helped resolve the situation.",
-        "characterImg": "/maya-happy.png",
-        "background": "/school.jpg"
-      },
-      {
-        "name": "Maya",
-        "text": "Sharing personal info led to your account being compromised.",
-        "characterImg": "/maya-sad.png",
-        "background": "/phone-closeup.jpg"
+  "title": "Someone's Pretending to Be Me Online",
+  "totalSteps": 28,
+  "keySteps": 8,
+  "steps": [
+    {
+      "id": 0,
+      "name": "",
+      "text": "Maya, your 14-year-old daughter sits quietly in her room, staring at her phone. Suddenly, she gasps and pulls her phone close.",
+      "voice": "Microsoft James",
+      "background": "/maya-bedroom.png",
+      "characters": [
+        {
+          "img": "/maya-phone-shocked.png",
+          "style": {
+            "right": "40%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 1
+    },
+    {
+      "id": 1,
+      "name": "Maya",
+      "text": "What the heck, I didn't post that.",
+      "voice": "Microsoft Zira",
+      "background": "/maya-bedroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/maya-upset.png",
+          "style": {
+            "right": "40%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 2
+    },
+    {
+      "id": 2,
+      "name": "Dad",
+      "text": "What's going on, Is everything alright Maya?",
+      "voice": "Microsoft David",
+      "background": "/maya-bedroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/dad-concerned.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/maya-hiding.png",
+          "style": {
+            "right": "30%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 3
+    },
+    {
+      "id": 3,
+      "name": "Maya",
+      "text": "Nothing. Don't worry, Everything is fine.",
+      "voice": "Microsoft Zira",
+      "background": "/maya-bedroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/dad-concerned.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/maya-defensive.png",
+          "style": {
+            "right": "30%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "isKeyStep": true,
+      "stepText": "1st Choice",
+      "choices": [
+        {"text": "Support Her", "next": 4},
+        {"text": "Take her Phone Away", "next": 11}]
+    },
+    {
+      "id": 4,
+      "name": "Dad",
+      "text": "I can see something's wrong. I'm here for you if you want to talk about it.",
+      "voice": "Microsoft David",
+      "background": "/maya-bedroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/dad-supportive.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/maya-hesitant.png",
+          "style": {
+            "right": "30%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 5
+    },
+    {
+      "id": 5,
+      "name": "Maya",
+      "text": "Someone created a fake Instagram account and is pretending to be me.",
+      "voice": "Microsoft Zira",
+      "background": "/maya-bedroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/dad-listening.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/maya-talking.png",
+          "style": {
+            "right": "30%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 6
+    },
+    {
+      "id": 6,
+      "name": "Dad",
+      "text": "Let me help you report it. We'll take the account down.",
+      "voice": "Microsoft David",
+      "background": "/maya-bedroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/dad-supportive.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/maya-relieved.png",
+          "style": {
+            "right": "30%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 7
+    },
+    {
+      "id": 7,
+      "name": "Maya",
+      "text": "Thanks for not freaking out and helping me.",
+      "voice": "Microsoft Zira",
+      "background": "/maya-bedroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/dad-supportive.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/maya-smiling.png",
+          "style": {
+            "right": "30%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "isKeyStep": true,
+      "stepText": "Support Her",
+      "choices": [
+        {"text": "Report to School", "next": 8},
+        {"text": "Just Block Them", "next": 9}]
+    },
+    {
+      "id": 8,
+      "name": "Dad",
+      "text": "Should we report this to the School and eSafety Commissioner together?",
+      "voice": "Microsoft David",
+      "background": "/living-room.png",
+      "transitionEffect": "fade",
+      "characters": [
+        {
+          "img": "/dad-talking.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/maya-nodding.png",
+          "style": {
+            "right": "30%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 10,
+      "isKeyStep": true,
+      "stepText": "Report to School"
+    },
+    {
+      "id": 9,
+      "name": "Dad",
+      "text": "Would you prefer I just help you block and mute them for now?",
+      "voice": "Microsoft David",
+      "background": "/maya-bedroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/dad-questioning.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/maya-unsure.png",
+          "style": {
+            "right": "30%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 27,
+      "isKeyStep": true,
+      "stepText": "Just Block"
+    },
+    {
+      "id": 10,
+      "name": "",
+      "text": "You and Maya report the account to Instagram and notify school officials. The school investigates and discovers other students were involved in creating the fake profile.",
+      "voice": "Microsoft James",
+      "background": "/school-office.png",
+      "transitionEffect": "fade",
+      "characters": [
+        {
+          "img": "/school-admin.png",
+          "style": {
+            "left": "10%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/dad-and-maya.png",
+          "style": {
+            "right": "30%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        }
+      ],
+      "next": 26,
+      "isKeyStep": true,
+      "stepText": "Good Resolution"
+    },
+    {
+      "id": 11,
+      "name": "Dad",
+      "text": "Maya, If you don't tell me what's going on right now, I'll take your phone away.",
+      "voice": "Microsoft David",
+      "background": "/maya-bedroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/dad-stern.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/maya-afraid.png",
+          "style": {
+            "right": "30%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 12
+    },
+    {
+      "id": 12,
+      "name": "Maya",
+      "text": "Ofcourse, you just care about the phone.",
+      "voice": "Microsoft Zira",
+      "background": "/maya-bedroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/dad-frustrated.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/maya-upset.png",
+          "style": {
+            "right": "30%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "isKeyStep": true,
+      "stepText": "Take Phone",
+      "choices": [
+        {"text": "Keep Asking", "next": 13},
+        {"text": "Apologize", "next": 16}]
+    },
+    {
+      "id": 13,
+      "name": "Dad",
+      "text": "Tell me what happened. Are you hiding something from me?",
+      "voice": "Microsoft David",
+      "background": "/maya-bedroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/dad-demanding.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/maya-defensive.png",
+          "style": {
+            "right": "30%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 14
+    },
+    {
+      "id": 14,
+      "name": "Maya",
+      "text": "I said I'm fine. Leave me alone.",
+      "voice": "Microsoft Zira",
+      "background": "/maya-bedroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/dad-frustrated.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/maya-turning-away.png",
+          "style": {
+            "right": "30%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 15,
+      "isKeyStep": true,
+      "stepText": "Keep Pushing"
+    },
+    {
+      "id": 15,
+      "name": "",
+      "text": "This path didn't lead where you hoped. Maya felt overwhelmed and pulled away instead of opening up.",
+      "voice": "Microsoft James",
+      "background": "/maya-bedroom-door-closed.png",
+      "transitionEffect": "fade",
+      "characters": [
+        {
+          "img": "/dad-regretful.png",
+          "style": {
+            "left": "30%",
+            "height": "450px"
+          }
+        }
+      ],
+      "next": 28,
+      "isKeyStep": true,
+      "stepText": "Failed Approach"
+    },
+    {
+      "id": 16,
+      "name": "Dad",
+      "text": "I'm sorry, that wasn't fair. I care about you and just want to help.",
+      "voice": "Microsoft David",
+      "background": "/maya-bedroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/dad-apologetic.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/maya-considering.png",
+          "style": {
+            "right": "30%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 17
+    },
+    {
+      "id": 17,
+      "name": "Maya",
+      "text": "Someone created a fake Instagram account and is pretending to be me.",
+      "voice": "Microsoft Zira",
+      "background": "/maya-bedroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/dad-concerned.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/maya-vulnerable.png",
+          "style": {
+            "right": "30%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 18,
+      "isKeyStep": true,
+      "stepText": "Apologize"
+    },
+    {
+      "id": 18,
+      "name": "Dad",
+      "text": "That's terrible. Let's figure this out together. Do you know who might be doing this?",
+      "voice": "Microsoft David",
+      "background": "/maya-bedroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/dad-supportive.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/maya-thinking.png",
+          "style": {
+            "right": "30%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 19
+    },
+    {
+      "id": 19,
+      "name": "Maya",
+      "text": "I think it might be some girls from my history class. They've been weird around me lately.",
+      "voice": "Microsoft Zira",
+      "background": "/maya-bedroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/dad-listening.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/maya-explaining.png",
+          "style": {
+            "right": "30%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 20
+    },
+    {
+      "id": 20,
+      "name": "Dad",
+      "text": "This is what we can do about it:",
+      "voice": "Microsoft David",
+      "background": "/maya-bedroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/dad-explaining.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/maya-attentive.png",
+          "style": {
+            "right": "30%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "choices": [
+        {"text": "Confront the Girls", "next": 21},
+        {"text": "Report to School", "next": 23}]
+    },
+    {
+      "id": 21,
+      "name": "Dad",
+      "text": "Let's message these girls directly and tell them to take down the account.",
+      "voice": "Microsoft David",
+      "background": "/maya-bedroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/dad-determined.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/maya-uncomfortable.png",
+          "style": {
+            "right": "30%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 22
+    },
+    {
+      "id": 22,
+      "name": "",
+      "text": "The direct confrontation made things worse. The girls denied involvement and the fake account started posting more aggressive content about Maya.",
+      "voice": "Microsoft James",
+      "background": "/school-hallway.png",
+      "transitionEffect": "fade",
+      "characters": [
+        {
+          "img": "/maya-crying.png",
+          "style": {
+            "right": "30%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 20,
+      "isKeyStep": true,
+      "stepText": "Confrontation Failed",
+      "popup": {
+        "title": "Warning",
+        "message": "Direct confrontation often makes cyberbullying worse. Bullies may feel challenged and escalate their behavior, or deny involvement while continuing secretly. Always document evidence first and work through proper channels like school administration or platform reporting systems.",
+        "buttonText": "Got it!"
       }
-    ]
-  }
-  
+    },
+    {
+      "id": 23,
+      "name": "Dad",
+      "text": "First, let's report this account to Instagram. Then we should talk to your school counselor about what's happening.",
+      "voice": "Microsoft David",
+      "background": "/living-room.png",
+      "transitionEffect": "fade",
+      "characters": [
+        {
+          "img": "/dad-explaining.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/maya-listening.png",
+          "style": {
+            "right": "30%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 24
+    },
+    {
+      "id": 24,
+      "name": "Maya",
+      "text": "Okay, can we also save screenshots as evidence?",
+      "voice": "Microsoft Zira",
+      "background": "/living-room.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/dad-listening.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/maya-determined.png",
+          "style": {
+            "right": "30%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 25
+    },
+    {
+      "id": 25,
+      "name": "Dad",
+      "text": "Absolutely. That's excellent thinking, Maya.",
+      "voice": "Microsoft David",
+      "background": "/living-room.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/dad-proud.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/maya-smiling.png",
+          "style": {
+            "right": "30%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 26
+    },
+    {
+      "id": 26,
+      "name": "",
+      "text": "You reported the account and worked with the school. The fake profile was removed, and the school implemented a digital citizenship program to prevent similar incidents.",
+      "voice": "Microsoft James",
+      "background": "/school-assembly.png",
+      "transitionEffect": "fade",
+      "characters": [
+        {
+          "img": "/principal-speaking.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/students-listening.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "isKeyStep": true,
+      "stepText": "Successful Resolution",
+      "popup": {
+        "title": "Effective Approach",
+        "message": "The most effective response to online impersonation includes: 1) Document everything with screenshots, 2) Report to the platform immediately, 3) Notify school officials if classmates are involved, 4) Consider reporting to relevant authorities like the eSafety Commissioner, 5) Support your child emotionally throughout the process, and 6) Use privacy settings to prevent future incidents.",
+        "buttonText": "Got it!"
+      }
+    },
+    {
+      "id": 27,
+      "name": "",
+      "text": "You helped Maya block the account, but the problem wasn't fully resolved. A new fake account appeared weeks later, and the situation became more complicated.",
+      "voice": "Microsoft James",
+      "background": "/maya-bedroom.png",
+      "transitionEffect": "fade",
+      "characters": [
+        {
+          "img": "/maya-distressed.png",
+          "style": {
+            "right": "40%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 7,
+      "isKeyStep": true,
+      "stepText": "Temporary Fix",
+      "popup": {
+        "title": "Warning",
+        "message": "Blocking alone is rarely enough to address cyberbullying. While it provides temporary relief, it doesn't identify the source of the problem or prevent the creation of new accounts. Without proper reporting and intervention, the issue often persists or worsens over time.",
+        "buttonText": "Got it!"
+      }
+    },
+    {
+      "id": 28,
+      "name": "",
+      "text": "It's a hard moment — but also a learning one. Sometimes, asking too much too fast can feel more like pressure than support.",
+      "voice": "Microsoft James",
+      "background": "/parent-reflecting.png",
+      "transitionEffect": "fade",
+      "characters": [],
+      "popup": {
+        "title": "Parenting Insight",
+        "message": "When teens are facing online issues, they often fear parental reactions will make things worse. Create safety by staying calm, listening first, and avoiding threats or accusations. Remember that your teen's digital world is their social lifeline - threatening to remove it can prevent them from coming to you with problems in the future.",
+        "buttonText": "Try Again"
+      }
+    }
+  ]
+}

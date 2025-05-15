@@ -36,11 +36,11 @@
       </button>
     </div>
 
-    <div v-if="showPopup" class="popup-overlay">
+    <div v-if="showPopup" class="popup-overlay" @click.stop>
       <div class="popup-box">
         <h3>{{ popupData?.title || 'Notice' }}</h3>
         <p>{{ popupData?.message || '' }}</p>
-        <button @click="closePopup">{{ popupData?.buttonText || 'OK' }}</button>
+        <button @click.stop="closePopup">{{ popupData?.buttonText || 'OK' }}</button>
       </div>
     </div>
 
@@ -66,9 +66,9 @@
         <div class="callout-text">After starting, Click anywhere on the screen to Continue the story</div>
       </div>
       
-      <!-- New callout for progress dots -->
+      <!-- progress dots -->
       <div class="callout callout-dots">
-        <div class="callout-text">Click dots to navigate to visited scenes</div>
+        <div class="callout-text">Above is the progress bar, each dot is the key scene you can jump to after viewing</div>
       </div>
     </div>
 
@@ -217,6 +217,8 @@ export default {
     // Added dedicated method for closing popup
     closePopup() {
       this.showPopup = false;
+      // Prevent any potential click handlers from firing
+      event.stopPropagation();
     },
     async loadStory() {
       const storyId = this.$route.params.storyId;
@@ -310,9 +312,14 @@ export default {
         setTimeout(updateStep, 300);
       }
     },
-    handleClick() {
-      if (this.showPopup || this.showInstructions || !this.clickEnabled || this.transitionInProgress) return;
+    handleClick(event) {
+      // Don't advance if popup is showing, instructions are showing,
+      // clicks are disabled, or a transition is in progress
+      if (this.showPopup || this.showInstructions || !this.clickEnabled || this.transitionInProgress) {
+        return;
+      }
 
+      // Only advance the scene if there are no choices and next is defined
       if (!this.step.choices && this.step.next !== undefined) {
         this.goToStep(this.step.next);
       }
@@ -658,7 +665,7 @@ export default {
 /* Positioning for specific callouts */
 .callout-dialog {
   right: 20%;
-  bottom: 100px;
+  bottom: 70px;
 }
 
 .callout-dialog .callout-line {
@@ -688,9 +695,8 @@ export default {
   transform: translateX(-50%);
 }
 
-/* New callout for progress dots */
 .callout-dots {
-  top: 80px;
+  top: 10px;
   left: 50%;
   transform: translateX(-50%);
 }

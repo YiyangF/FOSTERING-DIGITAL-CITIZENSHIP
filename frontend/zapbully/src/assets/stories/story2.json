@@ -9,7 +9,6 @@
       "text": "Your 10-year-old son is a game obssesor, he always plays Fortnite after dinner until he goes to bed.",
       "voice": "Microsoft James",
       "background": "/john-bedroom.png",
-      "transitionEffect": "fade",
       "characters": [
         {
           "img": "/john-phone-1.png",
@@ -47,7 +46,6 @@
       "text": "You wanna play before you sleep?",
       "voice": "Google UK English Female",
       "background": "/livingroom.png",
-      "transitionEffect": "fade",
       "preserveBackground": true,
       "characters": [
         {
@@ -75,7 +73,6 @@
       "text": "Not today... and can I take tomorrrow off school? Please...?",
       "voice": "Microsoft Mark",
       "background": "/livingroom.png",
-      "transitionEffect": "fade",
       "preserveBackground": true,
       "characters": [
         {
@@ -103,7 +100,6 @@
       "text": "What's going on? Do you feel unwell?",
       "voice": "Google UK English Female",
       "background": "/livingroom.png",
-      "transitionEffect": "fade",
       "preserveBackground": true,
       "characters": [
         {
@@ -136,10 +132,10 @@
       "text": "If you are not feeling unwell, you must go to school!",
       "voice": "Google UK English Female",
       "background": "/livingroom.png",
-      "transitionEffect": "fade",
+      "preserveBackground": true,
       "characters": [
         {
-          "img": "/parent-strict.png",
+          "img": "/3c.png",
           "style": {
             "left": "10%",
             "bottom": "0",
@@ -163,10 +159,10 @@
       "text": "Okay, you don't have to go to school today. But you should tell me why.",
       "voice": "Google UK English Female",
       "background": "/livingroom.png",
-      "transitionEffect": "fade",
+      "preserveBackground": true,
       "characters": [
         {
-          "img": "/parent-concerned.png",
+          "img": "/parent-ask.png",
           "style": {
             "left": "10%",
             "bottom": "0",
@@ -174,7 +170,7 @@
           }
         },
         {
-          "img": "/john-talk.png",
+          "img": "/john-sad.png",
           "style": {
             "right": "20%",
             "bottom": "0",
@@ -190,10 +186,10 @@
       "text": "Okay, you don't have to go to school today. But you should tell me why.",
       "voice": "Google UK English Female",
       "background": "/livingroom.png",
-      "transitionEffect": "fade",
+      "preserveBackground": true,
       "characters": [
         {
-          "img": "/parent-concerned.png",
+          "img": "/parent-ask.png",
           "style": {
             "left": "10%",
             "bottom": "0",
@@ -201,7 +197,7 @@
           }
         },
         {
-          "img": "/john-talk.png",
+          "img": "/john-sad.png",
           "style": {
             "right": "20%",
             "bottom": "0",
@@ -217,10 +213,10 @@
       "text": "I don't want to!",
       "voice": "Microsoft Mark",
       "background": "/livingroom.png",
-      "transitionEffect": "fade",
+      "preserveBackground": true,
       "characters": [
         {
-          "img": "/parent-strict.png",
+          "img": "/3c.png",
           "style": {
             "left": "10%",
             "bottom": "0",
@@ -228,7 +224,7 @@
           }
         },
         {
-          "img": "/john-angry.png",
+          "img": "/john-talk.png",
           "style": {
             "right": "20%",
             "bottom": "0",
@@ -244,14 +240,13 @@
       "text": "Your son is crying and running back to his room",
       "voice": "Microsoft James",
       "background": "/livingroom.png",
-      "transitionEffect": "fade",
+      "preserveBackground": true,
       "characters": [
         {
-          "img": "/john-crying-running.png",
+          "img": "/fparent-mad.png",
           "style": {
-            "right": "30%",
-            "bottom": "0",
-            "height": "400px"
+            "left": "30%",
+            "height": "450px"
           }
         }
       ],
@@ -270,10 +265,10 @@
       "text": "Have any bad things happened at school recently?",
       "voice": "Google UK English Female",
       "background": "/livingroom.png",
-      "transitionEffect": "fade",
+      "preserveBackground": true,
       "characters": [
         {
-          "img": "/parent-concerned.png",
+          "img": "/3a.png",
           "style": {
             "left": "10%",
             "bottom": "0",
@@ -281,7 +276,7 @@
           }
         },
         {
-          "img": "/john-hesitant.png",
+          "img": "/john-sad.png",
           "style": {
             "right": "20%",
             "bottom": "0",
@@ -297,10 +292,10 @@
       "text": "No, I'm fine...I'm just feeling unwell today.",
       "voice": "Microsoft Mark",
       "background": "/livingroom.png",
-      "transitionEffect": "fade",
+      "preserveBackground": true,
       "characters": [
         {
-          "img": "/parent-concerned.png",
+          "img": "/3b.png",
           "style": {
             "left": "10%",
             "bottom": "0",
@@ -308,7 +303,7 @@
           }
         },
         {
-          "img": "/john-lying.png",
+          "img": "/john-talk.png",
           "style": {
             "right": "20%",
             "bottom": "0",
@@ -321,22 +316,20 @@
     {
       "id": 12,
       "name": "",
-      "text": "(Focus on abnormality. You may think that stopping playing games is good, but it's also a sign of being cyberbullied)",
+      "text": "(Focus on abnormality. You may think that stopping playing games is good, but it's also a sign of being cyberbullied. Asking him about the game.)",
       "voice": "Microsoft James",
       "background": "/livingroom.png",
-      "transitionEffect": "fade",
       "preserveBackground": true,
       "characters": [
         {
-          "img": "/parent-thinking.png",
+          "img": "/fparent-hint.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "30%",
             "height": "450px"
           }
         },
         {
-          "img": "/john-looking-down.png",
+          "img": "/john-sad.png",
           "style": {
             "right": "20%",
             "bottom": "0",
@@ -354,10 +347,10 @@
       "text": "Is this related to the game that you often play? Why not play it recently?",
       "voice": "Google UK English Female",
       "background": "/livingroom.png",
-      "transitionEffect": "fade",
+      "preserveBackground": true,
       "characters": [
         {
-          "img": "/parent-questioning.png",
+          "img": "/parent-ask.png",
           "style": {
             "left": "10%",
             "bottom": "0",
@@ -365,7 +358,7 @@
           }
         },
         {
-          "img": "/john-scared.png",
+          "img": "/john-sad.png",
           "style": {
             "right": "20%",
             "bottom": "0",
@@ -384,7 +377,7 @@
       "transitionEffect": "fade",
       "characters": [
         {
-          "img": "/parent-shocked.png",
+          "img": "/3b.png",
           "style": {
             "left": "10%",
             "bottom": "0",
@@ -392,7 +385,7 @@
           }
         },
         {
-          "img": "/john-crying.png",
+          "img": "/john-talk.png",
           "style": {
             "right": "20%",
             "bottom": "0",
@@ -414,10 +407,10 @@
       "text": "Ok, take today off then.",
       "voice": "Google UK English Female",
       "background": "/livingroom.png",
-      "transitionEffect": "fade",
+      "preserveBackground": true,
       "characters": [
         {
-          "img": "/parent-understanding.png",
+          "img": "/3a.png",
           "style": {
             "left": "10%",
             "bottom": "0",
@@ -425,7 +418,7 @@
           }
         },
         {
-          "img": "/john-relieved.png",
+          "img": "/john-sad.png",
           "style": {
             "right": "20%",
             "bottom": "0",
@@ -441,10 +434,10 @@
       "text": "It's not a big deal! There are lots of good games.",
       "voice": "Google UK English Female",
       "background": "/livingroom.png",
-      "transitionEffect": "fade",
+      "preserveBackground": true,
       "characters": [
         {
-          "img": "/parent-cheerful.png",
+          "img": "/3a.png",
           "style": {
             "left": "10%",
             "bottom": "0",
@@ -452,7 +445,7 @@
           }
         },
         {
-          "img": "/john-unconvinced.png",
+          "img": "/john-sad.png",
           "style": {
             "right": "20%",
             "bottom": "0",
@@ -468,10 +461,10 @@
       "text": "Dear, but that's not your fault. What exactly happened?",
       "voice": "Google UK English Female",
       "background": "/livingroom.png",
-      "transitionEffect": "fade",
+      "preserveBackground": true,
       "characters": [
         {
-          "img": "/parent-comforting.png",
+          "img": "/3b.png",
           "style": {
             "left": "10%",
             "bottom": "0",
@@ -479,7 +472,7 @@
           }
         },
         {
-          "img": "/john-surprised.png",
+          "img": "/john-sad.png",
           "style": {
             "right": "20%",
             "bottom": "0",
@@ -495,18 +488,17 @@
       "text": "What? That's bullying! I told you that you are too young for those games and the internet!",
       "voice": "Google UK English Female",
       "background": "/livingroom.png",
-      "transitionEffect": "fade",
+      "preserveBackground": true,
       "characters": [
         {
-          "img": "/parent-angry.png",
+          "img": "/fparent-mad.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "30%",
             "height": "450px"
           }
         },
         {
-          "img": "/john-fearful.png",
+          "img": "/john-sad.png",
           "style": {
             "right": "20%",
             "bottom": "0",
@@ -525,10 +517,9 @@
       "transitionEffect": "fade",
       "characters": [
         {
-          "img": "/parent-phone-sneaking.png",
+          "img": "/fparent-hint.png",
           "style": {
-            "center": "true",
-            "bottom": "0",
+            "left": "30%",
             "height": "450px"
           }
         }
@@ -540,14 +531,13 @@
       "name": "",
       "text": "Your son eventually finds out what embarrassed him. And the bullying is still going...",
       "voice": "Microsoft James",
-      "background": "/school.png",
+      "background": "/classroom.png",
       "transitionEffect": "fade",
       "characters": [
         {
-          "img": "/john-bullied.png",
+          "img": "/john-sad.png",
           "style": {
-            "center": "true",
-            "bottom": "0",
+            "right": "20%",
             "height": "400px"
           }
         }
@@ -557,7 +547,7 @@
       "stepText": "Check phone",
       "popup": {
         "title": "Warning",
-        "message": "Get your kids prepared as early as you can. Blocking or unfriending the perpetrator to stop contact with your kids is good but not enough!  Communication and education are important.",
+        "message": "Get your kids prepared as early as you can. Blocking or unfriending the perpetrator to stop contact with your kids is good but not enough! Communication and education are important.",
         "buttonText": "Got it!"
       }
     },
@@ -567,10 +557,10 @@
       "text": "You can invite them to play other games.",
       "voice": "Google UK English Female",
       "background": "/livingroom.png",
-      "transitionEffect": "fade",
+      "preserveBackground": true,
       "characters": [
         {
-          "img": "/parent-suggesting.png",
+          "img": "/3a.png",
           "style": {
             "left": "10%",
             "bottom": "0",
@@ -578,7 +568,7 @@
           }
         },
         {
-          "img": "/john-considering.png",
+          "img": "/john-sad.png",
           "style": {
             "right": "20%",
             "bottom": "0",
@@ -594,11 +584,10 @@
       "text": "You will find the game that you are good at!",
       "voice": "Google UK English Female",
       "background": "/livingroom.png",
-      "transitionEffect": "fade",
       "preserveBackground": true,
       "characters": [
         {
-          "img": "/parent-encouraging.png",
+          "img": "/3a.png",
           "style": {
             "left": "10%",
             "bottom": "0",
@@ -606,7 +595,7 @@
           }
         },
         {
-          "img": "/john-thoughtful.png",
+          "img": "/john-sad.png",
           "style": {
             "right": "20%",
             "bottom": "0",
@@ -622,10 +611,10 @@
       "text": "But I like this game! I don't want to try others!",
       "voice": "Microsoft Mark",
       "background": "/livingroom.png",
-      "transitionEffect": "fade",
+      "preserveBackground": true,
       "characters": [
         {
-          "img": "/parent-surprised.png",
+          "img": "/3c.png",
           "style": {
             "left": "10%",
             "bottom": "0",
@@ -633,7 +622,7 @@
           }
         },
         {
-          "img": "/john-stubborn.png",
+          "img": "/john-talk.png",
           "style": {
             "right": "20%",
             "bottom": "0",
@@ -656,10 +645,10 @@
       "text": "It started a few months ago, every time we play Fortnite, they taunt me and post online.",
       "voice": "Microsoft Mark",
       "background": "/livingroom.png",
-      "transitionEffect": "fade",
+      "preserveBackground": true,
       "characters": [
         {
-          "img": "/parent-listening.png",
+          "img": "/3b.png",
           "style": {
             "left": "10%",
             "bottom": "0",
@@ -667,7 +656,7 @@
           }
         },
         {
-          "img": "/john-explaining.png",
+          "img": "/john-talk.png",
           "style": {
             "right": "20%",
             "bottom": "0",
@@ -683,10 +672,10 @@
       "text": "Don't worry, I'm here to help you. I will",
       "voice": "Google UK English Female",
       "background": "/livingroom.png",
-      "transitionEffect": "fade",
+      "preserveBackground": true,
       "characters": [
         {
-          "img": "/parent-supportive.png",
+          "img": "/parent-ask.png",
           "style": {
             "left": "10%",
             "bottom": "0",
@@ -694,7 +683,7 @@
           }
         },
         {
-          "img": "/john-hopeful.png",
+          "img": "/john.png",
           "style": {
             "right": "20%",
             "bottom": "0",
@@ -714,10 +703,10 @@
       "text": "From now on, you are banned from the internet! Focus on studying.",
       "voice": "Google UK English Female",
       "background": "/livingroom.png",
-      "transitionEffect": "fade",
+      "preserveBackground": true,
       "characters": [
         {
-          "img": "/parent-strict-pointing.png",
+          "img": "/3c.png",
           "style": {
             "left": "10%",
             "bottom": "0",
@@ -725,7 +714,7 @@
           }
         },
         {
-          "img": "/john-devastated.png",
+          "img": "/john-sad.png",
           "style": {
             "right": "20%",
             "bottom": "0",
@@ -744,11 +733,11 @@
       "transitionEffect": "fade",
       "characters": [
         {
-          "img": "/john-hiding-phone.png",
+          "img": "/john-phone-2.png",
           "style": {
-            "center": "true",
-            "bottom": "0",
-            "height": "400px"
+            "left": "30%",
+            "bottom": "60px",
+            "height": "300px"
           }
         }
       ],
@@ -763,26 +752,17 @@
     },
     {
       "id": 28,
-      "name": "You",
+      "name": "",
       "text": "Collect the evidence and report to the school - Good job! Now you can back and experience other stories.",
-      "voice": "Google UK English Female",
+      "voice": "Microsoft James",
       "background": "/school.png",
       "transitionEffect": "fade",
       "characters": [
         {
-          "img": "/parent-reporting.png",
+          "img": "/fparent-hint.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "30%",
             "height": "450px"
-          }
-        },
-        {
-          "img": "/school-counselor.png",
-          "style": {
-            "right": "20%",
-            "bottom": "0",
-            "height": "400px"
           }
         }
       ],
@@ -799,19 +779,18 @@
       "name": "You",
       "text": "Go to school, talk to them today.",
       "voice": "Google UK English Female",
-      "background": "/school.png",
-      "transitionEffect": "fade",
+      "background": "/livingroom.png",
+      "preserveBackground": true,
       "characters": [
         {
-          "img": "/parent-confronting.png",
+          "img": "/fparent-hint.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "30%",
             "height": "450px"
           }
         },
         {
-          "img": "/bullies-group.png",
+          "img": "/john.png",
           "style": {
             "right": "20%",
             "bottom": "0",
@@ -826,12 +805,11 @@
       "name": "You",
       "text": "You guys shouldn't do this! You need to be responsible for what you say online. Stop doing this to my son!",
       "voice": "Google UK English Female",
-      "background": "/school.png",
+      "background": "/inschool.png",
       "transitionEffect": "fade",
-      "preserveBackground": true,
       "characters": [
         {
-          "img": "/parent-pointing-angry.png",
+          "img": "/3c.png",
           "style": {
             "left": "10%",
             "bottom": "0",
@@ -839,7 +817,7 @@
           }
         },
         {
-          "img": "/bullies-defensive.png",
+          "img": "/kid-doncare.png",
           "style": {
             "right": "20%",
             "bottom": "0",
@@ -854,14 +832,13 @@
       "name": "",
       "text": "The bullies feel attacked, and they even mock louder to hurt your son",
       "voice": "Microsoft James",
-      "background": "/school.png",
+      "background": "/classroom.png",
       "transitionEffect": "fade",
       "characters": [
         {
-          "img": "/john-being-bullied.png",
+          "img": "/john-sad.png",
           "style": {
-            "center": "true",
-            "bottom": "0",
+            "right": "20%",
             "height": "400px"
           }
         }
