@@ -237,7 +237,7 @@ export default {
             id: step.id,
             name: step.name || "Scene",
             text: step.text ? step.text.substring(0, 30) + (step.text.length > 30 ? "..." : "") : "Scene",
-            customTooltip: step.stepText || null // Use stepText for custom tooltip if available
+            customTooltip: step.stepText || null
           }));
 
         if (this.step && this.step.isKeyStep) {
@@ -405,7 +405,7 @@ export default {
 
       window.speechSynthesis.cancel();
 
-      const utterance = new SpeechSynthesisUtterance(`${this.step.name}: ${this.step.text}`);
+      const utterance = new SpeechSynthesisUtterance(this.step.text);
       utterance.voice = this.pickVoice(this.step.voice);
       utterance.rate = 1;
       utterance.pitch = 1;

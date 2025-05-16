@@ -1,0 +1,898 @@
+{
+  "title": "My Son, the Cyberbully",
+  "totalSteps": 34,
+  "keySteps": 12,
+  "steps": [
+    {
+      "id": 0,
+      "name": "",
+      "text": "Your 16-year-old son, Greg, has been spending a lot of time online lately, especially on social media and forums.",
+      "voice": "Microsoft James",
+      "background": "/living-room.png",
+      "characters": [
+        {
+          "img": "/teen-phone.png",
+          "style": {
+            "right": "30%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 1
+    },
+    {
+      "id": 1,
+      "name": "",
+      "text": "You've noticed changes in his behavior - he seems more withdrawn and uses different language around his friends.",
+      "voice": "Microsoft James",
+      "background": "/living-room.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/teen-slouch.png",
+          "style": {
+            "right": "30%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 2
+    },
+    {
+      "id": 2,
+      "name": "",
+      "text": "One afternoon, you receive a call from the school principal asking you and your spouse to come in for an urgent meeting.",
+      "voice": "Microsoft James",
+      "background": "/kitchen.png",
+      "transitionEffect": "fade",
+      "characters": [
+        {
+          "img": "/parent-phone.png",
+          "style": {
+            "left": "30%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        }
+      ],
+      "next": 3
+    },
+    {
+      "id": 3,
+      "name": "Principal",
+      "text": "Thank you for coming in today. I'm afraid we have a serious situation involving Greg's online behavior toward several female students.",
+      "voice": "Microsoft Mark",
+      "background": "/principal-office.png",
+      "transitionEffect": "fade",
+      "characters": [
+        {
+          "img": "/principal.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/parents-concerned.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        }
+      ],
+      "next": 4
+    },
+    {
+      "id": 4,
+      "name": "Principal",
+      "text": "Greg has been posting misogynistic comments on several girls' social media accounts. One student was so distressed she considered self-harm before our counselor intervened.",
+      "voice": "Microsoft Mark",
+      "background": "/principal-office.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/principal-explain.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/parents-shocked.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        }
+      ],
+      "next": 5
+    },
+    {
+      "id": 5,
+      "name": "You",
+      "text": "I don't understand. This doesn't sound like Greg at all!",
+      "voice": "Google UK English Female",
+      "background": "/principal-office.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/principal.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/parent-speaking.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        }
+      ],
+      "isKeyStep": true,
+      "stepText": "1st Choice",
+      "choices": [
+        {"text": "Deny it's true", "next": 6},
+        {"text": "Ask for evidence", "next": 9},
+        {"text": "Accept responsibility", "next": 12}
+      ]
+    },
+    {
+      "id": 6,
+      "name": "You",
+      "text": "There must be some mistake. Greg would never do something like this! He's a good kid.",
+      "voice": "Google UK English Female",
+      "background": "/principal-office.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/principal.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/parent-defensive.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        }
+      ],
+      "next": 7
+    },
+    {
+      "id": 7,
+      "name": "Principal",
+      "text": "I understand this is difficult to hear, but we have screenshots of the comments posted from Greg's accounts. The school takes cyberbullying very seriously.",
+      "voice": "Microsoft Mark",
+      "background": "/principal-office.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/principal-explain.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/parent-defensive.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        }
+      ],
+      "next": 8
+    },
+    {
+      "id": 8,
+      "name": "",
+      "text": "Your denial makes the situation worse. The school implements disciplinary measures without your cooperation, and Greg becomes more secretive about his online activities.",
+      "voice": "Microsoft James",
+      "background": "/teen-room.png",
+      "transitionEffect": "fade",
+      "characters": [
+        {
+          "img": "/teen-computer-hidden.png",
+          "style": {
+            "right": "30%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 5,
+      "isKeyStep": true,
+      "stepText": "Denial path",
+      "popup": {
+        "title": "Warning",
+        "message": "Denying your child's negative behavior without investigating can:- Prevent them from learning accountability- Damage your credibility with school officials- Miss an opportunity to understand underlying issues- Send a message that their actions don't have consequences- Allow problematic behavior to continue or escalate",
+        "buttonText": "Got it!"
+      }
+    },
+    {
+      "id": 9,
+      "name": "You",
+      "text": "This is very concerning. Could you please show us the evidence so we can understand what's happening?",
+      "voice": "Google UK English Female",
+      "background": "/principal-office.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/principal.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/parent-concerned.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        }
+      ],
+      "next": 10
+    },
+    {
+      "id": 10,
+      "name": "Principal",
+      "text": "Certainly. Here are screenshots of the comments. We've traced them back to Greg's accounts, and several students have confirmed he's been discussing these ideas at school.",
+      "voice": "Microsoft Mark",
+      "background": "/principal-office.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/principal-evidence.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/parents-looking.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        }
+      ],
+      "next": 11
+    },
+    {
+      "id": 11,
+      "name": "",
+      "text": "The evidence is clear - Greg has been posting degrading comments about girls, using terms like 'red pill' and other misogynistic language.",
+      "voice": "Microsoft James",
+      "background": "/principal-office.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/principal.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/parents-shocked.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        }
+      ],
+      "isKeyStep": true,
+      "stepText": "Evidence path",
+      "next": 12
+    },
+    {
+      "id": 12,
+      "name": "You",
+      "text": "This is deeply troubling. We take full responsibility and want to address this properly. What do you recommend as next steps?",
+      "voice": "Google UK English Female",
+      "background": "/principal-office.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/principal.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/parent-responsible.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        }
+      ],
+      "next": 13
+    },
+    {
+      "id": 13,
+      "name": "Principal",
+      "text": "Greg will face consequences at school, including detention and a temporary social media ban during school hours. But it's crucial that parents address this behavior at home too.",
+      "voice": "Microsoft Mark",
+      "background": "/principal-office.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/principal-explain.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/parents-listening.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        }
+      ],
+      "next": 14
+    },
+    {
+      "id": 14,
+      "name": "",
+      "text": "After the meeting, you drive home in silence. It's time to talk with Greg about what's been happening.",
+      "voice": "Microsoft James",
+      "background": "/car.png",
+      "transitionEffect": "fade",
+      "characters": [
+        {
+          "img": "/parent-driving.png",
+          "style": {
+            "left": "30%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "isKeyStep": true,
+      "stepText": "Take responsibility",
+      "next": 15
+    },
+    {
+      "id": 15,
+      "name": "You",
+      "text": "Greg, we need to talk about what's been happening online. The school showed us the comments you've been posting.",
+      "voice": "Google UK English Female",
+      "background": "/living-room.png",
+      "transitionEffect": "fade",
+      "characters": [
+        {
+          "img": "/parent-serious.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/teen-defensive.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "isKeyStep": true,
+      "stepText": "Confrontation",
+      "choices": [
+        {"text": "Express anger", "next": 16},
+        {"text": "Punish immediately", "next": 19},
+        {"text": "Listen first", "next": 22}
+      ]
+    },
+    {
+      "id": 16,
+      "name": "You",
+      "text": "How could you do this? We raised you better than this! Do you have any idea how humiliating this was for us?",
+      "voice": "Google UK English Female",
+      "background": "/living-room.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/parent-angry.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/teen-defensive.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 17
+    },
+    {
+      "id": 17,
+      "name": "Greg",
+      "text": "You don't understand anything! Everyone talks like this online. It's not a big deal. They're just being sensitive!",
+      "voice": "Microsoft Mark",
+      "background": "/living-room.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/parent-angry.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/teen-angry.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 18
+    },
+    {
+      "id": 18,
+      "name": "",
+      "text": "Greg storms off to his room. Your anger has shut down communication, and he's become more defensive about his beliefs rather than understanding their impact.",
+      "voice": "Microsoft James",
+      "background": "/teen-room.png",
+      "transitionEffect": "fade",
+      "characters": [
+        {
+          "img": "/teen-angry-room.png",
+          "style": {
+            "right": "30%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 15,
+      "isKeyStep": true,
+      "stepText": "Anger path",
+      "popup": {
+        "title": "Warning",
+        "message": "Responding with anger often:- Stops productive communication- Makes teens defensive rather than reflective- Focuses on shame rather than learning- Can reinforce the idea that aggressive responses are appropriate- Misses the opportunity to understand underlying causes- Creates distance rather than connection when your child needs guidance",
+        "buttonText": "Got it!"
+      }
+    },
+    {
+      "id": 19,
+      "name": "You",
+      "text": "That's it. I'm taking your phone and computer. No more social media for a month. This behavior is completely unacceptable.",
+      "voice": "Google UK English Female",
+      "background": "/living-room.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/parent-punishment.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/teen-defensive.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 20
+    },
+    {
+      "id": 20,
+      "name": "Greg",
+      "text": "This is so unfair! You don't even know what happened! Everyone does this online!",
+      "voice": "Microsoft Mark",
+      "background": "/living-room.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/parent-punishment.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/teen-angry.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 21
+    },
+    {
+      "id": 21,
+      "name": "",
+      "text": "While punishment might temporarily stop the behavior, Greg hasn't learned why his actions were harmful. He finds ways to access social media at friends' houses and becomes more secretive.",
+      "voice": "Microsoft James",
+      "background": "/friend-house.png",
+      "transitionEffect": "fade",
+      "characters": [
+        {
+          "img": "/teen-secret-browsing.png",
+          "style": {
+            "right": "30%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 15,
+      "isKeyStep": true,
+      "stepText": "Punishment path",
+      "popup": {
+        "title": "Warning",
+        "message": "Punishment without discussion often:- Addresses symptoms but not causes- Fails to teach empathy or understanding- Can create resentment rather than learning- Doesn't help teens recognize harmful online ideologies- May drive behavior underground rather than stopping it- Misses the chance to rebuild values and digital citizenship",
+        "buttonText": "Got it!"
+      }
+    },
+    {
+      "id": 22,
+      "name": "You",
+      "text": "Before we discuss consequences, I want to understand what's going on. Can you tell me about these comments and where these ideas are coming from?",
+      "voice": "Google UK English Female",
+      "background": "/living-room.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/parent-concerned.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/teen-reluctant.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 23
+    },
+    {
+      "id": 23,
+      "name": "Greg",
+      "text": "It's just stuff I've been seeing online... There are these videos and forums that talk about how men should be. They call it 'taking the red pill' and seeing reality.",
+      "voice": "Microsoft Mark",
+      "background": "/living-room.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/parent-listening.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/teen-explaining.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 24
+    },
+    {
+      "id": 24,
+      "name": "You",
+      "text": "I see. And did you know that one of the girls you commented on was so upset she considered hurting herself?",
+      "voice": "Google UK English Female",
+      "background": "/living-room.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/parent-serious.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/teen-shocked.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 25
+    },
+    {
+      "id": 25,
+      "name": "Greg",
+      "text": "What? No... I didn't think anyone would take it so seriously. We were just joking around...",
+      "voice": "Microsoft Mark",
+      "background": "/living-room.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/parent-serious.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/teen-realizing.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "isKeyStep": true,
+      "stepText": "Listen path",
+      "next": 26
+    },
+    {
+      "id": 26,
+      "name": "You",
+      "text": "I think we need to talk about what you've been watching and reading online. But first, we need to address the harm that's been caused. What do you think we should do?",
+      "voice": "Google UK English Female",
+      "background": "/living-room.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/parent-supportive.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/teen-thinking.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "isKeyStep": true,
+      "stepText": "Next steps",
+      "choices": [
+        {"text": "Social media break", "next": 27},
+        {"text": "Education approach", "next": 30}
+      ]
+    },
+    {
+      "id": 27,
+      "name": "You",
+      "text": "I think we need to take a break from social media while we work through this. But I want us to use this time productively, together.",
+      "voice": "Google UK English Female",
+      "background": "/living-room.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/parent-supportive.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/teen-listening.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 28
+    },
+    {
+      "id": 28,
+      "name": "Greg",
+      "text": "I guess that's fair... I didn't realize how much this stuff was affecting me.",
+      "voice": "Microsoft Mark",
+      "background": "/living-room.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/parent-supportive.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/teen-accepting.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 29
+    },
+    {
+      "id": 29,
+      "name": "",
+      "text": "Together, you establish a plan for a 2-week social media break, combined with daily discussions about online media literacy and respectful communication.",
+      "voice": "Microsoft James",
+      "background": "/kitchen-table.png",
+      "transitionEffect": "fade",
+      "characters": [
+        {
+          "img": "/family-discussing.png",
+          "style": {
+            "center": true,
+            "bottom": "0",
+            "height": "450px"
+          }
+        }
+      ],
+      "isKeyStep": true,
+      "stepText": "Media break path",
+      "next": 33
+    },
+    {
+      "id": 30,
+      "name": "You",
+      "text": "I think we need to understand these issues better. Let's learn together about how online content can shape our views, and about respect online.",
+      "voice": "Google UK English Female",
+      "background": "/living-room.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/parent-teaching.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/teen-listening.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 31
+    },
+    {
+      "id": 31,
+      "name": "Greg",
+      "text": "Like what? I don't think I'm a bad person...",
+      "voice": "Microsoft Mark",
+      "background": "/living-room.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/parent-teaching.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/teen-confused.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 32
+    },
+    {
+      "id": 32,
+      "name": "",
+      "text": "You arrange meetings with a counselor who specializes in teen internet use, and work together on understanding media literacy and the impacts of online harassment.",
+      "voice": "Microsoft James",
+      "background": "/counselor-office.png",
+      "transitionEffect": "fade",
+      "characters": [
+        {
+          "img": "/family-counseling.png",
+          "style": {
+            "center": true,
+            "bottom": "0",
+            "height": "450px"
+          }
+        }
+      ],
+      "isKeyStep": true,
+      "stepText": "Education path",
+      "next": 33
+    },
+    {
+      "id": 33,
+      "name": "",
+      "text": "With your guidance, Greg writes sincere apologies to those he hurt. Over time, he develops better critical thinking about online content and healthier relationships with peers.",
+      "voice": "Microsoft James",
+      "background": "/teen-room-bright.png",
+      "transitionEffect": "fade",
+      "characters": [
+        {
+          "img": "/teen-writing.png",
+          "style": {
+            "right": "30%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "isKeyStep": true,
+      "stepText": "Resolution",
+      "popup": {
+        "title": "Effective Parenting Response",
+        "message": "When your child engages in cyberbullying:- Listen first to understand influences and motivations- Focus on education rather than just punishment- Help them recognize real consequences of online actions- Teach media literacy and critical thinking skills- Maintain ongoing conversations about digital citizenship- Consider professional help if problematic beliefs persist- Work with schools rather than against them- Guide them toward making amends- Model respectful communication in your own behavior- Remember the goal is growth, not just compliance",
+        "buttonText": "Got it!"
+      }
+    }
+  ]
+}

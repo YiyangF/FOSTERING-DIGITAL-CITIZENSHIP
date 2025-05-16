@@ -87,6 +87,12 @@ export default {
           name: "LGBTQ+ Harassment",
           description: "Alex, who recently outed as non-binary, was publicly outed in a school chat, and anonymous Instagram and Snapchat stories mocked his identity with transphobic memes and slurs.",
           image: "/story5.jpg"
+        },
+        {
+          id: 6,
+          name: "My Son, the Cyberbully",
+          description: "As the father of Greg (16), you recently received a call from school about Greg's online behaviour. What happened online and how to educate kids' online behaviour?",
+          image: "https://mdbootstrap.com/img/new/standard/city/040.webp"
         }
       ]
     };
