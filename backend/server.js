@@ -39,6 +39,20 @@ app.get('/api/mental-health', async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
+=======
+// Emoji meanings endpoint
+app.get('/api/emoji-meanings', async (req, res) => {
+  try {
+    const result = await pool.query('SELECT * FROM emoji_meanings ORDER BY id');
+    res.json(result.rows);
+  } catch (err) {
+    console.error('Error fetching emoji meanings:', err);
+    res.status(500).send('Error fetching emoji meanings');
+  }
+});
+
+>>>>>>> origin/main
 // Start the server
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {

@@ -1,0 +1,242 @@
+{
+    "title": "LGBTQ+ bullying",
+    "steps": [
+      {
+        "id": 0,
+        "name": " ",
+        "text": "Alex (15), who recently came out as non-binary to close friends, is publicly outed in a group chat at school.",
+        "voice": "Microsoft James",
+        "background": "/inschool.png",
+        "characters": [
+          {
+            "img": "/alex-happy.png",
+            "style": {
+              "left": "45%",
+              "bottom": "0",
+              "height": "400px"
+            }
+          }
+        ],
+        "transitionEffect": "fade",
+        "next": 1
+      },
+      {
+        "id": 1,
+        "name": " ",
+        "text": "Screenshots of personal messages and identity disclosures are shared without consent.",
+        "voice": "Microsoft James",
+        "background": "/inschool.png",
+        "characters": [
+          {
+            "img": "/alex-happy.png",
+            "style": {
+              "left": "45%",
+              "bottom": "0",
+              "height": "400px"
+            }
+          }
+        ],
+        "transitionEffect": "fade",
+        "preserveBackground": true,
+        "next": 2
+      },
+      {
+        "id": 2,
+        "name": " ",
+        "text": "Soon after, anonymous Instagram and Snapchat stories appear mocking Alex’s identity with transphobic memes and slurs.",
+        "voice": "Microsoft James",
+        "background": "/inschool.png",
+        "characters": [
+          {
+            "img": "/alex-happy.png",
+            "style": {
+              "left": "45%",
+              "bottom": "0",
+              "height": "400px"
+            }
+          }
+        ],
+        "characterSwitch": {
+          "image": "/alex-phone.png",
+          "atMessageIndex": 1
+        },
+        "transitionEffect": "fade",
+        "preserveBackground": true,
+        "chat": true,
+        "chatDelay": 2000,
+        "messages": [
+          {
+            "text": "GAY!!",
+            "voice": "boy"
+          },
+          {
+            "text": "GAY!!!!",
+            "voice": "boy"
+          },
+          {
+            "text": "GAY!!GAY!!GAY!!",
+            "voice": "boy"
+          },
+          {
+            "text": "GAY!!GAY!!GAY!!GAY!!GAY!!",
+            "voice": "boy"
+          },
+          {
+            "text": "FUCKING GAY!!GAY!!GAY!!GAY!!GAY!!GAY!!",
+            "voice": "boy"
+          }
+        ],
+        "next": 3
+      },
+      {
+        "id": 3,
+        "name": "You",
+        "text": "You’ve been really quiet this week. Something happened at school?",
+        "voice": "Microsoft George",
+        "background": "/alex-bedroom.png",
+        "characters": [
+          {
+            "img": "/parent5-ask.png",
+            "style": {
+              "left": "10%",
+              "bottom": "0",
+              "height": "500px"
+            }
+          }
+        ],
+        "transitionEffect": "fade",
+        "next": 4
+      },
+      {
+        "id": 4,
+        "name": "Alex",
+        "text": "Whatever. Some people saw stuff they weren’t supposed to. Now it’s all over Snap… even people I don’t talk to are sharing it.",
+        "voice": "Microsoft Mark",
+        "background": "/alex-bedroom.png",
+        "characters": [
+          {
+            "img": "/parent5-ask.png",
+            "style": {
+              "left": "10%",
+              "bottom": "0",
+              "height": "500px"
+            }
+          },
+          {
+            "img": "/alex-sad.png",
+            "style": {
+              "right": "20%",
+              "bottom": "0",
+              "height": "400px"
+            }
+          }
+        ],
+        "preserveBackground": true,
+        "choices": [
+          { "text": "A", "next": 5 },
+          { "text": "Report", "next": 6 },
+          { "text": "Let it go", "next": 7 }
+        ]
+      },
+      {
+        "id": 5,
+        "name": "You",
+        "text": "Son, why are you gay? Oh no, oh no, I don't know how to feel about this",
+        "voice": "Microsoft George",
+        "background": "/alex-bedroom.png",
+        "characters": [
+          {
+            "img": "/parent5-shock.png",
+            "style": {
+              "left": "10%",
+              "bottom": "0",
+              "height": "500px"
+            }
+          },
+          {
+            "img": "/alex-sad.png",
+            "style": {
+              "right": "20%",
+              "bottom": "0",
+              "height": "400px"
+            }
+          }
+        ],
+        "preserveBackground": true,
+        "next": 8
+      },
+      {
+        "id": 6,
+        "name": "You",
+        "text": "oh Son, we need to report to the school. Show us what happened!",
+        "voice": "Microsoft George",
+        "background": "/alex-bedroom.png",
+        "characters": [
+          {
+            "img": "/parent5-sad.png",
+            "style": {
+              "left": "10%",
+              "bottom": "0",
+              "height": "500px"
+            }
+          },
+          {
+            "img": "/alex-sad.png",
+            "style": {
+              "right": "20%",
+              "bottom": "0",
+              "height": "400px"
+            }
+          }
+        ],
+        "preserveBackground": true,
+        "transitionEffect": "fade"
+      },
+      {
+        "id": 7,
+        "name": "You",
+        "text": "You can't control people's actions.",
+        "voice": "Microsoft George",
+        "background": "/alex-bedroom.png",
+        "characters": [
+          {
+            "img": "/5c.png",
+            "style": {
+              "left": "10%",
+              "bottom": "0",
+              "height": "500px"
+            }
+          },
+          {
+            "img": "/alex-sad.png",
+            "style": {
+              "right": "20%",
+              "bottom": "0",
+              "height": "400px"
+            }
+          }
+        ],
+        "preserveBackground": true,
+        "transitionEffect": "fade"
+      },
+      {
+        "id": 8,
+        "name": "Ending",
+        "text": "Alex feels invalidated. Alex starts avoiding online spaces or hiding future issues from the parent.",
+        "voice": "Microsoft Catherine",
+        "background": "/alex-bedroom.png",
+        "characters": [
+          {
+            "img": "/alex-cry.png",
+            "style": {
+              "left": "40%",
+              "bottom": "100PX",
+              "height": "300px"
+            }
+          }
+        ],
+        "transitionEffect": "fade",
+        "preserveBackground": true
+      }
+    ]
+  }

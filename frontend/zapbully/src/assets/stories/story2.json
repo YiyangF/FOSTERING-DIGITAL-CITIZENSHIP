@@ -1,0 +1,241 @@
+{
+  "title": "Something's Wrong with My Son",
+  "steps": [
+    {
+      "id": 0,
+      "name": "",
+      "text": "Your 10-year-old son is a game obssesor, he always plays Fortnite after dinner until he goes to bed.",
+      "voice": "Microsoft James",
+      "background": "/john-bedroom.png",
+      "transitionEffect": "fade",
+      "characters": [
+        {
+          "img": "/john-phone-1.png",
+          "style": {
+            "left": "60%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 1
+    },
+    {
+      "id": 1,
+      "name": "",
+      "text": "Recently, he has not been playing it and acting resistant to school.",
+      "voice": "Microsoft James",
+      "background": "/livingroom.png",
+      "transitionEffect": "fade",
+      "characters": [
+        {
+          "img": "/john-sad.png",
+          "style": {
+            "right": "40%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 2
+    },
+    {
+      "id": 2,
+      "name": "You",
+      "text": "You wanna play before you sleep?",
+      "voice": "Google UK English Female",
+      "background": "/livingroom.png",
+      "transitionEffect": "fade",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/parent-ask.png",
+          "style": {
+            "left": "10%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/john-sad.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 3
+    },
+    {
+      "id": 3,
+      "name": "Son",
+      "text": "Not today... and can I take tomorrrow off school? Please...?",
+      "voice": "Microsoft Mark",
+      "background": "/livingroom.png",
+      "transitionEffect": "fade",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/3b.png",
+          "style": {
+            "left": "10%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/john-talk.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 4
+    },
+    {
+      "id": 4,
+      "name": "You",
+      "text": "What's going on? Do you feel unwell?",
+      "voice": "Google UK English Female",
+      "background": "/livingroom.png",
+      "transitionEffect": "fade",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/3b.png",
+          "style": {
+            "left": "10%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/john-sad.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "choices": [
+        { "text": "Force to school", "next": 5 },
+        { "text": "Talk about school", "next": 6 },
+        { "text": "Why don't play", "next": 7 }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "You",
+      "text": "If you are not feeling unwell, you must go to school!",
+      "voice": "Google UK English Female",
+      "background": "/livingroom.png",
+      "transitionEffect": "fade",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/3c.png",
+          "style": {
+            "left": "10%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/john-sad.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "You",
+      "text": "Okay, you don't have to go to school today. But you should tell me why.",
+      "voice": "Google UK English Female",
+      "background": "/livingroom.png",
+      "transitionEffect": "fade",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/3b.png",
+          "style": {
+            "left": "10%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/john-sad.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 7
+    },
+    {
+      "id": 7,
+      "name": "You",
+      "text": "Have any bad things happened at school recently?",
+      "voice": "Google UK English Female",
+      "background": "/livingroom.png",
+      "transitionEffect": "fade",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/3b.png",
+          "style": {
+            "left": "10%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/john-sad.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 8
+    },
+    {
+      "id": 8,
+      "name": "Son",
+      "text": "No. I'm fine... I'm just feeling unwell.",
+      "voice": "Microsoft Mark",
+      "background": "/livingroom.png",
+      "transitionEffect": "fade",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/3b.png",
+          "style": {
+            "left": "10%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/john-talk.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ]
+    }
+  ]
+}

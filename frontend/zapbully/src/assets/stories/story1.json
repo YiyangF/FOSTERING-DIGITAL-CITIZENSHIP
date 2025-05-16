@@ -1,0 +1,55 @@
+{
+    "id": 1,
+    "title": "Maya and the Unknown Message",
+    "steps": [
+      {
+        "name": "Maya",
+        "text": "You receive a strange message from someone you don't know.",
+        "characterImg": "/maya.png",
+        "background": "/bedroom.jpg",
+        "choices": [
+          { "text": "Ignore it", "next": 1 },
+          { "text": "Respond politely", "next": 2 }
+        ]
+      },
+      {
+        "name": "Maya",
+        "text": "You ignore the message. The person continues to message you more aggressively.",
+        "characterImg": "/maya-sad.png",
+        "background": "/bedroom-night.jpg",
+        "choices": [
+          { "text": "Block the person", "next": 3 },
+          { "text": "Report to a teacher", "next": 4 }
+        ]
+      },
+      {
+        "name": "Maya",
+        "text": "You respond, but they ask for personal information. What do you do?",
+        "characterImg": "/maya.png",
+        "background": "/phone-closeup.jpg",
+        "choices": [
+          { "text": "Refuse and report", "next": 4 },
+          { "text": "Give your email", "next": 5 }
+        ]
+      },
+      {
+        "name": "Maya",
+        "text": "You blocked the person. Good job! Always protect your boundaries.",
+        "characterImg": "/maya-happy.png",
+        "background": "/school.jpg"
+      },
+      {
+        "name": "Maya",
+        "text": "You reported the incident. Your teacher helped resolve the situation.",
+        "characterImg": "/maya-happy.png",
+        "background": "/school.jpg"
+      },
+      {
+        "name": "Maya",
+        "text": "Sharing personal info led to your account being compromised.",
+        "characterImg": "/maya-sad.png",
+        "background": "/phone-closeup.jpg"
+      }
+    ]
+  }
+  
