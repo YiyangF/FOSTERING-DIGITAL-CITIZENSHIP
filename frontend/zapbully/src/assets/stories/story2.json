@@ -51,8 +51,7 @@
         {
           "img": "/parent-ask.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "20%",
             "height": "450px"
           }
         },
@@ -78,8 +77,7 @@
         {
           "img": "/3b.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "20%",
             "height": "450px"
           }
         },
@@ -105,8 +103,7 @@
         {
           "img": "/3b.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "20%",
             "height": "450px"
           }
         },
@@ -137,8 +134,7 @@
         {
           "img": "/3c.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "20%",
             "height": "450px"
           }
         },
@@ -164,8 +160,7 @@
         {
           "img": "/parent-ask.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "20%",
             "height": "450px"
           }
         },
@@ -191,8 +186,7 @@
         {
           "img": "/parent-ask.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "20%",
             "height": "450px"
           }
         },
@@ -218,8 +212,7 @@
         {
           "img": "/3c.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "20%",
             "height": "450px"
           }
         },
@@ -270,8 +263,7 @@
         {
           "img": "/3a.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "20%",
             "height": "450px"
           }
         },
@@ -279,7 +271,6 @@
           "img": "/john-sad.png",
           "style": {
             "right": "20%",
-            "bottom": "0",
             "height": "400px"
           }
         }
@@ -297,8 +288,7 @@
         {
           "img": "/3b.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "20%",
             "height": "450px"
           }
         },
@@ -352,8 +342,7 @@
         {
           "img": "/parent-ask.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "20%",
             "height": "450px"
           }
         },
@@ -379,8 +368,7 @@
         {
           "img": "/3b.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "20%",
             "height": "450px"
           }
         },
@@ -412,8 +400,7 @@
         {
           "img": "/3a.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "20%",
             "height": "450px"
           }
         },
@@ -439,8 +426,7 @@
         {
           "img": "/3a.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "20%",
             "height": "450px"
           }
         },
@@ -466,8 +452,7 @@
         {
           "img": "/3b.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "20%",
             "height": "450px"
           }
         },
@@ -562,8 +547,7 @@
         {
           "img": "/3a.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "20%",
             "height": "450px"
           }
         },
@@ -589,8 +573,7 @@
         {
           "img": "/3a.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "20%",
             "height": "450px"
           }
         },
@@ -616,8 +599,7 @@
         {
           "img": "/3c.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "20%",
             "height": "450px"
           }
         },
@@ -650,9 +632,16 @@
         {
           "img": "/3b.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "20%",
             "height": "450px"
+          }
+        },
+        {
+          "img": "/game.png",
+          "style": {
+            "left": "40%",
+            "bottom": "100px",
+            "height": "400px"
           }
         },
         {
@@ -677,8 +666,7 @@
         {
           "img": "/parent-ask.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "20%",
             "height": "450px"
           }
         },
@@ -708,9 +696,16 @@
         {
           "img": "/3c.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "20%",
             "height": "450px"
+          }
+        },
+        {
+          "img": "/ban_phone.png",
+          "style": {
+            "left": "40%",
+            "bottom": "300px",
+            "height": "200px"
           }
         },
         {
@@ -811,8 +806,7 @@
         {
           "img": "/3c.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "20%",
             "height": "450px"
           }
         },

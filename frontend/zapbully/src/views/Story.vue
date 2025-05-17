@@ -68,7 +68,7 @@
       
       <!-- progress dots -->
       <div class="callout callout-dots">
-        <div class="callout-text">Above is the progress bar, each dot is the key scene you can jump to after viewing</div>
+        <div class="callout-text">Above is the progress bar, each dot is the key ending you can jump to after viewing</div>
       </div>
     </div>
 
@@ -281,13 +281,18 @@ export default {
     },
     goToStep(index) {
       if (this.transitionInProgress) return;
-
+      
+      // Disable clicks during any transition
+      this.clickEnabled = false;
       this.transitionInProgress = true;
       this.previousStepIndex = this.currentStepIndex;
 
       const currentStep = this.step;
       const nextStep = this.story.steps[index];
 
+      // Make sure to cancel any speech and animations when changing steps
+      window.speechSynthesis.cancel();
+      
       const updateStep = () => {
         this.resetChat();
         this.currentStepIndex = index;
@@ -304,6 +309,12 @@ export default {
 
         this.transitionInProgress = false;
         this.updatePopup(nextStep);
+        
+        // Only enable clicks after the step has fully loaded
+        // If it's a chat step, clicking will be managed by startChat
+        if (!nextStep.chat) {
+          this.clickEnabled = true;
+        }
       };
 
       if (nextStep && nextStep.preserveBackground && currentStep && currentStep.background === nextStep.background) {
@@ -315,7 +326,19 @@ export default {
     handleClick(event) {
       // Don't advance if popup is showing, instructions are showing,
       // clicks are disabled, or a transition is in progress
-      if (this.showPopup || this.showInstructions || !this.clickEnabled || this.transitionInProgress) {
+      if (this.showPopup || 
+          this.showInstructions || 
+          !this.clickEnabled || 
+          this.transitionInProgress) {
+        return;
+      }
+      
+      // Check if we're in a chat scene and if we're done with the messages
+      if (this.showPhone) {
+        // If we're in a chat scene, only proceed if all messages have been shown
+        if (this.readyForNext && this.step.next !== undefined) {
+          this.goToStep(this.step.next);
+        }
         return;
       }
 
@@ -325,28 +348,36 @@ export default {
       }
     },
     startChat() {
+      // Store reference to messageTimer so we can clear it later if needed
+      this.clickEnabled = false;
+      this.hideTextBox = true;
+      
       setTimeout(() => {
-        this.hideTextBox = true;
         this.showPhone = true;
         this.typing = true;
-        this.clickEnabled = false;
 
         const totalMessages = this.step.messages?.length || 0;
         if (totalMessages === 0) {
           this.typing = false;
-          this.clickEnabled = true;
+          this.clickEnabled = true; // Re-enable clicks if no messages
           return;
         }
 
         const totalDuration = 5000;
         const interval = totalMessages > 0 ? totalDuration / totalMessages : totalDuration;
 
-        const messageTimer = setInterval(() => {
+        // Store the timer reference so we can clear it when needed
+        this.messageTimer = setInterval(() => {
           if (this.currentMessageIndex >= totalMessages) {
-            clearInterval(messageTimer);
+            clearInterval(this.messageTimer);
+            this.messageTimer = null;
             this.typing = false;
             this.readyForNext = true;
-            this.clickEnabled = true;
+            
+            // Only re-enable clicks when all messages have been displayed
+            setTimeout(() => {
+              this.clickEnabled = true;
+            }, 500); // Small buffer to ensure animation is fully complete
           } else {
             this.typing = true;
             const messageToAdd = this.step.messages[this.currentMessageIndex];
@@ -371,7 +402,6 @@ export default {
             }, 200);
           }
         }, interval);
-
       }, this.step.chatDelay || 3000);
     },
     switchCharacterImage(newImage) {
@@ -385,11 +415,17 @@ export default {
       });
     },
     resetChat() {
+      // Cancel any ongoing animations
+      if (this.messageTimer) {
+        clearInterval(this.messageTimer);
+        this.messageTimer = null;
+      }
+      
       this.showPhone = false;
       this.visibleMessages = [];
       this.currentMessageIndex = 0;
       this.typing = false;
-      this.clickEnabled = true;
+      this.readyForNext = false;
       this.hideTextBox = false;
     },
     toggleMute() {
@@ -829,10 +865,7 @@ export default {
   word-break: break-word;
 }
 
-.message-bubble.Jake { background-color: #d9f4ff; }
-.message-bubble.Liam { background-color: #ffd9d9; }
-.message-bubble.Tyler { background-color: #ecffd9; }
-.message-bubble.Coach { background-color: #d7f0f7; }
+.message-bubble { background-color: #eaeced; }
 
 .sender {
   font-weight: bold;

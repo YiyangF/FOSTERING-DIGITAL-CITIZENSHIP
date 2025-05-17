@@ -60,39 +60,39 @@ export default {
       stories: [
         {
           id: 1,
-          name: "Harassing",
-          description: "Learn how to respond to online harassment effectively.",
-          image: "https://mdbootstrap.com/img/new/standard/city/041.webp"
+          name: "Someone's Pretending to Be Me Online",
+          description: "Someone pretending to be your 14-year-old daughter Maya on Instagram and posting nasty stuff. How will you help her?",
+          image: "/story1.png"
         },
         {
           id: 2,
-          name: "Gaming Failure",
+          name: "Something's Wrong with My Son",
           description: "You, as James's mother, have recently noticed that he resists going to school. How will you find out what happened and solve it?",
-          image: "/story2.jpg"
+          image: "/story2.png"
         },
         {
           id: 3,
-          name: "Group Chat Bullying",
+          name: "Teasing and Exclusion",
           description: "A child faces exclusion from social activities due to teasing and exclusion from school due to their ethnicity being a minority in the school's demographics.",
           image: "/story3.png"
         },
         {
           id: 4,
-          name: "Toxic Comments",
+          name: "Stereotype",
           description: "A teenage girl on TikTok faces mockery from schoolboys, leading to anger, dejectedness, and confusion. She fights back through comments and group chats.",
           image: "/story4.png"
         },
         {
           id: 5,
-          name: "LGBTQ+ Harassment",
+          name: "LGBTQ+ Bullying",
           description: "Alex, who recently outed as non-binary, was publicly outed in a school chat, and anonymous Instagram and Snapchat stories mocked his identity with transphobic memes and slurs.",
-          image: "/story5.jpg"
+          image: "/story5.png"
         },
         {
           id: 6,
           name: "My Son, the Cyberbully",
           description: "As the father of Greg (16), you recently received a call from school about Greg's online behaviour. What happened online and how to educate kids' online behaviour?",
-          image: "https://mdbootstrap.com/img/new/standard/city/040.webp"
+          image: "/story6.png"
         }
       ]
     };
