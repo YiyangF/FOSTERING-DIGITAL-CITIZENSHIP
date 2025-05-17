@@ -1,4 +1,4 @@
-# onboarding_project_sun_protection# onboarding_project_sun_protection
+# onboarding_project_sun_protection
 
 ## Project File Structure Overview
 
