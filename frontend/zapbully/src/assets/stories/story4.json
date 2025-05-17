@@ -13,13 +13,11 @@
         {
           "img": "/may.png",
           "style": {
-            "left": "25%",
-            "bottom": "0",
-            "height": "500px"
+            "left": "40%",
+            "height": "450px"
           }
         }
       ],
-      "transitionEffect": "fade",
       "next": 1
     },
     {
@@ -40,13 +38,11 @@
         {
           "img": "/may-shock.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
-            "height": "500px"
+            "left": "30%",
+            "height": "450px"
           }
         }
       ],
-      "transitionEffect": "fade",
       "preserveBackground": true,
       "next": 2
     },
@@ -68,13 +64,11 @@
         {
           "img": "/may-sad.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
-            "height": "500px"
+            "left": "30%",
+            "height": "450px"
           }
         }
       ],
-      "transitionEffect": "fade",
       "preserveBackground": true,
       "next": 3
     },
@@ -88,7 +82,7 @@
         {
           "img": "/mparent-ask.png",
           "style": {
-            "left": "5%",
+            "left": "20%",
             "bottom": "10px",
             "height": "500px"
           }
@@ -96,9 +90,8 @@
         {
           "img": "/may-sad.png",
           "style": {
-            "right": "10%",
-            "bottom": "0",
-            "height": "500px"
+            "right": "30%",
+            "height": "450px"
           }
         }
       ],
@@ -115,7 +108,7 @@
         {
           "img": "/mparent-ask.png",
           "style": {
-            "left": "5%",
+            "left": "20%",
             "bottom": "10px",
             "height": "500px"
           }
@@ -123,9 +116,8 @@
         {
           "img": "/may-talk.png",
           "style": {
-            "right": "10%",
-            "bottom": "0",
-            "height": "500px"
+            "right": "30%",
+            "height": "450px"
           }
         }
       ],
@@ -143,7 +135,7 @@
         {
           "img": "/mparent-ask.png",
           "style": {
-            "left": "5%",
+            "left": "20%",
             "bottom": "10px",
             "height": "500px"
           }
@@ -151,9 +143,8 @@
         {
           "img": "/may-sad.png",
           "style": {
-            "right": "10%",
-            "bottom": "0",
-            "height": "500px"
+            "right": "30%",
+            "height": "450px"
           }
         }
       ],
@@ -171,7 +162,7 @@
         {
           "img": "/mparent-ask.png",
           "style": {
-            "left": "5%",
+            "left": "20%",
             "bottom": "10px",
             "height": "500px"
           }
@@ -179,9 +170,8 @@
         {
           "img": "/may-talk.png",
           "style": {
-            "right": "10%",
-            "bottom": "0",
-            "height": "500px"
+            "right": "30%",
+            "height": "450px"
           }
         }
       ],
@@ -213,9 +203,8 @@
         {
           "img": "/may-sad.png",
           "style": {
-            "right": "10%",
-            "bottom": "0",
-            "height": "500px"
+            "right": "30%",
+            "height": "450px"
           }
         }
       ],
@@ -241,9 +230,8 @@
         {
           "img": "/may-sad.png",
           "style": {
-            "right": "10%",
-            "bottom": "0",
-            "height": "500px"
+            "right": "30%",
+            "height": "450px"
           }
         }
       ],
@@ -261,7 +249,7 @@
         {
           "img": "/mparent-ask.png",
           "style": {
-            "left": "5%",
+            "left": "20%",
             "bottom": "10px",
             "height": "500px"
           }
@@ -269,9 +257,8 @@
         {
           "img": "/may-sad.png",
           "style": {
-            "right": "10%",
-            "bottom": "0",
-            "height": "500px"
+            "right": "30%",
+            "height": "450px"
           }
         }
       ],
@@ -302,9 +289,8 @@
         {
           "img": "/may-angry.png",
           "style": {
-            "right": "10%",
-            "bottom": "0",
-            "height": "500px"
+            "right": "30%",
+            "height": "450px"
           }
         }
       ],
@@ -330,9 +316,8 @@
         {
           "img": "/may-angry.png",
           "style": {
-            "right": "10%",
-            "bottom": "0",
-            "height": "500px"
+            "right": "30%",
+            "height": "450px"
           }
         }
       ],
@@ -342,7 +327,7 @@
     },
     {
       "id": 12,
-      "name": "Ending",
+      "name": "",
       "text": "May feels invalidated. She starts avoiding online spaces and hiding future issues from you.",
       "voice": "Microsoft James",
       "background": "/may-bedroom.png",
@@ -350,20 +335,20 @@
         {
           "img": "/may-sad.png",
           "style": {
-            "left": "25%",
-            "bottom": "0",
-            "height": "500px"
+            "right": "40%",
+            "height": "450px"
           }
         }
       ],
       "transitionEffect": "fade",
       "isKeyStep": true,
-      "stepText": "Dismissive end",
+      "stepText": "Get used to",
       "popup": {
         "title": "Warning",
         "message": "Dismissing cyberbullying as 'just how things are' teaches young people that harassment is normal. This can lead to long-term emotional harm and prevents them from developing healthy boundaries online. It also damages trust - they won't come to you with problems in the future if they believe you won't take their concerns seriously.",
         "buttonText": "Got it!"
-      }
+      },
+      "next": 6
     },
     {
       "id": 13,
@@ -375,7 +360,7 @@
         {
           "img": "/mparent-ask.png",
           "style": {
-            "left": "5%",
+            "left": "20%",
             "bottom": "10px",
             "height": "500px"
           }
@@ -383,9 +368,8 @@
         {
           "img": "/may-sad.png",
           "style": {
-            "right": "10%",
-            "bottom": "0",
-            "height": "500px"
+            "right": "30%",
+            "height": "450px"
           }
         }
       ],
@@ -403,7 +387,7 @@
         {
           "img": "/mparent-ask.png",
           "style": {
-            "left": "5%",
+            "left": "20%",
             "bottom": "10px",
             "height": "500px"
           }
@@ -411,9 +395,8 @@
         {
           "img": "/may-sad.png",
           "style": {
-            "right": "10%",
-            "bottom": "0",
-            "height": "500px"
+            "right": "30%",
+            "height": "450px"
           }
         }
       ],
@@ -431,9 +414,8 @@
         {
           "img": "/may-sad.png",
           "style": {
-            "right": "50%",
-            "bottom": "0",
-            "height": "400px"
+            "right": "30%",
+            "height": "450px"
           }
         }
       ],
@@ -459,9 +441,8 @@
         {
           "img": "/may-talk.png",
           "style": {
-            "right": "10%",
-            "bottom": "0",
-            "height": "500px"
+            "right": "30%",
+            "height": "450px"
           }
         }
       ],
@@ -493,9 +474,8 @@
         {
           "img": "/may-talk.png",
           "style": {
-            "right": "10%",
-            "bottom": "0",
-            "height": "500px"
+            "right": "30%",
+            "height": "450px"
           }
         }
       ],
@@ -511,18 +491,10 @@
       "background": "/livingroom.png",
       "characters": [
         {
-          "img": "/mparent-think.png",
+          "img": "/mparent-phone.png",
           "style": {
             "left": "20%",
             "bottom": "10px",
-            "height": "500px"
-          }
-        },
-        {
-          "img": "/may.png",
-          "style": {
-            "right": "10%",
-            "bottom": "0",
             "height": "500px"
           }
         }
@@ -549,9 +521,8 @@
         {
           "img": "/may-talk.png",
           "style": {
-            "right": "10%",
-            "bottom": "0",
-            "height": "500px"
+            "right": "30%",
+            "height": "450px"
           }
         }
       ],
@@ -596,9 +567,8 @@
         {
           "img": "/may-talk.png",
           "style": {
-            "right": "10%",
-            "bottom": "0",
-            "height": "500px"
+            "right": "30%",
+            "height": "450px"
           }
         }
       ],
@@ -624,9 +594,8 @@
         {
           "img": "/may-sad.png",
           "style": {
-            "right": "10%",
-            "bottom": "0",
-            "height": "500px"
+            "right": "30%",
+            "height": "450px"
           }
         }
       ],
@@ -635,8 +604,8 @@
       "isKeyStep": true,
       "stepText": "Block fails",
       "choices": [
-        { "text": "Report to platform and school", "next": 19 },
-        { "text": "Discuss deeper issues", "next": 25 }
+        { "text": "Report them", "next": 19 },
+        { "text": "Discuss deeper", "next": 25 }
       ]
     },
     {
@@ -649,17 +618,16 @@
         {
           "img": "/mparent-ask.png",
           "style": {
-            "left": "5%",
+            "left": "20%",
             "bottom": "10px",
             "height": "500px"
           }
         },
         {
-          "img": "/may.png",
+          "img": "/may-sad.png",
           "style": {
-            "right": "10%",
-            "bottom": "0",
-            "height": "500px"
+            "right": "30%",
+            "height": "450px"
           }
         }
       ],
@@ -675,7 +643,7 @@
       "background": "/livingroom.png",
       "characters": [
         {
-          "img": "/mparent-think.png",
+          "img": "/mparent-ask.png",
           "style": {
             "left": "20%",
             "bottom": "10px",
@@ -683,11 +651,10 @@
           }
         },
         {
-          "img": "/may.png",
+          "img": "/may-talk.png",
           "style": {
-            "right": "10%",
-            "bottom": "0",
-            "height": "500px"
+            "right": "30%",
+            "height": "450px"
           }
         }
       ],
@@ -713,9 +680,8 @@
         {
           "img": "/may-talk.png",
           "style": {
-            "right": "10%",
-            "bottom": "0",
-            "height": "500px"
+            "right": "30%",
+            "height": "450px"
           }
         }
       ],
@@ -741,9 +707,8 @@
         {
           "img": "/may-talk.png",
           "style": {
-            "right": "10%",
-            "bottom": "0",
-            "height": "500px"
+            "right": "30%",
+            "height": "450px"
           }
         }
       ],
@@ -752,8 +717,8 @@
       "isKeyStep": true,
       "stepText": "Moving forward",
       "choices": [
-        { "text": "Keep gaming but be careful", "next": 27 },
-        { "text": "Find supportive communities", "next": 28 }
+        { "text": "Keep gaming", "next": 27 },
+        { "text": "Find communities", "next": 28 }
       ]
     },
     {
@@ -766,17 +731,16 @@
         {
           "img": "/mparent-ask.png",
           "style": {
-            "left": "5%",
+            "left": "20%",
             "bottom": "10px",
             "height": "500px"
           }
         },
         {
-          "img": "/may.png",
+          "img": "/may-angry.png",
           "style": {
-            "right": "10%",
-            "bottom": "0",
-            "height": "500px"
+            "right": "30%",
+            "height": "450px"
           }
         }
       ],
@@ -792,7 +756,7 @@
       "background": "/livingroom.png",
       "characters": [
         {
-          "img": "/mparent-think.png",
+          "img": "/mparent-laugh.png",
           "style": {
             "left": "20%",
             "bottom": "10px",
@@ -800,11 +764,10 @@
           }
         },
         {
-          "img": "/may.png",
+          "img": "/may-happy.png",
           "style": {
-            "right": "10%",
-            "bottom": "0",
-            "height": "500px"
+            "right": "30%",
+            "height": "450px"
           }
         }
       ],
@@ -814,48 +777,47 @@
     },
     {
       "id": 29,
-      "name": "Ending",
+      "name": "",
       "text": "May continues gaming but becomes more cautious online. She's dealing with the situation but still faces occasional harassment.",
       "voice": "Microsoft James",
       "background": "/may-bedroom.png",
       "characters": [
         {
-          "img": "/may.png",
+          "img": "/may-sad.png",
           "style": {
-            "left": "25%",
-            "bottom": "0",
-            "height": "500px"
+            "right": "30%",
+            "height": "450px"
           }
         }
       ],
       "transitionEffect": "fade",
       "isKeyStep": true,
-      "stepText": "Partial solution",
+      "stepText": "Keep gaming",
       "popup": {
         "title": "Partial Solution",
         "message": "While privacy settings help, suggesting someone should just 'ignore' harassment doesn't address the root problem. This approach can lead to isolation and teaches that harassment is something to be endured rather than addressed. Young people need tools to confidently navigate online spaces, not just ways to hide.",
         "buttonText": "Got it!"
-      }
+      },
+      "next": 26
     },
     {
       "id": 30,
-      "name": "Ending",
+      "name": "",
       "text": "May discovers supportive gaming communities and even joins a girls' gaming club at school. She feels empowered and continues to develop her skills.",
       "voice": "Microsoft James",
       "background": "/may-bedroom.png",
       "characters": [
         {
-          "img": "/may.png",
+          "img": "/may-happy.png",
           "style": {
-            "left": "25%",
-            "bottom": "0",
-            "height": "500px"
+            "right": "30%",
+            "height": "450px"
           }
         }
       ],
       "transitionEffect": "fade",
       "isKeyStep": true,
-      "stepText": "Good ending",
+      "stepText": "Good end",
       "popup": {
         "title": "Positive Approach",
         "message": "Creating positive connections is key to resilience online. By finding supportive communities, young people learn they don't have to face harassment alone. This solution addresses both immediate concerns while building long-term social support systems. It encourages continuing activities they love rather than letting harassment limit their digital experiences.",

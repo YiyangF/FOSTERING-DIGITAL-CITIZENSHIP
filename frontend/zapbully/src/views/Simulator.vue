@@ -61,37 +61,37 @@ export default {
         {
           id: 1,
           name: "Someone's Pretending to Be Me Online",
-          description: "Someone pretending to be your 14-year-old daughter Maya on Instagram and posting nasty stuff. How will you help her?",
+          description: "Someone pretending to be your 14-year-old daughter Maya on Instagram and posting nasty stuff. How will you help her? (~6 mins)",
           image: "/story1.png"
         },
         {
           id: 2,
           name: "Something's Wrong with My Son",
-          description: "You, as James's mother, have recently noticed that he resists going to school. How will you find out what happened and solve it?",
+          description: "You, as James's mother, have recently noticed that he resists going to school. How will you find out what happened and solve it? (~10 mins)",
           image: "/story2.png"
         },
         {
           id: 3,
           name: "Teasing and Exclusion",
-          description: "A child faces exclusion from social activities due to teasing and exclusion from school due to their ethnicity being a minority in the school's demographics.",
+          description: "Your son John is unhappy in the new school. What happened between him and his classmates? How will you solve it and help your son? (~7 mins)",
           image: "/story3.png"
         },
         {
           id: 4,
           name: "Stereotype",
-          description: "A teenage girl on TikTok faces mockery from schoolboys, leading to anger, dejectedness, and confusion. She fights back through comments and group chats.",
+          description: "You have a game-loving daughter, May. But recently, she has looked depressed when gaming. What happened? How will you bring the happy girl back? (~10 mins)",
           image: "/story4.png"
         },
         {
           id: 5,
           name: "LGBTQ+ Bullying",
-          description: "Alex, who recently outed as non-binary, was publicly outed in a school chat, and anonymous Instagram and Snapchat stories mocked his identity with transphobic memes and slurs.",
+          description: "As Michael's (15) father, you recently found his secret, which has trapped him in rumours. How will you guide your kid on the right track? (~9 mins)",
           image: "/story5.png"
         },
         {
           id: 6,
           name: "My Son, the Cyberbully",
-          description: "As the father of Greg (16), you recently received a call from school about Greg's online behaviour. What happened online and how to educate kids' online behaviour?",
+          description: "As the father of Greg (16), you recently received a call from school about Greg's online behaviour. What happened online and how to educate kids' online behaviour? (~10 mins)",
           image: "/story6.png"
         }
       ]

@@ -1,21 +1,21 @@
 {
   "title": "LGBTQ Harassment",
-  "totalSteps": 35,
-  "keySteps": 10,
+  "totalSteps": 24,
+  "keySteps": 7,
   "steps": [
     {
       "id": 0,
       "name": "",
       "text": "Your 15-year-old child Michael recently came out as non-binary to close friends and prefers they/them pronouns.",
       "voice": "Microsoft James",
-      "background": "/teen-bedroom.png",
+      "background": "/classroom.png",
       "characters": [
         {
-          "img": "/teen-phone.png",
+          "img": "/alex-happy.png",
           "style": {
             "right": "20%",
             "bottom": "0",
-            "height": "450px"
+            "height": "400px"
           }
         }
       ],
@@ -30,11 +30,11 @@
       "transitionEffect": "fade",
       "characters": [
         {
-          "img": "/teen-sad.png",
+          "img": "/alex-phone.png",
           "style": {
             "right": "30%",
             "bottom": "0",
-            "height": "450px"
+            "height": "400px"
           }
         }
       ],
@@ -49,7 +49,7 @@
       "preserveBackground": true,
       "characters": [
         {
-          "img": "/parent-concerned.png",
+          "img": "/parent5-ask.png",
           "style": {
             "left": "15%",
             "bottom": "0",
@@ -57,11 +57,11 @@
           }
         },
         {
-          "img": "/teen-sad.png",
+          "img": "/alex-phone.png",
           "style": {
-            "right": "20%",
+            "right": "30%",
             "bottom": "0",
-            "height": "450px"
+            "height": "400px"
           }
         }
       ],
@@ -76,7 +76,7 @@
       "preserveBackground": true,
       "characters": [
         {
-          "img": "/parent-concerned.png",
+          "img": "/parent5-ask.png",
           "style": {
             "left": "15%",
             "bottom": "0",
@@ -84,11 +84,11 @@
           }
         },
         {
-          "img": "/teen-talking.png",
+          "img": "/alex-talk.png",
           "style": {
             "right": "20%",
             "bottom": "0",
-            "height": "450px"
+            "height": "400px"
           }
         }
       ],
@@ -103,7 +103,7 @@
       "preserveBackground": true,
       "characters": [
         {
-          "img": "/parent-concerned.png",
+          "img": "/5c.png",
           "style": {
             "left": "15%",
             "bottom": "0",
@@ -111,20 +111,30 @@
           }
         },
         {
-          "img": "/teen-sad.png",
+          "img": "/alex-sad.png",
           "style": {
             "right": "20%",
             "bottom": "0",
-            "height": "450px"
+            "height": "400px"
           }
         }
       ],
       "isKeyStep": true,
       "stepText": "1st Choice",
       "choices": [
-        {"text": "Are you gay?", "next": 5},
-        {"text": "Show me what happened", "next": 6},
-        {"text": "People will be mean", "next": 7}]
+        {
+          "text": "Are you gay?",
+          "next": 5
+        },
+        {
+          "text": "Show me what happened",
+          "next": 6
+        },
+        {
+          "text": "People will be mean",
+          "next": 7
+        }
+      ]
     },
     {
       "id": 5,
@@ -135,7 +145,7 @@
       "preserveBackground": true,
       "characters": [
         {
-          "img": "/parent-shocked.png",
+          "img": "/parent5-shock.png",
           "style": {
             "left": "15%",
             "bottom": "0",
@@ -143,11 +153,11 @@
           }
         },
         {
-          "img": "/teen-hurt.png",
+          "img": "/alex-sad.png",
           "style": {
             "right": "20%",
             "bottom": "0",
-            "height": "450px"
+            "height": "400px"
           }
         }
       ],
@@ -162,7 +172,7 @@
       "preserveBackground": true,
       "characters": [
         {
-          "img": "/parent-supportive.png",
+          "img": "/parent5-sad.png",
           "style": {
             "left": "15%",
             "bottom": "0",
@@ -170,11 +180,11 @@
           }
         },
         {
-          "img": "/teen-sad.png",
+          "img": "/alex-sad.png",
           "style": {
             "right": "20%",
             "bottom": "0",
-            "height": "450px"
+            "height": "400px"
           }
         }
       ],
@@ -189,7 +199,7 @@
       "preserveBackground": true,
       "characters": [
         {
-          "img": "/parent-stern.png",
+          "img": "/parent5-sad.png",
           "style": {
             "left": "15%",
             "bottom": "0",
@@ -197,11 +207,11 @@
           }
         },
         {
-          "img": "/teen-upset.png",
+          "img": "/alex-sad.png",
           "style": {
             "right": "20%",
             "bottom": "0",
-            "height": "450px"
+            "height": "400px"
           }
         }
       ],
@@ -212,30 +222,37 @@
       "name": "",
       "text": "Michael withdraws further and shuts down completely.",
       "voice": "Microsoft James",
-      "background": "/teen-bedroom.png",
+      "background": "/alex-bedroom.png",
       "transitionEffect": "fade",
       "characters": [
         {
-          "img": "/teen-alone.png",
+          "img": "/alex-cry.png",
           "style": {
-            "right": "30%",
-            "bottom": "0",
-            "height": "450px"
+            "right": "50%",
+            "bottom": "100px",
+            "height": "300px"
           }
         }
       ],
-      "next": 11
+      "next": 4,
+      "isKeyStep": true,
+      "stepText": "Are you gay",
+      "popup": {
+        "title": "Harmful Responses",
+        "message": "Responding with shock, disappointment, or judgment when a child shares their identity or harassment experiences can cause lasting harm. This type of reaction:\n\n- Deepens their feelings of isolation and shame\n- Damages trust in your relationship\n- Discourages them from coming to you with future problems\n- May contribute to mental health issues\n- Teaches them to hide their authentic self\n\nInstead, respond with compassion, support, and a focus on their wellbeing rather than your own feelings.",
+        "buttonText": "I understand"
+      }
     },
     {
       "id": 9,
       "name": "Michael",
       "text": "It's... it's about me being non-binary. Someone shared screenshots of my private messages from the group chat. Look...",
       "voice": "Microsoft Mark",
-      "background": "/livingroom.png", 
+      "background": "/livingroom.png",
       "preserveBackground": true,
       "characters": [
         {
-          "img": "/parent-supportive.png",
+          "img": "/parent5-shock.png",
           "style": {
             "left": "15%",
             "bottom": "0",
@@ -243,15 +260,23 @@
           }
         },
         {
-          "img": "/teen-showing-phone.png",
+          "img": "/alex-talk.png",
           "style": {
             "right": "20%",
             "bottom": "0",
-            "height": "450px"
+            "height": "400px"
+          }
+        },
+        {
+          "img": "/chat5.png",
+          "style": {
+            "right": "40%",
+            "bottom": "120px",
+            "height": "400px"
           }
         }
       ],
-      "next": 15
+      "next": 12
     },
     {
       "id": 10,
@@ -262,7 +287,7 @@
       "preserveBackground": true,
       "characters": [
         {
-          "img": "/parent-stern.png",
+          "img": "/parent5-sad.png",
           "style": {
             "left": "15%",
             "bottom": "0",
@@ -270,71 +295,18 @@
           }
         },
         {
-          "img": "/teen-angry.png",
+          "img": "/alex-angry.png",
           "style": {
             "right": "20%",
             "bottom": "0",
-            "height": "450px"
+            "height": "400px"
           }
         }
       ],
-      "next": 12
+      "next": 11
     },
     {
       "id": 11,
-      "name": "",
-      "text": "Michael feels rejected and invalidated. They now hide their phone activity and begin avoiding online spaces.",
-      "voice": "Microsoft James",
-      "background": "/teen-bedroom.png",
-      "preserveBackground": true,
-      "characters": [
-        {
-          "img": "/teen-hiding-phone.png",
-          "style": {
-            "right": "30%",
-            "bottom": "0",
-            "height": "450px"
-          }
-        }
-      ],
-      "next": 4,
-      "isKeyStep": true,
-      "stepText": "Bad response",
-      "popup": {
-        "title": "Harmful Responses",
-        "message": "Responding with shock, disappointment, or judgment when a child shares their identity or harassment experiences can cause lasting harm. This type of reaction:\n\n- Deepens their feelings of isolation and shame\n- Damages trust in your relationship\n- Discourages them from coming to you with future problems\n- May contribute to mental health issues\n- Teaches them to hide their authentic self\n\nInstead, respond with compassion, support, and a focus on their wellbeing rather than your own feelings.",
-        "buttonText": "I understand"
-      }
-    },
-    {
-      "id": 12,
-      "name": "You",
-      "text": "I didn't mean to blame you. I'm just worried — can we go through the comments together?",
-      "voice": "Google UK English Female",
-      "background": "/livingroom.png",
-      "preserveBackground": true,
-      "characters": [
-        {
-          "img": "/parent-apologetic.png",
-          "style": {
-            "left": "15%",
-            "bottom": "0",
-            "height": "450px"
-          }
-        },
-        {
-          "img": "/teen-hesitant.png",
-          "style": {
-            "right": "20%",
-            "bottom": "0",
-            "height": "450px"
-          }
-        }
-      ],
-      "next": 13
-    },
-    {
-      "id": 13,
       "name": "You",
       "text": "I just don't want you to give people a reason to come after you.",
       "voice": "Google UK English Female",
@@ -342,7 +314,7 @@
       "preserveBackground": true,
       "characters": [
         {
-          "img": "/parent-concerned.png",
+          "img": "/parent5.png",
           "style": {
             "left": "15%",
             "bottom": "0",
@@ -350,38 +322,11 @@
           }
         },
         {
-          "img": "/teen-hurt.png",
+          "img": "/alex-sad.png",
           "style": {
             "right": "20%",
             "bottom": "0",
-            "height": "450px"
-          }
-        }
-      ],
-      "next": 14
-    },
-    {
-      "id": 14,
-      "name": "Michael",
-      "text": "They were the reason. Not me.",
-      "voice": "Microsoft Mark",
-      "background": "/livingroom.png",
-      "preserveBackground": true,
-      "characters": [
-        {
-          "img": "/parent-concerned.png",
-          "style": {
-            "left": "15%",
-            "bottom": "0",
-            "height": "450px"
-          }
-        },
-        {
-          "img": "/teen-frustrated.png",
-          "style": {
-            "right": "20%",
-            "bottom": "0",
-            "height": "450px"
+            "height": "400px"
           }
         }
       ],
@@ -395,7 +340,7 @@
       }
     },
     {
-      "id": 15,
+      "id": 12,
       "name": "",
       "text": "You see screenshots of private messages where Michael shared their identity with friends. There are also Instagram and Snapchat stories with transphobic memes targeting them.",
       "voice": "Microsoft James",
@@ -403,7 +348,7 @@
       "preserveBackground": true,
       "characters": [
         {
-          "img": "/parent-looking-at-phone.png",
+          "img": "/parent5-sad.png",
           "style": {
             "left": "15%",
             "bottom": "0",
@@ -411,18 +356,18 @@
           }
         },
         {
-          "img": "/teen-anxious.png",
+          "img": "/alex-sad.png",
           "style": {
             "right": "20%",
             "bottom": "0",
-            "height": "450px"
+            "height": "400px"
           }
         }
       ],
-      "next": 16
+      "next": 13
     },
     {
-      "id": 16,
+      "id": 13,
       "name": "You",
       "text": "I'm so sorry this is happening. Thank you for showing me. How are you feeling?",
       "voice": "Google UK English Female",
@@ -430,7 +375,7 @@
       "preserveBackground": true,
       "characters": [
         {
-          "img": "/parent-supportive.png",
+          "img": "/parent5-sad.png",
           "style": {
             "left": "15%",
             "bottom": "0",
@@ -438,18 +383,18 @@
           }
         },
         {
-          "img": "/teen-vulnerable.png",
+          "img": "/alex-sad.png",
           "style": {
             "right": "20%",
             "bottom": "0",
-            "height": "450px"
+            "height": "400px"
           }
         }
       ],
-      "next": 17
+      "next": 14
     },
     {
-      "id": 17,
+      "id": 14,
       "name": "Michael",
       "text": "Horrible. I can't even go to school anymore. Everyone's seen it. They're making memes and laughing about me.",
       "voice": "Microsoft Mark",
@@ -457,7 +402,7 @@
       "preserveBackground": true,
       "characters": [
         {
-          "img": "/parent-supportive.png",
+          "img": "/parent5.png",
           "style": {
             "left": "15%",
             "bottom": "0",
@@ -465,23 +410,33 @@
           }
         },
         {
-          "img": "/teen-crying.png",
+          "img": "/alex-talk.png",
           "style": {
             "right": "20%",
             "bottom": "0",
-            "height": "450px"
+            "height": "400px"
           }
         }
       ],
       "isKeyStep": true,
-      "stepText": "Supportive response",
+      "stepText": "What happened",
       "choices": [
-        {"text": "Handle it yourself", "next": 18},
-        {"text": "Report to school", "next": 21},
-        {"text": "Just block them", "next": 24}]
+        {
+          "text": "Handle it yourself",
+          "next": 15
+        },
+        {
+          "text": "Report them",
+          "next": 17
+        },
+        {
+          "text": "Block them",
+          "next": 19
+        }
+      ]
     },
     {
-      "id": 18,
+      "id": 15,
       "name": "You",
       "text": "I'm going to message these kids' parents myself. This has to stop right now.",
       "voice": "Google UK English Female",
@@ -489,7 +444,7 @@
       "preserveBackground": true,
       "characters": [
         {
-          "img": "/parent-angry.png",
+          "img": "/parent5-severe2.png",
           "style": {
             "left": "15%",
             "bottom": "0",
@@ -497,61 +452,34 @@
           }
         },
         {
-          "img": "/teen-alarmed.png",
+          "img": "/alex-sad.png",
           "style": {
             "right": "20%",
             "bottom": "0",
-            "height": "450px"
+            "height": "400px"
           }
         }
       ],
-      "next": 19
+      "next": 16
     },
     {
-      "id": 19,
-      "name": "Michael",
-      "text": "No, please don't! That will just make it so much worse!",
-      "voice": "Microsoft Mark",
-      "background": "/livingroom.png",
-      "preserveBackground": true,
-      "characters": [
-        {
-          "img": "/parent-angry.png",
-          "style": {
-            "left": "15%",
-            "bottom": "0",
-            "height": "450px"
-          }
-        },
-        {
-          "img": "/teen-pleading.png",
-          "style": {
-            "right": "20%",
-            "bottom": "0",
-            "height": "450px"
-          }
-        }
-      ],
-      "next": 20
-    },
-    {
-      "id": 20,
+      "id": 16,
       "name": "",
       "text": "The situation escalates. The bullies feel attacked and respond by intensifying their harassment, finding new platforms to target Michael.",
       "voice": "Microsoft James",
-      "background": "/school-hallway.png",
+      "background": "/classroom.png",
       "transitionEffect": "fade",
       "characters": [
         {
-          "img": "/teen-bullied.png",
+          "img": "/alex-phone.png",
           "style": {
-            "center": "true",
+            "right": "40%",
             "bottom": "0",
-            "height": "450px"
+            "height": "400px"
           }
         }
       ],
-      "next": 17,
+      "next": 14,
       "isKeyStep": true,
       "stepText": "Direct confrontation",
       "popup": {
@@ -561,15 +489,15 @@
       }
     },
     {
-      "id": 21,
+      "id": 17,
       "name": "You",
-      "text": "Should we report this to the school and the eSafety Commissioner together? This is cyberbullying and it's against the law.",
+      "text": "We should report this to the school and the eSafety Commissioner together. This is cyberbullying and it's against the law.",
       "voice": "Google UK English Female",
       "background": "/livingroom.png",
       "preserveBackground": true,
       "characters": [
         {
-          "img": "/parent-determined.png",
+          "img": "/parent5-severe2.png",
           "style": {
             "left": "15%",
             "bottom": "0",
@@ -577,61 +505,24 @@
           }
         },
         {
-          "img": "/teen-thinking.png",
+          "img": "/alex-sad.png",
           "style": {
             "right": "20%",
             "bottom": "0",
-            "height": "450px"
+            "height": "400px"
           }
         }
       ],
-      "next": 22
+      "next": 18
     },
     {
-      "id": 22,
-      "name": "Michael",
-      "text": "Do you think that would really help? What if they just laugh it off?",
-      "voice": "Microsoft Mark",
-      "background": "/livingroom.png",
-      "preserveBackground": true,
-      "characters": [
-        {
-          "img": "/parent-determined.png",
-          "style": {
-            "left": "15%",
-            "bottom": "0",
-            "height": "450px"
-          }
-        },
-        {
-          "img": "/teen-uncertain.png",
-          "style": {
-            "right": "20%",
-            "bottom": "0",
-            "height": "450px"
-          }
-        }
-      ],
-      "next": 23
-    },
-    {
-      "id": 23,
+      "id": 18,
       "name": "",
       "text": "You work with the school and file a formal complaint with screenshots as evidence. An investigation begins, leading to consequences for the harassers.",
       "voice": "Microsoft James",
-      "background": "/school-office.png",
+      "background": "/inschool.png",
       "transitionEffect": "fade",
-      "characters": [
-        {
-          "img": "/school-meeting.png",
-          "style": {
-            "center": "true",
-            "bottom": "0",
-            "height": "450px"
-          }
-        }
-      ],
-      "next": 28,
+      "next": 22,
       "isKeyStep": true,
       "stepText": "Official reporting",
       "popup": {
@@ -641,7 +532,7 @@
       }
     },
     {
-      "id": 24,
+      "id": 19,
       "name": "You",
       "text": "Would you prefer if I just help you block and mute them for now? We can decide what else to do later.",
       "voice": "Google UK English Female",
@@ -649,7 +540,7 @@
       "preserveBackground": true,
       "characters": [
         {
-          "img": "/parent-helpful.png",
+          "img": "/parent5-severe2.png",
           "style": {
             "left": "15%",
             "bottom": "0",
@@ -657,45 +548,18 @@
           }
         },
         {
-          "img": "/teen-relieved.png",
+          "img": "/alex-sad.png",
           "style": {
             "right": "20%",
             "bottom": "0",
-            "height": "450px"
+            "height": "400px"
           }
         }
       ],
-      "next": 25
+      "next": 20
     },
     {
-      "id": 25,
-      "name": "Michael",
-      "text": "Yes, please. I just want it to stop for now.",
-      "voice": "Microsoft Mark",
-      "background": "/livingroom.png",
-      "preserveBackground": true,
-      "characters": [
-        {
-          "img": "/parent-helpful.png",
-          "style": {
-            "left": "15%",
-            "bottom": "0",
-            "height": "450px"
-          }
-        },
-        {
-          "img": "/teen-relieved.png",
-          "style": {
-            "right": "20%",
-            "bottom": "0",
-            "height": "450px"
-          }
-        }
-      ],
-      "next": 26
-    },
-    {
-      "id": 26,
+      "id": 20,
       "name": "",
       "text": "You help Michael block the harassers and adjust privacy settings. This provides temporary relief, but the underlying issue persists at school.",
       "voice": "Microsoft James",
@@ -703,186 +567,17 @@
       "preserveBackground": true,
       "characters": [
         {
-          "img": "/parent-helping.png",
+          "img": "/alex-phone.png",
           "style": {
-            "left": "15%",
+            "left": "40%",
             "bottom": "0",
-            "height": "450px"
-          }
-        },
-        {
-          "img": "/teen-looking-at-phone.png",
-          "style": {
-            "right": "20%",
-            "bottom": "0",
-            "height": "450px"
+            "height": "400px"
           }
         }
       ],
-      "next": 27
-    },
-    {
-      "id": 27,
-      "name": "You",
-      "text": "I think we still need to consider next steps. Blocking helps online, but what about at school?",
-      "voice": "Google UK English Female",
-      "background": "/livingroom.png",
-      "preserveBackground": true,
-      "characters": [
-        {
-          "img": "/parent-thoughtful.png",
-          "style": {
-            "left": "15%",
-            "bottom": "0",
-            "height": "450px"
-          }
-        },
-        {
-          "img": "/teen-listening.png",
-          "style": {
-            "right": "20%",
-            "bottom": "0",
-            "height": "450px"
-          }
-        }
-      ],
+      "next": 14,
       "isKeyStep": true,
-      "stepText": "Temporary solution",
-      "choices": [
-        {"text": "Report to school", "next": 21},
-        {"text": "Talk about identity", "next": 28}]
-    },
-    {
-      "id": 28,
-      "name": "You",
-      "text": "I want you to know that I love you and support you, no matter what. Your identity is valid, and you deserve respect.",
-      "voice": "Google UK English Female",
-      "background": "/livingroom.png",
-      "preserveBackground": true,
-      "characters": [
-        {
-          "img": "/parent-loving.png",
-          "style": {
-            "left": "15%",
-            "bottom": "0",
-            "height": "450px"
-          }
-        },
-        {
-          "img": "/teen-touched.png",
-          "style": {
-            "right": "20%",
-            "bottom": "0",
-            "height": "450px"
-          }
-        }
-      ],
-      "next": 29
-    },
-    {
-      "id": 29,
-      "name": "Michael",
-      "text": "Thanks... that means a lot. I was scared to tell you about all this.",
-      "voice": "Microsoft Mark",
-      "background": "/livingroom.png",
-      "preserveBackground": true,
-      "characters": [
-        {
-          "img": "/parent-loving.png",
-          "style": {
-            "left": "15%",
-            "bottom": "0",
-            "height": "450px"
-          }
-        },
-        {
-          "img": "/teen-emotional.png",
-          "style": {
-            "right": "20%",
-            "bottom": "0",
-            "height": "450px"
-          }
-        }
-      ],
-      "next": 30
-    },
-    {
-      "id": 30,
-      "name": "You",
-      "text": "Let's take this one step at a time. We'll deal with the harassment, but also find resources to support you.",
-      "voice": "Google UK English Female",
-      "background": "/livingroom.png",
-      "preserveBackground": true,
-      "characters": [
-        {
-          "img": "/parent-supportive.png",
-          "style": {
-            "left": "15%",
-            "bottom": "0",
-            "height": "450px"
-          }
-        },
-        {
-          "img": "/teen-nodding.png",
-          "style": {
-            "right": "20%",
-            "bottom": "0",
-            "height": "450px"
-          }
-        }
-      ],
-      "next": 31
-    },
-    {
-      "id": 31,
-      "name": "",
-      "text": "Together, you contact the school and explore LGBTQ+ youth support groups. Michael begins to feel safer and more supported.",
-      "voice": "Microsoft James",
-      "background": "/community-center.png",
-      "transitionEffect": "fade",
-      "characters": [
-        {
-          "img": "/teen-support-group.png",
-          "style": {
-            "center": "true",
-            "bottom": "0",
-            "height": "450px"
-          }
-        }
-      ],
-      "next": 32,
-      "isKeyStep": true,
-      "stepText": "Holistic support",
-      "popup": {
-        "title": "Supporting LGBTQ+ Youth",
-        "message": "When supporting a young person facing identity-based harassment:\n\n- Affirm their identity and express unconditional love\n- Address both the harassment and the emotional impact\n- Help them connect with supportive communities and resources\n- Consider professional support like counseling if needed\n- Educate yourself about their identity and experiences\n- Advocate for them while respecting their autonomy\n- Create a safe home environment where they can be themselves\n- Recognize that your support significantly impacts their wellbeing and resilience",
-        "buttonText": "I understand"
-      }
-    },
-    {
-      "id": 32,
-      "name": "",
-      "text": "Congratulations! You've successfully navigated this challenge by providing both emotional support and practical help.",
-      "voice": "Microsoft James",
-      "background": "/park.png",
-      "transitionEffect": "fade",
-      "characters": [
-        {
-          "img": "/parent-and-teen-happy.png",
-          "style": {
-            "center": "true",
-            "bottom": "0",
-            "height": "500px"
-          }
-        }
-      ],
-      "isKeyStep": true,
-      "stepText": "Successful resolution",
-      "popup": {
-        "title": "Best Practices for Parents",
-        "message": "When helping teens navigate cyberbullying and identity issues:\n\n1. Listen without judgment - Create space for them to share experiences\n2. Validate their feelings and identity - Affirm that harassment is wrong and never their fault\n3. Document everything - Save screenshots and records of all incidents\n4. Report through proper channels - Work with schools, platforms, and authorities\n5. Prioritize safety - Take immediate steps to block harassers and secure accounts\n6. Connect with support - Find appropriate resources like counseling and support groups\n7. Balance advocacy with respect - Fight for your child while respecting their agency\n8. Monitor ongoing wellbeing - Stay attentive to their mental health and social experiences\n9. Maintain open communication - Keep the conversation going beyond the immediate crisis",
-        "buttonText": "Complete Story"
-      }
+      "stepText": "Block them"
     }
   ]
 }
