@@ -63,7 +63,7 @@
             </div>
           </div>
 
-          <div class="solution_card" @click="goTo('/data-insights')">
+          <div class="solution_card" @click="goTo('/message')">
             <div class="hover_color_bubble"></div>
             <div class="solu_title">
               <h3>Use Helpful Digital Tools</h3>

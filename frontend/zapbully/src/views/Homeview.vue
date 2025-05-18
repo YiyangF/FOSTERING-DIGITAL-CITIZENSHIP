@@ -36,7 +36,7 @@
               </button>
             </div>
           </div>
-          <div class="btn-group" @click="goToRoute('Infographic')">
+          <div class="btn-group" @click="goToRoute('InfographicPage')">
             <div class="btn-icon">📊</div>
             <div class="btn-content">
               <p class="btn-desc">Explore real-time data on cyberbullying trends</p>
@@ -220,6 +220,7 @@ function goToRoute(routeName) {
   align-items: center;
   justify-content: center;
   text-align: center;
+  padding-bottom: 200px;
 }
 
 .hero-content {
