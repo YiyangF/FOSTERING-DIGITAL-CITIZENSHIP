@@ -163,7 +163,7 @@ const typeOptions = [
 ]
 
 const generateReport = async () => {
-  const apiUrl = 'http://localhost:3000/generate-report'
+  const apiUrl = 'https://report-production-3547.up.railway.app/generate-report'
   const rawPayload = {
     recipient: target.value,
     platform: platform.value,
@@ -199,7 +199,6 @@ const copyToClipboard = async () => {
   }
 }
 
-// 以下为已存在逻辑保持不变
 const selectedSeverity = ref('')
 const heroSection = ref(null)
 
