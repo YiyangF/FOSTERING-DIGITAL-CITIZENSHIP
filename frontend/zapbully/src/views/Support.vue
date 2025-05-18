@@ -166,7 +166,8 @@ const typeOptions = [
 
 const generateReport = async () => {
   // const apiUrl = "https://4t5rydnyjg.execute-api.ap-southeast-2.amazonaws.com/Development/genReport"
-  const apiUrl = "https://4t5rydnyjg.execute-api.ap-southeast-2.amazonaws.com/Development/genReport"
+  // const apiUrl = "https://4t5rydnyjg.execute-api.ap-southeast-2.amazonaws.com/Development/genReport"
+  const apiUrl = "https://4t5rydnyjg.execute-api.ap-southeast-2.amazonaws.com/program/genReport"
   // const apiUrl = "https://fostering-digital-citizenship-production-666a.up.railway.app/generate-report"
   const rawPayload = {
     recipient: target.value,
