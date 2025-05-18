@@ -1,13 +1,11 @@
 <template>
   <div class="message-detector">
-    <div class="container">
+      <div class="container">
         <h1 class="title">Message Detector</h1>
         <h2 class="subtitle">Understanding Verbal Bullying</h2>
-        
+
         <p class="description">
-            Words can hurt. Did your kids receive any harassment, negative or suspicious messages? Or have
-            your kids sent these kinds of messages unconsciously? This detector can explain how certain
-            words or phrases impact others, and offer suggestions to make the message kinder.
+          Words can hurt. Has your child received or sent messages that seem harsh or inappropriate? This tool helps identify harmful language and suggests more respectful alternatives.
         </p>
         
         <div class="message-input">
@@ -34,6 +32,30 @@
                 <div class="chart-wrapper" v-if="getChartData">
                     <Pie :data="getChartData" :options="chartOptions" />
                 </div>
+                <div class="explanation-box">
+                  <h4>Why this matters:</h4>
+                  <p v-if="isCyberbullying">
+                    This message contains language that could be harmful or offensive. Consider rephrasing with more empathy.
+                  </p>
+                  <p v-else>
+                    The message appears respectful and appropriate. Positive communication helps maintain a safer online space.
+                  </p>
+
+                  <h4>Suggestions:</h4>
+                  <p v-if="isCyberbullying">
+                    Try using neutral or kind words. Avoid labeling, blaming, or aggressive tones.
+                  </p>
+                  <p v-else>
+                    Great job! Encourage continued thoughtful messaging.
+                  </p>
+                </div>
+
+                <!-- Disclaimer Box -->
+                <div class="disclaimer-box">
+                  <strong>Disclaimer:</strong>
+                  This tool provides preliminary guidance only. It is not a clinical diagnosis. If you are concerned about your child’s wellbeing, please consult a healthcare or mental health professional.
+                </div>
+
             </div>
         </div>
 
@@ -48,7 +70,6 @@
     </div>
   </div>
 </template>
-
 <script>
 import { ref, computed } from 'vue';
 import { Pie } from 'vue-chartjs';
@@ -426,4 +447,28 @@ export default {
     flex-direction: column;
   }
 }
+.explanation-box {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  border-left: 4px solid #6188F5;
+}
+
+.explanation-box h4 {
+  color: #005475;
+  margin-bottom: 0.5rem;
+}
+
+.disclaimer-box {
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  border-left: 5px solid #f4b400;
+  background-color: #fff8e1;
+  font-size: 0.95rem;
+  color: #444;
+  border-radius: 8px;
+  text-align: left;
+}
+
 </style>

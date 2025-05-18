@@ -236,4 +236,5 @@ header h1 {
   z-index: 2;
   transition: color 0.3s ease;
 }
+
 </style>

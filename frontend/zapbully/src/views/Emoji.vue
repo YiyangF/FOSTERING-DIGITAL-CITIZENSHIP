@@ -21,6 +21,10 @@
         <img class="book-image" :src="book" alt="Book frame" />
 
         <div class="left-page">
+          <div class="left-header">
+            <h3>Select an Emoji</h3>
+            <p>Tap to learn its deeper meaning.</p>
+          </div>
           <div
             v-for="(emoji, idx) in groupedEmojis[activeTab]"
             :key="idx"
@@ -34,10 +38,14 @@
         </div>
 
         <div class="right-page">
-          <div class="big-emoji">{{ selectedEmoji.char }}</div>
-          <div class="emoji-title">{{ selectedEmoji.name }}</div>
-          <div class="emoji-description">{{ selectedEmoji.desc }}</div>
-          <div class="emoji-example"><strong>Example:</strong> {{ selectedEmoji.example }}</div>
+          <div class="right-card">
+            <div class="big-emoji">{{ selectedEmoji.char }}</div>
+            <div class="emoji-title">{{ selectedEmoji.name }}</div>
+            <div class="emoji-description">{{ selectedEmoji.desc }}</div>
+            <div class="emoji-example">
+              <strong>Example:</strong> {{ selectedEmoji.example }}
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -72,7 +80,7 @@ onMounted(async () => {
 
     tabCategories.value = categories.map((cat, idx) => ({
       raw: cat,
-      name: cat.split(/[\s/]+/)[0], 
+      name: cat.split(/[\s/]+/)[0],
       color: ['#e6adf6', '#f68fab', '#73f1d7', '#ffe88b', '#fac988', '#d4f58b', '#a1e3ff'][idx % 7]
     }))
 
@@ -95,20 +103,12 @@ onMounted(async () => {
 <style scoped>
 @import url('https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css');
 
-
 .emoji-app {
   font-family: 'Segoe UI', sans-serif;
   padding: 20px;
   background: url('@/assets/background_image.png') no-repeat center center fixed;
   background-size: cover;
   min-height: 100vh;
-}
-
-
-.emoji-app .book-container,
-.emoji-app .left-page,
-.emoji-app .right-page {
-  background-color: transparent !important;
 }
 
 .title {
@@ -127,92 +127,87 @@ onMounted(async () => {
 
 .dictionary-container {
   position: relative;
-  width: 1100px;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
 .tabs-container {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 10px;
-  align-items: flex-end;
-  height: 90px;
-  margin-bottom: -17px;
+  margin-bottom: 10px;
 }
 
 .tab {
-  width: 120px;
-  height: 60px;
+  min-width: 100px;
+  height: 50px;
   cursor: pointer;
   border: 2px solid #444;
-  border-bottom: none;
-  border-radius: 6px 6px 0 0;
-  transition: height 0.3s ease;
+  border-radius: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.tab-text {
-  font-weight: bold;
-  color: #333;
+  padding: 5px 10px;
+  transition: 0.3s;
 }
 
 .tab.active {
-  height: 90px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  height: 60px;
+  font-weight: bold;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }
 
 .book-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   position: relative;
-  width: 1100px;
-  height: 700px;
-  z-index: 1;
+  height: 600px;
 }
 
 .book-image {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
   z-index: -1;
+  object-fit: contain;
 }
 
 .left-page,
 .right-page {
-  position: absolute;
-  top: 100px;
-  width: 42%;
-  height: 70%;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
+  width: 48%;
+  height: 100%;
   overflow-y: auto;
+  padding: 20px;
 }
 
-.left-page {
-  left: 80px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.left-header {
+  margin-bottom: 16px;
+  text-align: center;
+  color: #444;
 }
 
 .emoji-item {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 20px;
+  font-size: 18px;
   cursor: pointer;
-  padding: 6px 10px;
-  border-radius: 8px;
+  padding: 8px 12px;
+  border-radius: 10px;
   transition: background-color 0.2s;
 }
 
 .emoji-item:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .emoji-item.selected {
@@ -220,7 +215,7 @@ onMounted(async () => {
 }
 
 .emoji {
-  font-size: 24px;
+  font-size: 22px;
 }
 
 .emoji-name {
@@ -229,33 +224,34 @@ onMounted(async () => {
   color: #333;
 }
 
-.right-page {
-  right: 84px;
-  align-items: center;
-  justify-content: center;
+.right-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
 .big-emoji {
-  font-size: 100px;
-  margin-bottom: 20px;
+  font-size: 80px;
+  margin-bottom: 16px;
 }
 
 .emoji-title {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: bold;
   color: #4a3b2f;
   margin-bottom: 10px;
 }
 
 .emoji-description {
-  font-size: 16px;
+  font-size: 15px;
   color: #444;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .emoji-example {
-  font-size: 15px;
+  font-size: 14px;
   color: #555;
   font-style: italic;
 }

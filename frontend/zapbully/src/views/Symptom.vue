@@ -69,6 +69,9 @@
           <button @click="clearSelection">Start Again</button>
           <button @click="goToSupport">Get Support</button>
         </div>
+        <div class="disclaimer-note">
+          <strong>Disclaimer:</strong> This tool provides preliminary guidance only. It is not a clinical diagnosis. If you are concerned about your child’s wellbeing, please consult a healthcare or mental health professional.
+        </div>
       </div>
     </div>
   </div>
@@ -430,5 +433,15 @@ export default {
   background: #409eff;
   color: white;
   cursor: pointer;
+}
+.disclaimer-note {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #666;
+  background-color: #fdf6e3;
+  padding: 12px 16px;
+  border-left: 4px solid #fbbc04;
+  border-radius: 8px;
+  line-height: 1.5;
 }
 </style>
