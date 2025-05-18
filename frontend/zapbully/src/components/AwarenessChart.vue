@@ -34,8 +34,8 @@ export default {
     // const mental = await fetch('http://localhost:3001/api/mental-health').then(r => r.json());
 
 
-    const cyber = await fetch(`http://backend-database-production-a97a.up.railway.app/api/cyberbullying`).then(r => r.json());
-    const mental = await fetch(`http://backend-database-production-a97a.up.railway.app/api/mental-health`).then(r => r.json());
+    const cyber = await fetch(`https://backend-database-production-a97a.up.railway.app/api/cyberbullying`).then(r => r.json());
+    const mental = await fetch(`https://backend-database-production-a97a.up.railway.app/api/mental-health`).then(r => r.json());
     this.drawArrowLineChart(this.$refs.cyberChart, cyber, '#ff4c4c');
     this.drawBarChart(this.$refs.mentalChart, mental, '#4c9aff');
   },

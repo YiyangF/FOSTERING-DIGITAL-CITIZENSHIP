@@ -73,7 +73,7 @@ const selectTab = (index) => {
 
 onMounted(async () => {
   try {
-    const res = await fetch('http://backend-database-production-a97a.up.railway.app/api/emoji-meanings')
+    const res = await fetch('https://backend-database-production-a97a.up.railway.app/api/emoji-meanings')
     const data = await res.json()
 
     const categories = [...new Set(data.map(item => item.category))]
