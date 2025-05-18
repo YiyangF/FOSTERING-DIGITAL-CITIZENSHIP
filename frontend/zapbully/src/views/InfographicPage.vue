@@ -80,9 +80,8 @@
               <h3>Decode Emoji Meanings</h3>
             </div>
             <div class="solu_description">
-              <p>Understand hidden meanings behind emoji usage to uncover distress signals and risky social cues in your child’s chats.
-
-</p>
+              <p>Understand hidden meanings behind emoji usage to uncover distress signals and risky social cues in your child's chats.
+            </p>
               <button type="button" class="read_more_btn">Learn More</button>
             </div>
           </div>
@@ -139,6 +138,7 @@ export default {
   overflow-x: hidden;
   background: url('@/assets/background_image.png') no-repeat center center fixed;
   background-size: cover;
+  
 }
 
 .hero {

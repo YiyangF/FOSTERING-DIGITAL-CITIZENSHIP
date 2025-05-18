@@ -49,6 +49,9 @@ import Navigation from './components/Navigation.vue';
   min-height: 100vh;
   background: linear-gradient(to bottom,#cde0ee,#a6c6dd);
 }
+.main-box {
+ padding-top: 70px;
+}
 
 .main-container::before {
   content: '';

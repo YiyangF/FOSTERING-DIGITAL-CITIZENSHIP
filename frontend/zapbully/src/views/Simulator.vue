@@ -115,6 +115,7 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
   min-height: 100vh;
+  
 }
 
 header {

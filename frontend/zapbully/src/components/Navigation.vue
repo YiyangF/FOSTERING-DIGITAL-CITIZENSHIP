@@ -1,87 +1,176 @@
 <script setup lang="ts">
-import {ref} from 'vue'
-const showDropdown = ref(false);
-const mobileMenu = ref(false);
-// const closeMobileMenu = () => {
-//   mobileMenu.value = false;
-//   showDropdown.value = false;
-// }; ç
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 
+const showToolkitMenu = ref(false)
+const showSupportMenu = ref(false)
+const mobileMenu = ref(false)
+
+const toolkitItems = [
+  {
+    title: 'Symptom Checker',
+    desc: 'Identify common signs of cyber distress.',
+    icon: '/assets/card/sym.png',
+    link: '/symptom'
+  },
+  {
+    title: 'Message Checker',
+    desc: 'Detect toxic or bullying language in messages.',
+    icon: '/assets/card/msg.png',
+    link: '/message'
+  },
+  {
+    title: 'Emoji Dictionary',
+    desc: 'Learn to communicate more positively online.',
+    icon: '/assets/card/emj.png',
+    link: '/emoji'
+  }
+]
+
+const supportItems = [
+  {
+    title: 'Guide',
+    desc: 'Step-by-step parental guidance for online safety.',
+    icon: '/assets/card/gui.png',
+    link: '/support'
+  },
+  {
+    title: 'FAQ',
+    desc: "Find quick answers to parents' common questions.",
+    icon: '/assets/card/faq.png',
+    link: '/faq'
+  }
+]
+
+function handleClickOutside(event: MouseEvent) {
+  const toolkit = document.querySelector('.toolkit-wrapper')
+  const support = document.querySelector('.support-wrapper')
+  const nav = document.querySelector('.nav-wrapper')
+
+  if (toolkit && !toolkit.contains(event.target as Node)) {
+    showToolkitMenu.value = false
+  }
+  if (support && !support.contains(event.target as Node)) {
+    showSupportMenu.value = false
+  }
+  if (nav && !nav.contains(event.target as Node)) {
+    mobileMenu.value = false
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('click', handleClickOutside)
+})
+onBeforeUnmount(() => {
+  window.removeEventListener('click', handleClickOutside)
+})
 </script>
 
 <template>
   <header class="nav-wrapper">
     <div class="logo-box">
-      <!-- <img src="@/assets/logo.png" alt="zapbully-Logo" class="logo-img" /> -->
       <router-link to="/" exact-active-class="active-link">
-      <img src="@/assets/logo.png" alt="zapbully-Logo" class="logo-img" />
+        <img src="@/assets/logo.png" alt="zapbully-Logo" class="logo-img" />
       </router-link>
     </div>
-    <button class="mobileMenu-button" @click="mobileMenu= !mobileMenu">
+    <button class="mobileMenu-button" @click="mobileMenu = !mobileMenu">
       ☰
     </button>
-  <nav :class="['custom-nav',{'mobileMenu':!mobileMenu}]">
-      <router-link to="/" @click="mobileMenu = false" exact-active-class="active-link" class="nav-item-link">Home</router-link>
-      <router-link to="/data-insights" @click="mobileMenu = false" exact-active-class="active-link" class="nav-item-link">Data Insights</router-link>
-      <router-link to="/safety-simulations" @click="mobileMenu = false" exact-active-class="active-link" class="nav-item-link">Safety Simulations</router-link>
-    <div class="dropdown-wrapper" @mouseenter="showDropdown = true" @mouseleave="showDropdown = false">
-      <router-link to="/support" @click="mobileMenu = false" exact-active-class="active-link" class="nav-item-link">Parental Support</router-link>
-      <ul v-show ="showDropdown" class ="dropdown-menu">
-        <li><router-link to="/faq" @click="mobileMenu = false" exact-active-class="active-link" class="nav-item-link">FAQ</router-link></li>
-        <li><router-link to="/symptom" @click="mobileMenu = false" exact-active-class="active-link" class="nav-item-link">Symptom Checker</router-link></li>
-        <li><router-link to="/support" @click="mobileMenu = false" exact-active-class="active-link" class="nav-item-link">Guide</router-link></li>
-        <li><router-link to="/emoji" @click="mobileMenu = false" exact-active-class="active-link" class="nav-item-link">Emoji</router-link></li>
-        <li><router-link to="/message" @click="mobileMenu = false" exact-active-class="active-link" class="nav-item-link">Message Checker</router-link></li>
-      </ul>
-    </div>
-  </nav>
-</header>
+    <nav :class="['custom-nav', { 'mobileMenu': !mobileMenu }]">
+      <router-link to="/" @click="mobileMenu = false" class="nav-item-link">Home</router-link>
+      <router-link to="/data-insights" @click="mobileMenu = false" class="nav-item-link">Data Insights</router-link>
+      <router-link to="/safety-simulations" @click="mobileMenu = false" class="nav-item-link">Simulations</router-link>
 
+      <div class="mega-wrapper toolkit-wrapper">
+        <router-link to="#" class="nav-item-link" @click.prevent="showToolkitMenu = !showToolkitMenu">
+          Toolkit ▼
+        </router-link>
+        <div v-if="showToolkitMenu" class="mega-panel" @click.stop>
+          <div class="container">
+            <router-link
+              v-for="item in toolkitItems"
+              :key="item.title"
+              :to="item.link"
+              class="mega-card"
+              @click="showToolkitMenu = false"
+            >
+              <img :src="item.icon" :alt="item.title" class="mega-icon" />
+              <div class="mega-content">
+                <h4>{{ item.title }}</h4>
+                <p>{{ item.desc }}</p>
+              </div>
+            </router-link>
+          </div>
+        </div>
+      </div>
+
+      <div class="mega-wrapper support-wrapper">
+        <router-link to="#" class="nav-item-link" @click.prevent="showSupportMenu = !showSupportMenu">
+          Support ▼
+        </router-link>
+        <div v-if="showSupportMenu" class="mega-panel" @click.stop>
+          <div class="container2">
+            <router-link
+              v-for="item in supportItems"
+              :key="item.title"
+              :to="item.link"
+              class="mega-card"
+              @click="showSupportMenu = false"
+            >
+              <img :src="item.icon" :alt="item.title" class="mega-icon" />
+              <div class="mega-content">
+                <h4>{{ item.title }}</h4>
+                <p>{{ item.desc }}</p>
+              </div>
+            </router-link>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
 </template>
+
+<!-- styles are assumed correct and will be kept in your <style scoped> section as is -->
 
 <style scoped>
 .nav-wrapper {
-  /* float: right; */
   display: flex;
   justify-content: space-between;
   width: 100%;
   align-items: center;
   padding: 16px 40px;
-  background: transparent;
+  background: #fff;
   flex-wrap: wrap;
-  margin: 0 auto;
-  /* border-bottom: 1px solid #eee; */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  position: fixed;
+  top: 0;
+  z-index: 1000;
 }
 
 .logo-box {
-/* margin-right: 100px; */
-  /* flex: 0 0 auto; */
   display: flex;
   align-items: center;
 }
 
 .logo-img {
   height: 40px;
-  width: 100px;
+  width: auto;
   object-fit: contain;
 }
 
 .custom-nav {
   display: flex;
-  gap: 40px;
+  gap: 32px;
   font-size: 16px;
   font-weight: 600;
+  align-items: center;
 }
 
-.mobileMenu-button{
-  display:none
-}
 .nav-item-link {
   position: relative;
-  color: #070000;
+  color: #222;
   text-decoration: none;
-  padding-bottom: 5px;
-  transition: all 0.2s ease-in-out;
+  padding: 0.5rem 0;
+  transition: color 0.2s ease-in-out;
 }
 
 .nav-item-link::after {
@@ -89,78 +178,164 @@ const mobileMenu = ref(false);
   position: absolute;
   width: 0%;
   height: 2px;
-  bottom: 0;
+  bottom: -4px;
   left: 0;
   background-color: #f9a825;
   transition: width 0.3s ease-in-out;
 }
 
+.nav-item-link:hover{
+  background-color: #fff7d6;
+  border-radius: 6px;
+  color: #d48a00;
+
+}
 .nav-item-link:hover::after,
 .active-link::after {
+  color: #f9a825;
   width: 100%;
 }
 
-/* dropdown menu setting  */
-.dropdown-wrapper{
-  position: relative;
-  display: inline;
-}
-
-.dropdown-menu {
+/* ========mega menu general style=========== */.mega-panel {
   position: absolute;
   top: 100%;
   left: 0;
-  list-style: none;
-  background-color: #e8bb73;
-  padding: 0;
-  margin: 0;
-  display: none;
-  min-width: 160px;
-  z-index: 100;
+  width: 100vw;
+  background-color: #fff;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
+  padding: 2rem 0;
+  z-index: 999;
+  border-bottom: 1px solid #eee;
+  animation: floatDown 0.3s ease-out;
 }
 
-.dropdown-link {
-  display: block;
-  padding: 0.5rem 1rem;
-  color: white;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 0 2rem;
+}
+.container2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+  padding: 0 3rem;
+
+  max-width: 800px;     
+  margin: 0 auto;     
+}
+
+.mega-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   text-decoration: none;
+  padding: 1.5rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  background-color: #fff;
+  border: 1px solid transparent;
+  cursor: pointer;
 }
 
-.dropdown-link:hover {
-  background-color: rgb(241, 235, 235)}
-
-.dropdown-wrapper:hover .dropdown-menu {
-  display: block;
+.mega-card:hover {
+  transform: translateY(-6px);
+  border-color: #f9a825;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
-/* mobile button */
+.mega-icon {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.mega-content h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0.5rem 0 0.25rem;
+  color: #222;
+}
+
+.mega-content p {
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.4;
+  max-width: 240px;
+}
+
+@keyframes floatDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== Mobile Responsive ========== */
+.mobileMenu-button {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #333;
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
   .mobileMenu-button {
     display: block;
-    background: transparent;
+    margin-left: auto;
   }
 
   .custom-nav {
     display: none;
     flex-direction: column;
     width: 100%;
-    background-color: #333;
+    background-color: #fff8e1;
+    margin-top: 1rem;
+    border-top: 1px solid #ddd;
+    padding: 0.5rem 0;
+    border-radius: 8px;
   }
 
-  .custom-nav.mobileMenu{
+  .custom-nav.mobileMenu {
     display: flex;
   }
 
   .nav-item-link {
-    padding: 1rem;
-    border-top: 1px solid #555;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #eee;
+    color: #222;
+  }
+
+  .nav-item-link:hover {
+    background-color: #fff2cc;
+    border-radius: 6px;
   }
 
   .dropdown-menu {
-    background-color: #444;
+    position: static;
+    background-color: #fff7dc;
+    padding-left: 1.5rem;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .dropdown-menu .nav-item-link {
+    padding: 0.75rem 2rem;
+  }
+
+  .dropdown-menu .nav-item-link:hover {
+    background-color: #fff1b8;
   }
 }
 
 </style>
-
-

@@ -45,22 +45,21 @@
               </button>
             </div>
           </div>
-          <div class="btn-group" @click="scrollToFeatures">
-            <div class="btn-icon">📖</div>
+         <div class="btn-group wide-btn-group" @click="scrollToFeatures">
+            <div class="btn-label">About Us</div>
             <div class="btn-content">
-              <p class="btn-desc">Discover tools like the emoji dictionary and message checker</p>
-              <button class="primary-cta">
-                <span>Explore Tools</span>
+              <p class="btn-desc font-semibold mb-2 leading-relaxed">
+                Welcome to <strong style="color: #FFD700;">ZapBully</strong> — your digital parenting companion. We provide <span style="color: #FFD700;">practical tools</span>, <span style="color: #FFD700;">real stories</span>, and <span style="color: #FFD700;">emotional insights</span> to help you protect your child from <span style="color: #FFD700;">cyberbullying</span> with <span style="color: #FFD700;">confidence</span>.
+              </p>
+              <button class="primary-cta mt-4">
+                <span>Start Exploring</span>
               </button>
             </div>
           </div>
+
         </div>
       </div>
     </div>
-
-    <!-- <div class="arrow-container">
-      <button class="down-arrow" @click="scrollToFeatures" aria-label="Scroll down">↓</button>
-    </div> -->
   </div>
 
   <section ref="featureSection" class="feature-section">
@@ -213,7 +212,7 @@ function goToRoute(routeName) {
 .hero-container {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 120vh;
   background: linear-gradient(to bottom, #a6c6dd, #3b74c7);
   overflow: hidden;
   display: flex;
@@ -297,6 +296,7 @@ function goToRoute(routeName) {
 .hero-text {
   max-width: 800px;
   margin: 0 auto;
+  padding-top: 100px
 }
 
 .hero-text h1 {
@@ -552,4 +552,41 @@ function goToRoute(routeName) {
     transform: scale(1) translateY(0);
   }
 }
+.wide-btn-group {
+  max-width: 740px;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.wide-btn-group .btn-icon {
+  align-self: center;
+  margin-bottom: 1rem;
+}
+
+.wide-btn-group .btn-content {
+  width: 100%;
+}
+
+.wide-btn-group .primary-cta {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.btn-label {
+  font-size: 1.1rem;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 0.75rem 1.25rem;
+  border-radius: 12px;
+  color: #ffffff;
+  text-align: center;
+  min-width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  margin: 0 auto; 
+}
+
 </style>

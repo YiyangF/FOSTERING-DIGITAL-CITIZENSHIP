@@ -51,24 +51,33 @@
         <div class="close-label">Close to Start!</div>
       </div>
       
-      <!-- Dialog box callout -->
-      <div class="callout callout-dialog">
-        <div class="callout-text">Dialog box</div>
-      </div>
-      
-      <!-- Who is speaking callout -->
-      <div class="callout callout-who">
-        <div class="callout-text">Who is saying</div>
-      </div>
-      
-      <!-- Click to continue callout -->
-      <div class="callout callout-click">
-        <div class="callout-text">After starting, Click anywhere on the screen to Continue the story</div>
-      </div>
-      
-      <!-- progress dots -->
-      <div class="callout callout-dots">
-        <div class="callout-text">Above is the progress bar, each dot is the key ending you can jump to after viewing</div>
+      <!-- Instructions content -->
+      <div class="instructions-content">
+        <h2>How to Play</h2>
+        
+        <div class="instruction-item">
+          <p><strong>Dialog box:</strong> Shows the conversation text</p>
+        </div>
+        
+        <div class="instruction-item">
+          <p><strong>Who is saying:</strong> The name before ':' indicates which character is speaking</p>
+        </div>
+        
+        <div class="instruction-item">
+          <p><strong>Navigation:</strong> Click anywhere on the screen to continue the story</p>
+        </div>
+        
+        <div class="instruction-item">
+          <p><strong>Progress bar:</strong> Above is the progress bar. Each dot represents a key ending that you can jump to after viewing</p>
+        </div>
+
+        <div class="instruction-item">
+          <p><strong>Mute voice:</strong> The mute button is at the top right</p>
+        </div>
+
+        <div class="instruction-item">
+          <p><strong>Back:</strong> The back button is at the top left for return to story selection</p>
+        </div>
       </div>
     </div>
 
@@ -626,23 +635,25 @@ export default {
   overflow: hidden;
 }
 
-/* Centered instruction overlay */
 .instruction-overlay {
-  position: absolute;
-  top: 51%;
+  position: fixed;
+  top: 50%;
   left: 50%;
-  width: calc(100% - 60px);
-  height: 530px;
-  background-color: rgba(89, 88, 88, 0.5);
+  width: 80%;
+  max-width: 600px;
+  background-color: white;
   z-index: 100;
-  border-radius: 8px;
+  border-radius: 12px;
   transform: translate(-50%, -50%);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  padding: 25px;
+  text-align: left;
 }
 
 /* Close button styles */
 .close-button {
   position: absolute;
-  top: 20px;
+  top: 15px;
   right: 5px;
   cursor: pointer;
   display: flex;
@@ -654,87 +665,52 @@ export default {
 .close-icon {
   background-color: #FF3A3A;
   color: white;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
 }
 
 .close-label {
   background-color: #FF5A5A;
   color: white;
-  padding: 8px 16px;
+  padding: 6px 12px;
   border-radius: 20px;
-  margin-top: 8px;
+  margin-top: 6px;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 14px;
   white-space: nowrap;
 }
 
-/* Callout styles */
-.callout {
-  position: absolute;
-  z-index: 101;
+/* Instructions content */
+.instructions-content {
+  margin-top: 20px;
 }
 
-.callout-text {
-  background-color: #5a73ff;
-  color: white;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-weight: bold;
-  font-size: 16px;
-  white-space: nowrap;
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
 }
 
-.callout-line {
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  overflow: visible;
+.instruction-item {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #f8f9fa;
 }
 
-/* Positioning for specific callouts */
-.callout-dialog {
-  right: 20%;
-  bottom: 70px;
+.instruction-item p {
+  margin: 0;
+  line-height: 1.5;
 }
 
-.callout-dialog .callout-line {
-  top: 50%;
-  right: 80%;
-}
-
-.callout-who {
-  left: 5%;
-  bottom: 60px;
-}
-
-.callout-who .callout-line {
-  top: 50%;
-  left: 20%;
-}
-
-.callout-click {
-  top: 40%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.callout-click .callout-line {
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.callout-dots {
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
+.instruction-item strong {
+  color: #5a73ff;
 }
 
 /* New class for background transitions only when needed */
