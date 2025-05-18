@@ -89,7 +89,7 @@ export default {
       error.value = '';
 
       try {
-        const apiUrl = 'http://127.0.0.1:8000/predict';
+        const apiUrl = 'https://backend-python-production-9d2c.up.railway.app/predict';
         const response = await fetch(apiUrl, {
           method: 'POST',
           headers: {
