@@ -83,6 +83,21 @@
         </li>
       </ul>
     </section>
+    
+    <div class="info-card">
+      <h2 class="info-title">📄 Report a Cyberbullying Incident</h2>
+      <p>
+        Use this form to report a cyberbullying incident that affected your child, a student, or someone in your care.
+        The details you provide will be turned into a clear, formal report that’s ready to submit to schools, platforms, or the eSafety Commissioner.
+      </p>
+      <p class="mt-3">
+        Our secure AI tool helps summarize what happened using proven templates — giving you clarity and peace of mind.
+      </p>
+      <p class="mt-3 text-sm text-gray-600">
+        🔒 Your input is never stored. The report is generated instantly and only shared with you.
+      </p>
+    </div>
+
 
     <section class="report-generator">
       <div class="form-group">
@@ -202,9 +217,30 @@ const copyToClipboard = async () => {
 const selectedSeverity = ref('')
 const heroSection = ref(null)
 
-const mildDetails = [/*...*/]
-const moderateDetails = [/*...*/]
-const severeDetails = [/*...*/]
+const mildDetails = [
+  { title: 'Open Communication', desc: 'Engage in a non-judgmental conversation with your child about their online experiences. Reassure them of your support and understanding. Ask open-ended questions like "How did that make you feel?" and affirm their courage to talk about it.' },
+  { title: 'Review Privacy Settings', desc: 'Guide your child through privacy settings on each platform. Set profiles to private, disable friend suggestions, restrict tagging permissions, and review who can comment or message. Visit safety centers of platforms like Instagram, TikTok, and YouTube for step-by-step tools.' },
+  { title: 'Promote Positive Online Behavior', desc: 'Discuss online kindness and the ripple effect of digital behavior. Help them follow role models or educational pages. Use games or resources from eSafety to teach them how to stand up for others or safely respond to negativity.' },
+  { title: 'Monitor Emotional Well-being', desc: 'Observe your child\'s sleep, appetite, or withdrawal from favorite activities. Keep daily conversations light and supportive. If emotional dips last more than two weeks, consult a GP or youth counselor such as through headspace.org.au.' },
+  { title: 'Understand Reporting Options', desc: 'While not urgent, explore how to report users or block content on each platform. Visit esafety.gov.au/report to learn about what content can be formally reported in Australia. Store this as a "digital first-aid kit" for later use if needed.' }
+]
+
+const moderateDetails = [
+  { title: 'Provide Emotional Support', desc: 'Let your child know you believe them. Avoid reacting in anger instead, validate their experience. Encourage healthy expression like journaling, art, or light physical activity. If anxiety or withdrawal continues, reach out to headspace (headspace.org.au), ReachOut, or speak to your GP for a mental health treatment plan.' },
+  { title: 'Document Evidence', desc: 'Take clear screenshots of the abusive messages or harmful content. Record usernames, platform names, timestamps, and any visible threats or recurring patterns. Store these in a secure folder on your device and back it up to cloud or USB. If needed, use tools like Print to PDF or third-party screenshot tools to save from apps that block screen captures.' },
+  { title: 'Report to Platforms', desc: 'Use the built-in "Report" feature in apps like Instagram, Snapchat, TikTok, and Discord. After submission, platforms typically issue a case reference — save this. If no action is taken within 24–48 hours, proceed to escalate to the eSafety Commissioner. You can also mute, block or restrict accounts using each platform\'s safety settings.' },
+  { title: 'Engage Authorities', desc: 'Contact your child\'s class teacher, school wellbeing officer, or principal. Request a confidential meeting. Schools are required to take reports of bullying seriously and may involve behavior monitoring, mediation, or escalation. Follow up with written documentation and keep a log of who you speak to and when.' },
+  { title: 'Escalate to eSafety', desc: 'If no resolution from the platform occurs in 48 hours, go to esafety.gov.au/report and submit all the documented material. Include screenshots, platform response (if any), and a description of the abuse. eSafety can demand content takedown or further investigate — especially when minors are involved.' }
+]
+
+const severeDetails = [
+  { title: 'Seek Professional Help', desc: 'Severe distress requires urgent professional support. Contact your local GP, school counselor, or a clinical psychologist. For free 24/7 support, call Kids Helpline (1800 55 1800) or Lifeline. Services like Beyond Blue (1300 22 4636) and Headspace also offer telehealth and live chat options for teens.' },
+  { title: 'Immediate Safety Measures', desc: 'If your child shows signs of severe distress, threats of self-harm, or expresses fear, ensure they\'re physically safe. Stay close, remove online access temporarily, and supervise their digital environment. Involve a trusted adult or family member to support you. For urgent mental health response, call Lifeline (13 11 14).' },
+  { title: 'Preserve Evidence', desc: 'Keep all offensive or threatening content. Don\'t delete messages or accounts. Screenshot texts, capture usernames, and save links. Use a dedicated folder and back up externally. If it involves threats, harassment, or non-consensual images, preserve as-is for law enforcement or eSafety case reporting.' },
+  { title: 'Report to Authorities', desc: 'If the content involves threats of violence, sexual harm, or stalking, call 000 immediately. For non-emergency cases, report to your local police station and bring printed evidence. You can also file cyberbullying complaints at esafety.gov.au/report. Police may guide you on additional protection (e.g. AVO).' },
+  { title: 'Emergency Reporting', desc: 'If safety is at risk, call emergency services (000). Then report to the eSafety Commissioner. Provide evidence and your child\'s age to fast-track review. Involve a lawyer if legal protection (e.g. restraining order) may be required. For legal advice, contact Youth Law Australia or Legal Aid in your state.' }
+]
+
 
 const selectedSteps = computed(() => {
   if (selectedSeverity.value === 'mild') return mildDetails
@@ -613,4 +649,29 @@ pre {
   line-height: 1.5;
   color: #333;
 }
+
+.info-card {
+  background-color: #f0f7ff;
+  border-left: 6px solid #4f8ef7;
+  border-radius: 12px;
+  padding: 24px;
+  margin: 30px auto;
+  max-width: 720px;
+  box-shadow: 0 8px 20px rgba(79, 142, 247, 0.12);
+  font-family: 'Segoe UI', sans-serif;
+  color: #1a3d7c;
+  transition: all 0.3s ease;
+}
+
+.info-card:hover {
+  box-shadow: 0 12px 24px rgba(79, 142, 247, 0.2);
+}
+
+.info-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #003366;
+}
+
 </style>

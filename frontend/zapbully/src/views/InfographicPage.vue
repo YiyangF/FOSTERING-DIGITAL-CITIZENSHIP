@@ -47,40 +47,7 @@
               <h3>Practice Digital Scenarios</h3>
             </div>
             <div class="solu_description">
-              <p>Use real-case simulators to understand risks and guide your child effectively.</p>
-              <button type="button" class="read_more_btn">Learn More</button>
-            </div>
-          </div>
-
-          <div class="solution_card" @click="goTo('/faq')">
-            <div class="hover_color_bubble"></div>
-            <div class="solu_title">
-              <h3>Access FAQs and Experiences</h3>
-            </div>
-            <div class="solu_description">
-              <p>Explore FAQs, expert advice, and stories from parents facing similar challenges.</p>
-              <button type="button" class="read_more_btn">Learn More</button>
-            </div>
-          </div>
-
-          <div class="solution_card" @click="goTo('/message')">
-            <div class="hover_color_bubble"></div>
-            <div class="solu_title">
-              <h3>Use Helpful Digital Tools</h3>
-            </div>
-            <div class="solu_description">
-              <p>Scan messages, check links, and simplify privacy terms easily to stay safer.</p>
-              <button type="button" class="read_more_btn">Learn More</button>
-            </div>
-          </div>
-
-          <div class="solution_card" @click="goTo('/support')">
-            <div class="hover_color_bubble"></div>
-            <div class="solu_title">
-              <h3>Get Step-by-Step Support</h3>
-            </div>
-            <div class="solu_description">
-              <p>Follow clear, supportive actions when your child faces online challenges.</p>
+              <p>Experience interactive digital stories that help you guide your child through online bullying and harassment cases.</p>
               <button type="button" class="read_more_btn">Learn More</button>
             </div>
           </div>
@@ -88,10 +55,45 @@
           <div class="solution_card" @click="goTo('/symptom')">
             <div class="hover_color_bubble"></div>
             <div class="solu_title">
-              <h3>Recognize Signs of Trouble</h3>
+              <h3>Check Emotional Distress Symptoms</h3>
             </div>
             <div class="solu_description">
-              <p>Learn to detect emotional distress early and open important conversations.</p>
+              <p>Identify early signs of emotional impact through a symptom checker designed for parents to assess their child’s wellbeing.</p>
+              <button type="button" class="read_more_btn">Learn More</button>
+            </div>
+          </div>
+
+          <div class="solution_card" @click="goTo('/message')">
+            <div class="hover_color_bubble"></div>
+            <div class="solu_title">
+              <h3>Detect Harmful Messages</h3>
+            </div>
+            <div class="solu_description">
+              <p>Analyze messages your child sends or receives to spot bullying, harsh language, or harmful communication patterns.</p>
+              <button type="button" class="read_more_btn">Learn More</button>
+            </div>
+          </div>
+
+          <div class="solution_card" @click="goTo('/emoji')">
+            <div class="hover_color_bubble"></div>
+            <div class="solu_title">
+              <h3>Decode Emoji Meanings</h3>
+            </div>
+            <div class="solu_description">
+              <p>Understand hidden meanings behind emoji usage to uncover distress signals and risky social cues in your child’s chats.
+
+</p>
+              <button type="button" class="read_more_btn">Learn More</button>
+            </div>
+          </div>
+
+          <div class="solution_card" @click="goTo('/support')">
+            <div class="hover_color_bubble"></div>
+            <div class="solu_title">
+              <h3>Generate Support Reports</h3>
+            </div>
+            <div class="solu_description">
+              <p>Create formal reports for schools, platforms, or authorities with AI assistance to take action when serious incidents occur.</p>
               <button type="button" class="read_more_btn">Learn More</button>
             </div>
           </div>
