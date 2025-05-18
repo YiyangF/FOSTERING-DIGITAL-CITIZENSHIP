@@ -220,6 +220,7 @@ function goToRoute(routeName) {
   align-items: center;
   justify-content: center;
   text-align: center;
+  padding-top: 200px;
   padding-bottom: 200px;
 }
 
