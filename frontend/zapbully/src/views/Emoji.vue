@@ -4,7 +4,6 @@
     <p class="instruction">Another way to understand emojis that parents should know.</p>
 
     <div class="dictionary-container">
-      <!-- 分类 Tabs -->
       <div class="tabs-container">
         <div
           v-for="(tab, index) in tabCategories"
@@ -18,11 +17,9 @@
         </div>
       </div>
 
-      <!-- 内容书本结构 -->
       <div class="book-container">
         <img class="book-image" :src="book" alt="Book frame" />
 
-        <!-- 左侧：Emoji + 简称 -->
         <div class="left-page">
           <div
             v-for="(emoji, idx) in groupedEmojis[activeTab]"
@@ -36,7 +33,6 @@
           </div>
         </div>
 
-        <!-- 右侧：详细信息 -->
         <div class="right-page">
           <div class="big-emoji">{{ selectedEmoji.char }}</div>
           <div class="emoji-title">{{ selectedEmoji.name }}</div>
@@ -69,7 +65,7 @@ const selectTab = (index) => {
 
 onMounted(async () => {
   try {
-    const res = await fetch('http://localhost:3001/api/emoji-meanings')
+    const res = await fetch('http://backend-database-production-a97a.up.railway.app/api/emoji-meanings')
     const data = await res.json()
 
     const categories = [...new Set(data.map(item => item.category))]
