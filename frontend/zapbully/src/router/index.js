@@ -9,6 +9,7 @@ import PasswordGate from '@/views/PasswordGate.vue'
 import toast from '../utils/toast'
 import Story from '@/views/Story.vue'
 import Emoji from '@/views/Emoji.vue'
+import Message from '@/views/Message.vue'
 
 const routes = [
   {
@@ -55,6 +56,11 @@ const routes = [
     path: '/emoji',
     name: 'Emoji',
     component: Emoji
+  },
+  {
+    path: '/message',
+    name: 'Message',
+    component: Message
   }
 ]
 

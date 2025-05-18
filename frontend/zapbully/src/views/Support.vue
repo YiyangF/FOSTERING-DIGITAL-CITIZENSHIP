@@ -100,7 +100,7 @@
           <option>Instagram</option>
           <option>TikTok</option>
           <option>Snapchat</option>
-          <option>WeChat/Moments</option>
+          <option>Facebook</option>
           <option>Other</option>
         </select>
       </div>
@@ -121,7 +121,7 @@
       </div>
 
       <div class="form-group">
-        <label for="note">Additional Notes (optional):</label>
+        <label for="note">Additional Notes :</label>
         <textarea id="note" v-model="additionalNote" placeholder="e.g. My child has shown signs of emotional distress and reluctance to attend school..."></textarea>
       </div>
 
@@ -155,6 +155,7 @@ const incidentDate = ref('')
 const additionalNote = ref('')
 const report = ref('')
 
+
 const typeOptions = [
   { label: 'Abusive Language', value: 'Abusive Language' },
   { label: 'Malicious Image/Video Sharing', value: 'Malicious Image/Video Sharing' },
@@ -163,27 +164,48 @@ const typeOptions = [
   { label: 'Impersonation', value: 'Impersonation' }
 ]
 
-const generateReport = () => {
-  const targetMap = {
-    school: 'School Official',
-    police: 'Police Officer',
-    platform: 'Social Media Platform Support Team'
+const generateReport = async () => {
+  // const apiUrl = "https://4t5rydnyjg.execute-api.ap-southeast-2.amazonaws.com/Development/genReport"
+  const apiUrl = "https://4t5rydnyjg.execute-api.ap-southeast-2.amazonaws.com/Development/genReport"
+  // const apiUrl = "https://fostering-digital-citizenship-production-666a.up.railway.app/generate-report"
+  const rawPayload = {
+    recipient: target.value,
+    platform: platform.value,
+    date: incidentDate.value,
+    incidentTypes: [...incidentTypes.value],
+    notes: additionalNote.value
   }
 
-  report.value = `Dear ${targetMap[target.value]},
+  const payload = {
+    body: JSON.stringify(rawPayload)
+  }
 
-I am a parent writing to report recent inappropriate behavior that my child has experienced on the ${platform.value} platform. The incident occurred approximately on ${incidentDate.value}, with the following details:
+  console.log("Sending payload to backend:", payload)
 
-📝 Incident Type(s): ${incidentTypes.value.join(', ') || 'Not specified'}
-📅 Date of Incident: ${incidentDate.value}
-🌐 Platform: ${platform.value}
-📘 Additional Notes: ${additionalNote.value || 'None'}
+  try {
+    const response = await fetch(apiUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(rawPayload)
+    })
 
-I kindly request that you take appropriate actions to address this matter. Thank you for your support.
+    const data = await response.json()
 
-Sincerely,
-(A Concerned Parent)`
+    if (response.ok) {
+      // report.value = data.result
+      const parsedBody = JSON.parse(data.body)
+      report.value = parsedBody.result
+
+    } else {
+      report.value = `❌ Error: ${data.error}`
+    }
+  } catch (err) {
+    report.value = `❌ Network Error: ${err.message}`
+  }
 }
+
 
 const copyToClipboard = async () => {
   try {

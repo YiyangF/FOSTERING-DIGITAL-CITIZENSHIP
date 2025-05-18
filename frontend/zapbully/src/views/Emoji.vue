@@ -1,10 +1,10 @@
 <template>
-  <div class="page-container">
+  <div class="emoji-app">
     <h1 class="title">Emoji Dictionary</h1>
     <p class="instruction">Another way to understand emojis that parents should know.</p>
 
     <div class="dictionary-container">
-      <!-- Tabs -->
+      <!-- 分类 Tabs -->
       <div class="tabs-container">
         <div
           v-for="(tab, index) in tabCategories"
@@ -18,10 +18,11 @@
         </div>
       </div>
 
-      <!-- Book-style layout -->
+      <!-- 内容书本结构 -->
       <div class="book-container">
         <img class="book-image" :src="book" alt="Book frame" />
 
+        <!-- 左侧：Emoji + 简称 -->
         <div class="left-page">
           <div
             v-for="(emoji, idx) in groupedEmojis[activeTab]"
@@ -30,14 +31,17 @@
             :class="{ selected: idx === selectedEmojiIndex }"
             @click="selectedEmojiIndex = idx"
           >
-            {{ emoji.char }}
+            <div class="emoji">{{ emoji.char }}</div>
+            <div class="emoji-name">{{ emoji.name }}</div>
           </div>
         </div>
 
+        <!-- 右侧：详细信息 -->
         <div class="right-page">
           <div class="big-emoji">{{ selectedEmoji.char }}</div>
           <div class="emoji-title">{{ selectedEmoji.name }}</div>
           <div class="emoji-description">{{ selectedEmoji.desc }}</div>
+          <div class="emoji-example"><strong>Example:</strong> {{ selectedEmoji.example }}</div>
         </div>
       </div>
     </div>
@@ -65,13 +69,14 @@ const selectTab = (index) => {
 
 onMounted(async () => {
   try {
-    const res = await fetch('http://localhost:3001/api/emoji-meanings') // 请根据部署情况修改 URL
+    const res = await fetch('http://localhost:3001/api/emoji-meanings')
     const data = await res.json()
 
     const categories = [...new Set(data.map(item => item.category))]
 
     tabCategories.value = categories.map((cat, idx) => ({
-      name: cat,
+      raw: cat,
+      name: cat.split(/[\s/]+/)[0], 
       color: ['#e6adf6', '#f68fab', '#73f1d7', '#ffe88b', '#fac988', '#d4f58b', '#a1e3ff'][idx % 7]
     }))
 
@@ -81,7 +86,8 @@ onMounted(async () => {
         .map(e => ({
           char: e.emoji,
           name: e.actual_meaning,
-          desc: e.hidden_meaning
+          desc: e.hidden_meaning,
+          example: e.example
         }))
     )
   } catch (err) {
@@ -91,18 +97,26 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-.page-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 20px 0;
+@import url('https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css');
+
+
+.emoji-app {
+  font-family: 'Segoe UI', sans-serif;
+  padding: 20px;
+  background: url('@/assets/background_image.png') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+
+.emoji-app .book-container,
+.emoji-app .left-page,
+.emoji-app .right-page {
+  background-color: transparent !important;
 }
 
 .title {
-  font-size: 32px;
+  font-size: 36px;
   color: #333;
   margin-bottom: 8px;
   text-align: center;
@@ -117,7 +131,8 @@ onMounted(async () => {
 
 .dictionary-container {
   position: relative;
-  width: 900px;
+  width: 1100px;
+  margin: 0 auto;
 }
 
 .tabs-container {
@@ -140,13 +155,11 @@ onMounted(async () => {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
 }
 
 .tab-text {
   font-weight: bold;
   color: #333;
-  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.7);
 }
 
 .tab.active {
@@ -156,8 +169,9 @@ onMounted(async () => {
 
 .book-container {
   position: relative;
-  width: 900px;
-  height: 600px;
+  width: 1100px;
+  height: 700px;
+  z-index: 1;
 }
 
 .book-image {
@@ -165,51 +179,65 @@ onMounted(async () => {
   height: 100%;
   object-fit: contain;
   display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
 .left-page,
 .right-page {
   position: absolute;
   top: 100px;
-  width: 40%;
+  width: 42%;
   height: 70%;
   padding: 20px;
-  overflow-y: auto;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
 }
 
 .left-page {
   left: 80px;
-  background: rgba(255, 255, 255, 0.107);
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-direction: column;
   gap: 10px;
-  align-content: start;
-  padding: 20px;
-  overflow-y: auto;
-}
-
-.right-page {
-  right: 84px;
-  background: rgba(255, 255, 255, 0.237);
-  align-items: center;
-  justify-content: center;
-  text-align: center;
 }
 
 .emoji-item {
-  font-size: 28px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
   cursor: pointer;
-  text-align: center;
-  transition: transform 0.2s;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.emoji-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .emoji-item.selected {
   background-color: #fff6cc;
-  border-radius: 10px;
-  padding: 5px;
-  transform: scale(1.1);
+}
+
+.emoji {
+  font-size: 24px;
+}
+
+.emoji-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.right-page {
+  right: 84px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .big-emoji {
@@ -221,10 +249,18 @@ onMounted(async () => {
   font-size: 24px;
   font-weight: bold;
   color: #4a3b2f;
+  margin-bottom: 10px;
 }
 
 .emoji-description {
   font-size: 16px;
   color: #444;
+  margin-bottom: 8px;
+}
+
+.emoji-example {
+  font-size: 15px;
+  color: #555;
+  font-style: italic;
 }
 </style>

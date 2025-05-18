@@ -1,5 +1,7 @@
 {
-  "title": "Stereotype",
+  "title": "Stereotype: TikTok girl",
+  "totalSteps": 30,
+  "keySteps": 8,
   "steps": [
     {
       "id": 0,
@@ -11,19 +13,17 @@
         {
           "img": "/may.png",
           "style": {
-            "left": "25%",
-            "bottom": "0",
-            "height": "500px"
+            "left": "40%",
+            "height": "450px"
           }
         }
       ],
-      "transitionEffect": "fade",
       "next": 1
     },
     {
       "id": 1,
       "name": "",
-      "text": "She’s immediately targeted in the comments and in a group chat by boys from school who mock her skills, appearance, and even her gender for being in a \"guy space\".",
+      "text": "She's immediately targeted in the comments and in a group chat by boys from school who mock her skills, appearance, and even her gender for being in a \"guy space\".",
       "voice": "Microsoft James",
       "background": "/may-bedroom.png",
       "characters": [
@@ -38,13 +38,11 @@
         {
           "img": "/may-shock.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
-            "height": "500px"
+            "left": "30%",
+            "height": "450px"
           }
         }
       ],
-      "transitionEffect": "fade",
       "preserveBackground": true,
       "next": 2
     },
@@ -66,37 +64,34 @@
         {
           "img": "/may-sad.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
-            "height": "500px"
+            "left": "30%",
+            "height": "450px"
           }
         }
       ],
-      "transitionEffect": "fade",
       "preserveBackground": true,
       "next": 3
     },
     {
       "id": 3,
       "name": "You",
-      "text": "You haven’t played any games in a while. Everything okay?",
+      "text": "You haven't played any games in a while. Everything okay?",
       "voice": "Google UK English Male",
       "background": "/livingroom.png",
       "characters": [
         {
           "img": "/mparent-ask.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "20%",
+            "bottom": "10px",
             "height": "500px"
           }
         },
         {
           "img": "/may-sad.png",
           "style": {
-            "right": "10%",
-            "bottom": "0",
-            "height": "500px"
+            "right": "30%",
+            "height": "450px"
           }
         }
       ],
@@ -113,17 +108,16 @@
         {
           "img": "/mparent-ask.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "20%",
+            "bottom": "10px",
             "height": "500px"
           }
         },
         {
           "img": "/may-talk.png",
           "style": {
-            "right": "10%",
-            "bottom": "0",
-            "height": "500px"
+            "right": "30%",
+            "height": "450px"
           }
         }
       ],
@@ -141,17 +135,16 @@
         {
           "img": "/mparent-ask.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "20%",
+            "bottom": "10px",
             "height": "500px"
           }
         },
         {
           "img": "/may-sad.png",
           "style": {
-            "right": "10%",
-            "bottom": "0",
-            "height": "500px"
+            "right": "30%",
+            "height": "450px"
           }
         }
       ],
@@ -169,22 +162,23 @@
         {
           "img": "/mparent-ask.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "20%",
+            "bottom": "10px",
             "height": "500px"
           }
         },
         {
           "img": "/may-talk.png",
           "style": {
-            "right": "10%",
-            "bottom": "0",
-            "height": "500px"
+            "right": "30%",
+            "height": "450px"
           }
         }
       ],
       "transitionEffect": "fade",
       "preserveBackground": true,
+      "isKeyStep": true,
+      "stepText": "1st Choice",
       "choices": [
         { "text": "Get used to it", "next": 7 },
         { "text": "Report them", "next": 8 },
@@ -194,24 +188,23 @@
     {
       "id": 7,
       "name": "You",
-      "text": "You need to toughen up — it’s the internet.",
+      "text": "You need to toughen up — it's the internet.",
       "voice": "Google UK English Male",
       "background": "/livingroom.png",
       "characters": [
         {
           "img": "/mparent-laugh.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "20%",
+            "bottom": "10px",
             "height": "500px"
           }
         },
         {
           "img": "/may-sad.png",
           "style": {
-            "right": "10%",
-            "bottom": "0",
-            "height": "500px"
+            "right": "30%",
+            "height": "450px"
           }
         }
       ],
@@ -222,57 +215,57 @@
     {
       "id": 8,
       "name": "You",
-      "text": "That’s not okay. You have every right to post and play just like anyone else. Let’s report those comments together.",
+      "text": "That's not okay. You have every right to post and play just like anyone else. Let's report those comments together.",
       "voice": "Google UK English Male",
       "background": "/livingroom.png",
       "characters": [
         {
           "img": "/mparent-think.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "20%",
+            "bottom": "10px",
             "height": "500px"
           }
         },
         {
           "img": "/may-sad.png",
           "style": {
-            "right": "10%",
-            "bottom": "0",
-            "height": "500px"
+            "right": "30%",
+            "height": "450px"
           }
         }
       ],
       "transitionEffect": "fade",
       "preserveBackground": true,
-      "next": 12
+      "next": 16
     },
     {
       "id": 9,
       "name": "You",
-      "text": "You knew people would say things. Maybe don’t post stuff like that.",
+      "text": "You knew people would say things. Maybe don't post stuff like that.",
       "voice": "Google UK English Male",
       "background": "/livingroom.png",
       "characters": [
         {
           "img": "/mparent-ask.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "20%",
+            "bottom": "10px",
             "height": "500px"
           }
         },
         {
           "img": "/may-sad.png",
           "style": {
-            "right": "10%",
-            "bottom": "0",
-            "height": "500px"
+            "right": "30%",
+            "height": "450px"
           }
         }
       ],
       "transitionEffect": "fade",
       "preserveBackground": true,
+      "isKeyStep": true,
+      "stepText": "Suggests hiding",
       "choices": [
         { "text": "Blame her", "next": 13 },
         { "text": "See comments", "next": 14 }
@@ -288,17 +281,16 @@
         {
           "img": "/mparent-laugh.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "20%",
+            "bottom": "10px",
             "height": "500px"
           }
         },
         {
           "img": "/may-angry.png",
           "style": {
-            "right": "10%",
-            "bottom": "0",
-            "height": "500px"
+            "right": "30%",
+            "height": "450px"
           }
         }
       ],
@@ -308,71 +300,76 @@
     },
     {
       "id": 11,
-      "name": "Ending",
-      "text": "May feels invalidated. She starts avoiding online spaces and hiding future issues from the parent.",
+      "name": "You",
+      "text": "Look, that's just how these online games are. The trash talk is part of it. You have to learn not to take it personally.",
+      "voice": "Google UK English Male",
+      "background": "/livingroom.png",
+      "characters": [
+        {
+          "img": "/mparent-laugh.png",
+          "style": {
+            "left": "20%",
+            "bottom": "10px",
+            "height": "500px"
+          }
+        },
+        {
+          "img": "/may-angry.png",
+          "style": {
+            "right": "30%",
+            "height": "450px"
+          }
+        }
+      ],
+      "transitionEffect": "fade",
+      "preserveBackground": true,
+      "next": 12
+    },
+    {
+      "id": 12,
+      "name": "",
+      "text": "May feels invalidated. She starts avoiding online spaces and hiding future issues from you.",
       "voice": "Microsoft James",
       "background": "/may-bedroom.png",
       "characters": [
         {
           "img": "/may-sad.png",
           "style": {
-            "left": "25%",
-            "bottom": "0",
-            "height": "500px"
-          }
-        }
-      ],
-      "transitionEffect": "fade"
-    },
-    {
-      "id": 12,
-      "name": "You",
-      "text": "That’s not okay. You have every right to post and play just like anyone else. Let’s report those comments together.",
-      "voice": "Google UK English Male",
-      "background": "/livingroom.png",
-      "characters": [
-        {
-          "img": "/mparent-think.png",
-          "style": {
-            "left": "10%",
-            "bottom": "0",
-            "height": "500px"
-          }
-        },
-        {
-          "img": "/may-sad.png",
-          "style": {
-            "right": "10%",
-            "bottom": "0",
-            "height": "500px"
+            "right": "40%",
+            "height": "450px"
           }
         }
       ],
       "transitionEffect": "fade",
-      "preserveBackground": true,
-      "next": 16
+      "isKeyStep": true,
+      "stepText": "Get used to",
+      "popup": {
+        "title": "Warning",
+        "message": "Dismissing cyberbullying as 'just how things are' teaches young people that harassment is normal. This can lead to long-term emotional harm and prevents them from developing healthy boundaries online. It also damages trust - they won't come to you with problems in the future if they believe you won't take their concerns seriously.",
+        "buttonText": "Got it!"
+      },
+      "next": 6
     },
     {
       "id": 13,
       "name": "You",
-      "text": "I just don’t want you to give people a reason to come after you.",
+      "text": "I just don't want you to give people a reason to come after you.",
       "voice": "Google UK English Male",
       "background": "/livingroom.png",
       "characters": [
         {
           "img": "/mparent-ask.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "20%",
+            "bottom": "10px",
             "height": "500px"
           }
         },
         {
           "img": "/may-sad.png",
           "style": {
-            "right": "10%",
-            "bottom": "0",
-            "height": "500px"
+            "right": "30%",
+            "height": "450px"
           }
         }
       ],
@@ -383,24 +380,23 @@
     {
       "id": 14,
       "name": "You",
-      "text": "I didn’t mean to blame you. I’m just worried — can we go through the comments together?",
+      "text": "I didn't mean to blame you. I'm just worried — can we go through the comments together?",
       "voice": "Google UK English Male",
       "background": "/livingroom.png",
       "characters": [
         {
           "img": "/mparent-ask.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "20%",
+            "bottom": "10px",
             "height": "500px"
           }
         },
         {
           "img": "/may-sad.png",
           "style": {
-            "right": "10%",
-            "bottom": "0",
-            "height": "500px"
+            "right": "30%",
+            "height": "450px"
           }
         }
       ],
@@ -418,15 +414,14 @@
         {
           "img": "/may-sad.png",
           "style": {
-            "right": "50%",
-            "bottom": "0",
-            "height": "400px"
+            "right": "30%",
+            "height": "450px"
           }
         }
       ],
       "transitionEffect": "fade",
       "preserveBackground": true,
-      "next": 11
+      "next": 12
     },
     {
       "id": 16,
@@ -446,54 +441,388 @@
         {
           "img": "/may-talk.png",
           "style": {
-            "right": "10%",
-            "bottom": "0",
+            "right": "30%",
+            "height": "450px"
+          }
+        }
+      ],
+      "transitionEffect": "fade",
+      "preserveBackground": true,
+      "isKeyStep": true,
+      "stepText": "Look at comments",
+      "choices": [
+        { "text": "Report to platform", "next": 17 },
+        { "text": "Report to school", "next": 19 },
+        { "text": "Block them", "next": 21 }
+      ]
+    },
+    {
+      "id": 17,
+      "name": "You",
+      "text": "This is definitely targeted harassment. Let's report these comments to the platform together - they violate community guidelines.",
+      "voice": "Google UK English Male",
+      "background": "/livingroom.png",
+      "characters": [
+        {
+          "img": "/mparent-think.png",
+          "style": {
+            "left": "20%",
+            "bottom": "10px",
+            "height": "500px"
+          }
+        },
+        {
+          "img": "/may-talk.png",
+          "style": {
+            "right": "30%",
+            "height": "450px"
+          }
+        }
+      ],
+      "transitionEffect": "fade",
+      "preserveBackground": true,
+      "next": 18
+    },
+    {
+      "id": 18,
+      "name": "",
+      "text": "You help May report the comments to TikTok. The platform acts quickly and removes the harassing comments.",
+      "voice": "Microsoft James",
+      "background": "/livingroom.png",
+      "characters": [
+        {
+          "img": "/mparent-phone.png",
+          "style": {
+            "left": "20%",
+            "bottom": "10px",
             "height": "500px"
           }
         }
       ],
       "transitionEffect": "fade",
       "preserveBackground": true,
-      "choices": [
-        { "text": "Report to eSafety Commissioner", "next": 17 },
-        { "text": "Block them", "next": 18 }
-      ]
+      "next": 23
     },
     {
-      "id": 17,
-      "name": "Ending",
-      "text": "Matter gets escalated; possible criminal investigation",
-      "voice": "Microsoft James",
-      "background": "/may-bedroom.png",
+      "id": 19,
+      "name": "You",
+      "text": "These are boys from your school, right? This kind of behavior can be considered bullying. We should talk to the school administration.",
+      "voice": "Google UK English Male",
+      "background": "/livingroom.png",
       "characters": [
         {
-          "img": "/may.png",
+          "img": "/mparent-think.png",
           "style": {
-            "left": "25%",
-            "bottom": "0",
+            "left": "20%",
+            "bottom": "10px",
+            "height": "500px"
+          }
+        },
+        {
+          "img": "/may-talk.png",
+          "style": {
+            "right": "30%",
+            "height": "450px"
+          }
+        }
+      ],
+      "transitionEffect": "fade",
+      "preserveBackground": true,
+      "next": 20
+    },
+    {
+      "id": 20,
+      "name": "",
+      "text": "You save screenshots and contact the school's guidance counselor. The school takes the cyberbullying seriously.",
+      "voice": "Microsoft James",
+      "background": "/school.png",
+      "characters": [
+        {
+          "img": "/mparent-think.png",
+          "style": {
+            "left": "20%",
+            "bottom": "10px",
             "height": "500px"
           }
         }
       ],
-      "transitionEffect": "fade"
+      "transitionEffect": "fade",
+      "next": 26
     },
     {
-      "id": 18,
-      "name": "Ending",
-      "text": "Temporary Relief, but issue may resurface. Needs monitoring.",
+      "id": 21,
+      "name": "You",
+      "text": "Let's block these accounts so they can't comment on your posts anymore. You don't need that kind of negativity.",
+      "voice": "Google UK English Male",
+      "background": "/livingroom.png",
+      "characters": [
+        {
+          "img": "/mparent-think.png",
+          "style": {
+            "left": "20%",
+            "bottom": "10px",
+            "height": "500px"
+          }
+        },
+        {
+          "img": "/may-talk.png",
+          "style": {
+            "right": "30%",
+            "height": "450px"
+          }
+        }
+      ],
+      "transitionEffect": "fade",
+      "preserveBackground": true,
+      "next": 22
+    },
+    {
+      "id": 22,
+      "name": "May",
+      "text": "I already tried blocking them, but they just make new accounts. And at school, they still say things...",
+      "voice": "Microsoft Jenny",
+      "background": "/livingroom.png",
+      "characters": [
+        {
+          "img": "/mparent-think.png",
+          "style": {
+            "left": "20%",
+            "bottom": "10px",
+            "height": "500px"
+          }
+        },
+        {
+          "img": "/may-sad.png",
+          "style": {
+            "right": "30%",
+            "height": "450px"
+          }
+        }
+      ],
+      "transitionEffect": "fade",
+      "preserveBackground": true,
+      "isKeyStep": true,
+      "stepText": "Block fails",
+      "choices": [
+        { "text": "Report them", "next": 19 },
+        { "text": "Discuss deeper", "next": 25 }
+      ]
+    },
+    {
+      "id": 23,
+      "name": "You",
+      "text": "Now that we've reported them, let's talk about this issue more broadly. This is unfortunately common for girls in gaming.",
+      "voice": "Google UK English Male",
+      "background": "/livingroom.png",
+      "characters": [
+        {
+          "img": "/mparent-ask.png",
+          "style": {
+            "left": "20%",
+            "bottom": "10px",
+            "height": "500px"
+          }
+        },
+        {
+          "img": "/may-sad.png",
+          "style": {
+            "right": "30%",
+            "height": "450px"
+          }
+        }
+      ],
+      "transitionEffect": "fade",
+      "preserveBackground": true,
+      "next": 24
+    },
+    {
+      "id": 24,
+      "name": "",
+      "text": "You have a good conversation about gender stereotypes in gaming, and how to handle online harassment. May feels supported.",
+      "voice": "Microsoft James",
+      "background": "/livingroom.png",
+      "characters": [
+        {
+          "img": "/mparent-ask.png",
+          "style": {
+            "left": "20%",
+            "bottom": "10px",
+            "height": "500px"
+          }
+        },
+        {
+          "img": "/may-talk.png",
+          "style": {
+            "right": "30%",
+            "height": "450px"
+          }
+        }
+      ],
+      "transitionEffect": "fade",
+      "preserveBackground": true,
+      "next": 26
+    },
+    {
+      "id": 25,
+      "name": "You",
+      "text": "This isn't just about the comments - it's about gender stereotypes in gaming. Let's talk about what's really happening here.",
+      "voice": "Google UK English Male",
+      "background": "/livingroom.png",
+      "characters": [
+        {
+          "img": "/mparent-think.png",
+          "style": {
+            "left": "20%",
+            "bottom": "10px",
+            "height": "500px"
+          }
+        },
+        {
+          "img": "/may-talk.png",
+          "style": {
+            "right": "30%",
+            "height": "450px"
+          }
+        }
+      ],
+      "transitionEffect": "fade",
+      "preserveBackground": true,
+      "next": 24
+    },
+    {
+      "id": 26,
+      "name": "May",
+      "text": "So what do I do now? Should I stop posting gaming content?",
+      "voice": "Microsoft Jenny",
+      "background": "/livingroom.png",
+      "characters": [
+        {
+          "img": "/mparent-think.png",
+          "style": {
+            "left": "20%",
+            "bottom": "10px",
+            "height": "500px"
+          }
+        },
+        {
+          "img": "/may-talk.png",
+          "style": {
+            "right": "30%",
+            "height": "450px"
+          }
+        }
+      ],
+      "transitionEffect": "fade",
+      "preserveBackground": true,
+      "isKeyStep": true,
+      "stepText": "Moving forward",
+      "choices": [
+        { "text": "Keep gaming", "next": 27 },
+        { "text": "Find communities", "next": 28 }
+      ]
+    },
+    {
+      "id": 27,
+      "name": "You",
+      "text": "You can keep posting, but maybe use stricter privacy settings. And if the comments get bad, just ignore them.",
+      "voice": "Google UK English Male",
+      "background": "/livingroom.png",
+      "characters": [
+        {
+          "img": "/mparent-ask.png",
+          "style": {
+            "left": "20%",
+            "bottom": "10px",
+            "height": "500px"
+          }
+        },
+        {
+          "img": "/may-angry.png",
+          "style": {
+            "right": "30%",
+            "height": "450px"
+          }
+        }
+      ],
+      "transitionEffect": "fade",
+      "preserveBackground": true,
+      "next": 29
+    },
+    {
+      "id": 28,
+      "name": "You",
+      "text": "Keep gaming! There are great communities out there for girl gamers. Let's find some positive spaces where you can connect with others who share your interests.",
+      "voice": "Google UK English Male",
+      "background": "/livingroom.png",
+      "characters": [
+        {
+          "img": "/mparent-laugh.png",
+          "style": {
+            "left": "20%",
+            "bottom": "10px",
+            "height": "500px"
+          }
+        },
+        {
+          "img": "/may-happy.png",
+          "style": {
+            "right": "30%",
+            "height": "450px"
+          }
+        }
+      ],
+      "transitionEffect": "fade",
+      "preserveBackground": true,
+      "next": 30
+    },
+    {
+      "id": 29,
+      "name": "",
+      "text": "May continues gaming but becomes more cautious online. She's dealing with the situation but still faces occasional harassment.",
       "voice": "Microsoft James",
       "background": "/may-bedroom.png",
       "characters": [
         {
           "img": "/may-sad.png",
           "style": {
-            "left": "25%",
-            "bottom": "0",
-            "height": "500px"
+            "right": "30%",
+            "height": "450px"
           }
         }
       ],
-      "transitionEffect": "fade"
+      "transitionEffect": "fade",
+      "isKeyStep": true,
+      "stepText": "Keep gaming",
+      "popup": {
+        "title": "Partial Solution",
+        "message": "While privacy settings help, suggesting someone should just 'ignore' harassment doesn't address the root problem. This approach can lead to isolation and teaches that harassment is something to be endured rather than addressed. Young people need tools to confidently navigate online spaces, not just ways to hide.",
+        "buttonText": "Got it!"
+      },
+      "next": 26
+    },
+    {
+      "id": 30,
+      "name": "",
+      "text": "May discovers supportive gaming communities and even joins a girls' gaming club at school. She feels empowered and continues to develop her skills.",
+      "voice": "Microsoft James",
+      "background": "/may-bedroom.png",
+      "characters": [
+        {
+          "img": "/may-happy.png",
+          "style": {
+            "right": "30%",
+            "height": "450px"
+          }
+        }
+      ],
+      "transitionEffect": "fade",
+      "isKeyStep": true,
+      "stepText": "Good end",
+      "popup": {
+        "title": "Positive Approach",
+        "message": "Creating positive connections is key to resilience online. By finding supportive communities, young people learn they don't have to face harassment alone. This solution addresses both immediate concerns while building long-term social support systems. It encourages continuing activities they love rather than letting harassment limit their digital experiences.",
+        "buttonText": "Got it!"
+      }
     }
   ]
 }

@@ -1,242 +1,583 @@
 {
-    "title": "LGBTQ+ bullying",
-    "steps": [
-      {
-        "id": 0,
-        "name": " ",
-        "text": "Alex (15), who recently came out as non-binary to close friends, is publicly outed in a group chat at school.",
-        "voice": "Microsoft James",
-        "background": "/inschool.png",
-        "characters": [
-          {
-            "img": "/alex-happy.png",
-            "style": {
-              "left": "45%",
-              "bottom": "0",
-              "height": "400px"
-            }
+  "title": "LGBTQ Harassment",
+  "totalSteps": 24,
+  "keySteps": 7,
+  "steps": [
+    {
+      "id": 0,
+      "name": "",
+      "text": "Your 15-year-old child Michael recently came out as non-binary to close friends and prefers they/them pronouns.",
+      "voice": "Microsoft James",
+      "background": "/classroom.png",
+      "characters": [
+        {
+          "img": "/alex-happy.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
           }
-        ],
-        "transitionEffect": "fade",
-        "next": 1
-      },
-      {
-        "id": 1,
-        "name": " ",
-        "text": "Screenshots of personal messages and identity disclosures are shared without consent.",
-        "voice": "Microsoft James",
-        "background": "/inschool.png",
-        "characters": [
-          {
-            "img": "/alex-happy.png",
-            "style": {
-              "left": "45%",
-              "bottom": "0",
-              "height": "400px"
-            }
+        }
+      ],
+      "next": 1
+    },
+    {
+      "id": 1,
+      "name": "",
+      "text": "You've noticed they've become withdrawn and unusually quiet over the past week.",
+      "voice": "Microsoft James",
+      "background": "/livingroom.png",
+      "transitionEffect": "fade",
+      "characters": [
+        {
+          "img": "/alex-phone.png",
+          "style": {
+            "right": "30%",
+            "bottom": "0",
+            "height": "400px"
           }
-        ],
-        "transitionEffect": "fade",
-        "preserveBackground": true,
-        "next": 2
-      },
-      {
-        "id": 2,
-        "name": " ",
-        "text": "Soon after, anonymous Instagram and Snapchat stories appear mocking Alex’s identity with transphobic memes and slurs.",
-        "voice": "Microsoft James",
-        "background": "/inschool.png",
-        "characters": [
-          {
-            "img": "/alex-happy.png",
-            "style": {
-              "left": "45%",
-              "bottom": "0",
-              "height": "400px"
-            }
+        }
+      ],
+      "next": 2
+    },
+    {
+      "id": 2,
+      "name": "You",
+      "text": "You've been really quiet this week. Did something happen at school?",
+      "voice": "Google UK English Female",
+      "background": "/livingroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/parent5-ask.png",
+          "style": {
+            "left": "15%",
+            "bottom": "0",
+            "height": "450px"
           }
-        ],
-        "characterSwitch": {
-          "image": "/alex-phone.png",
-          "atMessageIndex": 1
         },
-        "transitionEffect": "fade",
-        "preserveBackground": true,
-        "chat": true,
-        "chatDelay": 2000,
-        "messages": [
-          {
-            "text": "GAY!!",
-            "voice": "boy"
-          },
-          {
-            "text": "GAY!!!!",
-            "voice": "boy"
-          },
-          {
-            "text": "GAY!!GAY!!GAY!!",
-            "voice": "boy"
-          },
-          {
-            "text": "GAY!!GAY!!GAY!!GAY!!GAY!!",
-            "voice": "boy"
-          },
-          {
-            "text": "FUCKING GAY!!GAY!!GAY!!GAY!!GAY!!GAY!!",
-            "voice": "boy"
+        {
+          "img": "/alex-phone.png",
+          "style": {
+            "right": "30%",
+            "bottom": "0",
+            "height": "400px"
           }
-        ],
-        "next": 3
-      },
-      {
-        "id": 3,
-        "name": "You",
-        "text": "You’ve been really quiet this week. Something happened at school?",
-        "voice": "Microsoft George",
-        "background": "/alex-bedroom.png",
-        "characters": [
-          {
-            "img": "/parent5-ask.png",
-            "style": {
-              "left": "10%",
-              "bottom": "0",
-              "height": "500px"
-            }
+        }
+      ],
+      "next": 3
+    },
+    {
+      "id": 3,
+      "name": "Michael",
+      "text": "It's whatever. Some people saw stuff they weren't supposed to. Now it's all over Snap... even people I don't talk to are sharing it.",
+      "voice": "Microsoft Mark",
+      "background": "/livingroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/parent5-ask.png",
+          "style": {
+            "left": "15%",
+            "bottom": "0",
+            "height": "450px"
           }
-        ],
-        "transitionEffect": "fade",
-        "next": 4
-      },
-      {
-        "id": 4,
-        "name": "Alex",
-        "text": "Whatever. Some people saw stuff they weren’t supposed to. Now it’s all over Snap… even people I don’t talk to are sharing it.",
-        "voice": "Microsoft Mark",
-        "background": "/alex-bedroom.png",
-        "characters": [
-          {
-            "img": "/parent5-ask.png",
-            "style": {
-              "left": "10%",
-              "bottom": "0",
-              "height": "500px"
-            }
-          },
-          {
-            "img": "/alex-sad.png",
-            "style": {
-              "right": "20%",
-              "bottom": "0",
-              "height": "400px"
-            }
+        },
+        {
+          "img": "/alex-talk.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
           }
-        ],
-        "preserveBackground": true,
-        "choices": [
-          { "text": "A", "next": 5 },
-          { "text": "Report", "next": 6 },
-          { "text": "Let it go", "next": 7 }
-        ]
-      },
-      {
-        "id": 5,
-        "name": "You",
-        "text": "Son, why are you gay? Oh no, oh no, I don't know how to feel about this",
-        "voice": "Microsoft George",
-        "background": "/alex-bedroom.png",
-        "characters": [
-          {
-            "img": "/parent5-shock.png",
-            "style": {
-              "left": "10%",
-              "bottom": "0",
-              "height": "500px"
-            }
-          },
-          {
-            "img": "/alex-sad.png",
-            "style": {
-              "right": "20%",
-              "bottom": "0",
-              "height": "400px"
-            }
+        }
+      ],
+      "next": 4
+    },
+    {
+      "id": 4,
+      "name": "You",
+      "text": "What do you mean? What kind of stuff?",
+      "voice": "Google UK English Female",
+      "background": "/livingroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/5c.png",
+          "style": {
+            "left": "15%",
+            "bottom": "0",
+            "height": "450px"
           }
-        ],
-        "preserveBackground": true,
-        "next": 8
-      },
-      {
-        "id": 6,
-        "name": "You",
-        "text": "oh Son, we need to report to the school. Show us what happened!",
-        "voice": "Microsoft George",
-        "background": "/alex-bedroom.png",
-        "characters": [
-          {
-            "img": "/parent5-sad.png",
-            "style": {
-              "left": "10%",
-              "bottom": "0",
-              "height": "500px"
-            }
-          },
-          {
-            "img": "/alex-sad.png",
-            "style": {
-              "right": "20%",
-              "bottom": "0",
-              "height": "400px"
-            }
+        },
+        {
+          "img": "/alex-sad.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
           }
-        ],
-        "preserveBackground": true,
-        "transitionEffect": "fade"
-      },
-      {
-        "id": 7,
-        "name": "You",
-        "text": "You can't control people's actions.",
-        "voice": "Microsoft George",
-        "background": "/alex-bedroom.png",
-        "characters": [
-          {
-            "img": "/5c.png",
-            "style": {
-              "left": "10%",
-              "bottom": "0",
-              "height": "500px"
-            }
-          },
-          {
-            "img": "/alex-sad.png",
-            "style": {
-              "right": "20%",
-              "bottom": "0",
-              "height": "400px"
-            }
+        }
+      ],
+      "isKeyStep": true,
+      "stepText": "1st Choice",
+      "choices": [
+        {
+          "text": "Are you gay?",
+          "next": 5
+        },
+        {
+          "text": "Show me what happened",
+          "next": 6
+        },
+        {
+          "text": "People will be mean",
+          "next": 7
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "You",
+      "text": "Son, why are you gay? Oh no, I don't know how to feel about this.",
+      "voice": "Google UK English Female",
+      "background": "/livingroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/parent5-shock.png",
+          "style": {
+            "left": "15%",
+            "bottom": "0",
+            "height": "450px"
           }
-        ],
-        "preserveBackground": true,
-        "transitionEffect": "fade"
-      },
-      {
-        "id": 8,
-        "name": "Ending",
-        "text": "Alex feels invalidated. Alex starts avoiding online spaces or hiding future issues from the parent.",
-        "voice": "Microsoft Catherine",
-        "background": "/alex-bedroom.png",
-        "characters": [
-          {
-            "img": "/alex-cry.png",
-            "style": {
-              "left": "40%",
-              "bottom": "100PX",
-              "height": "300px"
-            }
+        },
+        {
+          "img": "/alex-sad.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
           }
-        ],
-        "transitionEffect": "fade",
-        "preserveBackground": true
+        }
+      ],
+      "next": 8
+    },
+    {
+      "id": 6,
+      "name": "You",
+      "text": "Oh Michael, we need to report this to the school. Can you show me what happened?",
+      "voice": "Google UK English Female",
+      "background": "/livingroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/parent5-sad.png",
+          "style": {
+            "left": "15%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/alex-sad.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 9
+    },
+    {
+      "id": 7,
+      "name": "You",
+      "text": "You can't control people's actions. This is why you shouldn't share personal stuff online.",
+      "voice": "Google UK English Female",
+      "background": "/livingroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/parent5-sad.png",
+          "style": {
+            "left": "15%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/alex-sad.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 10
+    },
+    {
+      "id": 8,
+      "name": "",
+      "text": "Michael withdraws further and shuts down completely.",
+      "voice": "Microsoft James",
+      "background": "/alex-bedroom.png",
+      "transitionEffect": "fade",
+      "characters": [
+        {
+          "img": "/alex-cry.png",
+          "style": {
+            "right": "50%",
+            "bottom": "100px",
+            "height": "300px"
+          }
+        }
+      ],
+      "next": 4,
+      "isKeyStep": true,
+      "stepText": "Are you gay",
+      "popup": {
+        "title": "Harmful Responses",
+        "message": "Responding with shock, disappointment, or judgment when a child shares their identity or harassment experiences can cause lasting harm. This type of reaction:\n\n- Deepens their feelings of isolation and shame\n- Damages trust in your relationship\n- Discourages them from coming to you with future problems\n- May contribute to mental health issues\n- Teaches them to hide their authentic self\n\nInstead, respond with compassion, support, and a focus on their wellbeing rather than your own feelings.",
+        "buttonText": "I understand"
       }
-    ]
-  }
+    },
+    {
+      "id": 9,
+      "name": "Michael",
+      "text": "It's... it's about me being non-binary. Someone shared screenshots of my private messages from the group chat. Look...",
+      "voice": "Microsoft Mark",
+      "background": "/livingroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/parent5-shock.png",
+          "style": {
+            "left": "15%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/alex-talk.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        },
+        {
+          "img": "/chat5.png",
+          "style": {
+            "right": "40%",
+            "bottom": "120px",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 12
+    },
+    {
+      "id": 10,
+      "name": "Michael",
+      "text": "I didn't share anything online! These were private messages. They took screenshots and posted them without my permission!",
+      "voice": "Microsoft Mark",
+      "background": "/livingroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/parent5-sad.png",
+          "style": {
+            "left": "15%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/alex-angry.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 11
+    },
+    {
+      "id": 11,
+      "name": "You",
+      "text": "I just don't want you to give people a reason to come after you.",
+      "voice": "Google UK English Female",
+      "background": "/livingroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/parent5.png",
+          "style": {
+            "left": "15%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/alex-sad.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 4,
+      "isKeyStep": true,
+      "stepText": "Victim-blaming",
+      "popup": {
+        "title": "Avoiding Victim-Blaming",
+        "message": "Even well-intentioned advice can come across as victim-blaming. When you suggest someone could have prevented harassment by acting differently, you're implying they're responsible for others' harmful actions.\n\n- Focus on the wrongness of the harassment, not what your child could have done differently\n- Validate their feelings and experiences\n- Place responsibility on the perpetrators\n- Emphasize that no one deserves harassment, regardless of their identity or how they express themselves\n- Offer unconditional support without judgment",
+        "buttonText": "I understand"
+      }
+    },
+    {
+      "id": 12,
+      "name": "",
+      "text": "You see screenshots of private messages where Michael shared their identity with friends. There are also Instagram and Snapchat stories with transphobic memes targeting them.",
+      "voice": "Microsoft James",
+      "background": "/livingroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/parent5-sad.png",
+          "style": {
+            "left": "15%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/alex-sad.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 13
+    },
+    {
+      "id": 13,
+      "name": "You",
+      "text": "I'm so sorry this is happening. Thank you for showing me. How are you feeling?",
+      "voice": "Google UK English Female",
+      "background": "/livingroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/parent5-sad.png",
+          "style": {
+            "left": "15%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/alex-sad.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 14
+    },
+    {
+      "id": 14,
+      "name": "Michael",
+      "text": "Horrible. I can't even go to school anymore. Everyone's seen it. They're making memes and laughing about me.",
+      "voice": "Microsoft Mark",
+      "background": "/livingroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/parent5.png",
+          "style": {
+            "left": "15%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/alex-talk.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "isKeyStep": true,
+      "stepText": "What happened",
+      "choices": [
+        {
+          "text": "Handle it yourself",
+          "next": 15
+        },
+        {
+          "text": "Report them",
+          "next": 17
+        },
+        {
+          "text": "Block them",
+          "next": 19
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "You",
+      "text": "I'm going to message these kids' parents myself. This has to stop right now.",
+      "voice": "Google UK English Female",
+      "background": "/livingroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/parent5-severe2.png",
+          "style": {
+            "left": "15%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/alex-sad.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 16
+    },
+    {
+      "id": 16,
+      "name": "",
+      "text": "The situation escalates. The bullies feel attacked and respond by intensifying their harassment, finding new platforms to target Michael.",
+      "voice": "Microsoft James",
+      "background": "/classroom.png",
+      "transitionEffect": "fade",
+      "characters": [
+        {
+          "img": "/alex-phone.png",
+          "style": {
+            "right": "40%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 14,
+      "isKeyStep": true,
+      "stepText": "Direct confrontation",
+      "popup": {
+        "title": "Risks of Direct Confrontation",
+        "message": "While it's natural to want to defend your child, directly confronting cyberbullies or their parents can backfire in several ways:\n\n- It may embarrass your child and damage their trust in you\n- Bullies often intensify harassment when confronted by parents\n- You risk escalating the situation beyond your control\n- It could create new problems if parents become defensive\n- Your child loses agency in resolving their own situation\n\nInstead, work with proper authorities and social media platforms through official channels, while respecting your child's input on how to proceed.",
+        "buttonText": "I understand"
+      }
+    },
+    {
+      "id": 17,
+      "name": "You",
+      "text": "We should report this to the school and the eSafety Commissioner together. This is cyberbullying and it's against the law.",
+      "voice": "Google UK English Female",
+      "background": "/livingroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/parent5-severe2.png",
+          "style": {
+            "left": "15%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/alex-sad.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 18
+    },
+    {
+      "id": 18,
+      "name": "",
+      "text": "You work with the school and file a formal complaint with screenshots as evidence. An investigation begins, leading to consequences for the harassers.",
+      "voice": "Microsoft James",
+      "background": "/inschool.png",
+      "transitionEffect": "fade",
+      "next": 22,
+      "isKeyStep": true,
+      "stepText": "Official reporting",
+      "popup": {
+        "title": "Effective Reporting Strategy",
+        "message": "When handling cyberbullying cases, especially those involving identity harassment:\n\n- Document everything with screenshots and timestamps\n- Report to school officials in writing, keeping copies of all communications\n- Follow your school's anti-bullying policy and escalate if necessary\n- File reports with social media platforms where harassment occurred\n- Consider contacting relevant authorities like the eSafety Commissioner\n- For serious cases, consult with a lawyer about potential privacy violations or harassment claims\n- Throughout the process, keep your child informed and involved in decisions",
+        "buttonText": "I understand"
+      }
+    },
+    {
+      "id": 19,
+      "name": "You",
+      "text": "Would you prefer if I just help you block and mute them for now? We can decide what else to do later.",
+      "voice": "Google UK English Female",
+      "background": "/livingroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/parent5-severe2.png",
+          "style": {
+            "left": "15%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/alex-sad.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 20
+    },
+    {
+      "id": 20,
+      "name": "",
+      "text": "You help Michael block the harassers and adjust privacy settings. This provides temporary relief, but the underlying issue persists at school.",
+      "voice": "Microsoft James",
+      "background": "/livingroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/alex-phone.png",
+          "style": {
+            "left": "40%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 14,
+      "isKeyStep": true,
+      "stepText": "Block them"
+    }
+  ]
+}

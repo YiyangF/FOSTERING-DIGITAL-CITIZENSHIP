@@ -1,55 +1,432 @@
 {
-    "id": 1,
-    "title": "Maya and the Unknown Message",
-    "steps": [
-      {
-        "name": "Maya",
-        "text": "You receive a strange message from someone you don't know.",
-        "characterImg": "/maya.png",
-        "background": "/bedroom.jpg",
-        "choices": [
-          { "text": "Ignore it", "next": 1 },
-          { "text": "Respond politely", "next": 2 }
-        ]
+  "title": "Someone's Pretending to Be Me Online",
+  "totalSteps": 16,
+  "keySteps": 5,
+  "steps": [
+    {
+      "id": 0,
+      "name": "",
+      "text": "Maya, your 14-year-old daughter sits quietly in her room, staring at her phone. Suddenly, she gasps and pulls her phone close.",
+      "voice": "Microsoft James",
+      "background": "/maya-bedroom.png",
+      "characters": [
+        {
+          "img": "/maya-phone.png",
+          "style": {
+            "right": "45%",
+            "height": "450px"
+          }
+        }
+      ],
+      "next": 1
+    },
+    {
+      "id": 1,
+      "name": "Maya",
+      "text": "What the heck, I didn't post that.",
+      "voice": "Microsoft Zira",
+      "background": "/maya-bedroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/maya-worry.png",
+          "style": {
+            "right": "10%",
+            "bottom": "60px",
+            "height": "300px"
+          }
+        }
+      ],
+      "next": 2
+    },
+    {
+      "id": 2,
+      "name": "You",
+      "text": "What's going on, Is everything alright Maya?",
+      "voice": "Microsoft David",
+      "background": "/maya-bedroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/mparent-ask.png",
+          "style": {
+            "left": "5%",
+            "bottom": "10px",
+            "height": "500px"
+          }
+        },
+        {
+          "img": "/maya-worry.png",
+          "style": {
+            "right": "10%",
+            "bottom": "60px",
+            "height": "300px"
+          }
+        }
+      ],
+      "next": 3
+    },
+    {
+      "id": 3,
+      "name": "Maya",
+      "text": "Nothing. Don't worry, Everything is fine.",
+      "voice": "Microsoft Zira",
+      "background": "/maya-bedroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/mparent-ask.png",
+          "style": {
+            "left": "5%",
+            "bottom": "10px",
+            "height": "500px"
+          }
+        },
+        {
+          "img": "/maya-sad.png",
+          "style": {
+            "right": "30%",
+            "bottom": "10px",
+            "height": "450px"
+          }
+        }
+      ],
+      "isKeyStep": true,
+      "stepText": "1st Choice",
+      "choices": [
+        {"text": "Support Her", "next": 4},
+        {"text": "Take Phone", "next": 11}]
+    },
+    {
+      "id": 4,
+      "name": "You",
+      "text": "I can see something's wrong. I'm here for you if you want to talk about it.",
+      "voice": "Microsoft David",
+      "background": "/maya-bedroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/mparent-ask.png",
+          "style": {
+            "left": "5%",
+            "bottom": "10px",
+            "height": "500px"
+          }
+        },
+        {
+          "img": "/maya-sad.png",
+          "style": {
+            "right": "30%",
+            "bottom": "10px",
+            "height": "450px"
+          }
+        }
+      ],
+      "next": 5
+    },
+    {
+      "id": 5,
+      "name": "Maya",
+      "text": "Someone created a fake Instagram account and is pretending to be me.",
+      "voice": "Microsoft Zira",
+      "background": "/maya-bedroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/mparent-think.png",
+          "style": {
+            "left": "20%",
+            "bottom": "10px",
+            "height": "500px"
+          }
+        },
+        {
+          "img": "/fakeins.png",
+          "style": {
+            "left": "40%",
+            "bottom": "100px",
+            "height": "400px"
+          }
+        },
+        {
+          "img": "/maya-talk.png",
+          "style": {
+            "right": "25%",
+            "bottom": "10px",
+            "height": "450px"
+          }
+        }
+      ],
+      "next": 6
+    },
+    {
+      "id": 6,
+      "name": "You",
+      "text": "Let me help you. We'll take the account down.",
+      "voice": "Microsoft David",
+      "background": "/maya-bedroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/mparent-think.png",
+          "style": {
+            "left": "20%",
+            "bottom": "10px",
+            "height": "500px"
+          }
+        },
+        {
+          "img": "/maya-sad.png",
+          "style": {
+            "right": "30%",
+            "bottom": "10px",
+            "height": "450px"
+          }
+        }
+      ],
+      "next": 7
+    },
+    {
+      "id": 7,
+      "name": "Maya",
+      "text": "Thanks for not freaking out and helping me.",
+      "voice": "Microsoft Zira",
+      "background": "/maya-bedroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/mparent-ask.png",
+          "style": {
+            "left": "5%",
+            "bottom": "10px",
+            "height": "500px"
+          }
+        },
+        {
+          "img": "/maya-fine.png",
+          "style": {
+            "right": "30%",
+            "bottom": "10px",
+            "height": "450px"
+          }
+        }
+      ],
+      "isKeyStep": true,
+      "stepText": "Support Her",
+      "choices": [
+        {"text": "Report It", "next": 8},
+        {"text": "Block It", "next": 9}]
+    },
+    {
+      "id": 8,
+      "name": "You",
+      "text": "Should we report this to the platform and eSafety Commissioner together?",
+      "voice": "Microsoft David",
+      "background": "/maya-bedroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/mparent-ask.png",
+          "style": {
+            "left": "5%",
+            "bottom": "10px",
+            "height": "500px"
+          }
+        },
+        {
+          "img": "/maya-sad.png",
+          "style": {
+            "right": "30%",
+            "bottom": "10px",
+            "height": "450px"
+          }
+        }
+      ],
+      "next": 10
+    },
+    {
+      "id": 9,
+      "name": "You",
+      "text": "I will help you block and mute them",
+      "voice": "Microsoft David",
+      "background": "/maya-bedroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/mparent-laugh.png",
+          "style": {
+            "left": "20%",
+            "bottom": "10px",
+            "height": "500px"
+          }
+        },
+        {
+          "img": "/maya-sad.png",
+          "style": {
+            "right": "30%",
+            "bottom": "10px",
+            "height": "450px"
+          }
+        }
+      ],
+      "next": 15
+    },
+    {
+      "id": 10,
+      "name": "",
+      "text": "You and Maya report the account to Instagram and notify eSafety Commissioner. The investigation reveals that her classmate was involved in creating the fake account.",
+      "voice": "Microsoft James",
+      "background": "/classroom.png",
+      "transitionEffect": "fade",
+      "characters": [
+        {
+          "img": "/kid-bully.png",
+          "style": {
+            "left": "40%",
+            "bottom": "20px",
+            "height": "450px"
+          }
+        }
+      ],
+      "next": 14
+    },
+    {
+      "id": 11,
+      "name": "You",
+      "text": "Maya, If you don't tell me what's going on right now, I'll take your phone and check!",
+      "voice": "Microsoft David",
+      "background": "/maya-bedroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/mparent-ask.png",
+          "style": {
+            "left": "5%",
+            "bottom": "10px",
+            "height": "500px"
+          }
+        },
+        {
+          "img": "/maya-sad.png",
+          "style": {
+            "right": "30%",
+            "bottom": "10px",
+            "height": "450px"
+          }
+        }
+      ],
+      "next": 12
+    },
+    {
+      "id": 12,
+      "name": "Maya",
+      "text": "Of course, you just care about the phone. Leave me alone!",
+      "voice": "Microsoft Zira",
+      "background": "/maya-bedroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/mparent-ask.png",
+          "style": {
+            "left": "5%",
+            "bottom": "10px",
+            "height": "500px"
+          }
+        },
+        {
+          "img": "/maya-angry.png",
+          "style": {
+            "right": "30%",
+            "bottom": "10px",
+            "height": "450px"
+          }
+        }
+      ],
+      "next": 13
+    },
+    {
+      "id": 13,
+      "name": "",
+      "text": "Maya felt overwhelmed and pulled away instead of opening up.",
+      "voice": "Microsoft James",
+      "background": "/maya-bedroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/maya-worry.png",
+          "style": {
+            "right": "10%",
+            "bottom": "60px",
+            "height": "300px"
+          }
+        }
+      ],
+      "isKeyStep": true,
+      "stepText": "Take Phone",
+      "popup": {
+        "title": "Warning",
+        "message": "Taking away a teen's phone can lead to feelings of anger and resentment. It may also prevent them from coming to you with future problems. Instead, try to create a safe space for open communication.",
+        "buttonText": "Got it!"
       },
-      {
-        "name": "Maya",
-        "text": "You ignore the message. The person continues to message you more aggressively.",
-        "characterImg": "/maya-sad.png",
-        "background": "/bedroom-night.jpg",
-        "choices": [
-          { "text": "Block the person", "next": 3 },
-          { "text": "Report to a teacher", "next": 4 }
-        ]
-      },
-      {
-        "name": "Maya",
-        "text": "You respond, but they ask for personal information. What do you do?",
-        "characterImg": "/maya.png",
-        "background": "/phone-closeup.jpg",
-        "choices": [
-          { "text": "Refuse and report", "next": 4 },
-          { "text": "Give your email", "next": 5 }
-        ]
-      },
-      {
-        "name": "Maya",
-        "text": "You blocked the person. Good job! Always protect your boundaries.",
-        "characterImg": "/maya-happy.png",
-        "background": "/school.jpg"
-      },
-      {
-        "name": "Maya",
-        "text": "You reported the incident. Your teacher helped resolve the situation.",
-        "characterImg": "/maya-happy.png",
-        "background": "/school.jpg"
-      },
-      {
-        "name": "Maya",
-        "text": "Sharing personal info led to your account being compromised.",
-        "characterImg": "/maya-sad.png",
-        "background": "/phone-closeup.jpg"
+      "next": 3
+    },
+    {
+      "id": 14,
+      "name": "",
+      "text": "You reported the account and worked with the school. The fake profile was removed, and the school implemented a digital citizenship program to prevent similar incidents. - Good! Now you can back and experience other stories.",
+      "voice": "Microsoft James",
+      "background": "/school.png",
+      "transitionEffect": "fade",
+      "characters": [
+        {
+          "img": "/principal-speaking.png",
+          "style": {
+            "left": "20%",
+            "bottom": "0",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/students-listening.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "isKeyStep": true,
+      "stepText": "Good end",
+      "popup": {
+        "title": "Effective Approach to Online Impersonation",
+        "message": "1) Document everything with screenshots 2) Report to the platform immediately 3) Notify school officials if classmates are involved 4) Consider reporting to relevant authorities like the eSafety Commissioner 5) Support your child emotionally throughout the process 6) Use privacy settings to prevent future incidents",
+        "buttonText": "Got it!"
       }
-    ]
-  }
-  
+    },
+    {
+      "id": 15,
+      "name": "",
+      "text": "You helped Maya block the account, but the problem wasn't fully resolved. A new fake account appeared weeks later, and the situation became more complicated.",
+      "voice": "Microsoft James",
+      "background": "/maya-bedroom.png",
+      "transitionEffect": "fade",
+      "characters": [
+        {
+          "img": "/maya-crush.png",
+          "style": {
+            "right": "45%",
+            "height": "450px"
+          }
+        }
+      ],
+      "next": 7,
+      "isKeyStep": true,
+      "stepText": "Block it",
+      "popup": {
+        "title": "Warning",
+        "message": "Blocking alone is rarely enough to address cyberbullying. While it provides temporary relief, it doesn't identify the source of the problem or prevent the creation of new accounts. Without proper reporting and intervention, the issue often persists or worsens over time.",
+        "buttonText": "Got it!"
+      }
+    }
+  ]
+}

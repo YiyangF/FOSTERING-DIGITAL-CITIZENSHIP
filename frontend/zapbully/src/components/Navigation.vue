@@ -31,6 +31,7 @@ const mobileMenu = ref(false);
         <li><router-link to="/symptom" @click="mobileMenu = false" exact-active-class="active-link" class="nav-item-link">Symptom Checker</router-link></li>
         <li><router-link to="/support" @click="mobileMenu = false" exact-active-class="active-link" class="nav-item-link">Guide</router-link></li>
         <li><router-link to="/emoji" @click="mobileMenu = false" exact-active-class="active-link" class="nav-item-link">Emoji</router-link></li>
+        <li><router-link to="/message" @click="mobileMenu = false" exact-active-class="active-link" class="nav-item-link">Message Checker</router-link></li>
       </ul>
     </div>
   </nav>

@@ -1,10 +1,12 @@
 {
-  "title": "Teasing and exclusion",
+  "title": "Skin Color Bullying",
+  "totalSteps": 18,
+  "keySteps": 6,
   "steps": [
     {
       "id": 0,
-      "name": " ",
-      "text": "John just entered a new school. The family just moved into a new neighbourhood.",
+      "name": "",
+      "text": "John just moved to a new neighborhood and started at a new school.",
       "voice": "Microsoft James",
       "background": "/school.png",
       "characters": [
@@ -12,18 +14,53 @@
           "img": "/john.png",
           "style": {
             "left": "40%",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 1
+    },
+    {
+      "id": 1,
+      "name": "",
+      "text": "John quickly notices he's one of the few students of his ethnicity at the school. He tries to fit in and joins the class group chat.",
+      "voice": "Microsoft James",
+      "background": "/classroom.png",
+      "characters": [
+        {
+          "img": "/john.png",
+          "style": {
+            "left": "40%",
+            "height": "400px"
+          }
+        }
+      ],
+      "transitionEffect": "fade",
+      "next": 2
+    },
+    {
+      "id": 2,
+      "name": "",
+      "text": "That evening, John checks the class group chat and discovers some hurtful comments about his appearance and ethnicity.",
+      "voice": "Microsoft James",
+      "background": "/john-bedroom.png",
+      "characters": [
+        {
+          "img": "/john-phone-1.png",
+          "style": {
+            "left": "55%",
             "bottom": "0",
             "height": "400px"
           }
         }
       ],
       "transitionEffect": "fade",
-      "next": 1
+      "next": 3
     },
     {
-      "id": 1,
-      "name": " ",
-      "text": "John realizes that he is a minority in the school's demographics. He joins a class group chat, but the other children start making fun of his skin colour, name, and looks.",
+      "id": 3,
+      "name": "",
+      "text": "That makes John feels hurt and confused.",
       "voice": "Microsoft James",
       "background": "/john-bedroom.png",
       "characters": [
@@ -38,58 +75,124 @@
       ],
       "characterSwitch": {
         "image": "/john-phone-2.png",
-        "atMessageIndex": 1
+        "atMessageIndex": 2
       },
-      "transitionEffect": "fade",
+      "preserveBackground": true,
       "chat": true,
-      "chatDelay": 2000,
+      "chatDelay": 500,
       "messages": [
         {
           "name": "Jake",
-          "text": "Marcus out here looking like someone turned down the brightness 🧟‍♂️",
-          "voice": "boy",
-          "color": "#d7f0f7"
+          "text": "Yo, did you guys see the new kid John? Man's looking like someone turned down the brightness 🧟‍♂️"
         },
         {
           "name": "Liam",
-          "text": "Bro blends in with the shadows in every gym selfie 😭",
-          "voice": "boy",
-          "color": "#f9d1d1"
+          "text": "For real tho, bro blends in with the shadows in every class photo 😭"
         },
         {
           "name": "Tyler",
-          "text": "Not even the flash can save him 💀",
-          "voice": "boy",
-          "color": "#e7f7c5"
+          "text": "Not even the flash can save him 💀 And what's with that accent?"
         },
         {
-          "name": "Coach",
-          "text": "👀😂 y'all wild",
-          "voice": "boy",
-          "color": "#d7f0f7"
+          "name": "Emma",
+          "text": "Did you hear him in English class? Can barely understand what he's saying 🙄"
         },
         {
           "name": "Liam",
-          "text": "Man's always bringing \"dark energy\" to the team anyway.",
-          "voice": "boy",
-          "color": "#f9d1d1"
+          "text": "Man's always bringing \"dark energy\" to the team anyway. Let's not invite him to Mike's party."
         }
       ],
-      "next": 2
+      "next": 4
     },
     {
-      "id": 2,
+      "id": 4,
+      "name": "",
+      "text": "The next day at school, John notices the same students laughing when he walks by and whispering among themselves.",
+      "voice": "Microsoft James",
+      "background": "/inschool.png",
+      "characters": [
+        {
+          "img": "/john-sad.png",
+          "style": {
+            "right": "20%",
+            "height": "400px"
+          }
+        },
+        {
+          "img": "/kid-laugh.png",
+          "style": {
+            "left": "30%",
+            "bottom": "20px",
+            "height": "400px"
+          }
+        }
+      ],
+      "transitionEffect": "fade",
+      "next": 5
+    },
+    {
+      "id": 5,
       "name": "You",
-      "text": "What's happened, honey?",
+      "text": "How was school today, honey?",
       "voice": "Google UK English Female",
       "background": "/livingroom.png",
       "characters": [
         {
           "img": "/parent-ask.png",
           "style": {
-            "left": "10%",
+            "left": "20%",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/john-sad.png",
+          "style": {
+            "right": "20%",
+            "height": "400px"
+          }
+        }
+      ],
+      "transitionEffect": "fade",
+      "next": 6
+    },
+    {
+      "id": 6,
+      "name": "John",
+      "text": "It was... okay.",
+      "voice": "Microsoft Catherine",
+      "background": "/livingroom.png",
+      "characters": [
+        {
+          "img": "/parent-ask.png",
+          "style": {
+            "left": "20%",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/john-talk.png",
+          "style": {
+            "right": "20%",
             "bottom": "0",
             "height": "400px"
+          }
+        }
+      ],
+      "preserveBackground": true,
+      "next": 7
+    },
+    {
+      "id": 7,
+      "name": "You",
+      "text": "You seem a bit down. Is everything alright?",
+      "voice": "Google UK English Female",
+      "background": "/livingroom.png",
+      "characters": [
+        {
+          "img": "/3b.png",
+          "style": {
+            "left": "20%",
+            "height": "450px"
           }
         },
         {
@@ -101,22 +204,21 @@
           }
         }
       ],
-      "transitionEffect": "fade",
-      "next": 3
+      "preserveBackground": true,
+      "next": 8
     },
     {
-      "id": 3,
+      "id": 8,
       "name": "John",
-      "text": "I don't know, but recently, I feel that the friends I hang out with have been excluding me on purpose.",
+      "text": "I don't know, but recently, I feel that the kids I've been trying to make friends with have been excluding me on purpose.",
       "voice": "Microsoft Catherine",
       "background": "/livingroom.png",
       "characters": [
         {
-          "img": "/parent-ask.png",
+          "img": "/3b.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
-            "height": "400px"
+            "left": "20%",
+            "height": "450px"
           }
         },
         {
@@ -130,24 +232,24 @@
       ],
       "preserveBackground": true,
       "choices": [
-        { "text": "Ignore it", "next": 4 },
-        { "text": "Talk more", "next": 8 },
-        { "text": "Check phone", "next": 12 }
-      ]
+        { "text": "Dismiss", "next": 9 },
+        { "text": "Listen supportively", "next": 12 }
+      ],
+      "isKeyStep": true,
+      "stepText": "1st Choice"
     },
     {
-      "id": 4,
+      "id": 9,
       "name": "You",
-      "text": "That's part of growing up. Just ignore it.",
+      "text": "That's just part of growing up, honey. Kids can be mean sometimes. Just ignore it and they'll stop eventually.",
       "voice": "Google UK English Female",
       "background": "/livingroom.png",
       "characters": [
         {
           "img": "/3a.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
-            "height": "400px"
+            "left": "20%",
+            "height": "450px"
           }
         },
         {
@@ -160,77 +262,65 @@
         }
       ],
       "preserveBackground": true,
-      "next": 5
+      "next": 10
     },
     {
-      "id": 5,
-      "name": " ",
-      "text": "John withdraws further and shuts down.",
+      "id": 10,
+      "name": "",
+      "text": "John feels dismissed and withdraws further. That night, he decides to keep his problems to himself.",
       "voice": "Microsoft James",
       "background": "/john-bedroom.png",
       "characters": [
         {
           "img": "/john-phone-2.png",
           "style": {
-            "left": "55%",
-            "bottom": "0",
-            "height": "400px"
+            "right": "20%",
+            "bottom": "50px",
+            "height": "300px"
           }
         }
       ],
       "transitionEffect": "fade",
-      "next": 6
+      "next": 11
     },
     {
-      "id": 6,
-      "name": " ",
-      "text": "John feels blamed and policed, and hides his phone activity.",
-      "voice": "Microsoft James",
-      "background": "/john-bedroom.png",
-      "characters": [
-        {
-          "img": "/john-phone-2.png",
-          "style": {
-            "left": "55%",
-            "bottom": "0",
-            "height": "400px"
-          }
-        }
-      ],
-      "preserveBackground": true,
-      "next": 7
-    },
-    {
-      "id": 7,
+      "id": 11,
       "name": "John",
-      "text": "I don't want trouble. I should delete these messages",
+      "text": "I don't want to cause trouble. Mom doesn't understand anyway. I should just delete these messages and handle this myself.",
       "voice": "Microsoft Catherine",
       "background": "/john-bedroom.png",
       "characters": [
         {
           "img": "/john-phone-2.png",
           "style": {
-            "left": "55%",
-            "bottom": "0",
-            "height": "400px"
+            "right": "20%",
+            "bottom": "50px",
+            "height": "300px"
           }
         }
       ],
-      "preserveBackground": true
+      "preserveBackground": true,
+      "isKeyStep": true,
+      "stepText": "Dismiss",
+      "popup": {
+        "title": "Warning",
+        "message": "Ignoring bullying can lead to long-term emotional distress and isolation. It's important to address these issues early.",
+        "buttonText": "Got it!"
+      },
+      "next": 8
     },
     {
-      "id": 8,
+      "id": 12,
       "name": "You",
-      "text": "Do you want to talk more about it? I'm here for you.",
+      "text": "Do you want to talk more about what's happening? I'm here for you, and we can figure this out together.",
       "voice": "Google UK English Female",
       "background": "/livingroom.png",
       "characters": [
         {
           "img": "/3b.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
-            "height": "400px"
+            "left": "20%",
+            "height": "450px"
           }
         },
         {
@@ -243,21 +333,20 @@
         }
       ],
       "preserveBackground": true,
-      "next": 9
+      "next": 13
     },
     {
-      "id": 9,
+      "id": 13,
       "name": "John",
-      "text": "Here are the screenshots. I feel like I'm being bullied.",
+      "text": "They've been saying really mean things about how I look and talk. Here are the screenshots from the group chat.",
       "voice": "Microsoft Catherine",
       "background": "/livingroom.png",
       "characters": [
         {
           "img": "/3b.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
-            "height": "400px"
+            "left": "20%",
+            "height": "450px"
           }
         },
         {
@@ -272,67 +361,26 @@
           "img": "/screenshot.png",
           "style": {
             "right": "40%",
-            "bottom": "60",
-            "height": "500px"
+            "bottom": "90px",
+            "height": "450px"
           }
         }
       ],
-      "transitionEffect": "fade",
-      "choices": [
-        { "text": "Report to the school", "next": 13 },
-        { "text": "Block them", "next": 10 },
-        { "text": "Speak to their parents", "next": 11 }
-      ]
+      "preserveBackground": true,
+      "next": 14
     },
     {
-      "id": 10,
-      "name": "Ending",
-      "text": "Temporary Relief, but the issue may resurface. Needs monitoring.",
-      "voice": "Microsoft James",
-      "background": "/classroom.png",
-      "characters": [
-        {
-          "img": "/john.png",
-          "style": {
-            "left": "40%",
-            "bottom": "0",
-            "height": "400px"
-          }
-        }
-      ],
-      "transitionEffect": "fade"
-    },
-    {
-      "id": 11,
-      "name": "Ending",
-      "text": "Escalation — may cause more drama or resolve quickly, depending on other parents' reactions.",
-      "voice": "Microsoft James",
-      "background": "/classroom.png",
-      "characters": [
-        {
-          "img": "/john-sad.png",
-          "style": {
-            "left": "40%",
-            "bottom": "0",
-            "height": "400px"
-          }
-        }
-      ],
-      "transitionEffect": "fade"
-    },
-    {
-      "id": 12,
+      "id": 14,
       "name": "You",
-      "text": "Show me your phone now — who are these kids?",
+      "text": "Oh, John. Thank you for trusting me enough to share this. This isn't just teasing - this is cyberbullying and it's not okay.",
       "voice": "Google UK English Female",
       "background": "/livingroom.png",
       "characters": [
         {
-          "img": "/3c.png",
+          "img": "/3b.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
-            "height": "400px"
+            "left": "20%",
+            "height": "450px"
           }
         },
         {
@@ -345,17 +393,43 @@
         }
       ],
       "preserveBackground": true,
-      "next": 9
+      "isKeyStep": true,
+      "stepText": "Listen supportively",
+      "choices": [
+        { "text": "Block them", "next": 15 },
+        { "text": "Contact their parents", "next": 16 },
+        { "text": "Report to school", "next": 17 }
+      ]
     },
     {
-      "id": 13,
-      "name": "Ending",
-      "text": "School steps in with restorative practices. Bullying acts stop, John feels safe.",
+      "id": 15,
+      "name": "",
+      "text": "While blocking the bullies or contacting their parents provides temporary relief, the underlying issues may not be fully addressed. This approach needs ongoing monitoring and support for John.",
       "voice": "Microsoft James",
       "background": "/classroom.png",
       "characters": [
         {
-          "img": "/john.png",
+          "img": "/john-sad.png",
+          "style": {
+            "left": "40%",
+            "height": "400px"
+          }
+        }
+      ],
+      "transitionEffect": "fade",
+      "isKeyStep": true,
+      "stepText": "Block them",
+      "next": 14
+    },
+    {
+      "id": 16,
+      "name": "John",
+      "text": "Omg, why did I tell my parents. Now I am going to get it worse from the bullies.",
+      "voice": "Microsoft Catherine",
+      "background": "/classroom.png",
+      "characters": [
+        {
+          "img": "/john-sad.png",
           "style": {
             "left": "40%",
             "bottom": "0",
@@ -363,7 +437,34 @@
           }
         }
       ],
-      "transitionEffect": "fade"
+      "transitionEffect": "fade",
+      "isKeyStep": true,
+      "stepText": "Contact parents",
+      "next": 14
+    },
+    {
+      "id": 17,
+      "name": "Ending",
+      "text": "The school implements restorative practices, bringing John and the other students together with trained counselors. The bullying stops, and John begins to feel safer and more included at school. - Good! Now you can back and experience other stories.",
+      "voice": "Microsoft James",
+      "background": "/classroom.png",
+      "characters": [
+        {
+          "img": "/john.png",
+          "style": {
+            "left": "40%",
+            "height": "400px"
+          }
+        }
+      ],
+      "transitionEffect": "fade",
+      "isKeyStep": true,
+      "stepText": "Good end",
+      "popup": {
+        "title": "The right way:",
+        "message": "1.Check in regularly with the child to assess their emotional state. 2.Encourage the child to speak up again if harassment returns in new forms. 3.Pair this approach with therapeutic support, not just digital actions. Provide emotional reassurance that the child did the right thing in speaking up. 4.Always involve the child in decisions about escalation. 5.Avoid making moves that remove agency from the child. 6.Use trained mediators or school counsellors to facilitate any parental contact.",
+        "buttonText": "Got it!"
+      }
     }
   ]
 }

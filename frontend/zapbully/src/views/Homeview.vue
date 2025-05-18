@@ -27,22 +27,40 @@
         </h1>
         <p class="subtitle">Empowered Parents. Safer Screens. Stronger Futures.</p>
         <div class="cta-group">
-          <button class="primary-cta" @click="goToRoute('Simulator')">
-            <span>Experience Safety Simulation</span>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-          <button class="secondary-cta" @click="scrollToFeatures">
-            Explore Features
-          </button>
+          <div class="btn-group" @click="goToRoute('Simulator')">
+            <div class="btn-icon">🚸</div>
+            <div class="btn-content">
+              <p class="btn-desc">Try our interactive bullying scenario walkthrough</p>
+              <button class="primary-cta">
+                <span>Experience Simulation</span>
+              </button>
+            </div>
+          </div>
+          <div class="btn-group" @click="goToRoute('Infographic')">
+            <div class="btn-icon">📊</div>
+            <div class="btn-content">
+              <p class="btn-desc">Explore real-time data on cyberbullying trends</p>
+              <button class="primary-cta">
+                <span>View Risk Insights</span>
+              </button>
+            </div>
+          </div>
+          <div class="btn-group" @click="scrollToFeatures">
+            <div class="btn-icon">📖</div>
+            <div class="btn-content">
+              <p class="btn-desc">Discover tools like the emoji dictionary and message checker</p>
+              <button class="primary-cta">
+                <span>Explore Tools</span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="arrow-container">
+    <!-- <div class="arrow-container">
       <button class="down-arrow" @click="scrollToFeatures" aria-label="Scroll down">↓</button>
-    </div>
+    </div> -->
   </div>
 
   <section ref="featureSection" class="feature-section">
@@ -82,10 +100,10 @@ import bubbleIcon from '@/assets/icons/bubble.svg'
 import macIcon from '@/assets/icons/mac.svg'
 import hfaceIcon from '@/assets/icons/hface.svg'
 import sfaceIcon from '@/assets/icons/sface.svg'
-import faqImage from '@/assets/card/faq.png'
+import mesImage from '@/assets/card/message.png'
 import guiImage from '@/assets/card/gui.png'
-import dataImage from '@/assets/card/data.png'
 import symImage from '@/assets/card/sym.png'
+import emojiImage from '@/assets/card/emoji.png'
 
 const router = useRouter()
 const iconMap = {
@@ -146,19 +164,6 @@ const icons = [
 
 const featureCards = [
   {
-    title: 'Data Visualisation ',
-    description: 'Understanding the Risk of Cyberbullying in Australian Youth.',
-    buttonText: 'Explore',
-    image: dataImage
-  },
-  {
-    title: 'Parental Guide',
-    description: 'Learn how to protect your child online.',
-    buttonText: 'Learn More',
-    image: guiImage,
-    routeName: 'Support'
-  },
-  {
     title: 'Symptom Checker',
     description: 'See what others have experienced.',
     buttonText: 'Explore',
@@ -166,11 +171,25 @@ const featureCards = [
     routeName: 'Symptom'
   },
   {
-    title: 'FAQ',
-    description: 'Find answers to your most common questions.',
-    buttonText: 'Read More',
-    image: faqImage,
+    title: 'Message Checker',
+    description: 'Analyze online messages to detect potential risks or harmful language.',
+    buttonText: 'Check Now',
+    image: mesImage,
     routeName: 'Faq'
+  },
+  {
+    title: 'Emoji Dictionary',
+    description: 'Decode hidden meanings behind emojis often used in cyberbullying.',
+    buttonText: 'Browse',
+    image: emojiImage,
+    routeName: 'Emoji'
+  },
+  {
+    title: 'Parental Guide',
+    description: 'Learn how to protect your child online.',
+    buttonText: 'Learn More',
+    image: guiImage,
+    routeName: 'Support'
   }
 ]
 
@@ -283,7 +302,7 @@ function goToRoute(routeName) {
   font-weight: 800;
   line-height: 1.1;
   color: #ffffff;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
   margin-bottom: 1.5rem;
 }
 
@@ -319,9 +338,10 @@ function goToRoute(routeName) {
 
 .subtitle {
   font-size: 1.75rem;
-  color: #dbeafe;
+  color: #e2f3ff;
   margin-bottom: 3rem;
-  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  font-weight: 500;
 }
 
 .cta-group {
@@ -332,91 +352,92 @@ function goToRoute(routeName) {
   margin-top: 3rem;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 768px) {
   .cta-group {
     flex-direction: row;
     justify-content: center;
+    flex-wrap: wrap;
   }
+}
+
+.btn-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+  max-width: 360px;
+  width: 100%;
+  border-left: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-group:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn-icon {
+  font-size: 2rem;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.btn-content {
+  flex: 1;
+  text-align: left;
+}
+
+.btn-desc {
+  font-size: 1rem;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+  font-weight: 500;
 }
 
 .primary-cta {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 1rem 2.5rem;
-  font-size: 1.25rem;
-  font-weight: 600;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 700;
   color: white;
-  background-color: #3b82f6;
+  background-color: #ff6b35;
   border: none;
-  border-radius: 50px;
+  border-radius: 12px;
   cursor: pointer;
-  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.35);
+  box-shadow: 0 4px 0 #d1451e, 0 6px 12px rgba(255, 107, 53, 0.4);
   transition: all 0.3s ease;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  max-width: 200px;
+  width: auto;
+  white-space: nowrap;
+  margin: 0 auto;
+  text-align: center;
 }
 
+
 .primary-cta:hover {
-  background-color: #2563eb;
+  background-color: #f05a22;
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(59, 130, 246, 0.45);
+  box-shadow: 0 6px 0 #c03a15, 0 8px 16px rgba(255, 107, 53, 0.5);
 }
 
 .primary-cta:active {
-  transform: translateY(0);
-}
-
-.primary-cta svg {
-  transition: transform 0.3s ease;
-}
-
-.primary-cta:hover svg {
-  transform: translateX(4px);
-}
-
-.secondary-cta {
-  padding: 1rem 2rem;
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: #dbeafe;
-  background-color: transparent;
-  border: 2px solid rgba(219, 234, 254, 0.5);
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.secondary-cta:hover {
-  background-color: rgba(219, 234, 254, 0.1);
-  border-color: rgba(219, 234, 254, 0.8);
-}
-
-.arrow-container {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-  display: flex;
-  justify-content: center;
-}
-
-.down-arrow {
-  font-size: 5rem;
-  background: none;
-  color: white;
-  border: none;
-  cursor: pointer;
-  animation: bounceDown 2s infinite;
-}
-
-.down-arrow:hover {
-  color: #bfd7f4;
-}
-
-@keyframes bounceDown {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(8px); }
+  transform: translateY(1px);
+  box-shadow: 0 2px 0 #d1451e;
 }
 
 .feature-section {

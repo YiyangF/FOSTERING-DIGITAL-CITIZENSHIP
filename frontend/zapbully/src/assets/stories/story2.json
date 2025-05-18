@@ -1,5 +1,7 @@
 {
   "title": "Something's Wrong with My Son",
+  "totalSteps": 32,
+  "keySteps": 10,
   "steps": [
     {
       "id": 0,
@@ -7,7 +9,6 @@
       "text": "Your 10-year-old son is a game obssesor, he always plays Fortnite after dinner until he goes to bed.",
       "voice": "Microsoft James",
       "background": "/john-bedroom.png",
-      "transitionEffect": "fade",
       "characters": [
         {
           "img": "/john-phone-1.png",
@@ -45,14 +46,12 @@
       "text": "You wanna play before you sleep?",
       "voice": "Google UK English Female",
       "background": "/livingroom.png",
-      "transitionEffect": "fade",
       "preserveBackground": true,
       "characters": [
         {
           "img": "/parent-ask.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "20%",
             "height": "450px"
           }
         },
@@ -73,14 +72,12 @@
       "text": "Not today... and can I take tomorrrow off school? Please...?",
       "voice": "Microsoft Mark",
       "background": "/livingroom.png",
-      "transitionEffect": "fade",
       "preserveBackground": true,
       "characters": [
         {
           "img": "/3b.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "20%",
             "height": "450px"
           }
         },
@@ -101,14 +98,12 @@
       "text": "What's going on? Do you feel unwell?",
       "voice": "Google UK English Female",
       "background": "/livingroom.png",
-      "transitionEffect": "fade",
       "preserveBackground": true,
       "characters": [
         {
           "img": "/3b.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "20%",
             "height": "450px"
           }
         },
@@ -121,11 +116,12 @@
           }
         }
       ],
+      "isKeyStep": true,
+      "stepText": "1st Choice",
       "choices": [
-        { "text": "Force to school", "next": 5 },
-        { "text": "Talk about school", "next": 6 },
-        { "text": "Why don't play", "next": 7 }
-      ]
+        {"text": "Force to school", "next": 5},
+        {"text": "Talk about school", "next": 6},
+        {"text": "Why don't play", "next": 7}]
     },
     {
       "id": 5,
@@ -133,69 +129,12 @@
       "text": "If you are not feeling unwell, you must go to school!",
       "voice": "Google UK English Female",
       "background": "/livingroom.png",
-      "transitionEffect": "fade",
       "preserveBackground": true,
       "characters": [
         {
           "img": "/3c.png",
           "style": {
-            "left": "10%",
-            "bottom": "0",
-            "height": "450px"
-          }
-        },
-        {
-          "img": "/john-sad.png",
-          "style": {
-            "right": "20%",
-            "bottom": "0",
-            "height": "400px"
-          }
-        }
-      ]
-    },
-    {
-      "id": 6,
-      "name": "You",
-      "text": "Okay, you don't have to go to school today. But you should tell me why.",
-      "voice": "Google UK English Female",
-      "background": "/livingroom.png",
-      "transitionEffect": "fade",
-      "preserveBackground": true,
-      "characters": [
-        {
-          "img": "/3b.png",
-          "style": {
-            "left": "10%",
-            "bottom": "0",
-            "height": "450px"
-          }
-        },
-        {
-          "img": "/john-sad.png",
-          "style": {
-            "right": "20%",
-            "bottom": "0",
-            "height": "400px"
-          }
-        }
-      ],
-      "next": 7
-    },
-    {
-      "id": 7,
-      "name": "You",
-      "text": "Have any bad things happened at school recently?",
-      "voice": "Google UK English Female",
-      "background": "/livingroom.png",
-      "transitionEffect": "fade",
-      "preserveBackground": true,
-      "characters": [
-        {
-          "img": "/3b.png",
-          "style": {
-            "left": "10%",
-            "bottom": "0",
+            "left": "20%",
             "height": "450px"
           }
         },
@@ -211,19 +150,69 @@
       "next": 8
     },
     {
-      "id": 8,
-      "name": "Son",
-      "text": "No. I'm fine... I'm just feeling unwell.",
-      "voice": "Microsoft Mark",
+      "id": 6,
+      "name": "You",
+      "text": "Okay, you don't have to go to school today. But you should tell me why.",
+      "voice": "Google UK English Female",
       "background": "/livingroom.png",
-      "transitionEffect": "fade",
       "preserveBackground": true,
       "characters": [
         {
-          "img": "/3b.png",
+          "img": "/parent-ask.png",
           "style": {
-            "left": "10%",
+            "left": "20%",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/john-sad.png",
+          "style": {
+            "right": "20%",
             "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 10
+    },
+    {
+      "id": 7,
+      "name": "You",
+      "text": "Okay, you don't have to go to school today. But you should tell me why.",
+      "voice": "Google UK English Female",
+      "background": "/livingroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/parent-ask.png",
+          "style": {
+            "left": "20%",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/john-sad.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 13
+    },
+    {
+      "id": 8,
+      "name": "Son",
+      "text": "I don't want to!",
+      "voice": "Microsoft Mark",
+      "background": "/livingroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/3c.png",
+          "style": {
+            "left": "20%",
             "height": "450px"
           }
         },
@@ -235,7 +224,627 @@
             "height": "400px"
           }
         }
-      ]
+      ],
+      "next": 9
+    },
+    {
+      "id": 9,
+      "name": "",
+      "text": "Your son is crying and running back to his room",
+      "voice": "Microsoft James",
+      "background": "/livingroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/fparent-mad.png",
+          "style": {
+            "left": "30%",
+            "height": "450px"
+          }
+        }
+      ],
+      "next": 4,
+      "isKeyStep": true,
+      "stepText": "Force him",
+      "popup": {
+        "title": "Warning",
+        "message": "If you force a kid to do something without asking why they don’t want to, it sends the message that their thoughts and feelings don’t matter. That’s damaging — not just to them but to your relationship with them.Sure, they might comply in the moment, but it also leads to:- Feeling unheard or powerless  - Resentment or rebellion- Missed opportunity to teach problem-solving - Communication becomes one-sided",
+        "buttonText": "Got it!"
+      }
+    },
+    {
+      "id": 10,
+      "name": "You",
+      "text": "Have any bad things happened at school recently?",
+      "voice": "Google UK English Female",
+      "background": "/livingroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/3a.png",
+          "style": {
+            "left": "20%",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/john-sad.png",
+          "style": {
+            "right": "20%",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 11
+    },
+    {
+      "id": 11,
+      "name": "Son",
+      "text": "No, I'm fine...I'm just feeling unwell today.",
+      "voice": "Microsoft Mark",
+      "background": "/livingroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/3b.png",
+          "style": {
+            "left": "20%",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/john-talk.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 12
+    },
+    {
+      "id": 12,
+      "name": "",
+      "text": "(Focus on abnormality. You may think that stopping playing games is good, but it's also a sign of being cyberbullied. Asking him about the game.)",
+      "voice": "Microsoft James",
+      "background": "/livingroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/fparent-hint.png",
+          "style": {
+            "left": "30%",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/john-sad.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 13,
+      "isKeyStep": true,
+      "stepText": "Ask school"
+    },
+    {
+      "id": 13,
+      "name": "You",
+      "text": "Is this related to the game that you often play? Why not play it recently?",
+      "voice": "Google UK English Female",
+      "background": "/livingroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/parent-ask.png",
+          "style": {
+            "left": "20%",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/john-sad.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 14
+    },
+    {
+      "id": 14,
+      "name": "Son",
+      "text": "Because I play bad...They force me to quit this game forever...",
+      "voice": "Microsoft Mark",
+      "background": "/livingroom.png",
+      "transitionEffect": "fade",
+      "characters": [
+        {
+          "img": "/3b.png",
+          "style": {
+            "left": "20%",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/john-talk.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "isKeyStep": true,
+      "stepText": "Ask game",
+      "choices": [
+        {"text": "Check his phone", "next": 15},
+        {"text": "Try other game", "next": 16},
+        {"text": "Comfort him", "next": 17},
+        {"text": "Ban internet", "next": 18}]
+    },
+    {
+      "id": 15,
+      "name": "You",
+      "text": "Ok, take today off then.",
+      "voice": "Google UK English Female",
+      "background": "/livingroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/3a.png",
+          "style": {
+            "left": "20%",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/john-sad.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 19
+    },
+    {
+      "id": 16,
+      "name": "You",
+      "text": "It's not a big deal! There are lots of good games.",
+      "voice": "Google UK English Female",
+      "background": "/livingroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/3a.png",
+          "style": {
+            "left": "20%",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/john-sad.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 21
+    },
+    {
+      "id": 17,
+      "name": "You",
+      "text": "Dear, but that's not your fault. What exactly happened?",
+      "voice": "Google UK English Female",
+      "background": "/livingroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/3b.png",
+          "style": {
+            "left": "20%",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/john-sad.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 24
+    },
+    {
+      "id": 18,
+      "name": "You",
+      "text": "What? That's bullying! I told you that you are too young for those games and the internet!",
+      "voice": "Google UK English Female",
+      "background": "/livingroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/fparent-mad.png",
+          "style": {
+            "left": "30%",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/john-sad.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 26
+    },
+    {
+      "id": 19,
+      "name": "",
+      "text": "You check his phone stealthily, and you delete those bullies from the friend list",
+      "voice": "Microsoft James",
+      "background": "/john-bedroom.png",
+      "transitionEffect": "fade",
+      "characters": [
+        {
+          "img": "/fparent-hint.png",
+          "style": {
+            "left": "30%",
+            "height": "450px"
+          }
+        }
+      ],
+      "next": 20
+    },
+    {
+      "id": 20,
+      "name": "",
+      "text": "Your son eventually finds out what embarrassed him. And the bullying is still going...",
+      "voice": "Microsoft James",
+      "background": "/classroom.png",
+      "transitionEffect": "fade",
+      "characters": [
+        {
+          "img": "/john-sad.png",
+          "style": {
+            "right": "20%",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 14,
+      "isKeyStep": true,
+      "stepText": "Check phone",
+      "popup": {
+        "title": "Warning",
+        "message": "Get your kids prepared as early as you can. Blocking or unfriending the perpetrator to stop contact with your kids is good but not enough! Communication and education are important.",
+        "buttonText": "Got it!"
+      }
+    },
+    {
+      "id": 21,
+      "name": "You",
+      "text": "You can invite them to play other games.",
+      "voice": "Google UK English Female",
+      "background": "/livingroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/3a.png",
+          "style": {
+            "left": "20%",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/john-sad.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 22
+    },
+    {
+      "id": 22,
+      "name": "You",
+      "text": "You will find the game that you are good at!",
+      "voice": "Google UK English Female",
+      "background": "/livingroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/3a.png",
+          "style": {
+            "left": "20%",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/john-sad.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 23
+    },
+    {
+      "id": 23,
+      "name": "Son",
+      "text": "But I like this game! I don't want to try others!",
+      "voice": "Microsoft Mark",
+      "background": "/livingroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/3c.png",
+          "style": {
+            "left": "20%",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/john-talk.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 14,
+      "isKeyStep": true,
+      "stepText": "Try other",
+      "popup": {
+        "title": "Warning",
+        "message": "Avoiding may not always work. Cyberbullying is more of a problem than you think.As parents, you should guide your kids before they notice the signs themselves. It is important to talk with them and invite them to share their experiences online without judgment.",
+        "buttonText": "Got it!"
+      }
+    },
+    {
+      "id": 24,
+      "name": "Son",
+      "text": "It started a few months ago, every time we play Fortnite, they taunt me and post online.",
+      "voice": "Microsoft Mark",
+      "background": "/livingroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/3b.png",
+          "style": {
+            "left": "20%",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/game.png",
+          "style": {
+            "left": "40%",
+            "bottom": "100px",
+            "height": "400px"
+          }
+        },
+        {
+          "img": "/john-talk.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 25
+    },
+    {
+      "id": 25,
+      "name": "You",
+      "text": "Don't worry, I'm here to help you. I will",
+      "voice": "Google UK English Female",
+      "background": "/livingroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/parent-ask.png",
+          "style": {
+            "left": "20%",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/john.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "isKeyStep": true,
+      "stepText": "Comfort him",
+      "choices": [
+        {"text": "Report them", "next": 28},
+        {"text": "Talk to them", "next": 29}]
+    },
+    {
+      "id": 26,
+      "name": "You",
+      "text": "From now on, you are banned from the internet! Focus on studying.",
+      "voice": "Google UK English Female",
+      "background": "/livingroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/3c.png",
+          "style": {
+            "left": "20%",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/ban_phone.png",
+          "style": {
+            "left": "40%",
+            "bottom": "300px",
+            "height": "200px"
+          }
+        },
+        {
+          "img": "/john-sad.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 27
+    },
+    {
+      "id": 27,
+      "name": "",
+      "text": "Gradually, your son refuses to share anything about himself with you... And he still uses the phone, but you don't notice.",
+      "voice": "Microsoft James",
+      "background": "/john-bedroom.png",
+      "transitionEffect": "fade",
+      "characters": [
+        {
+          "img": "/john-phone-2.png",
+          "style": {
+            "left": "30%",
+            "bottom": "60px",
+            "height": "300px"
+          }
+        }
+      ],
+      "next": 14,
+      "isKeyStep": true,
+      "stepText": "Ban internet",
+      "popup": {
+        "title": "Warning",
+        "message": "Open communication is very important. Reassure them that you won’t block their access to the internet because they have reported a problem to you. Use opportunities to discuss safe online behaviors and place healthy boundaries around their screen use, especially at bedtime.",
+        "buttonText": "Got it!"
+      }
+    },
+    {
+      "id": 28,
+      "name": "",
+      "text": "Collect the evidence and report to the school - Good job! Now you can back and experience other stories.",
+      "voice": "Microsoft James",
+      "background": "/school.png",
+      "transitionEffect": "fade",
+      "characters": [
+        {
+          "img": "/fparent-hint.png",
+          "style": {
+            "left": "30%",
+            "height": "450px"
+          }
+        }
+      ],
+      "isKeyStep": true,
+      "stepText": "Good end",
+      "popup": {
+        "title": "What’s the Right Way:",
+        "message": "Ask open, supportive questions and reassure themDocument everything (Keep records)Talk to a teacher, counsellor or someone who can officially step in.Stay calm but firmAsk about the school's bullying policyFollow up if needed. Be persistent but respectfulBuild the children's confidence. Help them connect with friends, do activities they love, and remind them they’re not aloneIf it’s serious or ongoing, therapy can help",
+        "buttonText": "Got it!"
+      }
+    },
+    {
+      "id": 29,
+      "name": "You",
+      "text": "Go to school, talk to them today.",
+      "voice": "Google UK English Female",
+      "background": "/livingroom.png",
+      "preserveBackground": true,
+      "characters": [
+        {
+          "img": "/fparent-hint.png",
+          "style": {
+            "left": "30%",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/john.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 30
+    },
+    {
+      "id": 30,
+      "name": "You",
+      "text": "You guys shouldn't do this! You need to be responsible for what you say online. Stop doing this to my son!",
+      "voice": "Google UK English Female",
+      "background": "/inschool.png",
+      "transitionEffect": "fade",
+      "characters": [
+        {
+          "img": "/3c.png",
+          "style": {
+            "left": "20%",
+            "height": "450px"
+          }
+        },
+        {
+          "img": "/kid-doncare.png",
+          "style": {
+            "right": "20%",
+            "bottom": "0",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 31
+    },
+    {
+      "id": 31,
+      "name": "",
+      "text": "The bullies feel attacked, and they even mock louder to hurt your son",
+      "voice": "Microsoft James",
+      "background": "/classroom.png",
+      "transitionEffect": "fade",
+      "characters": [
+        {
+          "img": "/john-sad.png",
+          "style": {
+            "right": "20%",
+            "height": "400px"
+          }
+        }
+      ],
+      "next": 25,
+      "isKeyStep": true,
+      "stepText": "Face them",
+      "popup": {
+        "title": "What Could Happen:",
+        "message": "You might escalate the situationIf the bully feels attacked, they could double down or find sneakier ways to hurt your child.- It could embarrass your kidThey might feel more vulnerable or ashamed, especially if they didn’t want you to get involved that way.- You could get in troubleApproaching someone else’s child directly, especially without their parent or a school staff member present, can create legal or school-related consequences.",
+        "buttonText": "Got it!"
+      }
     }
   ]
 }
