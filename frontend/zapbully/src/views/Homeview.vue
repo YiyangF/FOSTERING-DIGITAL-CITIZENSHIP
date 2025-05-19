@@ -174,7 +174,7 @@ const featureCards = [
     description: 'Analyze online messages to detect potential risks or harmful language.',
     buttonText: 'Check Now',
     image: mesImage,
-    routeName: 'Faq'
+    routeName: 'Message'
   },
   {
     title: 'Emoji Dictionary',
