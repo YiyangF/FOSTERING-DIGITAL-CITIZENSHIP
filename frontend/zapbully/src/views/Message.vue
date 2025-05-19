@@ -111,6 +111,7 @@ export default {
 
       try {
         const apiUrl = 'https://backend-python-production-9d2c.up.railway.app/predict';
+        // const apiUrl = 'http://localhost:8000/predict';
         const response = await fetch(apiUrl, {
           method: 'POST',
           headers: {

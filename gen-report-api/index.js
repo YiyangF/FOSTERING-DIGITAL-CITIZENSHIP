@@ -24,15 +24,19 @@ app.post('/generate-report', async (req, res) => {
     const model = genAI.getGenerativeModel({ model: 'models/gemini-1.5-pro' })
 
     const prompt = `
-Please generate a professional and empathetic incident report notification based on the following details:
+    As a concerned parent, please generate a brief, empathetic incident report (under 200 words) based on the following:
 
-- Recipient: ${recipient}
-- Platform Involved: ${platform}
-- Type(s) of Incident: ${incidentTypes?.join(', ') || 'N/A'}
-- Date of Incident: ${date}
-- Additional Notes: ${notes || 'None'}
-
-Format it as a short report suitable for sending to a school or authority figure and keep the response brief (max 100 words), concise, and emotionally supportive.
+    Recipient: ${recipient}
+    
+    Platform: ${platform}
+    
+    Type(s) of Incident: ${incidentTypes?.join(', ') || 'N/A'}
+    
+    Date: ${date}
+    
+    Notes: ${notes || 'None'}
+    
+    The tone should be respectful, emotionally supportive, and suitable for reporting to a school, police, or social platform moderation team.
     `
 
     const result = await model.generateContent(prompt)

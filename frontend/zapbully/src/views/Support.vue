@@ -83,7 +83,7 @@
         </li>
       </ul>
     </section>
-    
+
     <div class="info-card">
       <h2 class="info-title">📄 Report a Cyberbullying Incident</h2>
       <p>
@@ -100,14 +100,20 @@
 
 
     <section class="report-generator">
-      <div class="form-group">
-        <label for="target">Recipient:</label>
-        <select id="target" v-model="target">
-          <option value="school">School</option>
-          <option value="police">Police</option>
-          <option value="platform">Social Media Platform</option>
-        </select>
+      <div v-if="!formVisible" class="button-group">
+        <button class="generate-btn" @click="formVisible = true">Start Report</button>
       </div>
+
+      <div v-else class="form-container">
+        <button class="close-btn" @click="formVisible = false" aria-label="Close">&times;</button>
+        <div class="form-group">
+          <label for="target">Recipient:</label>
+          <select id="target" v-model="target">
+            <option value="school">School</option>
+            <option value="police">Police</option>
+            <option value="platform">Social Media Platform</option>
+          </select>
+        </div>
 
       <div class="form-group">
         <label for="platform">Platform Involved:</label>
@@ -136,12 +142,22 @@
       </div>
 
       <div class="form-group">
-        <label for="note">Additional Notes :</label>
-        <textarea id="note" v-model="additionalNote" placeholder="e.g. My child has shown signs of emotional distress and reluctance to attend school..."></textarea>
+        <label for="note">Incident Description :</label>
+        <textarea id="note" v-model="additionalNote" placeholder="e.g. My child has shown signs of emotional distress and reluctance to attend school..."> maxlength="300"></textarea>
+        <small>{{ additionalNote.length }}/300 characters</small>
+          <p v-if="additionalNote.length > 300" class="error-message">
+            Maximum 300 characters allowed.
+          </p>
       </div>
+
 
       <div class="button-group">
         <button class="generate-btn" @click="generateReport">Generate Report</button>
+      </div>
+
+      <div class="loading" v-if="isLoading">
+        <div class="spinner"></div>
+        <p>Generating report...</p>
       </div>
 
       <div class="report-output" v-if="report">
@@ -150,6 +166,7 @@
         <div class="button-group">
           <button class="copy-btn" @click="copyToClipboard">Copy Report</button>
         </div>
+      </div>
       </div>
     </section>
 
@@ -162,12 +179,14 @@
 <script setup>
 import { ref, computed, nextTick } from 'vue'
 
-const target = ref('school')
+const formVisible = ref(false)
+const target = ref('')
 const platform = ref('')
 const incidentTypes = ref([])
 const incidentDate = ref('')
 const additionalNote = ref('')
 const report = ref('')
+const isLoading = ref(false)
 
 const typeOptions = [
   { label: 'Abusive Language', value: 'Abusive Language' },
@@ -179,6 +198,8 @@ const typeOptions = [
 
 const generateReport = async () => {
   const apiUrl = 'https://report-production-3547.up.railway.app/generate-report'
+//  const apiUrl = 'http://localhost:3000/generate-report'
+
   const rawPayload = {
     recipient: target.value,
     platform: platform.value,
@@ -186,7 +207,8 @@ const generateReport = async () => {
     incidentTypes: [...incidentTypes.value],
     notes: additionalNote.value
   }
-
+  isLoading.value = true
+  report.value= ''
   console.log("Sending payload to backend:", rawPayload)
 
   try {
@@ -202,6 +224,9 @@ const generateReport = async () => {
     report.value = data.result || `❌ Error: ${data.error}`
   } catch (err) {
     report.value = `❌ Network Error: ${err.message}`
+  }
+    finally {
+    isLoading.value = false
   }
 }
 
@@ -603,7 +628,18 @@ textarea:focus {
   font-weight: 500;
   margin-top: 6px;
 }
+small {
+  display: block;
+  margin-top: 4px;
+  font-size: 13px;
+  color: #6b7280;
+}
 
+.error-message {
+  color: #dc2626;
+  font-size: 13px;
+  margin-top: 4px;
+}
 textarea {
   min-height: 100px;
   resize: vertical;
@@ -642,6 +678,60 @@ textarea {
   border-radius: 8px;
 }
 
+.close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  font-weight: bold;
+  color: #6b7280;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  z-index: 1;
+}
+
+.close-btn:hover {
+  color: #ef4444;
+}
+.form-container {
+  position: relative;
+  padding-top: 40px;
+}
+pre {
+  white-space: pre-wrap;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+}
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  color: #4f8ef7;
+  font-weight: 500;
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 4px solid #dbeafe;
+  border-top: 4px solid #4f8ef7;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 8px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
 pre {
   white-space: pre-wrap;
   font-family: 'Courier New', monospace;
@@ -666,6 +756,7 @@ pre {
 .info-card:hover {
   box-shadow: 0 12px 24px rgba(79, 142, 247, 0.2);
 }
+
 
 .info-title {
   font-size: 1.4rem;
