@@ -488,6 +488,7 @@ export default {
   background-position: center;
   background-repeat: repeat-y;
   min-height: 100vh;
+  padding: 100px
 }
 
 /* Top navigation bar with buttons and progress bar */
