@@ -1,6 +1,6 @@
 {
   "title": "LGBTQ Harassment",
-  "totalSteps": 24,
+  "totalSteps": 21,
   "keySteps": 7,
   "steps": [
     {
@@ -518,11 +518,10 @@
     {
       "id": 18,
       "name": "",
-      "text": "You work with the school and file a formal complaint with screenshots as evidence. An investigation begins, leading to consequences for the harassers.",
+      "text": "You work with the school and file a formal complaint with screenshots as evidence. An investigation begins, leading to consequences for the harassers. - Good job! Now you can back and experience other stories.",
       "voice": "Microsoft James",
       "background": "/inschool.png",
       "transitionEffect": "fade",
-      "next": 22,
       "isKeyStep": true,
       "stepText": "Official reporting",
       "popup": {

@@ -377,24 +377,6 @@
       "voice": "Microsoft James",
       "background": "/school.png",
       "transitionEffect": "fade",
-      "characters": [
-        {
-          "img": "/principal-speaking.png",
-          "style": {
-            "left": "20%",
-            "bottom": "0",
-            "height": "450px"
-          }
-        },
-        {
-          "img": "/students-listening.png",
-          "style": {
-            "right": "20%",
-            "bottom": "0",
-            "height": "400px"
-          }
-        }
-      ],
       "isKeyStep": true,
       "stepText": "Good end",
       "popup": {
