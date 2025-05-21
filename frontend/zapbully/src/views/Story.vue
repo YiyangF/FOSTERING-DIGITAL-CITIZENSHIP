@@ -12,7 +12,7 @@
             :style="{ width: `${progressPercentage}%` }"
           ></div>
           
-          <!-- Navigation dots for key steps with custom tooltips -->
+          <!-- Navigation dots for key steps with tooltips -->
           <div class="progress-dots">
             <div 
               v-for="keyStep in keyStepsArray" 
@@ -28,7 +28,10 @@
             ></div>
           </div>
         </div>
-        <div class="progress-text">{{ completedKeySteps }} / {{ story?.keySteps || 1 }}</div>
+        <div class="progress-stats">
+          <div class="progress-text">{{ completedKeySteps }} / {{ story?.keySteps || 1 }} Endings</div>
+          <div class="progress-text">{{ viewedStepsCount }} / {{ story?.totalSteps || 1 }} Scenes viewed</div>
+        </div>
       </div>
       
       <button class="mute-btn" @click.stop="toggleMute">
@@ -68,7 +71,7 @@
         </div>
         
         <div class="instruction-item">
-          <p><strong>Progress bar:</strong> Above is the progress bar. Each dot represents a key ending that you can jump to after viewing</p>
+          <p><strong>Progress bar:</strong> Above is the progress bar. Each dot represents a key ending that you can jump to after viewing.</p>
         </div>
 
         <div class="instruction-item">
@@ -159,12 +162,17 @@ export default {
       keyStepsArray: [],
       furthestVisitedStep: 0,
       popupData: null,
-      showPopup: false
+      showPopup: false,
+      viewedStepsCount: 1,
+      visitedSteps: new Set([0]) // Initialize with first step viewed
     };
   },
   computed: {
     step() {
       return this.story?.steps[this.currentStepIndex];
+    },
+    totalSteps() {
+      return this.story?.steps.length || 0;
     }
   },
   watch: {
@@ -188,6 +196,10 @@ export default {
         this.showPhone = false;
         this.hideTextBox = false;
       }
+
+      // Track visited steps and update count
+      this.visitedSteps.add(this.currentStepIndex);
+      this.viewedStepsCount = this.visitedSteps.size;
 
       if (this.currentStepIndex > this.furthestVisitedStep) {
         this.furthestVisitedStep = this.currentStepIndex;
@@ -223,10 +235,8 @@ export default {
         this.showPopup = false;
       }
     },
-    // Added dedicated method for closing popup
     closePopup() {
       this.showPopup = false;
-      // Prevent any potential click handlers from firing
       event.stopPropagation();
     },
     async loadStory() {
@@ -238,8 +248,9 @@ export default {
         this.completedKeySteps = 0;
         this.visitedKeySteps = new Set();
         this.furthestVisitedStep = 0;
+        this.visitedSteps = new Set([0]); // Initialize with first step viewed
+        this.viewedStepsCount = 1;
 
-        // Updated to include custom tooltip text from stepText property
         this.keyStepsArray = this.story.steps
           .filter(step => step.isKeyStep)
           .map(step => ({
@@ -262,7 +273,6 @@ export default {
     },
     
     generateDotTooltip(keyStep) {
-      // This is the fallback tooltip if no custom one is provided
       const stepNumber = this.keyStepsArray.findIndex(ks => ks.id === keyStep.id) + 1;
       return `Scene ${stepNumber}: ${keyStep.name !== " " ? keyStep.name : ""}`;
     },
@@ -270,10 +280,6 @@ export default {
       const keyStepIndex = this.keyStepsArray.findIndex(ks => ks.id === keyStep.id);
       if (keyStepIndex === -1) return 0;
       return (keyStepIndex / (this.keyStepsArray.length - 1)) * 100;
-    },
-    generateDotTooltip(keyStep) {
-      const stepNumber = this.keyStepsArray.findIndex(ks => ks.id === keyStep.id) + 1;
-      return `Scene ${stepNumber}: ${keyStep.name !== " " ? keyStep.name : ""}`;
     },
     handleDotClick(keyStep) {
       if (this.visitedKeySteps.has(keyStep.id) || keyStep.id <= this.furthestVisitedStep) {
@@ -291,7 +297,6 @@ export default {
     goToStep(index) {
       if (this.transitionInProgress) return;
       
-      // Disable clicks during any transition
       this.clickEnabled = false;
       this.transitionInProgress = true;
       this.previousStepIndex = this.currentStepIndex;
@@ -299,12 +304,15 @@ export default {
       const currentStep = this.step;
       const nextStep = this.story.steps[index];
 
-      // Make sure to cancel any speech and animations when changing steps
       window.speechSynthesis.cancel();
       
       const updateStep = () => {
         this.resetChat();
         this.currentStepIndex = index;
+
+        // Track visited steps and update count
+        this.visitedSteps.add(index);
+        this.viewedStepsCount = this.visitedSteps.size;
 
         if (index > this.furthestVisitedStep) {
           this.furthestVisitedStep = index;
@@ -319,8 +327,6 @@ export default {
         this.transitionInProgress = false;
         this.updatePopup(nextStep);
         
-        // Only enable clicks after the step has fully loaded
-        // If it's a chat step, clicking will be managed by startChat
         if (!nextStep.chat) {
           this.clickEnabled = true;
         }
@@ -333,8 +339,6 @@ export default {
       }
     },
     handleClick(event) {
-      // Don't advance if popup is showing, instructions are showing,
-      // clicks are disabled, or a transition is in progress
       if (this.showPopup || 
           this.showInstructions || 
           !this.clickEnabled || 
@@ -342,22 +346,18 @@ export default {
         return;
       }
       
-      // Check if we're in a chat scene and if we're done with the messages
       if (this.showPhone) {
-        // If we're in a chat scene, only proceed if all messages have been shown
         if (this.readyForNext && this.step.next !== undefined) {
           this.goToStep(this.step.next);
         }
         return;
       }
 
-      // Only advance the scene if there are no choices and next is defined
       if (!this.step.choices && this.step.next !== undefined) {
         this.goToStep(this.step.next);
       }
     },
     startChat() {
-      // Store reference to messageTimer so we can clear it later if needed
       this.clickEnabled = false;
       this.hideTextBox = true;
       
@@ -368,14 +368,13 @@ export default {
         const totalMessages = this.step.messages?.length || 0;
         if (totalMessages === 0) {
           this.typing = false;
-          this.clickEnabled = true; // Re-enable clicks if no messages
+          this.clickEnabled = true;
           return;
         }
 
         const totalDuration = 5000;
         const interval = totalMessages > 0 ? totalDuration / totalMessages : totalDuration;
 
-        // Store the timer reference so we can clear it when needed
         this.messageTimer = setInterval(() => {
           if (this.currentMessageIndex >= totalMessages) {
             clearInterval(this.messageTimer);
@@ -383,10 +382,9 @@ export default {
             this.typing = false;
             this.readyForNext = true;
             
-            // Only re-enable clicks when all messages have been displayed
             setTimeout(() => {
               this.clickEnabled = true;
-            }, 500); // Small buffer to ensure animation is fully complete
+            }, 500);
           } else {
             this.typing = true;
             const messageToAdd = this.step.messages[this.currentMessageIndex];
@@ -424,7 +422,6 @@ export default {
       });
     },
     resetChat() {
-      // Cancel any ongoing animations
       if (this.messageTimer) {
         clearInterval(this.messageTimer);
         this.messageTimer = null;
@@ -479,7 +476,7 @@ export default {
 
 <style scoped>
 .story-container {
-  padding: 20px;
+  padding: 100px;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -488,7 +485,6 @@ export default {
   background-position: center;
   background-repeat: repeat-y;
   min-height: 100vh;
-  padding: 100px
 }
 
 /* Top navigation bar with buttons and progress bar */
@@ -500,7 +496,6 @@ export default {
   width: 100%;
 }
 
-/* Progress bar styles */
 .progress-container {
   width: 80%;
   display: flex;
@@ -556,6 +551,12 @@ export default {
   background-color: #3c20da;
 }
 
+.progress-stats {
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+  margin-top: 6px;
+}
 .progress-text {
   margin-top: 10px;
   color: white;
@@ -683,7 +684,7 @@ export default {
   border-radius: 20px;
   margin-top: 6px;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 15px;
   white-space: nowrap;
 }
 
@@ -757,6 +758,7 @@ h2 {
   background: rgba(255, 255, 255, 0.95);
   padding: 16px;
   border-radius: 10px;
+  font-size: 18px;
 }
 
 .choices button {
