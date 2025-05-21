@@ -1,77 +1,76 @@
 <template>
   <div class="message-detector">
-      <div class="container">
-        <h1 class="title">Message Detector</h1>
-        <h2 class="subtitle">Understanding Verbal Bullying</h2>
+    <div class="container">
+      <h1 class="title">Message Detector</h1>
+      <h2 class="subtitle">Understanding Verbal Bullying</h2>
 
-        <p class="description">
-          Words can hurt. Has your child received or sent messages that seem harsh or inappropriate? This tool helps identify harmful language and suggests more respectful alternatives.
+      <p class="description">
+        Words can hurt. Has your child received or sent messages that seem harsh or inappropriate? This tool helps identify harmful language and suggests more respectful alternatives.
+      </p>
+
+      <div class="message-input">
+        <div class="input-label">Enter or paste the message below to detect</div>
+        <textarea v-model="message" class="text-input" placeholder="Type a message to analyze..." rows="10"></textarea>
+        <p class="input-requirements" :class="{ 'error': message.length > 0 && !isValidInput }">
+          Message should be between 10 and 200 characters.
+          Current: {{ message.length }}/200
         </p>
-        
-        <div class="message-input">
-            <div class="input-label">Enter or paste the message below to detect</div>
-            <textarea v-model="message" class="text-input" placeholder="Type a message to analyze..." rows="10"></textarea>
-            <p class="input-requirements" :class="{ 'error': message.length > 0 && !isValidInput }">
-                Message should be between 10 and 200 characters.
-                Current: {{ message.length }}/200
+      </div>
+
+      <div class="button-container">
+        <button :disabled="!isValidInput || isLoading" @click="detectMessage" class="detect-button">{{ isLoading ? 'Analyzing...' : 'Start Detecting' }}</button>
+        <button @click="clearMessage" class="clear-button">Clear</button>
+      </div>
+
+      <div v-if="analyzedResult" ref="resultSection" class="analyzed-message">
+        <h3>Analysis Result:</h3>
+        <div class="result-content">
+          <p class="result-type" :class="{ 'is-cyberbullying': isCyberbullying }">
+            {{ isCyberbullying ? 'Detected: Potential Cyberbullying' : 'Message appears safe' }}
+          </p>
+          <p class="result-percentage">Confidence: {{ (analyzedResult.confidence * 100).toFixed(2) }}%</p>
+          <div class="chart-wrapper" v-if="getChartData">
+            <Pie :data="getChartData" :options="chartOptions" />
+          </div>
+          <div class="explanation-box">
+            <h4>Why this matters:</h4>
+            <p v-if="isCyberbullying">
+              This message contains language that could be harmful or offensive. Consider rephrasing with more empathy.
             </p>
-        </div>
-      
-        <div class="button-container">
-            <button :disabled="!isValidInput || isLoading" @click="detectMessage" class="detect-button">{{ isLoading ? 'Analyzing...' : 'Start Detecting' }}</button>
-            <button @click="clearMessage" class="clear-button">Clear</button>
-        </div>
-      
-        <div v-if="analyzedResult" class="analyzed-message">
-            <h3>Analysis Result:</h3>
-            <div class="result-content">
-                <p class="result-type" :class="{ 'is-cyberbullying': isCyberbullying }">
-                    {{ isCyberbullying ? 'Detected: Potential Cyberbullying' : 'Message appears safe' }}
-                </p>
-                <p class="result-percentage">Confidence: {{ (analyzedResult.confidence * 100).toFixed(2) }}%</p>
-                <div class="chart-wrapper" v-if="getChartData">
-                    <Pie :data="getChartData" :options="chartOptions" />
-                </div>
-                <div class="explanation-box">
-                  <h4>Why this matters:</h4>
-                  <p v-if="isCyberbullying">
-                    This message contains language that could be harmful or offensive. Consider rephrasing with more empathy.
-                  </p>
-                  <p v-else>
-                    The message appears respectful and appropriate. Positive communication helps maintain a safer online space.
-                  </p>
+            <p v-else>
+              The message appears respectful and appropriate. Positive communication helps maintain a safer online space.
+            </p>
 
-                  <h4>Suggestions:</h4>
-                  <p v-if="isCyberbullying">
-                    Try using neutral or kind words. Avoid labeling, blaming, or aggressive tones.
-                  </p>
-                  <p v-else>
-                    Great job! Encourage continued thoughtful messaging.
-                  </p>
-                </div>
+            <h4>Suggestions:</h4>
+            <p v-if="isCyberbullying">
+              Try using neutral or kind words. Avoid labeling, blaming, or aggressive tones.
+            </p>
+            <p v-else>
+              Great job! Encourage continued thoughtful messaging.
+            </p>
+          </div>
 
-                <!-- Disclaimer Box -->
-                <div class="disclaimer-box">
-                  <strong>Disclaimer:</strong>
-                  This tool provides preliminary guidance only. It is not a clinical diagnosis. If you are concerned about your child’s wellbeing, please consult a healthcare or mental health professional.
-                </div>
+          <div class="disclaimer-box">
+            <strong>Disclaimer:</strong>
+            This tool provides preliminary guidance only. It is not a clinical diagnosis. If you are concerned about your child’s wellbeing, please consult a healthcare or mental health professional.
+          </div>
+        </div>
+      </div>
 
-            </div>
-        </div>
+      <div v-if="analyzedResult" class="result-actions">
+        <router-link to="/support" class="support-button">Get Support</router-link>
+        <router-link to="/symptom" class="symptom-button">Learn the Symptoms</router-link>
+      </div>
 
-        <div v-if="analyzedResult" class="result-actions">
-            <router-link to="/support" class="support-button">Get Support</router-link>
-            <router-link to="/symptom" class="symptom-button">Learn the Symptoms</router-link>
-        </div>
-      
-        <div v-if="error" class="error-message">
-            <p>{{ error }}</p>
-        </div>
+      <div v-if="error" class="error-message">
+        <p>{{ error }}</p>
+      </div>
     </div>
   </div>
 </template>
+
 <script>
-import { ref, computed } from 'vue';
+import { ref, computed, nextTick } from 'vue';
 import { Pie } from 'vue-chartjs';
 import {
   Chart as ChartJS,
@@ -93,6 +92,7 @@ export default {
     const analyzedResult = ref(null);
     const isLoading = ref(false);
     const error = ref('');
+    const resultSection = ref(null);
 
     const isValidInput = computed(() => {
       return message.value.length >= 10 && message.value.length <= 200;
@@ -111,7 +111,6 @@ export default {
 
       try {
         const apiUrl = 'https://backend-python-production-9d2c.up.railway.app/predict';
-        // const apiUrl = 'http://localhost:8000/predict';
         const response = await fetch(apiUrl, {
           method: 'POST',
           headers: {
@@ -126,6 +125,16 @@ export default {
 
         const data = await response.json();
         analyzedResult.value = data;
+
+        await nextTick();
+        if (resultSection.value) {
+          const offsetTop = resultSection.value.getBoundingClientRect().top + window.pageYOffset;
+          const headerOffset = 80;
+          window.scrollTo({
+            top: offsetTop - headerOffset,
+            behavior: 'smooth',
+          });
+        }
       } catch (err) {
         error.value = 'Failed to analyze message. Please try again later.';
         console.error('API Error:', err);
@@ -142,9 +151,7 @@ export default {
 
     const getChartData = computed(() => {
       if (!analyzedResult.value) return null;
-
       const confidence = analyzedResult.value.confidence * 100;
-
       return {
         labels: ['Confidence', 'Remaining'],
         datasets: [
@@ -185,6 +192,7 @@ export default {
       clearMessage,
       getChartData,
       chartOptions,
+      resultSection,
     };
   },
 };
