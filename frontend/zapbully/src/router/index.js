@@ -72,16 +72,16 @@ const router = createRouter({
   }
 })
 
-router.beforeEach((to, from, next) => {
-  const isAuthenticated = sessionStorage.getItem('authenticated') === 'true'
+// router.beforeEach((to, from, next) => {
+//   const isAuthenticated = sessionStorage.getItem('authenticated') === 'true'
 
-  if (!isAuthenticated && to.name !== 'PasswordGate') {
-    toast.info('Please enter the access password to continue.')
-    return next({ name: 'PasswordGate' })
-  }
+//   if (!isAuthenticated && to.name !== 'PasswordGate') {
+//     toast.info('Please enter the access password to continue.')
+//     return next({ name: 'PasswordGate' })
+//   }
 
-  next()
-})
+//   next()
+// })
 
 
 export default router
